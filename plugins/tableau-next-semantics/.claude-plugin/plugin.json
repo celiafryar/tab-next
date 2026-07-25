@@ -1,0 +1,12 @@
+{
+  "name": "tableau-next-semantics",
+  "description": "Pro-code toolkit for building, describing, relating, and deploying Tableau Next / Data 360 semantic models. Bundles three skills: tableau-semantics-dx, semantic-descriptions-from-spreadsheet, and tableau-semantic-relationships.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Cecilia Fryar",
+    "url": "https://github.com/celiafryar"
+  },
+  "homepage": "https://github.com/celiafryar/tab-next",
+  "repository": "https://github.com/celiafryar/tab-next",
+  "keywords": ["tableau", "tableau-next", "data-cloud", "semantic-model", "semantics-dx", "pulse", "agentforce", "claude-code"]
+}
