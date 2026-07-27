@@ -157,6 +157,12 @@ All confirmed on the HR test model:
   Many-to-One. Writable pro-code, no Data Stream reload. Details in `tableau-semantic-relationships`.
 - File-Upload DMOs auto-generate a `uuid_temp` + `KQ_uuid_temp` surrogate identity when no business
   key is designated at ingest — hide these, and set `primaryNameField` for real keys.
+- **Primary Key vs Primary Name Field are different.** The object's visible **Primary Key** (often
+  `uuid_temp` for File uploads) is set at Data Stream ingest and is immutable; the semantic model
+  cannot change it. **Primary Name Field** (`primaryNameField`) is the semantic-layer property we
+  set, and the one Many-to-One uses. It is normal to see Primary Key `uuid_temp` while Primary Name
+  Field is the business key; that is fine for queries and demos. Changing the real Primary Key means
+  re-ingesting upstream. See `tableau-semantic-relationships` for details.
 
 ## Authoring descriptions for Tableau Agent / Pulse (recipe)
 Descriptions are what the conversational agent reads to map natural-language questions

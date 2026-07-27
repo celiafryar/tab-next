@@ -89,6 +89,25 @@ Background: File-Upload DMOs default their identity to a generated `uuid_temp` +
 qualifier when no business key is designated at ingest; `primaryNameField` gives the semantic layer
 the recognized key it needs for M:1 regardless.
 
+### Primary Name Field vs Primary Key (two different things; do not confuse them)
+The Tableau Next model UI shows BOTH on an object's hover card, and they are separate:
+- **Primary Name Field** is what `primaryNameField` sets (a business field like `organization_id`).
+  It lives in the semantic layer, is writable pro-code, and is the property that unlocks
+  Many-to-One. This is the one that matters for relationships.
+- **Primary Key** is the object's true identity: a DLO/DMO property set at **Data Stream ingest**
+  and immutable afterward. For File uploads with no business key chosen at ingest, Data Cloud
+  generates `uuid_temp` (plus `KQ_uuid_temp`) and uses that as the Primary Key. The semantic model
+  cannot change it (`isPrimaryKey` is read-only).
+- It is normal, and fine, to see **Primary Key = `uuid_temp`** while **Primary Name Field = the
+  business key**. Joins and Many-to-One work off the Primary Name Field, so queries and the agent
+  are correct. Safe to leave for demos. (CONFIRMED on HR Test: Organization DLO showed Primary Key
+  `uuid_temp`, Primary Name Field `organization_id`.)
+- To make the **Primary Key** itself the business key (matters for correct upserts and identity when
+  data refreshes or goes to production, not for a static demo), fix it upstream: re-create the data
+  stream with the business field as the primary key, or map the DLO to a DMO whose primary key is
+  the business field. Then rebuild the model layer (re-add objects, retrieve, re-apply descriptions,
+  hides, relationships).
+
 Caveats:
 - `primaryNameField` is also the object's display/name field in Salesforce terms. Pointing it at an
   ID can make that ID the record's shown "name" — usually fine on keyed lookup tables, but verify
