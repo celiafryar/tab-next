@@ -130,6 +130,33 @@ Ask the user before tagging anything ambiguous. Getting this wrong produces a ma
   that cost to the user before suggesting it, and only after confirming the geocoding actually
   fails.
 
+## KNOWN PRODUCT DEFECT — map viz save error after assigning roles (not your fault)
+Right after geo roles are working, the first map someone builds may fail to save with:
+
+> `Error: -1665391842 F7, F8, F4, F5 field key in encodings is not valid. encodings can have only
+> measure fields.`
+
+**This is a Tableau Next viz-builder bug, NOT a problem with the roles or the semantic model.**
+Observed 2026-07-29 on sales-opportunity-sdx while the map itself rendered and geocoded perfectly.
+
+Signature that proves it is state corruption rather than a validation rule:
+- A map with only the geo field saves fine. Adding one measure to Color/Size may be fine. Adding a
+  second reliably errors.
+- **The error then persists even after reverting to a state that previously saved.** A real
+  validation rule would clear when the condition is removed. One that sticks means the saved spec is
+  accumulating `F<n>` field slots that the UI no longer displays, so removing a pill leaves its entry
+  behind. That is why the message names 4 field keys on a sheet showing 1 field.
+
+**Do NOT** start rolling back `dataType: "Geo"` to chase this — the roles are fine. Instead:
+1. **Save after every single change.** Geo field on Locations → save. Add Color measure → save. Add
+   Size measure → save. Each save commits a clean spec and gives a floor to fall back to.
+2. **The moment the error appears, abandon the sheet.** It is unrecoverable; reverting does not clear
+   it. Build a new viz.
+3. Experiment in a throwaway sheet; build the keeper in one clean pass.
+4. If Color+Size breaks but Color alone is stable, prefer single-encoding — usually clearer anyway.
+
+Worth a Salesforce support case. The persuasive detail is the persistence after revert; lead with it.
+
 ## Verify
 After deploy + retrieve:
 ```python
