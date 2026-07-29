@@ -7,15 +7,24 @@
   },
   "metadata": {
     "description": "XeoMatrix skills for building Tableau Next / Data 360 semantic models as code.",
-    "version": "1.2.0"
+    "version": "1.3.0"
   },
   "plugins": [
     {
       "name": "tableau-next-semantics",
       "source": "./plugins/tableau-next-semantics",
-      "description": "Pro-code toolkit for Tableau Next semantic models: bulk field/table descriptions, relationships and cardinality (Many-to-One via primaryNameField), and the retrieve/validate/deploy loop. Tunes models for Tableau Pulse and Agentforce.",
+      "description": "Pro-code toolkit for Tableau Next semantic models: bulk field/table descriptions, relationships and cardinality (Many-to-One comes from the load-time primary key), geographic roles, and the retrieve/validate/deploy loop. Tunes models for Tableau Pulse and Agentforce.",
       "category": "data",
-      "tags": ["tableau", "tableau-next", "data-cloud", "semantic-model", "pulse", "agentforce", "semantics-dx"]
+      "tags": [
+        "agentforce",
+        "data-cloud",
+        "geographic-roles",
+        "pulse",
+        "semantic-model",
+        "semantics-dx",
+        "tableau",
+        "tableau-next"
+      ]
     }
   ]
 }
