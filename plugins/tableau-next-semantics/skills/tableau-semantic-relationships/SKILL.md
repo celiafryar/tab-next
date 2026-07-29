@@ -63,58 +63,88 @@ standalone). Use the
 
 ## THE THREE CONSTRAINTS (learned the hard way)
 
-### 1. Many-to-One requires `primaryNameField` on the parent object (THE lever)
-To make a `ManyToOne` join into a table work, set that (parent, "one"-side) object's **object-level
-`primaryNameField`** in `dataObjects.json` to its business key, e.g.
-`Department.primaryNameField = "department_id2"`. Then joins into that table deploy as ManyToOne and
-show as Many-to-One in the UI. **This is writable pro-code and needs NO Data Stream reload.**
-CONFIRMED on the HR test model: with `primaryNameField` set on all four tables, the full
-child→parent chain deployed as ManyToOne.
+### 1. Many-to-One requires a UNIQUE "one" side — which comes from the load-time Primary Key
+**Cardinality is driven by the DLO's Primary Key Field, assigned when the table is loaded through a
+Data Stream.** The platform will only accept `ManyToOne` (and the UI cardinality dialogue will only
+offer 1:M) when the column on the "one" side is already known to be unique, and the load-time primary
+key is what makes it known.
 
+**CONFIRMED 2026-07-29 on the AAA sales model (`sales-opportunity-sdx`):** 9 relationships across 10
+objects all deployed and round-tripped as `ManyToOne` with **`primaryNameField` absent on every
+object**, purely because the business key was designated as the primary key during CSV load. Nothing
+in the semantic layer was needed.
+
+**So the first question is always: were the primary keys assigned at load?**
+- Yes → just write `cardinality: "ManyToOne"`. Nothing else required.
+- No → Data Cloud generated a `uuid_temp` (+ `KQ_uuid_temp`) row-id and made *that* the Primary Key
+  Field. It cannot be reassigned from the semantic model. Either re-ingest with the business key as
+  PK / map the DLO to a DMO keyed on it, **or** use the `primaryNameField` fallback below.
+
+**Read the key state from the files:** exactly one `KQ_<businessKey>` per object and no `uuid_temp`
+anywhere = keys assigned at load. `uuid_temp` + `KQ_uuid_temp` = they were not. That fingerprint is
+the ONLY trace the model folder carries — see constraint 1a.
+
+#### The `primaryNameField` fallback (for models with no real key)
+Setting the parent object's **object-level `primaryNameField`** to its business key also satisfies the
+uniqueness requirement, writable pro-code with no Data Stream reload:
 ```jsonc
 // object level in dataObjects.json (sibling of apiName/label, not inside a field)
 { "apiName":"Department1", "label":"Department", "primaryNameField":"department_id2", ... }
 ```
+CONFIRMED on HR Test, where all four tables had `uuid_temp` primary keys and this was the only way to
+get M:1. **Treat it as a workaround, not the mechanism.** It was mis-recorded as "THE lever" because
+HR Test was the first model where M:1 worked, and nobody had yet built a model with proper keys to
+compare against. Cost: `primaryNameField` is also the record's display name, so pointing it at an ID
+makes the ID the record's shown name.
+
+**When the keys ARE set properly, use `primaryNameField` for its real purpose** — the readable name
+(`AccountName1`, `ProductName`, `FullName`, `TerritoryName`) so records name themselves legibly to the
+agent. CONFIRMED safe: pointing it at a non-key name field disturbed none of the 9 existing M:1 joins.
 
 What does NOT work (don't waste time here):
-- The **field-level `isPrimaryKey` flag is read-only** — setting it `true` deploys without error but
-  reverts to `false` on retrieve and does nothing. Ignore it.
-- Designating a PK in the **model canvas** doesn't reliably propagate either (it writes the same
-  `primaryNameField` — so just set that property directly in pro-code).
-- Without `primaryNameField`, a `ManyToOne` deploy fails **500 "The API Name has no mapped semantic
-  definition ID"** and the GUI offers only Many-to-Many. (That — not any data problem — is what
-  forced M:M on construction-sdx: it simply never had `primaryNameField` set.)
+- The **field-level `isPrimaryKey` flag is read-only AND worthless as evidence** — it deploys without
+  error but does nothing, and it reads `false` even on a field that genuinely IS the DLO primary key.
+  Never conclude "this model has no primary keys" from it.
+- Designating a PK in the **model canvas** doesn't reliably propagate (it writes `primaryNameField`).
+- With neither a load-time key nor `primaryNameField`, a `ManyToOne` deploy fails **500 "The API Name
+  has no mapped semantic definition ID"** and the GUI offers only Many-to-Many. That is what forced
+  M:M on construction-sdx — no key at ingest and no `primaryNameField`.
 
-Background: File-Upload DMOs default their identity to a generated `uuid_temp` + `KQ_uuid_temp` key
-qualifier when no business key is designated at ingest; `primaryNameField` gives the semantic layer
-the recognized key it needs for M:1 regardless.
+### 1a. The Primary Key Field is INVISIBLE to pro-code
+The object hover card shows two rows, **Primary Key Field** and **Primary Name Field**, and they are
+different properties. Only the second one exists in the retrieved JSON:
 
-### Primary Name Field vs Primary Key (two different things; do not confuse them)
-The Tableau Next model UI shows BOTH on an object's hover card, and they are separate:
-- **Primary Name Field** is what `primaryNameField` sets (a business field like `organization_id`).
-  It lives in the semantic layer, is writable pro-code, and is the property that unlocks
-  Many-to-One. This is the one that matters for relationships.
-- **Primary Key** is the object's true identity: a DLO/DMO property set at **Data Stream ingest**
-  and immutable afterward. For File uploads with no business key chosen at ingest, Data Cloud
-  generates `uuid_temp` (plus `KQ_uuid_temp`) and uses that as the Primary Key. The semantic model
-  cannot change it (`isPrimaryKey` is read-only).
-- It is normal, and fine, to see **Primary Key = `uuid_temp`** while **Primary Name Field = the
-  business key**. Joins and Many-to-One work off the Primary Name Field, so queries and the agent
-  are correct. Safe to leave for demos. (CONFIRMED on HR Test: Organization DLO showed Primary Key
-  `uuid_temp`, Primary Name Field `organization_id`.)
-- To make the **Primary Key** itself the business key (matters for correct upserts and identity when
-  data refreshes or goes to production, not for a static demo), fix it upstream: re-create the data
-  stream with the business field as the primary key, or map the DLO to a DMO whose primary key is
-  the business field. Then rebuild the model layer (re-add objects, retrieve, re-apply descriptions,
-  hides, relationships).
+| UI row | JSON | Writable? | Role |
+|---|---|---|---|
+| **Primary Key Field** | *nowhere in any of the 14 files* | No — set at Data Stream ingest, immutable | The uniqueness guarantee. Drives cardinality. |
+| **Primary Name Field** | `primaryNameField` on the object | Yes | Record display name. |
 
-Caveats:
-- `primaryNameField` is also the object's display/name field in Salesforce terms. Pointing it at an
-  ID can make that ID the record's shown "name" — usually fine on keyed lookup tables, but verify
-  display on real models (or point it at a human-readable name field if that reads better and still
-  satisfies the join).
-- **`ManyToMany` always works** and gives correct aggregation; it's the safe fallback if you can't
-  or don't want to set `primaryNameField`.
+CONFIRMED 2026-07-29: Account.csv showed Primary Key Field `AccountId` with the key icon in the UI
+while `AccountId1` retrieved as `isPrimaryKey: false`, from a retrieve taken *after* the key was set.
+So you cannot verify or set primary keys from pro-code in either direction — ask the user to hover the
+object, or infer from the `KQ_` fingerprint. It is normal and fine to see Primary Key Field populated
+while Primary Name Field reads `None`.
+
+#### Fixing a model that was loaded WITHOUT primary keys
+This is the situation `primaryNameField` exists to paper over, and the paper-over is fine for a demo:
+M:1 works, aggregation is correct, the agent is correct. Leave it.
+
+It is NOT fine when the data refreshes or goes to production, because the real Primary Key Field is
+still the generated `uuid_temp` row-id, so upserts and record identity are wrong. That can only be
+fixed upstream: re-create the data stream with the business field as the primary key, or map the DLO
+to a DMO whose primary key is the business field. **Then the model layer must be rebuilt** — re-add
+objects, retrieve, re-apply descriptions, hides and relationships — because new DLOs mean new
+apiNames. Budget for that before promising a production path.
+
+Best practice going forward: **assign the primary key at load time on every table.** It costs nothing
+at upload, and it is the difference between `cardinality: "ManyToOne"` just working and a rebuild.
+
+Other notes:
+- **`ManyToMany` always works** and gives correct aggregation; it's the safe fallback when you have
+  neither a load-time key nor `primaryNameField`. M:1 is a performance optimization that additionally
+  requires a recognized unique key — it is not required for correct numbers.
+- All relationships are Many-to-One **in intent** from the FK-holder to the PK-holder, even when they
+  have to be deployed as M:M.
 
 ### 2. The relationship graph must be ACYCLIC
 Validate fails with **`CYCLIC_RELATIONSHIP_ERROR`**, listing the objects in the loop. Causes & fixes:

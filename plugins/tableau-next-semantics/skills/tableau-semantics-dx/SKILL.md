@@ -128,13 +128,30 @@ haven't confirmed is supported.
   questions to fields: state business meaning, units/format (dollars, decimal fraction,
   date), known category values, synonyms, and key/relationship notes.
 
-### 6. Object display labels are pro-code editable
+### 6. Object display labels are pro-code editable — ALWAYS strip the `.csv` suffix
 An object's display name is the `label` key on its item in `dataObjects.json`; edit it, deploy,
 and it persists. The **`apiName` is the immutable identity** (relationships reference it via
 `leftSemanticDefinitionApiName`/`rightSemanticDefinitionApiName`), so renaming a `label` is
-cosmetic and safe — it won't break joins or field refs. (Example: File-Upload DMOs come in
-labeled like `Budgets.csv`; strip the `.csv` from `label` for clean titles. The apiName stays
-`Budgets_csv`.)
+cosmetic and safe — it won't break joins or field refs.
+
+**Do this on every model, as a standard step.** Tables ingested from a File Upload / Data Stream
+arrive labeled with the filename, `.csv` and all (`Account.csv`, `Budgets.csv`). That suffix leaks
+into the Tableau Next object list, into agent answers, and into any doc generated from the model.
+It is easy to miss at upload time and cannot be fixed at ingest, only here. Strip it in a loop
+rather than by hand:
+```python
+for o in data["items"]:
+    if o["label"].endswith(".csv"):
+        o["label"] = o["label"][:-4]          # Account.csv -> Account ; apiName stays Account_csv1
+```
+Then consider going further and applying the **business** label from the metadata spreadsheet
+(`TableLabel` / `ColumnLabel` columns), e.g. `Account` → `Accounts`, `AccountId` → `Account ID`.
+Field labels are the `label` key on each field and are editable the same way. Confirm with the user
+before renaming beyond the `.csv` strip, since business labels are a naming decision, not a cleanup.
+
+**Watch out:** if you strip `.csv` *before* resolving anything by label, every later label lookup
+breaks. Resolve labels to apiNames first (or strip and match on the stripped name consistently) —
+the metadata spreadsheet keys on the clean table name, the model ships the dirty one.
 
 ### 7. Data Cloud primary key must be TEXT (surrogate keys for date dimensions)
 A DLO/data-stream primary key must be a **text** field — Date and Number columns are NOT
@@ -144,25 +161,69 @@ The leading letters force text typing (a bare `YYYYMMDD` would be read as a Numb
 ineligible). Keep the real `Date` column as a Date type for time logic; use the text key as PK.
 Category for a Calendar scaffold = **Other** (it's reference data, not Profile or Engagement).
 
-### 8. Field visibility, primary keys, and the Many-to-One lever
-All confirmed on the HR test model:
+### 8. Field visibility, primary keys, and what actually drives Many-to-One
 - **Hide a field** — set `"isVisible": false` on it in `dataObjects.json` and deploy; it stays
   hidden on round-trip. No `overriddenProperties` entry needed. Use to hide Data Cloud
   system/lineage fields, matched by apiName prefix: `cdp_sys_*`, `KQ_*`, `Data_Source*`,
-  `Internal_Organization*`, `uuid_temp*` (≈5–6 per File-Upload table).
-- **`isPrimaryKey` is read-only** — the field-level flag deploys without error but has no effect
-  (reverts to `false`). Don't use it to try to set a key.
-- **Many-to-One lever = object-level `primaryNameField`** — set it to the table's business key
-  (e.g. `Department.primaryNameField = "department_id2"`) and joins into that table can be
-  Many-to-One. Writable pro-code, no Data Stream reload. Details in `tableau-semantic-relationships`.
-- File-Upload DMOs auto-generate a `uuid_temp` + `KQ_uuid_temp` surrogate identity when no business
-  key is designated at ingest — hide these, and set `primaryNameField` for real keys.
-- **Primary Key vs Primary Name Field are different.** The object's visible **Primary Key** (often
-  `uuid_temp` for File uploads) is set at Data Stream ingest and is immutable; the semantic model
-  cannot change it. **Primary Name Field** (`primaryNameField`) is the semantic-layer property we
-  set, and the one Many-to-One uses. It is normal to see Primary Key `uuid_temp` while Primary Name
-  Field is the business key; that is fine for queries and demos. Changing the real Primary Key means
-  re-ingesting upstream. See `tableau-semantic-relationships` for details.
+  `Internal_Organization*`, `uuid_temp*` (5–6 per File-Upload table).
+
+**The object hover card shows TWO key properties and they are different things. Do not conflate
+them** (this cost real time twice):
+
+| UI row | JSON | Writable pro-code? | What it does |
+|---|---|---|---|
+| **Primary Key Field** | *not present in any retrieved file* | **No** — set at Data Stream ingest, immutable | The uniqueness guarantee. **This is what Many-to-One depends on.** |
+| **Primary Name Field** | `primaryNameField` on the object | Yes | The record's display/name field. Cosmetic, but see below. |
+
+- **Many-to-One is driven by the load-time Primary Key Field, NOT by `primaryNameField`.** CONFIRMED
+  2026-07-29 on the AAA sales model: 9 relationships all deployed and round-tripped as `ManyToOne`
+  with `primaryNameField` absent on every object, purely because the business key was assigned as
+  the primary key when each CSV was loaded through Data Streams. The UI cardinality dialogue states
+  the same rule from the other side: it won't offer 1:M unless the column on the "one" side is
+  already known to be unique.
+- **So: assign the primary key at Data Stream load.** That is the fix, and it is the *only* place it
+  can be done. If you skip it, Data Cloud generates a `uuid_temp` (+ `KQ_uuid_temp`) row-id and makes
+  *that* the Primary Key Field, which cannot be reassigned afterward — re-ingest, or map the DLO to a
+  DMO keyed on the business field.
+- **`primaryNameField` is the FALLBACK, not the mechanism.** On HR Test it did unlock M:1, but only
+  because that model had no real key for the platform to use. Setting it to a business key is a
+  workaround for a missing Primary Key Field. When the key IS set properly, leave `primaryNameField`
+  for its real job: point it at the readable name (`AccountName1`, `ProductName`, `FullName`) so
+  records name themselves legibly to the agent instead of showing an 18-char ID. CONFIRMED safe —
+  pointing it at a non-key name field disturbed none of the 9 existing M:1 joins.
+- **`isPrimaryKey` is read-only AND meaningless as evidence.** It deploys without error but has no
+  effect, and it reads `false` even on a field that genuinely IS the DLO primary key. Never conclude
+  "this model has no primary keys" from it.
+- **Fingerprint for reading key state from the files alone:** exactly one `KQ_<businessKey>` per
+  object and no `uuid_temp` anywhere means the keys were assigned at load. `KQ_uuid_temp` +
+  `uuid_temp` means they were not. That is the only trace the model folder carries.
+
+### 9. Calculated dimensions — item shape, and where they appear in the UI
+`calculatedDimensions.json` items are **leaner than measures**: no `aggregationType`, `decimalPlace`,
+`directionality`, `sentiment`, `totalAggregationType`, `shouldTreatNullsAsZeros` or
+`isSystemDefinition`. Confirmed working shape (omit `id`/`createdBy`/`*Date` when creating):
+```json
+{ "apiName":"OpenOpportunityFlag", "dataType":"Boolean", "description":"...",
+  "displayCategory":"Discrete", "expression":"IF [Opportunity_csv1].[IsClosed1] then false ELSE true END",
+  "filters":[], "isOverrideBase":false, "isQueryable":"Queryable", "isVisible":true,
+  "label":"Open Opportunity", "level":"Row", "overriddenProperties":[],
+  "semanticDataType":"None", "sortOrder":"None" }
+```
+- **`dataType: "Boolean"` is valid**, and bare `true` / `false` literals work in the result branches.
+  No need for a `"Yes"`/`"No"` text workaround.
+- A **Boolean field can be used directly as the `IF` condition** (`IF [x].[IsClosed1] then …`), which
+  sidesteps needing a verified comparison operator for booleans.
+- A **bare field reference is a valid expression** (`[Opportunity_csv1].[IsClosed1]`). Corollary:
+  `IF X THEN TRUE ELSE FALSE END` is just `X` — don't build flag fields that merely restate an
+  existing boolean column; they add no information and give the agent two names for one idea.
+- **WHERE THEY SHOW UP (confirmed with the user, saves 10 minutes of hunting):** a calculated field
+  referencing only ONE table is appended to the **end of that table's column list**, not to the
+  "Calculated Fields" section. Only calcs spanning MULTIPLE tables appear under **Calculated Fields**.
+- There is **no object-binding key** on a calculated dimension — the base object is inferred from the
+  field references in the expression. For a cross-table calc, that inference is untested; prefer
+  putting single-table calcs in first and treat multi-table dimensions as the risky case.
+- Still **unverified** in this formula language: `NOT`, `AND`, `OR`, `<>`, and the `NULL` literal.
+  Dodge them where possible (test `= "ICE"` instead of `<> "ICE"`; nest `IF`s instead of `AND`).
 
 ## Authoring descriptions for Tableau Agent / Pulse (recipe)
 Descriptions are what the conversational agent reads to map natural-language questions
