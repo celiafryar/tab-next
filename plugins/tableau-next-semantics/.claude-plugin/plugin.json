@@ -1,7 +1,7 @@
 {
   "name": "tableau-next-semantics",
   "description": "Pro-code toolkit for building, describing, relating, and deploying Tableau Next / Data 360 semantic models. Bundles three skills: tableau-semantics-dx, semantic-descriptions-from-spreadsheet, and tableau-semantic-relationships.",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "author": {
     "name": "Cecilia Fryar",
     "url": "https://github.com/celiafryar"
