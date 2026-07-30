@@ -1,6 +1,6 @@
 # Tab Next
 
-A Claude Code **plugin marketplace** of pro-code skills for building **Tableau Next / Salesforce Data 360 semantic models as code**. Describe every table and field, define relationships and cardinality, and deploy, all version-controlled in Git and tuned for **Tableau Pulse** and **Agentforce**.
+A Claude Code **plugin marketplace** of pro-code skills for building **Tableau Next / Salesforce Data 360 semantic models as code**. Describe every table and field, define relationships and cardinality, assign geographic roles, and deploy, all version-controlled in Git and tuned for **Tableau Pulse** and **Agentforce**.
 
 > A marketplace is simply a Git repo that Claude Code can install plugins from. You add this repo once, install the plugin below, and its skills load automatically. They trigger on their own when you work on a semantic model, or you can call one by name (for example, `/tableau-semantics-dx`).
 
@@ -8,15 +8,19 @@ A Claude Code **plugin marketplace** of pro-code skills for building **Tableau N
 
 ## What you get
 
-Installing the **`tableau-next-semantics`** plugin adds three field-tested skills:
+Installing the **`tableau-next-semantics`** plugin adds five field-tested skills.
 
-| Skill | What it does | It kicks in when you |
+| Skill | The value it delivers | It kicks in when you |
 |---|---|---|
-| **tableau-semantics-dx** | The core pro-code loop: retrieve a model as JSON, edit it, validate, deploy. Carries the platform know-how and gotchas. | edit a retrieved `Semantic Models/...` folder, add calculated fields, metrics, or descriptions, or deploy and debug. |
-| **semantic-descriptions-from-spreadsheet** | Turns a metadata workbook into agent-ready field and table descriptions and writes them into the model in bulk. | have a data dictionary and want high-quality descriptions for conversational analytics. |
-| **tableau-semantic-relationships** | Authors joins and cardinality directly in `relationships.json`, including true Many-to-One. | build or fix relationships from a cardinality spec, or debug a relationship deploy error. |
+| **tableau-semantics-dx** | The core pro-code loop: retrieve a model as JSON, edit, validate, deploy. Carries the platform know-how that otherwise costs a day of trial and error, from the 255-character description cap to what actually controls join cardinality. | edit a retrieved `Semantic Models/...` folder, author calculated fields or descriptions, deploy, or debug a deploy error. |
+| **semantic-descriptions-from-spreadsheet** | Turns a metadata workbook into agent-ready descriptions for hundreds of fields at once and writes them into the model. The highest-leverage thing you can do for Tableau Agent and Pulse answer quality, and unbearable by hand. | have a data dictionary and want conversational analytics to map questions to the right fields. |
+| **tableau-semantic-relationships** | Authors joins and cardinality directly in `relationships.json`, outside the model canvas. Knows why Many-to-One gets refused, and checks the graph is acyclic before you spend a deploy finding out. | build or fix relationships from a cardinality spec, or hit `CYCLIC_RELATIONSHIP_ERROR` or a cardinality rejection. |
+| **tableau-semantic-geo-roles** | Assigns geographic roles so place-name fields map and the agent can answer geography questions. Gets the two-property mechanism right, and knows which look-geographic-but-aren't fields to leave alone. | have city, state, country or coordinate columns, or maps and geography questions are not working. |
+| **snowflake-dbt-to-semantic-metadata** | The front end for migrations: pulls existing descriptions, types and keys out of Snowflake or a dbt project and normalizes them into the workbook the other skills consume. Stops you retyping metadata the customer already wrote. | migrate an existing Snowflake or dbt semantic layer into Tableau Next. |
 
-The three are designed to work together: fill a metadata workbook, describe and relate the model, then deploy.
+**They chain.** Extract with the Snowflake/dbt skill, or start from a metadata workbook. Describe and relate the model. Assign geographic roles. Deploy and commit with the core skill. Each step hands the next a known shape.
+
+> The Snowflake/dbt skill ships as **templates**. Its queries and identifiers must be validated against the live source before you trust the output, and the skill says so up front.
 
 ---
 
@@ -52,11 +56,11 @@ Use the `/plugin` menu to add, update, disable, or remove marketplaces and plugi
 
 ## How it works (quick start)
 
-1. **Retrieve** the target model in VS Code: right-click the `Semantic Models` folder, then **Tableau Semantic: Retrieve Model to Folder**. This writes a folder of JSON files.
-2. **Provide the input** the skill asks for: a metadata workbook (for descriptions) or a cardinality spec (for relationships). Each skill prompts for this and confirms what it found before doing anything.
-3. **Let the skill edit the JSON** (`dataObjects.json`, `relationships.json`, and so on), matching your model by field and table labels.
+1. **Retrieve** the target model in VS Code: right-click the `Semantic Models` folder, then **Tableau Semantic: Retrieve Model to Folder**. This writes a folder of JSON files. Commit it as your baseline.
+2. **Provide the input** the skill asks for: a metadata workbook for descriptions, a cardinality spec for relationships. Each skill prompts and confirms what it found before changing anything.
+3. **Let the skill edit the JSON** (`dataObjects.json`, `relationships.json`, `calculatedDimensions.json`, and so on), resolving your model by field and table labels.
 4. **Validate and deploy** from the extension: right-click `model.json`, then **Validate Model**, then **Deploy Model**.
-5. **Commit** to Git for history, review, and rollback.
+5. **Retrieve again, then commit.** The retrieve is what proves the change landed and captures the IDs the server assigns. Commit only verified states.
 
 A blank intake template for the description workflow (tables, fields, roles, primary keys, relationships, business synonyms) can be produced by the `semantic-descriptions-from-spreadsheet` skill on request.
 
@@ -64,13 +68,19 @@ A blank intake template for the description workflow (tables, fields, roles, pri
 
 ## Capabilities and hard-won rules
 
-The skills already encode these, but they are useful to know:
+The skills already encode these. They are worth knowing anyway, because most are not documented anywhere else.
 
-- **Match by label, not API name.** Data Cloud makes field API names globally unique, so `Sales` can become `Sales2`. Always resolve fields by their label.
-- **Descriptions cap at 255 characters** (both field and table). Validate passes even when a description is too long; only Deploy catches it.
-- **Hide system and lineage fields** with `isVisible: false` (for example `cdp_sys_*`, `KQ_*`, `Data_Source*`, `Internal_Organization*`, `uuid_temp*`).
-- **Many-to-One needs `primaryNameField`.** Set the parent object's `primaryNameField` to its business key to enable Many-to-One. The field-level `isPrimaryKey` flag is read-only and does nothing.
-- **The relationship graph must be acyclic.** Two fact tables sharing several dimensions creates a cycle; make one fact the hub. You can change an existing relationship's cardinality, but not its left (child) side. Re-orienting one means delete and recreate.
+- **Match by label, not API name.** Data Cloud makes field API names globally unique per org, so `Sales` becomes `Sales2` and `Account.csv` becomes `Account_csv1`. Resolve by label, then use the real API name.
+- **Strip the `.csv` suffix from object labels.** File-upload tables arrive labelled with the filename, and it leaks into the object list, agent answers and any generated documentation. It cannot be fixed at ingest, only here.
+- **Descriptions cap at 255 characters**, field and table alike. Validate passes even when one is too long; only Deploy catches it. Enforce the cap when generating.
+- **Many-to-One comes from the primary key you assign at Data Stream load**, not from anything in the semantic layer. Assign it while uploading and `cardinality: "ManyToOne"` simply works. Skip it and Data Cloud generates a `uuid_temp` row ID that cannot be reassigned afterward. `primaryNameField` is the *fallback* for models loaded without a key; otherwise leave it for its real job, the record's display name.
+- **`isPrimaryKey` lies.** It is read-only, and it reads `false` even on a field that genuinely is the primary key. The Primary Key Field appears nowhere in the retrieved JSON at all. Never conclude a model has no keys from that flag.
+- **The relationship graph must be acyclic.** Two fact tables sharing several dimensions is a cycle; make one fact the hub. You can change an existing relationship's cardinality but not its left (child) side, so re-orienting one means delete and recreate.
+- **Hide system and lineage fields** with `isVisible: false`: `cdp_sys_*`, `KQ_*`, `Data_Source*`, `Internal_Organization*`, `uuid_temp*`. Five or six per file-upload table, and they otherwise clutter every field list the agent reads.
+- **A geographic role is two properties**, not one. `dataType` must become `"Geo"` *and* `semanticDataType` must hold the role, while `storageDataType` stays as it was. Setting only the second is the usual mistake.
+- **Calculated dimensions and measures have different shapes.** Dimensions are leaner and use `level: "Row"`; measures carry the aggregation keys. `dataType: "Boolean"` works, and a Boolean field can serve directly as an `IF` condition.
+- **A calculated field touching one table appears at the end of that table's column list.** Only ones spanning multiple tables show under "Calculated Fields", which is easily ten minutes of hunting the first time.
+- **A 401 "Session expired" from the extension is not dead auth.** The CLI's refresh token is almost always still valid: run any `sf` command to refresh, then retry.
 
 ---
 
@@ -91,13 +101,15 @@ tab-next/
   .claude-plugin/
     marketplace.json                 # the marketplace definition
   plugins/
-    tableau-next-semantics/          # one plugin, three skills
+    tableau-next-semantics/          # one plugin, five skills
       .claude-plugin/
         plugin.json                  # the plugin manifest
       skills/
         tableau-semantics-dx/
         semantic-descriptions-from-spreadsheet/
         tableau-semantic-relationships/
+        tableau-semantic-geo-roles/
+        snowflake-dbt-to-semantic-metadata/
   README.md
 ```
 
@@ -113,11 +125,14 @@ Each skill's source of truth lives in `~/.claude/skills/`. This repo holds the d
 2. Bump `version` in `.claude-plugin/marketplace.json` and `plugins/tableau-next-semantics/.claude-plugin/plugin.json`.
 3. Commit and push. Installers pick up the update through `/plugin`.
 
+**Keep the claims true.** These skills are valuable because what they assert has actually been verified. When something turns out to be wrong, correct it everywhere rather than bolting on a caveat, and give any known-bug note an explicit re-test date so it gets deleted once the platform fixes it. A stale warning misleads as much as a wrong rule.
+
 ---
 
 ## Roadmap
 
-- A Snowflake and dbt metadata extraction skill will join this plugin once it is validated against a live source.
+- Validate the Snowflake and dbt extraction skill against a live source and promote it from templates to confirmed.
+- Metrics authoring (`metrics.json`) once the item shape is confirmed by a deploy.
 - Skill families beyond Tableau Next will live in their own separate marketplace repos, so this one stays focused.
 
 ---
