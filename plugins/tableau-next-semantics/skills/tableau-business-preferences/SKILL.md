@@ -43,7 +43,26 @@ would be ingested as an instruction). Plain sentences.
 ```
 #Bookings means the value of Closed Won opportunities. People may also say awarded sales or won business.
 ```
-Working size: **~60 lines / ~1,200 words.** Two field-tested files landed at 49 and 62 lines.
+**Hard limit: 30,000 characters.** Working size is far below it: two field-tested files came in at
+**5,772 chars (50 lines, 19% of cap)** and **7,836 chars (62 lines, 26% of cap)**, averaging ~120
+characters per line. That leaves headroom for roughly 175 more lines.
+
+**So the cap is not the binding constraint, and you should not treat length as the problem.** A real
+file that was cut from 127 lines to 50 for being "too long and not working" was only ever at **35% of
+cap**. What was actually wrong with it: literal duplicate rules, three near-identical clusters
+defining the same date fields, and 33 inert one-emoji-per-line rules. It was contradictory and inert,
+not oversized.
+
+There is a widely-repeated belief that large files cause latency and inconsistency. It may well be
+true, but it is **UNVERIFIED**, and every observation of it so far is confounded, because the long
+files were also the low-quality ones. To settle it: take a working file, pad it to 3-4x with rules
+that are **distinct, executable and irrelevant to your test questions**, and re-run an answer-key
+test. If accuracy and latency hold, size is not the variable and contradiction is. Nobody has run
+this, and either result is worth publishing.
+
+Until then, the defensible rule is **coverage, not a line count**: write a rule for every ambiguous
+word, every scope-dependent measure, every relative time expression and every multi-population count,
+then stop. If that lands at 80 lines, 80 is right.
 
 ## THE SIX RULES THAT DECIDE WHETHER A LINE WORKS
 
