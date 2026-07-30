@@ -1,7 +1,7 @@
 {
   "name": "tableau-next-semantics",
-  "description": "Pro-code toolkit for building, describing, relating, geo-roling, and deploying Tableau Next / Data 360 semantic models. Bundles five skills: tableau-semantics-dx, semantic-descriptions-from-spreadsheet, tableau-semantic-relationships, tableau-semantic-geo-roles, and snowflake-dbt-to-semantic-metadata.",
-  "version": "1.4.0",
+  "description": "Pro-code toolkit for building, describing, relating, geo-roling, and deploying Tableau Next / Data 360 semantic models, plus authoring the Business Preferences that teach the agent business language. Bundles six skills.",
+  "version": "1.5.0",
   "author": {
     "name": "Cecilia Fryar",
     "url": "https://github.com/celiafryar"
@@ -10,6 +10,7 @@
   "repository": "https://github.com/celiafryar/tab-next",
   "keywords": [
     "agentforce",
+    "business-preferences",
     "claude-code",
     "data-cloud",
     "dbt",
