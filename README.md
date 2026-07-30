@@ -8,7 +8,7 @@ A Claude Code **plugin marketplace** of pro-code skills for building **Tableau N
 
 ## What you get
 
-Installing the **`tableau-next-semantics`** plugin adds five field-tested skills.
+Installing the **`tableau-next-semantics`** plugin adds six field-tested skills.
 
 | Skill | The value it delivers | It kicks in when you |
 |---|---|---|
@@ -16,9 +16,10 @@ Installing the **`tableau-next-semantics`** plugin adds five field-tested skills
 | **semantic-descriptions-from-spreadsheet** | Turns a metadata workbook into agent-ready descriptions for hundreds of fields at once and writes them into the model. The highest-leverage thing you can do for Tableau Agent and Pulse answer quality, and unbearable by hand. | have a data dictionary and want conversational analytics to map questions to the right fields. |
 | **tableau-semantic-relationships** | Authors joins and cardinality directly in `relationships.json`, outside the model canvas. Knows why Many-to-One gets refused, and checks the graph is acyclic before you spend a deploy finding out. | build or fix relationships from a cardinality spec, or hit `CYCLIC_RELATIONSHIP_ERROR` or a cardinality rejection. |
 | **tableau-semantic-geo-roles** | Assigns geographic roles so place-name fields map and the agent can answer geography questions. Gets the two-property mechanism right, and knows which look-geographic-but-aren't fields to leave alone. | have city, state, country or coordinate columns, or maps and geography questions are not working. |
+| **tableau-business-preferences** | Authors and tests the instruction file that teaches the agent business language, intent and safe defaults. Carries what live testing proved about which instructions the agent actually obeys, which is not what the documentation implies. | the agent misreads a word, returns a right number that answers the wrong question, or ignores an instruction. |
 | **snowflake-dbt-to-semantic-metadata** | The front end for migrations: pulls existing descriptions, types and keys out of Snowflake or a dbt project and normalizes them into the workbook the other skills consume. Stops you retyping metadata the customer already wrote. | migrate an existing Snowflake or dbt semantic layer into Tableau Next. |
 
-**They chain.** Extract with the Snowflake/dbt skill, or start from a metadata workbook. Describe and relate the model. Assign geographic roles. Deploy and commit with the core skill. Each step hands the next a known shape.
+**They chain.** Extract with the Snowflake/dbt skill, or start from a metadata workbook. Describe and relate the model. Assign geographic roles. Deploy and commit with the core skill. Then teach the agent how the business speaks with Business Preferences, and test it against a precomputed answer key. Each step hands the next a known shape.
 
 > The Snowflake/dbt skill ships as **templates**. Its queries and identifiers must be validated against the live source before you trust the output, and the skill says so up front.
 
@@ -81,6 +82,14 @@ The skills already encode these. They are worth knowing anyway, because most are
 - **Calculated dimensions and measures have different shapes.** Dimensions are leaner and use `level: "Row"`; measures carry the aggregation keys. `dataType: "Boolean"` works, and a Boolean field can serve directly as an `IF` condition.
 - **A calculated field touching one table appears at the end of that table's column list.** Only ones spanning multiple tables show under "Calculated Fields", which is easily ten minutes of hunting the first time.
 - **A 401 "Session expired" from the extension is not dead auth.** The CLI's refresh token is almost always still valid: run any `sf` command to refresh, then retry.
+- **Validate can report "0 validation errors" directly above real errors.** The top-level array is empty while the actual problems sit nested under `subResources`. If there is a warning triangle, read the JSON.
+- **Metrics can build on your calculated measures** via `measurementReference.calculatedFieldApiName`. Polarity lives at `insightsSettings.sentiment`, and there is no display-format property at all.
+- **A geo-roled field cannot be a metric dimension.** Assigning a map role changes `dataType` to `Geo`, and metrics accept only Text, Number, Boolean, Email, PhoneNumber or Url. Governed metrics therefore break down by region and territory; direct questions about state still work fine.
+- **Never allow a metric dimension reached through a one-to-many hop.** It multiplies the measure. A contact attribute on an opportunity-grain metric can inflate it by nearly 2x.
+- **Business Preferences govern method, not prose.** Which field, filter, population, scope and sort are obeyed reliably. Instructions about the wording of the narrative are largely ignored, because the platform owns the response structure.
+- **The narrative is the summary; the Sources panel is the receipt.** Sources carries Fields Used and Filters Applied and is the only precise part of an answer. Teach every user to open it.
+- **Never prohibit without substituting.** "Do not call it revenue" fails, because the agent still has to answer something. Say what to use instead.
+- **Duplicate field labels cause silent wrong-field selection.** One real model had 19 of 109 labels appearing on more than one table, and Fields Used names a field without its table. No preference can disambiguate what the agent cannot distinguish.
 
 ---
 
@@ -101,7 +110,7 @@ tab-next/
   .claude-plugin/
     marketplace.json                 # the marketplace definition
   plugins/
-    tableau-next-semantics/          # one plugin, five skills
+    tableau-next-semantics/          # one plugin, six skills
       .claude-plugin/
         plugin.json                  # the plugin manifest
       skills/
@@ -109,6 +118,7 @@ tab-next/
         semantic-descriptions-from-spreadsheet/
         tableau-semantic-relationships/
         tableau-semantic-geo-roles/
+        tableau-business-preferences/
         snowflake-dbt-to-semantic-metadata/
   README.md
 ```
@@ -132,7 +142,8 @@ Each skill's source of truth lives in `~/.claude/skills/`. This repo holds the d
 ## Roadmap
 
 - Validate the Snowflake and dbt extraction skill against a live source and promote it from templates to confirmed.
-- Metrics authoring (`metrics.json`) once the item shape is confirmed by a deploy.
+- Metrics authoring at scale. The `metrics.json` item shape is now confirmed by a live deploy and documented in `tableau-semantics-dx`.
+- A controlled test of whether large Business Preferences files genuinely degrade latency, or whether the real variable is contradictory rules. The 30,000 character cap is far above any file we have built.
 - Skill families beyond Tableau Next will live in their own separate marketplace repos, so this one stays focused.
 
 ---
