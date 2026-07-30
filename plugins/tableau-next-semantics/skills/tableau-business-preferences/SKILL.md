@@ -14,8 +14,28 @@ description: >-
 Business Preferences are a plain-text instruction list that teaches the agent **how the business
 speaks and what to do when a question is ambiguous.** They are not where calculations live.
 
-Everything below marked CONFIRMED was established by live testing against a deployed model
-(sales-opportunity-sdx, 2026-07-29/30), not from documentation.
+Everything below marked CONFIRMED was established by **live testing against a deployed model**
+(sales-opportunity-sdx, 2026-07-29/30), not from documentation and not from reasoning about how the
+platform ought to behave.
+
+> **Evidence hierarchy.** Observed agent behavior beats plausible architecture. Several widely-shared
+> conclusions about Business Preferences did not survive testing — notably that response-style rules
+> belong in the file, and that preferences should be a last resort after descriptions, calculated
+> fields and metrics. Where this skill contradicts untested guidance, prefer this skill, and where a
+> new test contradicts this skill, prefer the test and update it.
+
+## DO THIS FIRST: prove the channel works
+Before authoring anything, confirm instructions are reaching the agent at all. Three lines:
+```
+#Always begin every response with 📊 Summary.
+#Always end every response with the exact phrase Preferences are active.
+#Never fabricate values or unsupported assumptions.
+```
+Ask any question, then **open the Sources panel** — not the narrative. If the phrase is absent, the
+problem is loading or scoping and no amount of authoring will fix it.
+
+This one step is worth more than any amount of careful drafting. A real 50-line file was assumed
+broken for weeks because its instructions were firing into a collapsed panel nobody opened.
 
 ## File format
 One instruction per line, each line beginning with `#`. No blank lines, no section headers (a header
