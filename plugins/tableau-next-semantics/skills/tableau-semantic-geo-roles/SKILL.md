@@ -131,6 +131,11 @@ Ask the user before tagging anything ambiguous. Getting this wrong produces a ma
   fails.
 
 ## KNOWN PRODUCT DEFECT — map viz save error after assigning roles (not your fault)
+> **STATUS: Salesforce confirmed the encoding issue is found and fixed, rollout expected ~2026-08-05
+> (reported by Cecilia to the PM, 2026-07-29). RE-TEST after that date. If a map with a geo
+> dimension plus two measure encodings saves cleanly, DELETE this section — leaving a stale bug
+> warning in place is its own misinformation. Until then the workaround below still applies.**
+
 Right after geo roles are working, the first map someone builds may fail to save with:
 
 > `Error: -1665391842 F7, F8, F4, F5 field key in encodings is not valid. encodings can have only
