@@ -53,6 +53,27 @@ Run it in the background so the tool/CLI timeout doesn't kill the callback while
 user logs in. This CLI generation has **no device-code flow** — only
 `web`, `jwt`, `access-token`, `sfdx-url`. Verify with `sf org list`.
 
+### Extension 401 "Session expired or invalid" — do NOT re-login, just refresh the token
+Retrieve/Deploy failing with:
+```
+Failed to export semantic models: API error (401):
+[{ "message": "Session expired or invalid", "errorCode": "INVALID_SESSION_ID" }]
+```
+means the cached **access token** expired. It almost never means the auth is dead — the CLI's
+**refresh token** is typically still valid, and the extension reads the token the CLI stores.
+
+**Fix (CONFIRMED 2026-07-29, ~5 seconds):** run any `sf` command to force a token refresh, then
+retry the extension command. No window reload, no browser re-login.
+```bash
+sf data query -q "SELECT Id FROM Organization LIMIT 1" --target-org <alias>
+```
+Then click Retrieve/Deploy again. Escalate only if that fails: first
+**Ctrl+Shift+P → "Developer: Reload Window"** (extension holding the old token in memory), and only
+then the full `sf org login web` above.
+
+Note a failed **retrieve** is read-only and risks nothing — the deployed model and local edits are
+both untouched, so the only cost is a stale local view. A failed **deploy** likewise creates nothing.
+
 ## Project setup
 ```bash
 sf project generate --name <proj> --template standard --output-dir .
