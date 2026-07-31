@@ -122,7 +122,14 @@ and use the real `apiName` of each field. Objects are also referenced by apiName
   `THEN`** — both deploy.
 - String literals in **double OR single quotes** (`= "ICE"` and `= 'New Customer'` both work).
   Escape doubles as `\"` in JSON.
-- Operators confirmed: `AND`, `OR`, `NOT`, comparisons, arithmetic `/`.
+- Operators confirmed: `AND`, `OR`, `NOT`, comparisons, arithmetic `/`. **`AND` and `NOT` work on
+  raw Boolean table fields, not just on calculated-field references** — verified by worksheet test,
+  not merely by a clean deploy.
+
+> **Deploys-clean is NOT evidence that it evaluates.** A formula can parse, validate, and deploy and
+> still return nothing useful. Before recording any syntax as "confirmed", put the measure on a
+> worksheet and check the number against a value you computed independently. I have been wrong in
+> both directions on `NOT` by treating a successful deploy as proof.
 - Functions confirmed: `SUM`, `AVG`, `COUNTD`, `count`, `ISNULL()`.
 - Literals confirmed: `TRUE`, `FALSE`, and **`NULL`**.
 - Measures: `"aggregationType": "UserAgg"` with `level: AggregateFunction` when the expression
@@ -346,8 +353,58 @@ DELETE and RECREATE it** rather than relabel. The only thing rewriting buys is p
 `id` for existing dashboard references, which is worth little (see the dashboard cache gotcha below).
 Same hazard applies to calcs: `New_Customers_clc_1` is labelled "Existing Customers".
 
+### THE AGGREGATION MUST MATCH THE CALC — silent failure if it doesn't
+A metric's `aggregationType` is not cosmetic. It must agree with whether its underlying calculated
+measure **self-aggregates**:
+
+| calc expression | calc `level` | calc `aggregationType` | metric `aggregationType` |
+|---|---|---|---|
+| `SUM(IF … END)` or an LOD `{ FIXED … }` | `AggregateFunction` / `Lod` | `UserAgg` / `Sum` | **`UserAgg`** |
+| a bare row-level expression, no aggregate | `Row` | `Sum` | **`Sum`** |
+
+`UserAgg` means *"the measure already aggregated itself, do not touch it."* Point a metric at a
+**row-level** calc while the metric still says `UserAgg` and **nothing aggregates anything**. The
+metric then has no scalar to show.
+
+**How it presents (CONFIRMED 2026-07-31):** the tile renders its title but the value is a dash, plus
+*"Hmm, we couldn't load the metric comparison"* and *"Unable to generate insights summary."*
+
+**Why it is so hard to find:**
+- Both objects are valid **individually**, and `/validate` returns `isValid: true`.
+- Every other field on the metric can be byte-identical to a working metric.
+- **The calc works correctly on a worksheet**, because there the platform applies the calc's own
+  `Sum`. Only the metric overrides it. So "the calc is fine" does NOT clear the calc.
+
+**Diagnosis shortcut:** list every metric beside its calc's `level`/`aggregationType`. The broken one
+is the row whose two aggregations disagree. Setting the metric to `Sum` (or `AVG` — any concrete
+aggregation) makes it render instantly, which confirms the cause; use the one that is
+*arithmetically* right, normally `Sum`.
+
+The GUI enforces the same constraint from the other side, refusing to save with
+*"AggregativeFunction-level calculated fields require UserAgg."* Same rule, opposite direction.
+
+**Watch for this after ANY edit to a calc that a metric points at.** Changing an expression from
+`SUM(IF … END)` to a bare row-level form (e.g. while chasing a `dataType` change) silently breaks
+every metric built on it.
+
 ### Metrics cannot be hidden, only deleted
 There is no `isVisible` on a metric. Deletion does work.
+
+### A metric cannot slice below its measure's grain
+An opportunity-grain measure (`SUM(Opportunity.Amount)`) broken down by a **product** dimension
+counts each deal once per product family it touches. CONFIRMED live: a bookings-by-product-family
+answer returned **1,062.92M against a true 393.87M (2.7x)**, and got the ranking wrong too. Same
+metric sliced by account or region is fine, because those sit *above* the grain.
+
+Fix: build a second measure at the **finest** grain and point product questions at it.
+```
+opportunity grain:  SUM(IF [Opp].[IsWon] then [Opp].[Amount] ELSE 0 END)
+line grain:         SUM(IF [Opp].[IsWon] then [OpportunityLineItem].[NetRevenue] ELSE 0 END)
+```
+Identical totals when the parent amount equals the sum of its lines (verify this first), but the line
+version decomposes exactly. **The self-check to give the agent, and to use yourself: a breakdown must
+add up to the same total as the whole.** If the parts exceed the whole, the measure was taken at the
+wrong level.
 
 ### Metric filters work, and can reference a calculated dimension
 GUI-seed one to get the shape, then replicate. Confirmed working:
