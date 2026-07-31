@@ -118,11 +118,48 @@ and use the real `apiName` of each field. Objects are also referenced by apiName
 
 ### 2. Formula syntax (verified)
 - Reference fields as `[Object_ApiName].[Field_ApiName]` (underscores, not display names).
-- Conditionals: `IF <cond> then <a> ELSE <b> END` (lowercase `then`, uppercase `ELSE`/`END`).
-- String literals in double quotes (escape as `\"` in JSON).
-- Functions seen working: `SUM`, `COUNTD`, `count`, arithmetic `/`, comparisons.
-- Measures: `"aggregationType": "UserAgg"` (server sets `level: AggregateFunction`).
-  Dimensions get `level: Row`.
+- Conditionals: `IF <cond> then <a> ELSE <b> END`. Lowercase `then` works and so does **uppercase
+  `THEN`** — both deploy.
+- String literals in **double OR single quotes** (`= "ICE"` and `= 'New Customer'` both work).
+  Escape doubles as `\"` in JSON.
+- Operators confirmed: `AND`, `OR`, `NOT`, comparisons, arithmetic `/`.
+- Functions confirmed: `SUM`, `AVG`, `COUNTD`, `count`, `ISNULL()`.
+- Literals confirmed: `TRUE`, `FALSE`, and **`NULL`**.
+- Measures: `"aggregationType": "UserAgg"` with `level: AggregateFunction` when the expression
+  already contains the aggregate. Row-level 1/0 flags instead use `level: Row` +
+  `aggregationType: "Sum"` and let the platform sum them. Dimensions get `level: Row`.
+
+**`COUNTD` accepts a conditional, and you often NEED it.** To count entities rather than rows:
+```
+COUNTD(IF [Opportunity_csv1].[IsWon1] then [Opportunity_csv1].[OpportunityId1] ELSE NULL END)
+```
+`SUM(IF … then 1 ELSE 0 END)` looks equivalent but counts at whatever grain the query lands on, so an
+opportunity with 3 line items counts 3x. Use `COUNTD` on the entity key for any "how many deals"
+denominator (win rate, average deal size).
+
+**LOD expressions work**, with `"level": "Lod"`:
+```
+{ FIXED [Account_csv1].[AccountName1] : IF SUM(IF [Opportunity_csv1].[IsWon1] THEN 1 ELSE 0 END) > 0 THEN TRUE ELSE FALSE END }
+```
+Check the FIXED key is actually unique in the data first, or groups silently collapse.
+
+**Calcs can reference other calcs, in both directions** — a calculated dimension can read a
+calculated measure's flag, and a calculated measure can read that dimension. Reference them by bare
+apiName with no table qualifier: `[gen_ai_Customer_Status_Label_clc] = 'New Customer'`.
+
+**Scope measures inside the formula, not by hope.** A measure over a field that is only populated
+for some rows will be silently diluted. Example: `AVG(Gold.SalesCycleDays)` returned 98 days instead
+of 163, because sales cycle is 0 on every open deal. Either add `IF <scope> then … ELSE NULL END`
+or put a filter on the metric.
+
+### 2b. `sentiment` — the enum is `UpIsBad`, not `DownIsGood`
+For "lower is better" measures set `"sentiment": "SentimentTypeUpIsBad"`. The obvious guess
+`SentimentTypeDownIsGood` is **wrong** and would fail the whole atomic deploy. `directionality` is a
+separate property and stays `"Up"`.
+
+**Raw measure fields support `sentiment` too**, not just calcs — the key is simply **absent until
+set**. General lesson for this platform: *an absent key does not mean an unsupported key.* Don't
+conclude a property is unavailable from inspecting an object that has never had it set.
 
 ### 3. The `%` literal breaks the parser
 `[Discount2] > 15%` fails with `Syntax Error - no viable alternative at input 'then'`.
@@ -288,6 +325,61 @@ Business Synonyms tab and a Relationships tab):
    validate → deploy → retrieve. Excel may lock the source file — copy it to a scratch dir
    before reading with openpyxl (`PermissionError [Errno 13]` = it's open in Excel).
 
+## Metrics (metrics.json) — CONFIRMED 2026-07-31
+
+`measurementReference` has **two forms**. Point at one of your calcs, or straight at a raw column:
+```jsonc
+"measurementReference": { "calculatedFieldApiName": "BookingsAmount" }
+"measurementReference": { "tableFieldReference": { "tableApiName": "OpportunityLineItem_csv",
+                                                   "fieldApiName": "NetRevenue" } }
+```
+Time role is `timeDimensionReference` (same `tableFieldReference` shape) + `timeGrains`. Polarity is
+`insightsSettings.sentiment`. Allowed slices go in `additionalDimensions` **and must be mirrored in
+`insightsSettings.insightsDimensionsReferences`** — if insights misbehave, check those two lists
+haven't diverged. The platform appends `_mtc` to the apiName. There is **no display-format property**,
+so a rate metric returns `0.309` not `30.9%`; say so in the description and format at the viz layer.
+
+### The apiName is minted from the label at creation and NEVER updates
+Rename a metric and the apiName keeps the old name forever. Seen live: `Revenue_mtc` displaying
+"Net Revenue", `of_Customers_mtc` displaying "# of New Customers". **To rename a metric meaningfully,
+DELETE and RECREATE it** rather than relabel. The only thing rewriting buys is preserving the metric
+`id` for existing dashboard references, which is worth little (see the dashboard cache gotcha below).
+Same hazard applies to calcs: `New_Customers_clc_1` is labelled "Existing Customers".
+
+### Metrics cannot be hidden, only deleted
+There is no `isVisible` on a metric. Deletion does work.
+
+### Metric filters work, and can reference a calculated dimension
+GUI-seed one to get the shape, then replicate. Confirmed working:
+```jsonc
+"filterLogic": "1",
+"filters": [{ "fieldName": "OpenOpportunityFlag", "operator": "Equals", "value": "TRUE", "values": [] }]
+```
+Note the **bare `fieldName` with no table qualifier** (unlike everything else in the model), and
+`"TRUE"` as an **uppercase string** against a Boolean. Multi-filter `filterLogic` syntax is still
+unverified. **Add a filter even when the calc already scopes the dollars**: a calc that contributes 0
+for out-of-scope rows leaves those rows in the population, so Top/Bottom Contributors fill up with
+zero-value records. The filter makes population match measure.
+
+### Other metric limits
+- **A geo-roled field CANNOT be a metric dimension.** `dataType: "Geo"` is rejected; metrics accept
+  only Text/Number/Boolean/Email/PhoneNumber/Url. Break down by region/territory instead. Direct
+  agent questions about state still work.
+- **Dimension count is not tightly capped** — 14 works fine (7 also works).
+- **Avoid dimensions reached through a one-to-many hop**, which fans the measure out.
+- Fill `singularNoun`/`pluralNoun` or the agent says "records".
+- Match `isCumulative` across comparable metrics. A running total beside period totals makes two
+  money metrics behave differently on a trend chart for no stated reason.
+
+### DASHBOARD GOTCHA: "Error when loading invalid metric"
+A metric created *after* a dashboard exists fails **in that dashboard only**, with
+`Error when loading invalid metric: <apiName> in dashboard!` from `analytics_dashboard/metricWidget.js`
+— while `/validate` returns `isValid: true` and the metric renders correctly both in its own
+definition dialog and in a **new** dashboard. The widget is holding a stale metric catalog. Consistent
+with `cacheKey` being just the model's own URL, which does not change when the model does.
+**Fix:** hard refresh, remove/re-add the widget, or use a new dashboard. Tell customers about this —
+the error names nothing useful and looks like a broken metric.
+
 ## Relationships (relationships.json)
 Each relationship item:
 ```json
@@ -331,6 +423,28 @@ json.dump(data, open(path,"w",encoding="utf-8"), indent=2, ensure_ascii=False, s
 open(path,"a",encoding="utf-8").write("\n")
 ```
 Then confirm the diff is purely additive (`git diff --stat`).
+
+## Inspect the org yourself, read-only, without the extension (CONFIRMED 2026-07-31)
+You do NOT need the user to retrieve in order to see what the server actually thinks. Use the CLI's
+REST passthrough, which handles auth itself:
+```bash
+sf api request rest "/services/data/v66.0/ssot/semantic/models/<modelApiName>" \
+  --target-org <alias> > model.json
+```
+Confirmed GET endpoints, all non-mutating:
+- `/ssot/semantic/models/<apiName>` — the whole model. Top-level keys are **`semanticDataObjects`**,
+  `semanticCalculatedMeasurements`, `semanticCalculatedDimensions`, `semanticMetrics`,
+  `semanticRelationships`, plus **`businessPreferences`** (the live preference text!) and `cacheKey`.
+- `/ssot/semantic/models/<apiName>/validate` → `{"isValid": true, ...}`. Validates the **server's**
+  current state, so it tells you whether a reported failure is a metadata problem at all.
+- `/ssot/semantic/models/<apiName>/metrics` and `/metrics/<metricApiName>`.
+
+Two gotchas: **redirect stdout to a file**, or the CLI's "update available" warning buries the body.
+And **do not try to hand-roll the token** — `sf org display --verbose` now redacts it (returns a
+~54-char stub that 401s). `sf api request rest` is the way.
+
+Note object fields live under **`semanticDimensions` / `semanticMeasurements`** on each object, not a
+single `fields` array. Same in the retrieved `dataObjects.json`.
 
 ## Debugging a failed deploy (e.g., "Error 400")
 The extension logs the **outgoing payload** (not the response body) to the VS Code Output
