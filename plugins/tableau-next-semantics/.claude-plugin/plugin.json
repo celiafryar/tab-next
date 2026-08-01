@@ -1,7 +1,7 @@
 ﻿{
   "name": "tableau-next-semantics",
   "description": "Pro-code toolkit for building, describing, relating, geo-roling, and deploying Tableau Next / Data 360 semantic models, plus authoring the Business Preferences that teach the agent business language. Bundles six skills.",
-  "version": "1.7.0",
+  "version": "1.7.1",
   "author": {
     "name": "Cecilia Fryar",
     "url": "https://github.com/celiafryar"

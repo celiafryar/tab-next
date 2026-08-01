@@ -332,6 +332,25 @@ Business Synonyms tab and a Relationships tab):
    validate → deploy → retrieve. Excel may lock the source file — copy it to a scratch dir
    before reading with openpyxl (`PermissionError [Errno 13]` = it's open in Excel).
 
+## DEPLOY SILENTLY DESTROYS DIMENSION HIERARCHIES (CONFIRMED 2026-07-27)
+`dimensionHierarchies.json` **cannot be deployed**. The model PUT accepts
+`semanticDimensionHierarchies`, returns `statusCode: 200`, and returns the collection **empty** — the
+hierarchy is deleted server-side with no warning anywhere in the deploy output.
+
+| Deploy attempt | Sent | Returned |
+|---|---|---|
+| with server fields (`id`, `createdBy`, dates) | 1 item | `[]` |
+| with server fields stripped | 1 item | `[]` |
+
+Stripping read-only fields does **not** help, so this is not the same rule as relationship authoring.
+Every other collection (data objects, relationships, metrics, calculated measures and dimensions)
+round-trips correctly. Verified twice on construction-sdx.
+
+**Working rule: build dimension hierarchies in the GUI as the very LAST step, after all pro-code
+deploys are done — and re-check them after any subsequent deploy.** Keep
+`dimensionHierarchies.json` in version control as the spec for what to rebuild, but treat it as
+documentation, not as something deployable.
+
 ## Metrics (metrics.json) — CONFIRMED 2026-07-31
 
 `measurementReference` has **two forms**. Point at one of your calcs, or straight at a raw column:
