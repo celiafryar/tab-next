@@ -458,6 +458,23 @@ unverified. **Add a filter even when the calc already scopes the dollars**: a ca
 for out-of-scope rows leaves those rows in the population, so Top/Bottom Contributors fill up with
 zero-value records. The filter makes population match measure.
 
+### Number format is NOT controllable from pro-code — do not try (CONFIRMED 2026-08-03)
+A metric has **18 properties and not one of them affects number display.** There is no format,
+decimalPlace, prefix, suffix or currency property on `metrics.json`.
+
+**The calc's `decimalPlace` does NOT reach the metric tile.** Tested directly: three money KPIs
+showed `832.06M / 393.87M / 343.34M` with their calcs at `decimalPlace: 2`, while two count KPIs
+showed `162 / 276` at `decimalPlace: 0`. That correlation looks conclusive and **is coincidence** —
+setting the three calcs to `1` and deploying changed nothing on the tiles. The widget simply defaults
+to two decimals for non-integers.
+
+So a metric tile's format lives entirely in the **viz layer, per widget**. Look in the dashboard's
+**widget style settings** (the same panel that holds background colour), not in the model. Tell the
+user this early rather than deploying a model change that cannot work.
+
+Useful side finding: `decimalPlace` **can** be changed on a calc that a metric depends on. The
+dependency lock is specific to `dataType`, not to properties in general.
+
 ### Other metric limits
 - **A geo-roled field CANNOT be a metric dimension.** `dataType: "Geo"` is rejected; metrics accept
   only Text/Number/Boolean/Email/PhoneNumber/Url. Break down by region/territory instead. Direct
