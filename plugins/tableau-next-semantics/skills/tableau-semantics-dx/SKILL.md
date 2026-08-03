@@ -376,9 +376,14 @@ Same hazard applies to calcs: `New_Customers_clc_1` is labelled "Existing Custom
 A metric's `aggregationType` is not cosmetic. It must agree with whether its underlying calculated
 measure **self-aggregates**:
 
+**The rule is simply: the metric's `aggregationType` must EQUAL the calc's.** (An earlier version of
+this note said "self-aggregating → UserAgg, row-level → Sum", which is narrower than the truth: an
+LOD calc carrying `Sum` needs the metric on `Sum` too, not `UserAgg`.)
+
 | calc expression | calc `level` | calc `aggregationType` | metric `aggregationType` |
 |---|---|---|---|
-| `SUM(IF … END)` or an LOD `{ FIXED … }` | `AggregateFunction` / `Lod` | `UserAgg` / `Sum` | **`UserAgg`** |
+| `SUM(IF … END)` | `AggregateFunction` | `UserAgg` | **`UserAgg`** |
+| an LOD `{ FIXED … }` | `Lod` | `Sum` | **`Sum`** |
 | a bare row-level expression, no aggregate | `Row` | `Sum` | **`Sum`** |
 
 `UserAgg` means *"the measure already aggregated itself, do not touch it."* Point a metric at a
@@ -405,6 +410,22 @@ The GUI enforces the same constraint from the other side, refusing to save with
 **Watch for this after ANY edit to a calc that a metric points at.** Changing an expression from
 `SUM(IF … END)` to a bare row-level form (e.g. while chasing a `dataType` change) silently breaks
 every metric built on it.
+
+### `UserAgg` and `isCumulative: true` are MUTUALLY EXCLUSIVE (CONFIRMED 2026-08-03)
+```
+Aggregation type: (UserAgg) can't be cumulative.
+Allowed cumulative aggregation types are: Sum, Count, CountDistinct.
+```
+So whenever you move a metric's `aggregationType` **to** `UserAgg`, you must clear `isCumulative` in
+the **same change**. This bites specifically when repointing a metric from an LOD calc (`Sum`, where
+cumulative is legal) to a `SUM(...)`-wrapped calc (`UserAgg`, where it is not).
+
+`isCumulative: false` is usually right on the merits anyway — a running total of a `COUNTD` is
+arithmetically meaningless, since distinct counts do not add across periods.
+
+**The deploy is ATOMIC, so this one property rejects the ENTIRE model update.** Nothing at all
+changes: not the metrics, not the descriptions, not the preferences. See the silent-deploy recipe
+below, because that is exactly how this presents.
 
 ### Metrics cannot be hidden, only deleted
 There is no `isVisible` on a metric. Deletion does work.
@@ -539,6 +560,47 @@ curl -sS -w "\nHTTP:%{http_code}\n" -X PUT \
 The `<modelApiName>` (e.g. `New_Semantic_Model_xxxx`) is in the deploy log's endpoint line
 and in `model.json` (`apiName`). Common 400 causes: wrong field apiName (missing suffix),
 unsupported formula syntax (`%`), malformed JSON (missing comma between items).
+
+### THE SILENT DEPLOY: it ran, it sent the right payload, and NOTHING changed
+The worst failure mode on this platform. The user deploys, sees no obvious error, refreshes, and the
+dashboard is identical. **Do not assume it wasn't run, and do not assume a stale cache.**
+
+**First, prove whether the org actually changed** — one read, no guessing:
+```bash
+sf api request rest "/services/data/v66.0/ssot/semantic/models/<model>" --target-org <alias> > now.json
+# compare lastModifiedDate against before. Unchanged = the deploy was REJECTED.
+```
+
+**Then get the error the user never saw.** The extension logs the outgoing payload but **never the
+response**, so a rejection surfaces only as a toast. Extract the logged payload and replay the PUT
+yourself:
+```powershell
+$log = Get-ChildItem "$env:APPDATA\Code\logs" -Recurse -Filter "*Semantic Layer Deploy*.log" |
+       Sort-Object LastWriteTime -Descending | Select-Object -First 1
+$lines = Get-Content $log.FullName
+# payload starts on the line after "--- Payload being sent ---" and ends before "--- API Endpoint ---"
+$start = ($lines | Select-String "Payload being sent").LineNumber      # 1-based
+$end   = ($lines | Select-String "API Endpoint").LineNumber
+[System.IO.File]::WriteAllText("$env:TEMP\replay.json",
+  ($lines[$start..($end-3)] -join "`n"), (New-Object System.Text.UTF8Encoding($false)))
+
+sf api request rest "/services/data/v66.0/ssot/semantic/models/<model>" `
+  --method PUT --body "@$env:TEMP\replay.json" --target-org <alias>
+```
+**Note the `@` prefix on `--body`.** Without it the CLI sends the literal file *path* as the body and
+you get a misleading `JSON_PARSER_ERROR: Unexpected character ('C' …)`.
+
+The replay returns the real message, e.g.:
+```
+"errorCategory": "ENTITY_NOT_VALID", "errorName": "UPDATE_ENTITY_API_NAME_ERROR"
+"message": "… caused by: Aggregation type: (UserAgg) can't be cumulative. …"
+```
+Because deploys are **atomic**, one bad property anywhere rejects the whole model, which is why
+absolutely nothing moved. Fix that property, patch the same payload, and PUT it again — that also
+completes the deploy, so there's no need to hand it back to the extension.
+
+Verified 2026-08-03: a metric left on `isCumulative: true` while moving to `UserAgg` blocked a deploy
+that also carried label, description and Business Preference changes. All of it silently did nothing.
 
 ## Reusable calc patterns
 - **Ratio measure**: `SUM([Obj].[A]) / SUM([Obj].[B])` with `UserAgg`.
