@@ -7,25 +7,30 @@
   },
   "metadata": {
     "description": "XeoMatrix skills for building Tableau Next / Data 360 semantic models as code.",
-    "version": "1.5.0"
+    "version": "2.0.0"
   },
   "plugins": [
     {
       "name": "tableau-next-semantics",
       "source": "./plugins/tableau-next-semantics",
-      "description": "Pro-code toolkit for Tableau Next semantic models: bulk descriptions, relationships and cardinality, geographic roles, Business Preferences for the AI agent, Snowflake/dbt metadata extraction, and the retrieve/validate/deploy loop.",
+      "description": "Pro-code toolkit for Tableau Next / Data 360: load CSVs as data streams and Data Lake Objects (with the load-time primary key), build semantic models over granular REST endpoints, wire up workspaces, and read visualizations and dashboards. Bundles eleven skills, including the tbx-* family.",
       "category": "data",
       "tags": [
         "agentforce",
         "data-cloud",
+        "data-stream",
         "dbt",
         "geographic-roles",
+        "ingestion",
         "pulse",
+        "rest-api",
         "semantic-model",
         "semantics-dx",
         "snowflake",
         "tableau",
-        "tableau-next"
+        "tableau-next",
+        "visualization",
+        "workspace"
       ]
     }
   ]

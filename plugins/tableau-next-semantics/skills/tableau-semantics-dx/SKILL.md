@@ -17,6 +17,28 @@ How to develop Tableau Next semantic models as code. The semantic model is retri
 from a Salesforce Data 360 org as a folder of JSON files, edited locally, validated,
 and deployed back. All steps are proven against a real Partner/OrgFarm demo org.
 
+> ## READ FIRST — the deploy mechanics in this skill are superseded (2026-08-06)
+>
+> This skill still describes the **extension-driven, folder-and-full-model-PUT** workflow. That
+> works, but it is no longer the best way, and the full PUT is genuinely dangerous: it is
+> **full state**, so any item missing from the payload is **deleted on the org**.
+>
+> **Granular per-item endpoints exist.** You can create one object, one calc, one relationship
+> without touching anything else:
+> ```bash
+> POST /ssot/semantic/models?                                # create a model (3 fields)
+> POST /ssot/semantic/models/<model>/data-objects?           # add ONE object
+> POST /ssot/semantic/models/<model>/relationships?
+> POST /ssot/semantic/models/<model>/calculated-dimensions?  # …-measurements, metrics, groupings, parameters
+> ```
+> **For mechanics — create, read, add, deploy, delete — use `tbx-semantic-model`.**
+> **For loading source data / data streams / DLOs / primary keys, use `tbx-dataobject`.**
+>
+> **What this skill is still the authority on:** formula syntax, calculated dimension and measure
+> shape, metric rules (`aggregationType` matching, grain, filters, `isCumulative`), description
+> authoring and the 255-char cap, geo roles, label hygiene, and the failure modes
+> (silent deploy, lying validator, dimension hierarchies being destroyed by deploy).
+
 ## When to use
 - Editing any file inside a retrieved `Semantic Models/<Model Name>/` folder.
 - Adding/changing calculated measures, calculated dimensions, metrics, or descriptions.
@@ -256,12 +278,125 @@ them** (this cost real time twice):
   for its real job: point it at the readable name (`AccountName1`, `ProductName`, `FullName`) so
   records name themselves legibly to the agent instead of showing an 18-char ID. CONFIRMED safe —
   pointing it at a non-key name field disturbed none of the 9 existing M:1 joins.
-- **`isPrimaryKey` is read-only AND meaningless as evidence.** It deploys without error but has no
-  effect, and it reads `false` even on a field that genuinely IS the DLO primary key. Never conclude
-  "this model has no primary keys" from it.
+- **`isPrimaryKey` is read-only AND meaningless as evidence — IN THE SEMANTIC MODEL LAYER ONLY.**
+  In `dataObjects.json` it deploys without error but has no effect, and it reads `false` even on a
+  field that genuinely IS the DLO primary key. Never conclude "this model has no primary keys" from
+  it. **But see §8b below: the same flag IS writable, and reads back correctly, one layer down at
+  the data stream.** CORRECTED 2026-08-05 — an earlier version of this note said the load-time key
+  was unreachable to code full stop, which was wrong.
 - **Fingerprint for reading key state from the files alone:** exactly one `KQ_<businessKey>` per
   object and no `uuid_temp` anywhere means the keys were assigned at load. `KQ_uuid_temp` +
-  `uuid_temp` means they were not. That is the only trace the model folder carries.
+  `uuid_temp` means they were not. That is the only trace the *model folder* carries. You no longer
+  have to rely on this fingerprint if you have org access — `GET /ssot/data-streams` reports
+  `isPrimaryKey` truthfully (§8b).
+
+### 8b. DATA STREAMS over REST — and where the load-time Primary Key is actually set
+CONFIRMED 2026-08-05 by capturing the Data Cloud "New Data Stream" wizard's own network traffic and
+then replaying it. **This closes the primary-key gap.** Everything here is the documented
+**Data 360 Connect REST API**, not Aura, so it is safe to build on.
+
+**The FULL lifecycle is REST — create, read, update, run, delete. No Aura needed except file
+staging.** All five verified live 2026-08-05/06.
+```bash
+POST   /services/data/v66.0/ssot/data-streams?                      # create stream + DLO + PK
+GET    /services/data/v66.0/ssot/data-streams?                      # list (paged, totalSize)
+GET    /services/data/v66.0/ssot/data-streams/<name>?               # one stream, full config
+PATCH  /services/data/v66.0/ssot/data-streams/<name>?               # update
+POST   /services/data/v66.0/ssot/data-streams/<name>/actions/run?   # trigger the ingest
+DELETE /services/data/v66.0/ssot/data-streams/<name>?shouldDeleteDataLakeObject=true
+GET    /services/data/v66.0/ssot/data-lake-objects?                 # DLOs
+```
+`<name>` accepts the **developer name OR the 18-char record ID**.
+`/ssot/connections` also exists (needs a valid `connectorType` param).
+
+**DELETE gotchas (all three cost time):**
+- **`shouldDeleteDataLakeObject` is REQUIRED**, not optional — omit it and you get
+  `MALFORMED_QUERY: Required request parameter missing: shouldDeleteDataLakeObject`. `false` keeps
+  the DLO and its data while dropping the pipeline; `true` is what teardown scripts want.
+- **The `sf` CLI demands `--body "@empty.json"` even on DELETE.** Without it you get
+  `SfError: No 'mode' found in 'body' entry`, which reads like a broken endpoint and is not.
+- **Delete is ASYNC.** Empty response body, then `status: DELETING`, then `ITEM_NOT_FOUND`. Poll;
+  don't assume.
+
+**THE SCHEMA IS SELF-DESCRIBING — use it instead of guessing.** This resource rejects unknown
+fields by name (`Unrecognized field "zzz"`) and names missing required ones
+(`Required request parameter missing: shouldDeleteDataLakeObject`). So you can enumerate whether a
+property exists with a throwaway `PATCH {"candidateName": null}` — "Unrecognized field" means no,
+anything else means yes. That is how `shouldDeleteDataLakeObject` was found. Note it does NOT emit
+a known-properties list, so it is a yes/no oracle per name, not a dump.
+
+**Deleting from the UI** (for reference, if you need the bulk path) is two Aura calls on
+`DataStreamDeploymentController`, both taking only `{"ids": [...]}`:
+`ACTION$getDataStreamsThatCanBeDeleted` (an eligibility PRECHECK — returns the deletable subset,
+because Data Cloud refuses to drop streams with downstream dependents; run this first before any
+bulk cleanup) then `ACTION$deleteMassDataStream`. Both are `ids` **arrays**, so the UI path is
+built for bulk. The confirmation dialog is client-side and never hits the server.
+
+**Stream FILTERS are NOT a property of this resource.** The UI offers "Set Filters" on the
+wizard's final screen, but 14 candidate names (`filters`, `filterCriteria`, `dataFilters`,
+`streamFilters`, `filterConditions`, `criteria`, `recordFilters`, `selectionCriteria`,
+`filterExpression`, `whereClause`, `dataStreamFilter`, `ingestionFilters`, `sourceFilters`,
+`filterInfo`) all came back "Unrecognized field" against a control (`label`) that was recognized.
+So filters are either nested inside an accepted object or a separate concept. **UNRESOLVED** —
+capture a UI run with Set Filters to settle it. Filters also appear to be **create-time only**:
+the record page (Fields / Details / Refresh History) exposes no filter section at all.
+
+**THE POINT — `isPrimaryKey` is WRITABLE here:**
+```jsonc
+"dataLakeObjectInfo": {
+  "name": "Bluebike_Stations__dll", "label": "Bluebike Stations",
+  "category": "OTHER",                              // OTHER | PROFILE | ENGAGEMENT
+  "dataspaceInfo": [{ "name": "default" }],
+  "fields": [
+    { "name": "id", "label": "id", "dataType": "TEXT", "isPrimaryKey": true },   // <-- the lever
+    { "name": "latitude", "label": "latitude", "dataType": "NUMBER", "isPrimaryKey": false }
+  ]
+}
+```
+It round-trips: `GET /ssot/data-streams` reports `id … isPrimaryKey: true`, and the UI's Fields tab
+shows *Field Used As: Primary Key*. So a **scripted** stream creation can assign the key that
+Many-to-One cardinality depends on — no GUI step, and no `primaryNameField` workaround.
+
+Full create body (file-upload connector):
+```jsonc
+{ "name": "Bluebike_Stations", "label": "Bluebike Stations",
+  "datastreamType": "CONNECTORSFRAMEWORK",
+  "connectorInfo": { "connectorType": "DataConnector",
+                     "connectorDetails": { "name": "UploadedFiles" } },
+  "sourceFields": [ { "name": "id", "dataType": "Text" } ],      // the FILE's headers, typos included
+  "dataLakeObjectInfo": { ... as above ... },
+  "mappings": [ { "sourceFieldLabel": "longtitude", "targetFieldName": "longitude" } ],
+  "refreshConfig": { "refreshMode": "TOTAL_REPLACE",
+                     "frequency": { "frequencyType": "None" } },
+  "advancedAttributes": { "parentDirectory": "s3://…/flup-fileUploads/dc_file_upload",
+                          "importDirectory": "<userId>/<ISO timestamp>",
+                          "fileName": "x.csv", "delimiter": ",", "fileType": "CSV" } }
+```
+
+**`mappings` renames a column on the way in.** `sourceFieldLabel` -> `targetFieldName`. A misspelled
+CSV header can be corrected in the DLO **without re-uploading the file** — the DLO column becomes
+`longitude__c` and only the lineage-side Field Name keeps the typo. Verified live.
+
+**Ingest-time decisions that CANNOT be undone later, so get them right on the first pass:**
+- **`category`** — the UI defaults to `PROFILE`. Reference/lookup data (stations, products, calendars)
+  should be **`OTHER`**. Profile is for entities in identity resolution, Engagement for timestamped
+  events. The dialog itself warns it is unchangeable after save and has billing implications.
+- **The primary key** — skip it and Data Cloud mints `uuid_temp` permanently.
+- **Data types** — inferred from the CSV. Confirm lat/long land as `NUMBER`, or geo roles won't work
+  later. A numeric-looking column can still be inferred as `TEXT` (`id` was), which is what made it
+  eligible as PK, since **PKs must be text**.
+
+**Still a gap: staging a NEW file is Aura-only so far.** `advancedAttributes` points at a CSV already
+in S3. The UI stages it via `SfDriveController/ACTION$generateSFDrivePresignedCredentials` +
+`DataStreamDeploymentController/ACTION$getSFDriveFullyQualifiedPath`, then a plain presigned
+`PUT /sfdrive/a360-prod2-<tenant>/flup-fileUploads/dc_file_upload/<userId>/<ISO ts>/<file>`. The PUT
+itself is ordinary HTTP; only the credential fetch is Aura. Alternative worth trying: the separately
+documented **Data 360 Ingestion API**, which pushes records as JSON and skips files entirely.
+
+**Method for finding any of this yourself:** the wizard is **read-only until Deploy** — roughly 35
+calls across five screens, all reads. Capture with an in-page XHR/fetch hook, one UI action at a
+time, clearing the buffer between actions. Guessing which of 300 requests mattered wastes hours;
+one-action-per-capture makes the answer obvious.
 
 ### 9. Calculated dimensions — item shape, and where they appear in the UI
 `calculatedDimensions.json` items are **leaner than measures**: no `aggregationType`, `decimalPlace`,

@@ -1,7 +1,7 @@
-﻿{
+{
   "name": "tableau-next-semantics",
-  "description": "Pro-code toolkit for building, describing, relating, geo-roling, and deploying Tableau Next / Data 360 semantic models, plus authoring the Business Preferences that teach the agent business language. Bundles six skills.",
-  "version": "1.8.1",
+  "description": "Pro-code toolkit for Tableau Next / Data 360: load CSVs as data streams and Data Lake Objects (with the load-time primary key), build semantic models over granular REST endpoints, wire up workspaces, and read visualizations and dashboards. Bundles eleven skills, including the tbx-* family.",
+  "version": "2.0.0",
   "author": {
     "name": "Cecilia Fryar",
     "url": "https://github.com/celiafryar"
@@ -12,16 +12,23 @@
     "agentforce",
     "business-preferences",
     "claude-code",
+    "dashboard",
     "data-cloud",
+    "data-lake-object",
+    "data-stream",
     "dbt",
     "geographic-roles",
+    "ingestion",
     "maps",
     "migration",
     "pulse",
+    "rest-api",
     "semantic-model",
     "semantics-dx",
     "snowflake",
     "tableau",
-    "tableau-next"
+    "tableau-next",
+    "visualization",
+    "workspace"
   ]
 }
