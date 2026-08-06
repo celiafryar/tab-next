@@ -57,6 +57,15 @@ Every one of these was catchable before load and permanent afterward. Ask, don't
   files per job) which would make ingest fully scriptable.
 - **UNION solved via Batch Data Transform (APPEND).** See `tbx-datatransform`. Still open:
   export/import round-trip of an STL definition, and creating one over REST from scratch.
+- **Transform-created DLOs have NO dataspace, and it blocks the semantic model.** A DLO produced by
+  a Batch Data Transform Output node is not a member of any data space, unlike a stream-created one
+  where `dataspaceInfo` is part of the create payload. The semantic model then refuses it:
+  *Data object "X" has no dataspace assigned. The required semantic model dataspace is "default".*
+  The DLO record page says the same in its Data Mapping panel. **No REST path found** — PATCH on
+  `/ssot/data-lake-objects/<name>` accepts only `label` and `fields`; PATCH on
+  `/ssot/data-spaces/<name>` accepts only `label` and `description`; and attaching the object to a
+  Tableau Next workspace does not assign one either. Currently a manual step (Data Cloud Setup ->
+  Data Spaces). Find the API for this — it blocks fully scripted union-to-model pipelines.
 - **DMO mapping.** Two DLOs onto one DMO is the intended union for sibling year files. Not yet
   captured. Needed so 2017 + 2018 present as one Trips table. Confirmed the semantic layer accepts
   DMOs (`dataObjectType: "Dmo"`, `*__dlm`) and can mix Dmo + Dlo in one model.
