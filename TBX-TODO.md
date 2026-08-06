@@ -12,6 +12,7 @@ the Bluebikes ingest-and-create session.
 | `tbx-workspace` | `create` / `attach` / `digest` | create + attach captured |
 | `tbx-viz` | `create` / `read` / `recreate` | objects identified, not exercised |
 | `tbx-dashboard` | TBD | **create path unsolved** |
+| `tbx-datatransform` | union/reshape DLOs | APPEND + STL format captured |
 | `tbx` | orchestrator, routes to the above | not started |
 
 Design principles agreed:
@@ -54,6 +55,8 @@ Every one of these was catchable before load and permanent afterward. Ask, don't
   `SfDriveController/ACTION$generateSFDrivePresignedCredentials` is Aura-only. Either construct the
   S3 path from the captured pattern, or switch to the **Bulk Ingestion API** (documented, up to 100
   files per job) which would make ingest fully scriptable.
+- **UNION solved via Batch Data Transform (APPEND).** See `tbx-datatransform`. Still open:
+  export/import round-trip of an STL definition, and creating one over REST from scratch.
 - **DMO mapping.** Two DLOs onto one DMO is the intended union for sibling year files. Not yet
   captured. Needed so 2017 + 2018 present as one Trips table. Confirmed the semantic layer accepts
   DMOs (`dataObjectType: "Dmo"`, `*__dlm`) and can mix Dmo + Dlo in one model.
