@@ -9,8 +9,10 @@ description: >-
 
 # tbx-workspace — create, attach, and digest Tableau Next workspaces
 
-**Status: partial.** `create` and `attach` are captured and verified. `digest` is designed but not
-yet exercised end to end. See `TBX-TODO.md`.
+**Status: all three verbs verified live 2026-08-07** (create and attach through the UI flow, digest
+over SOQL). One digest nuance learned: the GraphQL `browse(where: {AssetApiName: {eq: "<ws>"}})`
+query returns the workspace record itself, not its contents; enumerate contents with SOQL on
+`AnalyticsWorkspaceAsset` filtered by `AnalyticsWorkspaceId` (below).
 
 A workspace is a **container of references**, not copies. That is the key fact for
 recreate-in-a-new-workspace: you re-point at existing assets, you don't rebuild them.

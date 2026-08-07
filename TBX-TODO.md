@@ -9,7 +9,7 @@ the Bluebikes ingest-and-create session.
 |---|---|---|
 | `tbx-dataobject` | `prep` / `load` / `edit` / `delete` | ingest mechanics proven, skill not written |
 | `tbx-semantic-model` | `create` / `retrieve` / `deploy` / `describe` | create + granular add proven |
-| `tbx-workspace` | `create` / `attach` / `digest` | create + attach captured |
+| `tbx-workspace` | `create` / `attach` / `digest` | all three verified 2026-08-07 |
 | `tbx-viz` | `create` / `read` / `recreate` | objects identified, not exercised |
 | `tbx-dashboard` | TBD | **create path unsolved** |
 | `tbx-datatransform` | union/reshape DLOs | APPEND + STL format captured |
@@ -120,3 +120,14 @@ Every one of these was catchable before load and permanent afterward. Ask, don't
   Space `default`, and the semantic layer still accepts the DLO (2026-08-07). So an empty
   `dataspaceInfo` on the stream GET is NOT the transform-DLO "no dataspace" blocker; check the
   DLO record page or just try the model add before concluding anything.
+- **The model-port recipe is verified end to end (2026-08-07, in-org).** SDX-Opportunity ported
+  onto 5 freshly loaded TBX DLOs in `orgfarm-2c0399dee5`: granular create + object POSTs,
+  per-object field maps keyed by `dataObjectFieldName`, relationships/calcs/metrics POSTed with
+  remapped references, field props + business preferences overlaid via one full PUT from a fresh
+  GET. Result: 5 objects / 4 relationships / 10 calc dims / 29 calc measures / 6 metrics /
+  12,300-char preferences, `isValid: true`, opens in the editor, attached to a workspace with its
+  DLOs. Two source calcs were skipped because the SOURCE model carries a dangling reference
+  (`gen_ai_Account_Has_Closed_Won_Opportunity_Flag_clc`, renamed long ago) — clean that up in
+  SDX-Opportunity someday. Metric gotcha for the skill: `identifyingDimension` carries BOTH an
+  `identifierDimensionReference` and a `namingDimensionReference`; remap both or the metric POST
+  fails naming the pair.
