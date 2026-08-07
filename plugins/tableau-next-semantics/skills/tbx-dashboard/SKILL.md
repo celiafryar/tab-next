@@ -32,6 +32,22 @@ CRUD), so there is no analytics mutation either. The UI creates dashboards throu
    (framework uid and token rotate).
 3. Build dashboards in the UI as a deliberate final manual step, and script everything up to them.
 
+## `mock` — design before building
+
+Dashboards are user-led; this skill's job is to make the conversation cheap. Before any viz or
+dashboard is built, generate a **simple static HTML mock** of the proposed layout (metric tiles,
+charts, filters, rough placement), show it to the user, and iterate until they approve. Keep it
+deliberately low-fi: the mock exists to decide WHAT to build, not to look like Tableau. Then
+build only the approved items (`tbx-viz` for charts; dashboards assembled in the UI).
+
+Bake the platform limits into the mock so the discussion stays honest:
+- A metric tile's title is the metric's label; there is **no per-widget title override**.
+- Number formatting lives on the **widget**, not the metric or model.
+- Canvas widths differ per dashboard (e.g. 1200px/48col vs 1600px/96col); a label that fits one
+  overruns another.
+- Metric breakdowns accept only Text, Number, Boolean, Email, PhoneNumber, Url dimensions (no
+  geo-roled fields), and must never cross a one-to-many hop.
+
 ## `digest` — what you CAN read today
 ```bash
 # every dashboard, and the widgets on it

@@ -36,7 +36,11 @@ single-concern so a side-track doesn't cost you the rest.
    `tableau-semantics-dx`, `tableau-business-preferences`.
 5. **`tbx-workspace create` + `attach`** — attach the semantic model *and* the data objects, or the
    workspace looks empty.
-6. **`tbx-viz`**, then dashboards in the UI (create is not yet scriptable).
+6. **Mock first, then build only what the user approves.** Generate a simple static HTML mock of
+   the proposed visualizations and dashboard layout, discuss it with the user, and iterate; keep
+   it low-fi. Then `tbx-viz` for the approved charts, and dashboards in the UI (create is not yet
+   scriptable). This family's job is everything BEFORE this point: once the semantic model is
+   loaded with its definitions, visualization and dashboard design is user-led, not automated.
 
 ## Sequence B — digest an existing workspace and recreate it elsewhere
 
