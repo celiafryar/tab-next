@@ -27,8 +27,9 @@ single-concern so a side-track doesn't cost you the rest.
 
 1. **`tbx-dataobject prep`** — audit every file first. Keys, types, and category are **permanent
    after load**. Ask the user about anything that looks off; do not choose silently.
-2. **`tbx-dataobject load`** — one stream per file, then `actions/run`, then reconcile
-   `lastProcessedRecords` against `totalRecords`.
+2. **`tbx-dataobject load`** — one stream per file, then `actions/run`, then **`verify`**: rows
+   landed equals rows sent, `lastProcessedRecords` equals `totalRecords`, provenance ledger
+   printed. An HTTP 200 is not a load.
 3. **`tbx-semantic-model create`** — three fields, then `add` one object per table with
    `shouldIncludeAllFields: true`.
 4. Relationships, descriptions, calcs, metrics — `tableau-semantic-relationships`,
@@ -59,8 +60,10 @@ single-concern so a side-track doesn't cost you the rest.
 
 ## Known gaps
 - **Dashboard creation** — no supported path found. Try the Metadata API first.
-- **File staging** — `POST /ssot/data-streams` needs a CSV already staged in S3; staging a new file
-  still needs the UI. The Bulk Ingestion API is the likely fix.
+- **File staging** — `POST /ssot/data-streams` needs a CSV already staged in S3, and staging needs
+  a live Lightning session (wizard, or the proven-but-unpackaged in-page route). CLI-only ingest
+  waits on the Bulk Ingestion API: connected app, Data Cloud token exchange to the tenant's
+  `c360a` host, and an Ingestion API connector, none of which exist yet in the test orgs.
 - **Workspace create/attach are Aura**, not documented REST.
 - **Dataspace filters** fail against the `default` dataspace; likely intended for additional ones.
 

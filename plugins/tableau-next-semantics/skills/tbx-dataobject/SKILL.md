@@ -2,16 +2,18 @@
 name: tbx-dataobject
 description: >-
   Load CSV files into Salesforce Data 360 / Data Cloud as data streams and Data Lake Objects
-  entirely over REST — including the load-time Primary Key that Many-to-One relationships depend
-  on. Verbs: prep (audit files before loading), load (create + ingest), edit (what is actually
-  mutable), delete (teardown). Use when adding source data for Tableau Next, when a DLO has the
+  over REST — including the load-time Primary Key that Many-to-One relationships depend
+  on. Verbs: prep (audit files before loading), load (stage + create + ingest a new file), verify
+  (prove rows landed, not just HTTP 200), edit/rebuild (delete + recreate against the staged
+  file), delete (teardown). Use when adding source data for Tableau Next, when a DLO has the
   wrong field types or key, or when auditing CSVs before ingest. Companion to tbx-semantic-model.
 ---
 
 # tbx-dataobject — get files into Data 360 as Data Lake Objects
 
-The whole lifecycle is the documented **Data 360 Connect REST API**. No wizard, no Aura, no
-VS Code extension. Verified end to end 2026-08-06 on a Boston Bluebikes dataset.
+Everything after staging is the documented **Data 360 Connect REST API** — no VS Code extension
+at any step. Staging the file itself still needs a Lightning session (see `load`). Verified end
+to end 2026-08-06 on a Boston Bluebikes dataset.
 
 ```bash
 POST   /services/data/v66.0/ssot/data-streams?                      # create stream + DLO + PK
@@ -24,6 +26,10 @@ GET    /services/data/v66.0/ssot/data-lake-objects?
 GET    /services/data/v66.0/ssot/data-spaces?
 ```
 `<name>` accepts the **developer name OR the 18-char record ID**.
+
+**The list endpoint pages at 10 by default** and returns `totalSize` + `nextPageUrl`. A digest
+that trusts page one silently drops streams. Follow the pages (or pass `?limit=200`) and assert
+the count you collected equals `totalSize`.
 
 **Two CLI mechanics that will waste your time otherwise:**
 - **Trailing `?` on every path.** Without it this CLI generation returns `NOT_FOUND` on valid paths.
@@ -79,13 +85,25 @@ rather than picking silently.
 
 ## `load` — create the stream, DLO, and primary key
 
-**Prerequisite, and the one real gap:** `advancedAttributes` points at a CSV **already staged** in
-Data Cloud's S3 upload area. Staging a *new* file still requires the UI, because the presigned
-credential call (`SfDriveController/ACTION$generateSFDrivePresignedCredentials`) is Aura-only.
-Once a file is staged, everything below is scriptable and repeatable — including rebuilding the
-same stream with different types, with no re-upload.
+**Prerequisite: the file must already be staged in Data Cloud's S3 upload area.** The presigned
+credential call (`SfDriveController/ACTION$generateSFDrivePresignedCredentials`) is Aura-only, so
+staging needs a live Lightning session one way or another:
 
-Grab `advancedAttributes` from any stream that used the file, or from a UI-created stream.
+- **The UI wizard** (or a browser agent driving it). The file is staged the moment the wizard's
+  file picker fires, before Deploy — so a wizard run that is cancelled at Deploy still staged the
+  file. Reliable, fine for a handful of files.
+- **In-page staging** (presign + presigned PUT executed inside the Lightning page) is PROVEN live
+  (2026-08-06: 7 files, zero wizard) but deliberately NOT packaged as this skill's path: the
+  working recipe required a localhost file server plus a CSP Trusted URL in org security settings,
+  which no user of this skill should be asked to run.
+- **The Bulk Ingestion API** is the eventual CLI-only path. It is NOT reachable via
+  `sf api request rest` (it lives on `<tenant>.c360a.salesforce.com` behind a Data Cloud token
+  exchange) and needs a connected app plus an Ingestion API connector in the org. Until that is
+  stood up and verified, never claim CLI-only ingest.
+
+**A load of a NEW file must use a FRESH `importDirectory` staged for that file.** Reusing an
+`importDirectory` harvested from an existing or deleted stream is the `rebuild` operation under
+`edit` below: a legitimate repair, never proof that ingest works.
 
 ```jsonc
 POST /services/data/v66.0/ssot/data-streams?
@@ -133,6 +151,36 @@ thing Many-to-One cardinality depends on. It round-trips truthfully on GET, and 
 This flag is **inert in the semantic model layer** (`dataObjects.json`), which is why it was long
 believed unreachable to code. Two different layers, same field name, opposite behavior.
 
+## `verify` — a load is rows landed, not an HTTP code
+
+Run this after every load, and print the result. A "loaded" claim without it is worthless: a 200
+on a staging PUT proves S3 accepted an object; `success: true` on run proves the job was queued.
+Neither proves the data arrived.
+
+Pass criteria, all of them:
+1. `lastRunStatus == SUCCESS`.
+2. `totalRecords` equals the source file's row count. Count the file locally; do not trust memory
+   or a truncated smoke payload — if the transport cannot carry the whole file, that is a
+   transport failure, not a passing test.
+3. `lastProcessedRecords == totalRecords`. A shortfall means the primary key deduplicated rows,
+   and this is the ONLY signal; the run still reports SUCCESS.
+4. When the numbers matter, spot-check a value from the file's last row via the SQL API
+   (`POST /ssot/queryv2?`, DLO name, `__c` columns) to prove content landed, not just counts.
+
+Keep a **provenance ledger**, one row per file, and print it when reporting a multi-file load:
+
+```
+{file, bytes, rows, importDirectory, method: wizard | in-page | rebuild,
+ streamName, lastRunStatus, totalRecords, lastProcessedRecords}
+```
+
+The `method` column is what keeps a demo honest: it shows which loads exercised the full
+fresh-file path and which rode a previously staged file.
+
+**Fresh-file test discipline:** to prove the load path, use a file the org has never seen. Rotate
+real datasets, or rename a known-good small CSV AND change its row count, so silently reusing an
+old staged copy cannot pass criterion 2.
+
 ### Two casing conventions in one payload (easy to get wrong)
 | Where | Convention | Values seen |
 |---|---|---|
@@ -152,9 +200,11 @@ is what makes it eligible.
 Unable to update the data-stream -
 DataLakeObject Info cannot be patched for data streams created using Uploaded Files connection
 ```
-**So fixing types or the key means delete + recreate.** That is cheap: deleting a stream does NOT
-remove the staged S3 file, so you can rebuild against the same `importDirectory` with corrected
-types and never re-upload. This is the standard repair loop.
+**So fixing types or the key means `rebuild`: delete + recreate.** That is cheap: deleting a
+stream does NOT remove the staged S3 file, so you can rebuild against the same `importDirectory`
+with corrected types and never re-upload. This is the standard repair loop. Label these loads
+`rebuild` in the ledger: they prove the corrected stream definition, not the staging path, and
+must never be presented as a fresh-ingest demo.
 
 **Dataspace filters are create-time only and currently unusable on `default`.** Shape is known:
 ```jsonc

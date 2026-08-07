@@ -386,12 +386,15 @@ CSV header can be corrected in the DLO **without re-uploading the file** — the
   later. A numeric-looking column can still be inferred as `TEXT` (`id` was), which is what made it
   eligible as PK, since **PKs must be text**.
 
-**Still a gap: staging a NEW file is Aura-only so far.** `advancedAttributes` points at a CSV already
+**Staging a NEW file needs a live Lightning session.** `advancedAttributes` points at a CSV already
 in S3. The UI stages it via `SfDriveController/ACTION$generateSFDrivePresignedCredentials` +
 `DataStreamDeploymentController/ACTION$getSFDriveFullyQualifiedPath`, then a plain presigned
 `PUT /sfdrive/a360-prod2-<tenant>/flup-fileUploads/dc_file_upload/<userId>/<ISO ts>/<file>`. The PUT
-itself is ordinary HTTP; only the credential fetch is Aura. Alternative worth trying: the separately
-documented **Data 360 Ingestion API**, which pushes records as JSON and skips files entirely.
+itself is ordinary HTTP; only the credential fetch is Aura. In-page staging (presign + PUT run
+inside the page) was proven live 2026-08-06 but is not packaged as a skill path; see
+`tbx-dataobject load` for the current staging options and the honest-verification rules. The
+**Bulk Ingestion API** is the eventual CLI-only route, but it lives on the tenant's `c360a` host
+behind a Data Cloud token exchange and needs a connected app plus an Ingestion API connector.
 
 **Method for finding any of this yourself:** the wizard is **read-only until Deploy** — roughly 35
 calls across five screens, all reads. Capture with an in-page XHR/fetch hook, one UI action at a
