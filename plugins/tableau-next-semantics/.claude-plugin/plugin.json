@@ -1,6 +1,6 @@
 {
   "name": "tableau-next-semantics",
-  "description": "Pro-code toolkit for Tableau Next / Data 360: load CSVs as data streams and Data Lake Objects (with the load-time primary key), build semantic models over granular REST endpoints, wire up workspaces, and read visualizations and dashboards. Bundles eleven skills, including the tbx-* family.",
+  "description": "Pro-code toolkit for Tableau Next / Data 360: load CSVs as data streams and Data Lake Objects (with the load-time primary key), build semantic models over granular REST endpoints, wire up workspaces, and read visualizations and dashboards. Bundles thirteen skills, including the tbx-* family.",
   "version": "2.1.0",
   "author": {
     "name": "Cecilia Fryar",
