@@ -107,6 +107,28 @@ staging needs a live Lightning session one way or another:
 `importDirectory` harvested from an existing or deleted stream is the `rebuild` operation under
 `edit` below: a legitimate repair, never proof that ingest works.
 
+### How to present this limitation to the user (read this before promising anything)
+
+Do not open with "this can't be automated." The honest framing, which is also the gentle one:
+
+> "Everything about your load is scripted except one step: getting each new file into
+> Data Cloud's staging area needs a browser session. I can drive that step for you if browser
+> automation is available, or walk you through the wizard's first screen; either way it is
+> about a minute per file, and every retry after that (wrong types, wrong key) is free, with
+> no re-upload."
+
+Practical workarounds, in order of preference:
+1. **Browser automation available** (Claude in Chrome or similar): drive the wizard yourself —
+   upload the file, set label, category, and primary key, deploy, then `verify` over REST.
+   Verified live 2026-08-07, five files in one session.
+2. **No browser automation**: have the user run just the wizard upload (or even start it and
+   cancel at Deploy — the file stages the moment the picker fires), then take over: create or
+   rebuild the stream over REST against the staged file and `verify`.
+3. **The permanent fix** is org configuration the user must authorize: stand up the
+   **Bulk Ingestion API** (a connected app, a Data Cloud token exchange to the tenant's
+   `c360a` host, and an Ingestion API connector). Offer it when a customer needs recurring,
+   fully headless ingest; until it is stood up and verified, never claim CLI-only ingest.
+
 ```jsonc
 POST /services/data/v66.0/ssot/data-streams?
 {
