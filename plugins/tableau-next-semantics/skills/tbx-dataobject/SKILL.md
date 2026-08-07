@@ -13,7 +13,9 @@ description: >-
 
 Everything after staging is the documented **Data 360 Connect REST API** — no VS Code extension
 at any step. Staging the file itself still needs a Lightning session (see `load`). Verified end
-to end 2026-08-06 on a Boston Bluebikes dataset.
+to end 2026-08-06 on a Boston Bluebikes dataset, and re-verified 2026-08-07 with the full honest
+loop on a fresh never-seen file: wizard-staged, `verify` passed all criteria (11/11 rows, PK
+round-trip, SQL spot-check), model built over it via REST, then torn down clean.
 
 ```bash
 POST   /services/data/v66.0/ssot/data-streams?                      # create stream + DLO + PK

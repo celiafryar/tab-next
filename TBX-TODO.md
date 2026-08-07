@@ -80,13 +80,14 @@ Every one of these was catchable before load and permanent afterward. Ask, don't
   disabled even though the lookup returns 116 DLOs including valid targets. Possibly enabled for
   other connector types.
 - **`markup://aura:noAccess` on a REST-built model in the Tableau Next editor (observed
-  2026-08-06, cleared by 2026-08-07 unexplained).** The migrated model validated clean, matched
-  its source on every count, and still refused to open in the editor; ownership,
+  2026-08-06, cleared unexplained; re-test 2026-08-07 PASSED).** The migrated model validated
+  clean, matched its source on every count, and still refused to open in the editor; ownership,
   `sourceCreation`, and permission sets (`CDPAdmin`, `TableauEinsteinAdmin`) were all ruled out.
-  It later opened without any identified change. Untested hypothesis: a model that spends time in
-  a state that never occurs naturally (objects present, zero relationships/calcs) trips something
-  cached. Re-test on the next REST-built model, and treat "opens in the editor" as part of
-  migration verification until understood.
+  It later opened without any identified change. Re-test 2026-08-07 in `orgfarm-2c0399dee5`: a
+  fresh REST-built model (`TBX_Verify_Model`, one object added via granular POST, no
+  relationships) opened cleanly in the editor on first try. The failure does not reproduce; the
+  cause was never identified. Keep "opens in the editor" in the migration verification checklist,
+  and delete this entry if the next migration also opens clean.
 
 ## Housekeeping owed in `platform-efficiency-2400` (from the 2026-08-06 migration session)
 
@@ -115,3 +116,7 @@ Every one of these was catchable before load and permanent afterward. Ask, don't
 - **The semantic model sub-resources accept POST**, so single items can be created without a
   full-model PUT. This removes the "deploy from a stale read destroys someone else's work" hazard
   that motivated the whole investigation.
+- **A wizard-created stream can GET back `dataspaceInfo: []`** while its record page shows Data
+  Space `default`, and the semantic layer still accepts the DLO (2026-08-07). So an empty
+  `dataspaceInfo` on the stream GET is NOT the transform-DLO "no dataspace" blocker; check the
+  DLO record page or just try the model add before concluding anything.
