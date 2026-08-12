@@ -28,8 +28,19 @@ aura://AnalyticsController/ACTION$createWorkspace
 Two fields. The API name is derived server-side from the label (`Boston Bluebikes` ->
 `Boston_Bluebikes`) and becomes the URL: `/tableau/workspace/Boston_Bluebikes`.
 
-**Caveat: this is Aura, not a documented API.** Treat it as evidence of what the UI does. No REST
-equivalent has been found yet — `AnalyticsWorkspace` is `createable: false` on the sObject API.
+**Caveat: this is Aura, not a documented API.** Treat it as evidence of what the UI does. There is no
+REST equivalent, and `AnalyticsWorkspace` is `createable: false` on the sObject API.
+
+**But there is a supported path worth trying first (added 2026-08-12).** `AnalyticsWorkspace` is a
+Metadata API type, suffix `.uawork`, directory `analyticsWorkspaces/`. Retrieve is verified, with 19
+workspaces coming back cleanly from `orgfarm-2c0399dee5`, which means a workspace can at minimum be
+versioned and diffed as a file. Deploy has **not** been tested. Same lesson as `tbx-viz` and
+`tbx-dashboard`: an sObject describe saying `createable: false` says nothing about the Metadata API,
+so check `sf org list metadata-types` before concluding a thing cannot be written.
+
+```bash
+sf project retrieve start -m "AnalyticsWorkspace:<ApiName>" -o <alias>
+```
 
 ## `attach`
 
@@ -78,8 +89,8 @@ all five.
 |---|---|---|
 | Data streams / DLOs | `POST /ssot/data-streams` | documented REST ✓ (`tbx-dataobject`) |
 | Semantic model | `POST /ssot/semantic/models` + sub-resources | documented REST ✓ (`tbx-semantic-model`) |
-| Workspace + asset links | `AnalyticsController` Aura | **undocumented** |
-| Visualization | `AnalyticsVisualization` sObject | documented sObject API ✓ (`tbx-viz`) |
-| Dashboard | none found | **unsolved** (`tbx-dashboard`) |
+| Workspace + asset links | `AnalyticsController` Aura for create/attach; `.uawork` metadata retrieves | **undocumented for create**, retrieve supported |
+| Visualization | `.uaviz` metadata, or the `AnalyticsVisualization` sObject | documented ✓ (`tbx-viz`) |
+| Dashboard | `.uadash` metadata | validated, not yet performed (`tbx-dashboard`) |
 
 Related: `tbx-dataobject`, `tbx-semantic-model`, `tbx-viz`, `tbx-dashboard`.

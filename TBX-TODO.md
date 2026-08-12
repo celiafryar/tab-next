@@ -10,8 +10,8 @@ the Bluebikes ingest-and-create session.
 | `tbx-dataobject` | `prep` / `load` / `edit` / `delete` | ingest mechanics proven, skill not written |
 | `tbx-semantic-model` | `create` / `retrieve` / `deploy` / `describe` | create + granular add proven |
 | `tbx-workspace` | `create` / `attach` / `digest` | all three verified 2026-08-07 |
-| `tbx-viz` | `create` / `read` / `recreate` | objects identified, not exercised |
-| `tbx-dashboard` | TBD | **create path unsolved** |
+| `tbx-viz` | `create` / `read` / `recreate` | read verified via `.uaviz` metadata; create not exercised |
+| `tbx-dashboard` | `digest` / `create` | retrieve verified; create validated, not performed |
 | `tbx-datatransform` | union/reshape DLOs | APPEND + STL format captured |
 | `tbx` | orchestrator, routes to the above | not started |
 
@@ -43,9 +43,15 @@ Every one of these was catchable before load and permanent afterward. Ask, don't
 
 ## Unsolved / needs investigation
 
-- **Dashboard creation.** `AnalyticsDashboard` and every `*WidgetDef` are `createable: false` on the
-  sObject API. UI uses `AnalyticsController` Aura actions. Check whether the **Metadata API** has a
-  dashboard type, which would give a supported path.
+- **Dashboard creation. RESOLVED IN PART 2026-08-12.** The sObject layer is read-only
+  (`AnalyticsDashboard` and every `*WidgetDef` are `createable: false`), but the **Metadata API has a
+  dashboard type**: `AnalyticsDashboard`, suffix `.uadash`. All 24 dashboards in `orgfarm-2c0399dee5`
+  retrieved with full widget lists and grid geometry, and a `--dry-run` deploy of a new developer
+  name returned `State: Created`. **Still open:** deploy one for real into a throwaway workspace and
+  confirm it opens with every widget rendering. Same correction applied to `AnalyticsVisualization`
+  (`.uaviz`) and `AnalyticsWorkspace` (`.uawork`), both of which also retrieve.
+- **The general lesson.** An sObject describe reporting `createable: false` says nothing about the
+  Metadata API. Run `sf org list metadata-types` before recording anything as unwritable.
 - **Dataspace filters.** Shape is known (see the ingest notes) but creating one against the
   `default` dataspace fails with `Unable to create data space member`, via both UI and REST, and
   `dataLakeObjectInfo` cannot be PATCHed for Uploaded Files streams. Hypothesis: filters are meant
