@@ -191,6 +191,31 @@ Pass criteria, all of them:
 4. When the numbers matter, spot-check a value from the file's last row via the SQL API
    (`POST /ssot/queryv2?`, DLO name, `__c` columns) to prove content landed, not just counts.
 
+### A wizard deploy does NOT reliably trigger the first ingest
+
+**Observed 2026-08-13, namespaced Dev Edition scratch org, 10 files loaded back to back through the
+UI wizard: 6 auto-ran on Deploy, 4 did not.** The four sat at `lastRunStatus: NONE` with
+`status: ACTIVE`, `isEnabled: true`, and `isDataStreamConfigValid: true`. Nothing in the wizard
+reported an error, and the Data Streams list view showed them as Active, indistinguishable at a
+glance from the six that worked. Their `advancedAttributes` were identical in shape to the working
+ones, each with its own fresh `importDirectory`, so the files were staged correctly. The ingest
+simply never fired. Same org, same session, same wizard path, different outcome per file.
+
+**So `lastRunStatus: NONE` is a normal post-deploy state, not a failure.** Check it on every stream
+after a wizard load and fire the run yourself where it is `NONE`:
+
+```bash
+POST /services/data/v66.0/ssot/data-streams/<name>/actions/run?
+```
+
+The response is `{"errors": [], "success": true}`, and the status moves `NONE` -> `PENDING` ->
+`SUCCESS`. Re-poll rather than assuming, because `PENDING` can persist for minutes on small files.
+
+**Why this matters more than it looks:** an unverified multi-file load in this state leaves empty
+tables behind a healthy-looking UI. The failure surfaces much later, at the semantic model or the
+first dashboard query, where it reads as a modeling problem rather than a load problem. This is the
+single cheapest reason to run `verify` on every file rather than sampling.
+
 Keep a **provenance ledger**, one row per file, and print it when reporting a multi-file load:
 
 ```
