@@ -191,30 +191,37 @@ Pass criteria, all of them:
 4. When the numbers matter, spot-check a value from the file's last row via the SQL API
    (`POST /ssot/queryv2?`, DLO name, `__c` columns) to prove content landed, not just counts.
 
-### A wizard deploy does NOT reliably trigger the first ingest
+### The first ingest can lag well behind the wizard's Deploy
 
 **Observed 2026-08-13, namespaced Dev Edition scratch org, 10 files loaded back to back through the
-UI wizard: 6 auto-ran on Deploy, 4 did not.** The four sat at `lastRunStatus: NONE` with
-`status: ACTIVE`, `isEnabled: true`, and `isDataStreamConfigValid: true`. Nothing in the wizard
-reported an error, and the Data Streams list view showed them as Active, indistinguishable at a
-glance from the six that worked. Their `advancedAttributes` were identical in shape to the working
-ones, each with its own fresh `importDirectory`, so the files were staged correctly. The ingest
-simply never fired. Same org, same session, same wizard path, different outcome per file.
+UI wizard.** Six reached `lastRunStatus: SUCCESS` within about a minute. The other four sat at
+`lastRunStatus: NONE` for at least two and a half minutes, with `status: ACTIVE`, `isEnabled: true`,
+and `isDataStreamConfigValid: true`. Nothing in the wizard reported an error, and the list view
+showed them as Active, indistinguishable at a glance from the six that had finished. Their
+`advancedAttributes` matched the working streams in shape, each with its own fresh
+`importDirectory`, so staging was fine. All ten eventually verified, 9,027 rows, every count exact.
 
-**So `lastRunStatus: NONE` is a normal post-deploy state, not a failure.** Check it on every stream
-after a wizard load and fire the run yourself where it is `NONE`:
+**What is NOT established:** whether those four would have started on their own. `actions/run` was
+fired on them at roughly the 2.5 minute mark, so the natural behavior was never observed to
+completion. Do not repeat the earlier claim in this skill that the wizard "does not fire the
+ingest" — that was overstated from a run where the experiment had already been contaminated.
+
+**The safe reading:** `lastRunStatus: NONE` shortly after a wizard Deploy is not evidence of
+failure. Wait and re-poll before intervening. If it persists well beyond the time comparable files
+took, firing the run is harmless:
 
 ```bash
 POST /services/data/v66.0/ssot/data-streams/<name>/actions/run?
 ```
 
-The response is `{"errors": [], "success": true}`, and the status moves `NONE` -> `PENDING` ->
-`SUCCESS`. Re-poll rather than assuming, because `PENDING` can persist for minutes on small files.
+The response is `{"errors": [], "success": true}` and the status moves `NONE` -> `PENDING` ->
+`SUCCESS`. `PENDING` can persist for minutes even on a 75 row file, so ingest time tracks queueing,
+not file size. Re-poll to a terminal state rather than assuming either way.
 
-**Why this matters more than it looks:** an unverified multi-file load in this state leaves empty
-tables behind a healthy-looking UI. The failure surfaces much later, at the semantic model or the
-first dashboard query, where it reads as a modeling problem rather than a load problem. This is the
-single cheapest reason to run `verify` on every file rather than sampling.
+**Why this belongs under verify:** whatever the cause, a multi-file load can sit in a state where
+some tables are empty while the UI looks entirely healthy. That failure surfaces much later, at the
+semantic model or the first dashboard query, where it reads as a modeling problem rather than a load
+problem. Poll every stream to `SUCCESS` with matching counts before declaring a load done.
 
 Keep a **provenance ledger**, one row per file, and print it when reporting a multi-file load:
 
