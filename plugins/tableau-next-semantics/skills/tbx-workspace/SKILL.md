@@ -54,8 +54,65 @@ aura://AnalyticsController/ACTION$batchCreateWorkspaceAsset
       "assetUsageType": "Referenced" }
   ]}}
 ```
-Bulk-native — one call attaches many assets. `assetUsageType: "Referenced"` confirms the
-pointer-not-copy model.
+Bulk-native — one call attaches many assets.
+
+### Documented REST alternative (verified 2026-08-14)
+
+There is a REST path that does not need Aura:
+
+```
+POST /services/data/v67.0/tableau/workspaces/<apiName-or-id>/assets?
+{ "assetId": "<RECORD ID>", "assetType": "AnalyticsVisualization", "assetUsageType": "Created" }
+```
+
+**All three fields are required.** Omitting `assetUsageType` returns `MISSING_PARAM` with no hint as
+to which parameter is missing. `assetId` must be the **record Id** (`1AK…`, `2SM…`), not the api
+name; an api name is silently rejected as a missing parameter too.
+
+`DELETE /services/data/v67.0/tableau/workspaces/<ws>/assets/<assetId>?` removes a row. `PATCH` is not
+allowed on the collection, and the item path rejects a body.
+
+### ‼️ `assetUsageType` is OWNERSHIP, not metadata. Get it wrong and assets break.
+
+| Value | Meaning |
+|---|---|
+| `Created` | The asset belongs to **this** workspace. Editable here. |
+| `Referenced` | The asset lives in **another** workspace and is only borrowed. **Read-only here.** |
+
+**Use `Created` for anything you deployed or created into this workspace** — visualizations,
+dashboards, semantic models. **Only Data Lake Objects should be `Referenced`**, because they
+genuinely do live elsewhere, in Data Cloud.
+
+Attaching a visualization or semantic model as `Referenced` produces three symptoms that look like
+unrelated platform faults, and cost a real debugging session on 2026-08-14:
+
+- Browse shows the asset's workspace as **"Restricted Workspace"** instead of its name
+- Opening it to edit pops an **asset-not-found** message
+- The visualization builder fails with **"Couldn't load workspace assets"** at
+  `getWorkspaceSemanticAsset`, which manifests as a **map losing its background**
+
+All three cleared instantly when the rows were converted to `Created`.
+
+**There is no update path.** Re-POSTing with a different `assetUsageType` returns `ACCEPTED` and
+changes nothing, which is the trap — it looks like it worked. To convert, `DELETE` the row and
+re-`POST` it:
+
+```python
+nb.rest('%s/%s?' % (W, asset_id), 'DELETE', {})
+nb.rest(W + '?', 'POST', {"assetId": asset_id, "assetType": t, "assetUsageType": "Created"})
+```
+
+### Deploying an asset does NOT attach it to its workspace
+
+A `.uaviz` / `.uadash` deploy sets `AnalyticsWorkspaceId` on the record, so SOQL makes it look
+attached. **The workspace page reads a separate asset registry**, and the asset will not appear there
+until you POST it as above. Always verify with
+`GET /services/data/v67.0/tableau/workspaces/<ws>/assets?` after a deploy, not with SOQL.
+
+### Deleting a workspace needs the Metadata API
+
+The sObject API returns `INSUFFICIENT_ACCESS_OR_READONLY` on `AnalyticsWorkspace` regardless of
+permissions held. Use a `destructiveChanges.xml` deploy instead — that works first time.
 
 ## `digest` — enumerate a workspace over the DOCUMENTED GraphQL endpoint
 

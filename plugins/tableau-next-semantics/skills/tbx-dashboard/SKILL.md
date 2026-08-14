@@ -5,12 +5,12 @@ description: >-
   dashboard's full widget list and grid geometry as a .uadash-meta.xml file. Use when auditing
   dashboard structure, moving a dashboard between orgs, tracing which dashboards use a metric before
   renaming it, or diagnosing widget errors. Note the sObject layer is read-only; the Metadata API is
-  the write path and a real create is validated but not yet performed.
+  the write path, but a real create FAILS on every available API (tested 2026-08-14) - build dashboards in the UI.
 ---
 
 # tbx-dashboard: read the sObjects, write the metadata
 
-**Status: digest works. Create is VALIDATED but not yet performed.** Corrected 2026-08-12; this skill
+**Status: digest works. CREATE DOES NOT WORK - proven 2026-08-14, see the create section.** Corrected 2026-08-12; this skill
 previously stated that dashboard create was unsolved. That conclusion came from looking only at the
 sObject layer.
 
@@ -48,7 +48,7 @@ port a dashboard rather than just describe it.
 
 **Verified 2026-08-12** against `orgfarm-2c0399dee5`: all 24 dashboards in the org retrieved cleanly.
 
-## `create` / `port`: validated, not yet performed
+## `create` / `port`: DOES NOT WORK
 
 A validate-only deploy of a retrieved dashboard under a **new** `DeveloperName` returns
 `State: Created`, meaning the Metadata API accepts it as a creatable component:
@@ -65,7 +65,45 @@ prove the widget references resolve. Before claiming create works:
 2. Open the dashboard in the UI and confirm every widget renders, not just that the deploy went green.
 3. Tear it down and record the result here.
 
-Until someone does that, describe this as "validated, untested" to users. Do not sell it as working.
+### ANSWERED 2026-08-14: it was performed, and it does NOT work
+
+Someone did step 1. The dry run's `State: Created` was misleading — a real deploy fails.
+
+```
+AnalyticsDashboard  Executive_Insights
+An unexpected error occurred. Please include this ErrorId if you contact support:
+  1148518231-1386  (-1759713720)
+```
+
+Tried and failed identically, same trailing code each time: remapped to the target workspace/model/
+fields; the same with stale `<workspace>` elements corrected; the same stripped of `<version>` and
+`<workspaceAssetRelationships>`. Then, to eliminate the source file entirely, **a 2.7 KB dashboard
+with zero visualization references also failed**. So it is not the content, the widgets, or the port.
+
+**The other write paths fail too:**
+
+| Path | Result |
+|---|---|
+| Metadata API `.uadash` | opaque ErrorId, even for a minimal empty dashboard |
+| `POST /services/data/v67.0/tableau/dashboards?` | `RESOURCE_CREATE_FAILURE` — *"You can't add this dashboard. Your Salesforce admin can help with that."* |
+| Tableau Next MCP server | no write capability at all; every tool is `list_*` / `get_*` / `search_assets` / `analyze_data` |
+
+The REST message is permission-shaped, but it was produced by a user holding Tableau Next Admin,
+Tableau Next Platform Analyst and Data Cloud Admin, in an org with all six service permission sets
+assigned, a valid semantic model, and **nine visualizations deployed successfully into the same
+workspace minutes earlier**. So whatever gates dashboard creation is not reachable by an
+administrator.
+
+**Tell users plainly: dashboards must be built by hand in the UI.** A dashboard can be *retrieved* as
+metadata but not deployed anywhere, so porting an accelerator between orgs means rebuilding every
+dashboard widget by widget.
+
+**What you can still do:** retrieve the source dashboard and print its layout as a build sheet —
+grid `columnCount` / `rowHeight`, then per page each widget's `row`/`column`/`colspan`/`rowspan` with
+its resolved source. Resolve widget names through the `<widgets>` blocks (`<widgetName>` plus one of
+`vizWidgetDefs` / `metricWidgetDefs` / `filterWidgetDefs` / `containerWidgetDefs`), since
+`<pageWidgets>` references them only by name via `<analyticsDashboardWidget>`. That turns a rebuild
+into transcription rather than guesswork.
 
 **Still true:** the UI itself creates dashboards through `AnalyticsController` Aura actions. Replaying
 those is undocumented and brittle (framework uid and token rotate), and is no longer needed now that
