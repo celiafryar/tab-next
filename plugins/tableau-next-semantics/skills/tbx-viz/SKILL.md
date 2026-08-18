@@ -142,6 +142,85 @@ already contains the workspace name, the data source, every field, and the full 
 **Untested end to end.** The retrieve half is verified; the deploy half has not been run. Validate
 with `--dry-run` and confirm the viz opens in the UI before telling anyone it works.
 
+
+## Changing a field label: the one easy write (verified 2026-08-18)
+
+**`AnalyticsVizField` is `updateable: true`, and so is its `Label`.** A shelf label changes
+with a single record update. No metadata deploy, no base64 round-trip, no opaque ErrorId.
+
+```bash
+sf data query -q "SELECT Id, FieldKey, Label, SemanticFieldApiName FROM AnalyticsVizField   WHERE VisualizationId IN (SELECT Id FROM AnalyticsVisualization WHERE DeveloperName='<Name>')"   -r csv -o <org>
+sf data update record -s AnalyticsVizField -i <1Hb...> -v "Label='New Label'" -o <org>
+```
+
+Given how hostile every other visualization write is, reach for this first when the change is
+only a label.
+
+## Font sizing: which key drives what (verified 2026-08-18, cost three passes)
+
+Sizes live in `visualSpecification.style.fonts`, one entry per element, each carrying `color`
+and `size`. The names mislead.
+
+| Key | What it actually sizes |
+|---|---|
+| `marks` | the mark itself |
+| `markLabels` | the value label printed **on** a mark |
+| `headers` | header cells, **including a lone discrete measure's value** |
+| `fieldLabels` | the shelf caption |
+| `axisTickLabels`, `legendLabels`, `actionableHeaders` | as named |
+
+**The trap.** On a KPI-style chart, the big number is often NOT a mark. Check the spec:
+
+```
+columns: ["F2"]              F2 is a DISCRETE measure
+rows:    []
+marks.panes.encodings: []    nothing encoded as a mark
+```
+
+A discrete measure sitting alone on a shelf with an empty pane renders its value as a
+**column header**. So `marks` and `markLabels` do nothing and **`headers` sizes the number**,
+while `fieldLabels` sizes the caption above it. Read `rows` / `columns` /
+`marks.panes.encodings` before changing a size, rather than trusting the key name.
+
+## `style.fonts` vs `stylesheet`: only one is portable
+
+| | Carries | Survives packaging? |
+|---|---|---|
+| `style.fonts` | color + size | **Yes** |
+| `stylesheet` | color + size + **weight** | **No** |
+
+`stylesheet` is what the **UI formatting panel** writes, and its presence pushes a chart past
+`assetVersion 67.0`. Such a chart reads as `DOWNGRADE_VERSION_ERROR` and is *silently dropped*
+from an App Template. **"Clear Styles" does not undo it**: the rules empty but
+`"stylesheet": {"rules": []}` remains, and the bare key still blocks. The Metadata API cannot
+repair it either, in place or as a copy; both attempts return opaque ErrorIds. **The only
+recovery is rebuilding the chart from scratch.**
+
+So: style charts by editing `style.fonts` in the JSON, never through the formatting panel.
+The cost is that **bold is unreachable**, since only `stylesheet` carries `weight`.
+
+Check any chart before shipping it:
+```bash
+sf api request rest "/services/data/v67.0/tableau/visualizations/<Name>?" -o <org>
+# DOWNGRADE_VERSION_ERROR  ->  it carries a stylesheet and will be dropped
+```
+
+## `sourceVersion` is a build stamp, not a capability level
+
+Each viz carries `sourceVersion {major, minor}` (`<version>67.13</version>` in the metadata
+file). It records **the platform build at last save**, not anything about the chart. In one
+workspace every chart saved before a cutover read 67.12 and everything after read 67.13,
+with chart type predicting nothing. A blocked chart and a dozen working ones were all 67.13,
+so **do not diagnose from the version number**; use the read check above.
+
+## Deploying a modified viz
+
+`AnalyticsVisualization` deploy **does** work, verified repeatedly 2026-08-18, for any asset
+that reads clean at 67.0. Retrieve, edit the base64 `visualSpecification`, deploy the folder.
+Use `--ignore-conflicts`, since a retrieve-then-edit always looks like a conflict. Earlier
+reports that viz deploy is broken came from assets carrying a `stylesheet`; that is the
+version ceiling, not a general defect.
+
 ## Known hazard (from prior work)
 A viz spec can get into a corrupted state that survives a revert, producing save error
 `-1665391842`. Save often, and abandon a poisoned sheet rather than fighting it.

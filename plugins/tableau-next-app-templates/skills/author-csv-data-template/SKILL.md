@@ -84,6 +84,17 @@ Full write-ups: `references/csv-data-templates-guide.md` (human on-ramp),
   physical name). It resolves even when Data Cloud suffixes the physical name to dodge a
   collision (observed: `Superstore_Orders_DLO4__dll`).
 
+- **R1a: sweep a UI-exported template for org-resident references BY NAME, not just by id.**
+  Record-id prefixes and `__dll` names are the easy half. Three consecutive Create failures
+  (2026-08-18) were each caused by a reference that is neither:
+  | Where | What | Symptom |
+  |---|---|---|
+  | `sdms/*.json` | `workspaceId`, `cacheKey` | `SemanticModelUpsert` fails `system.security.NoAccessException`. Reads like permissions; means "that record is not in this org" |
+  | `dashboards/*.json` | an image widget naming a **ContentAsset** | `DashboardUpsert` fails `RESOURCE_CREATE_FAILURE ... ContentAsset not found`. One missing image kills the WHOLE dashboard, not just the widget |
+  Strip `workspaceId` and `cacheKey` entirely; the chain already knows the workspace because
+  the SDM node runs downstream of `WorkspaceUpsert`. Compare your SDM's top-level keys against
+  a reference template's: anything extra is suspect.
+
 ### CSV / ingestion
 
 - **R2 — Dates MUST be ISO `yyyy-MM-dd` in the shipped CSV.** The datastream `format` hint
@@ -106,6 +117,24 @@ Full write-ups: `references/csv-data-templates-guide.md` (human on-ramp),
   silently returns wrong numbers if the column lands as Text, and it does not fail loudly.
   Verified live 2026-08-18 (25 rows, every aggregate exact against source).
   Confirmed working set: `Text`, `Number`, `Date`, `Boolean`.
+
+- **R11: `style.fonts` is portable, `stylesheet` is not.** Two mechanisms style a chart and
+  only one survives packaging:
+  | | Carries | Packages? |
+  |---|---|---|
+  | `style.fonts` | color + size per element | **Yes** |
+  | `stylesheet` | color + size + **weight** | **No.** Puts the chart past `assetVersion 67.0` |
+  `stylesheet` is what the **UI formatting panel** writes. A chart carrying it is *silently
+  dropped* from the bundle, and any dashboard widget pointing at it is emitted as a malformed
+  `Rules.CurrentNode` placeholder that fails `DashboardUpsert`. **"Clear Styles" does not fix
+  it**: it empties the rules and leaves `"stylesheet": {"rules": []}`, and the bare key still
+  blocks. The only recovery is rebuilding the chart from scratch. So: **never restyle a
+  template chart in the UI; edit `style.fonts` in the JSON.** Consequence: **bold is
+  unreachable** on a packageable chart, since only `stylesheet` carries `weight`.
+  Detect blocked charts with a read at 67.0; `DOWNGRADE_VERSION_ERROR` means it will be dropped:
+  ```bash
+  sf api request rest "/services/data/v67.0/tableau/visualizations/<Name>?" -o <org>
+  ```
 
 ### Chain topology
 
@@ -165,6 +194,17 @@ verified live 2026-08-18 against a v67.0 org. The older recipe gets three detail
   order. Zip them and you will mislabel every column.
 - If a `DataStreamRun` fails fast (~120 s, 0 rows), suspect **R2 (dates)** first, because the real
   error is only in Data Cloud's Refresh History UX.
+- **V4: a metadata-deployed template is INVISIBLE in the Tableau Next Templates UI.**
+  `/tableau/template/<Name>` shows "Your template is empty" and Add Resources fails with
+  "Unable to find the template source app id". The page resolves through
+  `applicationSourceId`, which is **null** for anything deployed as metadata and only set when
+  a template is authored in the UI from an app. Confirmed by contrast: a UI-authored template
+  with **18** templated assets renders, while a metadata-deployed one with **38** shows empty.
+  The template still works; Create reads the bundle directly. Warn users, they will think the
+  package is broken.
+- **V5: `chainDefinitions[].name` must be `null`**, never the chain's real name, or create-app
+  fails `CHAINNOTFOUND`. A registered `dominoChainId` does NOT prove the chain is runnable;
+  only a successful create-app does.
 - **Cleanup is incomplete by design.** `DELETE /app-framework/apps/<id>?` (with a `--body`
   file, even on DELETE) removes the app's *assets*, streams and DLOs go, but the app record
   itself persists in the list, and a `destructiveChanges.xml` for the
@@ -178,6 +218,9 @@ verified live 2026-08-18 against a v67.0 org. The older recipe gets three detail
 - [ ] Boolean columns declared `Boolean` on BOTH sourceFields and dataLakeObjectInfo.fields (R4a)
 - [ ] Each `DataStreamRun` sources only its own upsert; no barrier (R5)
 - [ ] SDM depends on all runs (R6); optional branches fully conditioned (R7)
+- [ ] Swept the WHOLE bundle for org-resident names, not just ids and __dll (R1a)
+- [ ] No chart carries a `stylesheet` key; every one reads clean at 67.0 (R11)
+- [ ] `chainDefinitions[].name` is null (V5)
 - [ ] `template-policy.json` present (R9)
 - [ ] Deployed whole dir; verified end-to-end in a CLEAN org (R10)
 

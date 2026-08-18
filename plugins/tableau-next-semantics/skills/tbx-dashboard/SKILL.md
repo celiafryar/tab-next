@@ -4,13 +4,15 @@ description: >-
   Read, version, and port Tableau Next dashboards through the Metadata API, which retrieves a
   dashboard's full widget list and grid geometry as a .uadash-meta.xml file. Use when auditing
   dashboard structure, moving a dashboard between orgs, tracing which dashboards use a metric before
-  renaming it, or diagnosing widget errors. Note the sObject layer is read-only; the Metadata API is
-  the write path, but a real create FAILS on every available API (tested 2026-08-14) - build dashboards in the UI.
+  renaming it, or diagnosing widget errors. Note the sObject layer is read-only. A real create FAILS on the
+  Metadata API, REST and MCP, but SUCCEEDS through an App Template Framework DashboardUpsert
+  node (verified 2026-08-18). Outside ATF, build dashboards in the UI.
 ---
 
 # tbx-dashboard: read the sObjects, write the metadata
 
-**Status: digest works. CREATE DOES NOT WORK - proven 2026-08-14, see the create section.** Corrected 2026-08-12; this skill
+**Status: digest works. Create fails on Metadata API / REST / MCP, but WORKS through the App
+Template Framework, verified 2026-08-18. See the create section.** Corrected 2026-08-12; this skill
 previously stated that dashboard create was unsolved. That conclusion came from looking only at the
 sObject layer.
 
@@ -85,8 +87,32 @@ with zero visualization references also failed**. So it is not the content, the 
 | Path | Result |
 |---|---|
 | Metadata API `.uadash` | opaque ErrorId, even for a minimal empty dashboard |
-| `POST /services/data/v67.0/tableau/dashboards?` | `RESOURCE_CREATE_FAILURE` — *"You can't add this dashboard. Your Salesforce admin can help with that."* |
+| `POST /services/data/v67.0/tableau/dashboards?` | `RESOURCE_CREATE_FAILURE`: *"You can't add this dashboard. Your Salesforce admin can help with that."* |
 | Tableau Next MCP server | no write capability at all; every tool is `list_*` / `get_*` / `search_assets` / `analyze_data` |
+| **App Template Framework `DashboardUpsert`** | **WORKS. Verified 2026-08-18** |
+
+### CORRECTION 2026-08-18: ATF is a fourth path, and it succeeds
+
+A `DashboardUpsert` node inside an App Template create chain **does** create a real dashboard,
+42 widgets across 3 pages, in an org that started empty. So "dashboard create fails on every
+API" is too strong. It fails on the three paths above; it works through ATF.
+
+ATF also returns **real, specific errors** where the others return opaque ErrorIds. A failing
+run named the offending widget outright:
+
+```
+RESOURCE_CREATE_FAILURE: You can't add this dashboard.
+Cause: [widgetName=image_1, widgetType=image]
+       ContentAsset not found with name: apexmotioncomponentsfulllogotranspa
+```
+
+**Two things worth carrying from that:**
+
+1. **An image widget references a `ContentAsset` by developer name**, a record that lives in
+   the org and not in the bundle. Ship a dashboard to another org without it and the create
+   fails. **One unresolvable image fails the ENTIRE dashboard**, not just that widget.
+2. That reference is invisible to the usual portability sweeps: it is neither a record id nor
+   a `__dll` name, just a lowercase string that looks like a label.
 
 The REST message is permission-shaped, but it was produced by a user holding Tableau Next Admin,
 Tableau Next Platform Analyst and Data Cloud Admin, in an org with all six service permission sets
@@ -94,7 +120,7 @@ assigned, a valid semantic model, and **nine visualizations deployed successfull
 workspace minutes earlier**. So whatever gates dashboard creation is not reachable by an
 administrator.
 
-**Tell users plainly: dashboards must be built by hand in the UI.** A dashboard can be *retrieved* as
+**Tell users plainly: outside of ATF, dashboards must be built by hand in the UI.** A dashboard can be *retrieved* as
 metadata but not deployed anywhere, so porting an accelerator between orgs means rebuilding every
 dashboard widget by widget.
 
