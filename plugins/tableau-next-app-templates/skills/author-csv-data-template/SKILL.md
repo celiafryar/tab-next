@@ -98,6 +98,15 @@ Full write-ups: `references/csv-data-templates-guide.md` (human on-ramp),
   columns). Name datastream fields with the clean names the SDM should bind to; don't invent
   positional names (those are manual-upload-wizard artifacts).
 
+- **R4a — `Boolean` is a valid `dataType` and survives ingestion.** Neither reference template
+  uses it, so it looks unsupported; it is not. Declared `Boolean` on both `sourceFields` and
+  `dataLakeObjectInfo.fields`, a CSV column of `true`/`false` materializes as a real DLO
+  `Boolean`, and `WHERE IsClosed__c AND NOT IsWon__c` evaluates as a predicate rather than a
+  string compare. **This matters:** a semantic model whose logic reads `IF [Obj].[Flag] THEN`
+  silently returns wrong numbers if the column lands as Text — it does not fail loudly.
+  Verified live 2026-08-18 (25 rows, every aggregate exact against source).
+  Confirmed working set: `Text`, `Number`, `Date`, `Boolean`.
+
 ### Chain topology
 
 - **R5 — Serial ingestion. Each `DataStreamRun` sources only its own `DataStreamUpsert`.**
@@ -134,21 +143,39 @@ Variable types: `BooleanType` (one per optional branch, wired to node conditions
 
 ## Headless verification (never claim done without it)
 
-See `references/FOR-CODING-AGENTS.md` for the full recipe. Essentials:
-- POST to `/services/data/vXX.0/app-framework/apps` with `templateSourceId` +
-  `templateValues`; poll `requestStatus` to `SuccessStatus` (takes MINUTES).
-- Confirm every node `CompleteStatus`; each DLO has the expected row count; a date column
-  sorts chronologically (proves real `Date`, not a silent Text fallback).
+See `references/FOR-CODING-AGENTS.md` for the narrative. The corrected mechanics, all
+verified live 2026-08-18 against a v67.0 org — the older recipe gets three details wrong:
+
+- **V1 — Every `app-framework` path needs a trailing `?`.** Without it the endpoint returns
+  `NOT_FOUND` and reads as "this org doesn't have the feature." It does.
+  ```bash
+  sf api request rest "/services/data/v67.0/app-framework/templates?" -o <org>   # list; find your id
+  sf api request rest "/services/data/v67.0/app-framework/apps?" -o <org>     --method POST --body @body.json                                              # create
+  ```
+  `body.json`: `{"templateSourceId":"<1zD...>","label":"...","name":"...","templateValues":{...}}`
+- **V2 — The create response nests under `app`.** Read `d["app"]["id"]`, not `d["id"]`.
+  A top-level read returns `None` and looks like a failed create.
+- **V3 — There is no `requestStatus` on the app record.** Do not poll it; it is absent, and
+  `url` / `latestActivityUrl` / `assetUrl` come back null. **Poll the data stream instead:**
+  `GET /services/data/v67.0/ssot/data-streams/<dataLakeObject.name>?` and watch
+  `lastRunStatus` go `PENDING` -> `SUCCESS`. One stream took ~6.5 min end to end.
+- **Then verify the DATA, not the deploy.** Query the DLO over the SQL API
+  (`POST /services/data/v67.0/ssot/queryv2?`) and check row count and aggregates against the
+  source file. Note its response `metadata` key order does **not** match the `data` array
+  order — zip them and you will mislabel every column.
 - If a `DataStreamRun` fails fast (~120 s, 0 rows), suspect **R2 (dates)** first — the real
   error is only in Data Cloud's Refresh History UX.
-- Clean up test apps when done. If the target org has the Wave API disabled, use the
-  `app-framework` endpoint rather than Wave.
+- **Cleanup is incomplete by design.** `DELETE /app-framework/apps/<id>?` (with a `--body`
+  file, even on DELETE) removes the app's *assets* — streams and DLOs go — but the app record
+  itself persists in the list, and a `destructiveChanges.xml` for the
+  `AppFrameworkTemplateBundle` fails. Expect to clear the leftover shells in the UI.
 
 ## Self-check before reporting done
 
 - [ ] No hardcoded `…__dll` / physical name in shipped JSON (R1)
 - [ ] CSV dates ISO; datastream `format` matches; column typed `Date` (R2)
 - [ ] Datastream source fields camelCase `dataType` (R3)
+- [ ] Boolean columns declared `Boolean` on BOTH sourceFields and dataLakeObjectInfo.fields (R4a)
 - [ ] Each `DataStreamRun` sources only its own upsert; no barrier (R5)
 - [ ] SDM depends on all runs (R6); optional branches fully conditioned (R7)
 - [ ] `template-policy.json` present (R9)
