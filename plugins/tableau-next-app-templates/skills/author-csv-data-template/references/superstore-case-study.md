@@ -1,3 +1,8 @@
+> **Bundled reference copy.** This file ships inside the `author-csv-data-template` skill.
+> Paths have been retargeted to the skill's own `references/` folder. Sections pointing at the
+> wider aftest project (Extension Templates, `tools/`, backup files) are noted inline as not
+> included here. Original: the Salesforce aftest template pack.
+
 # Superstore Demo Template — Completeness Analysis
 
 **Goal:** bring `superstore_demo_template` up to the same "complete, self-contained app
@@ -10,7 +15,7 @@ DLOs), so the DMO + mapping + DMO-based CI portion of the CSV_Example chain does
 apply here.
 
 Analyzed 2026-08-06 against org `headless`. Both templates deploy under
-`force-app/main/default/appTemplates/`.
+`references/`.
 
 ---
 
@@ -336,7 +341,7 @@ node**:
    serial chain (Run 6) succeeds through this exact node — the **serial ordering is protective,
    not accidental**.
 
-**Decision: reverted to serial** (`docs/appTemplates/backups/superstore_create-chain.serial.bak.json`
+**Decision: reverted to serial** (`docs/appTemplates/backups/superstore_create-chain.serial.bak.json` (source project only, not bundled)
 holds the barrier variant if ever needed; the shipped `create-chain.json` is serial —
 each `run_*_stream` sources only its own upsert). Redeployed and confirmed clean.
 

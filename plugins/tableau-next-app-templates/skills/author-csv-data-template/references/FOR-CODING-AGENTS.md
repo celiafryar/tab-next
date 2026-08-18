@@ -1,17 +1,22 @@
+> **Bundled reference copy.** This file ships inside the `author-csv-data-template` skill.
+> Paths have been retargeted to the skill's own `references/` folder. Sections pointing at the
+> wider aftest project (Extension Templates, `tools/`, backup files) are noted inline as not
+> included here. Original: the Salesforce aftest template pack.
+
 # CSV Data Templates — Coding-Agent Playbook
 
-Rule-dense companion to [README.md](./README.md). Hand this to a coding agent building a
+Rule-dense companion to [csv-data-templates-guide.md](./csv-data-templates-guide.md). Hand this to a coding agent building a
 Tableau Next **CSV Data Template**: an ATF template (`templateType: App`) that ships CSV
 files and, on Create, builds a full analytics app bottom-up — CSV → Data Stream → DLO →
 (optional DMO/CI) → Semantic Model → Visualizations → Dashboard.
 
 **Reference implementations (read before writing anything):**
-- `force-app/main/default/appTemplates/CSV_Example/` — canonical, minimal, **full node
+- `references/CSV_Example/` — canonical, minimal, **full node
   menu** (incl. optional DMO + mapping + Calculated Insight). **Read-only truth — never
   modify it.** Mirror its file shapes.
-- `force-app/main/default/appTemplates/superstore_demo_template/` — realistic multi-CSV app
+- `references/superstore_demo_template/` — realistic multi-CSV app
   on **DLOs directly (no DMO path)**; the dates-gotcha survivor.
-- `docs/appTemplates/SUPERSTORE_DEMO_COMPLETENESS.md` — the full case study; cite it for any
+- `references/superstore-case-study.md` — the full case study; cite it for any
   ingestion debugging.
 
 ---
@@ -97,7 +102,7 @@ files and, on Create, builds a full analytics app bottom-up — CSV → Data Str
 ### Deploy
 
 - **D1 — Deploy the whole template directory**, e.g.
-  `sf project deploy start --source-dir force-app/main/default/appTemplates/<Name>`.
+  `sf project deploy start --source-dir <your-project>/force-app/main/default/appTemplates/<Name>`.
 
 ---
 
@@ -173,8 +178,8 @@ regardless of row count); streams run **serially**; total = ~875 s (~15 min) for
 
 | Reference | Path | When to read |
 |-----------|------|--------------|
-| **Minimal + full menu** | `appTemplates/CSV_Example/` | **Read first** — mirror shapes; never edit |
-| **Realistic, DLO-only** | `appTemplates/superstore_demo_template/` | Multi-CSV, relationships, dates-gotcha survivor |
-| Case study | `docs/appTemplates/SUPERSTORE_DEMO_COMPLETENESS.md` | Ingestion debugging, ruled-out dead-ends, timing |
-| Human on-ramp | `docs/csvDataTemplates/README.md` | To understand the pieces |
-| Extension templates | `docs/gettingStartedWithExtensionTemplates/` | The complementary "wrap a viz LWC" track |
+| **Minimal + full menu** | `references/CSV_Example/` | **Read first** — mirror shapes; never edit |
+| **Realistic, DLO-only** | `references/superstore_demo_template/` | Multi-CSV, relationships, dates-gotcha survivor |
+| Case study | `references/superstore-case-study.md` | Ingestion debugging, ruled-out dead-ends, timing |
+| Human on-ramp | `references/csv-data-templates-guide.md` | To understand the pieces |
+| Extension templates | full aftest pack (not bundled) | The complementary "wrap a viz LWC" track |

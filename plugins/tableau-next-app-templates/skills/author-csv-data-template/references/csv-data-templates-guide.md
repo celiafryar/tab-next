@@ -1,3 +1,8 @@
+> **Bundled reference copy.** This file ships inside the `author-csv-data-template` skill.
+> Paths have been retargeted to the skill's own `references/` folder. Sections pointing at the
+> wider aftest project (Extension Templates, `tools/`, backup files) are noted inline as not
+> included here. Original: the Salesforce aftest template pack.
+
 # Getting Started with Tableau Next CSV Data Templates
 
 You know analytics. You've loaded data, modeled it, and built dashboards on top. This
@@ -13,7 +18,7 @@ agent the companion doc: **[FOR-CODING-AGENTS.md](./FOR-CODING-AGENTS.md)**.
 
 > **Sibling to the Extension guide.** If you want to package a *custom visualization LWC*
 > as a configurable wizard, that's a different (and complementary) track — see
-> [`docs/gettingStartedWithExtensionTemplates/`](../gettingStartedWithExtensionTemplates/README.md).
+> `gettingStartedWithExtensionTemplates` (in the full aftest pack, not bundled with this skill).
 > This guide is about packaging *data + model + native vizzes* as an installable app.
 
 ---
@@ -60,8 +65,8 @@ Everything below cites two real, working templates:
 
 | Template | What it teaches |
 |---|---|
-| **`CSV_Example/`** | The **canonical, minimal** version. One small CSV (100 rows) → the *full* chain including the optional **DMO + mapping + Calculated Insight** path. Start here. |
-| **`superstore_demo_template/`** | The **realistic** version. Three CSVs → three streams → a model with relationships → two native vizzes + a dashboard. Uses **DLOs directly (no DMO path)**. Shows what "complete" looks like on real data, plus a hard-won lesson about dates (below). |
+| **`references/CSV_Example/`** | The **canonical, minimal** version. One small CSV (100 rows) → the *full* chain including the optional **DMO + mapping + Calculated Insight** path. Start here. |
+| **`references/superstore_demo_template/`** | The **realistic** version. Three CSVs → three streams → a model with relationships → two native vizzes + a dashboard. Uses **DLOs directly (no DMO path)**. Shows what "complete" looks like on real data, plus a hard-won lesson about dates (below). |
 
 Open both folders alongside this guide. `CSV_Example` shows the complete menu of node
 types; `superstore_demo_template` shows a production-shaped app that omits the parts it
@@ -285,7 +290,7 @@ start.
 
 > The full diagnosis (including every dead-end that was *ruled out* — size, line endings,
 > column names, data quality) lives in
-> [`docs/appTemplates/SUPERSTORE_DEMO_COMPLETENESS.md`](../appTemplates/SUPERSTORE_DEMO_COMPLETENESS.md).
+> [`superstore-case-study.md`](./superstore-case-study.md).
 > If you're debugging a stuck ingestion, read §6.1 there before guessing.
 
 ---
@@ -340,7 +345,7 @@ against it. Then:
 ```bash
 # 1. Deploy the whole template folder.
 sf project deploy start \
-  --source-dir force-app/main/default/appTemplates/CSV_Example \
+  --source-dir <your-project>/force-app/main/default/appTemplates/CSV_Example \
   --target-org <your-org-alias>
 
 # 2. In the Tableau Next app, open the template gallery, find "CSV Example Template",
@@ -361,9 +366,9 @@ companion agent doc shows the `sf api request` recipe and how to read back what 
 - **Building with a coding agent** — hand it [FOR-CODING-AGENTS.md](./FOR-CODING-AGENTS.md).
 - **The full Superstore case study** — every gap, decision, and dead-end that turned a
   one-org snapshot into a portable template:
-  [`SUPERSTORE_DEMO_COMPLETENESS.md`](../appTemplates/SUPERSTORE_DEMO_COMPLETENESS.md).
+  [`superstore-case-study.md`](./superstore-case-study.md).
 - **Packaging a custom viz LWC as a wizard instead** — the complementary
-  [Extension Templates](../gettingStartedWithExtensionTemplates/README.md) track.
+  Extension Templates (in the full aftest pack, not bundled with this skill) track.
 
 ---
 
