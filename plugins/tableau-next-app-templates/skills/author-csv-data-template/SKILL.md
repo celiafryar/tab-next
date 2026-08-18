@@ -98,12 +98,12 @@ Full write-ups: `references/csv-data-templates-guide.md` (human on-ramp),
   columns). Name datastream fields with the clean names the SDM should bind to; don't invent
   positional names (those are manual-upload-wizard artifacts).
 
-- **R4a — `Boolean` is a valid `dataType` and survives ingestion.** Neither reference template
+- **R4a: `Boolean` is a valid `dataType` and survives ingestion.** Neither reference template
   uses it, so it looks unsupported; it is not. Declared `Boolean` on both `sourceFields` and
   `dataLakeObjectInfo.fields`, a CSV column of `true`/`false` materializes as a real DLO
   `Boolean`, and `WHERE IsClosed__c AND NOT IsWon__c` evaluates as a predicate rather than a
   string compare. **This matters:** a semantic model whose logic reads `IF [Obj].[Flag] THEN`
-  silently returns wrong numbers if the column lands as Text — it does not fail loudly.
+  silently returns wrong numbers if the column lands as Text, and it does not fail loudly.
   Verified live 2026-08-18 (25 rows, every aggregate exact against source).
   Confirmed working set: `Text`, `Number`, `Date`, `Boolean`.
 
@@ -144,29 +144,29 @@ Variable types: `BooleanType` (one per optional branch, wired to node conditions
 ## Headless verification (never claim done without it)
 
 See `references/FOR-CODING-AGENTS.md` for the narrative. The corrected mechanics, all
-verified live 2026-08-18 against a v67.0 org — the older recipe gets three details wrong:
+verified live 2026-08-18 against a v67.0 org. The older recipe gets three details wrong:
 
-- **V1 — Every `app-framework` path needs a trailing `?`.** Without it the endpoint returns
+- **V1: Every `app-framework` path needs a trailing `?`.** Without it the endpoint returns
   `NOT_FOUND` and reads as "this org doesn't have the feature." It does.
   ```bash
   sf api request rest "/services/data/v67.0/app-framework/templates?" -o <org>   # list; find your id
   sf api request rest "/services/data/v67.0/app-framework/apps?" -o <org>     --method POST --body @body.json                                              # create
   ```
   `body.json`: `{"templateSourceId":"<1zD...>","label":"...","name":"...","templateValues":{...}}`
-- **V2 — The create response nests under `app`.** Read `d["app"]["id"]`, not `d["id"]`.
+- **V2: The create response nests under `app`.** Read `d["app"]["id"]`, not `d["id"]`.
   A top-level read returns `None` and looks like a failed create.
-- **V3 — There is no `requestStatus` on the app record.** Do not poll it; it is absent, and
+- **V3: There is no `requestStatus` on the app record.** Do not poll it; it is absent, and
   `url` / `latestActivityUrl` / `assetUrl` come back null. **Poll the data stream instead:**
   `GET /services/data/v67.0/ssot/data-streams/<dataLakeObject.name>?` and watch
   `lastRunStatus` go `PENDING` -> `SUCCESS`. One stream took ~6.5 min end to end.
 - **Then verify the DATA, not the deploy.** Query the DLO over the SQL API
   (`POST /services/data/v67.0/ssot/queryv2?`) and check row count and aggregates against the
   source file. Note its response `metadata` key order does **not** match the `data` array
-  order — zip them and you will mislabel every column.
-- If a `DataStreamRun` fails fast (~120 s, 0 rows), suspect **R2 (dates)** first — the real
+  order. Zip them and you will mislabel every column.
+- If a `DataStreamRun` fails fast (~120 s, 0 rows), suspect **R2 (dates)** first, because the real
   error is only in Data Cloud's Refresh History UX.
 - **Cleanup is incomplete by design.** `DELETE /app-framework/apps/<id>?` (with a `--body`
-  file, even on DELETE) removes the app's *assets* — streams and DLOs go — but the app record
+  file, even on DELETE) removes the app's *assets*, streams and DLOs go, but the app record
   itself persists in the list, and a `destructiveChanges.xml` for the
   `AppFrameworkTemplateBundle` fails. Expect to clear the leftover shells in the UI.
 
