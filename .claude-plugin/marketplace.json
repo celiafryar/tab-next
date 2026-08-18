@@ -6,14 +6,14 @@
     "email": "cfryar@xeomatrix.com"
   },
   "metadata": {
-    "description": "XeoMatrix skills for building Tableau Next / Data 360 semantic models as code.",
-    "version": "2.6.0"
+    "description": "XeoMatrix skills for Tableau Next / Data 360: build semantic models as code, then package the whole app as an installable template that ships its own data.",
+    "version": "2.7.0"
   },
   "plugins": [
     {
       "name": "tableau-next-semantics",
       "source": "./plugins/tableau-next-semantics",
-      "description": "Pro-code toolkit for Tableau Next / Data 360: load CSVs as data streams and Data Lake Objects (with the load-time primary key), build semantic models over granular REST endpoints, wire up workspaces, and read visualizations and dashboards. Bundles thirteen skills, including the tbx-* family.",
+      "description": "BUILD THE MODEL. Pro-code toolkit for Tableau Next / Data 360: load CSVs as data streams and Data Lake Objects (with the load-time primary key), build semantic models over granular REST endpoints, wire up workspaces, and read visualizations and dashboards. Bundles thirteen skills, including the tbx-* family.",
       "category": "data",
       "tags": [
         "agentforce",
@@ -31,6 +31,28 @@
         "tableau-next",
         "visualization",
         "workspace"
+      ]
+    },
+    {
+      "name": "tableau-next-app-templates",
+      "source": "./plugins/tableau-next-app-templates",
+      "description": "SHIP THE APP. Package a finished Tableau Next app as an installable App Template Framework template that carries its own CSV data. On Create it builds the whole stack bottom-up in any org — CSV to Data Stream to Data Lake Object to Semantic Model to visualizations to dashboard — with nothing pre-existing and no org-specific names baked in. Bundles the CSV_Example and superstore_demo_template references and the Superstore case study.",
+      "category": "data",
+      "tags": [
+        "app-template-framework",
+        "atf",
+        "create-chain",
+        "csv-data-template",
+        "data-cloud",
+        "data-lake-object",
+        "data-stream",
+        "distribution",
+        "ingestion",
+        "packaging",
+        "portability",
+        "tableau",
+        "tableau-next",
+        "tokenization"
       ]
     }
   ]

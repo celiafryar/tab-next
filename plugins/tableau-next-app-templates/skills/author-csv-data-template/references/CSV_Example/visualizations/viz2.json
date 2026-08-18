@@ -1,0 +1,224 @@
+{
+  "label" : "Customers Visualization Two ${Variables.LabelSuffix}",
+  "name" : "CustomersVisualizationTwo",
+  "dataSource" : {
+    "name" : "${App.SemanticModels.CustomersSemanticModel.Name}",
+    "id" : "${App.SemanticModels.CustomersSemanticModel.Id}",
+    "type" : "SemanticModel"
+  },
+  "fields": {
+    "F1": {
+      "displayCategory": "Continuous",
+      "fieldName": "Index",
+      "function": "Sum",
+      "objectName": "Customers_DMO",
+      "role": "Measure",
+      "type": "Field"
+    },
+    "F3": {
+      "displayCategory": "Discrete",
+      "fieldName": "Company",
+      "objectName": "Customers_DMO",
+      "role": "Dimension",
+      "type": "Field"
+    }
+  },
+  "interactions" : [ ],
+  "view": {
+    "label": "default",
+    "name": "New_Visualization_default",
+    "viewSpecification": {
+      "filters": [],
+      "sortOrders": {
+        "columns": [],
+        "fields": {},
+        "rows": []
+      }
+    }
+  },
+  "visualSpecification": {
+    "columns": [
+      "F3"
+    ],
+    "forecasts": {},
+    "legends": {},
+    "marks": {
+      "ALL": {
+        "encodings": [],
+        "isAutomatic": true,
+        "stack": {
+          "isAutomatic": true,
+          "isStacked": true
+        },
+        "type": "Bar"
+      }
+    },
+    "measureValues": [],
+    "mode": "Visualization",
+    "referenceLines": {},
+    "rows": [
+      "F1"
+    ],
+    "style": {
+      "allHeaders": {
+        "columns": {
+          "mergeRepeatedCells": true,
+          "showIndex": false
+        },
+        "fields": {
+          "F3": {
+            "hiddenValues": [],
+            "isVisible": true,
+            "showMissingValues": false
+          }
+        },
+        "rows": {
+          "mergeRepeatedCells": true,
+          "showIndex": false
+        }
+      },
+      "axis": {
+        "F1": {
+          "isVisible": true,
+          "isZeroLineVisible": true,
+          "range": {
+            "includeZero": true,
+            "type": "Auto"
+          },
+          "scale": {
+            "format": {
+              "numberFormatInfo": {
+                "decimalPlaces": 2,
+                "displayUnits": "Auto",
+                "includeThousandSeparator": true,
+                "negativeValuesFormat": "Auto",
+                "prefix": "",
+                "suffix": "",
+                "type": "NumberShort"
+              }
+            }
+          },
+          "ticks": {
+            "majorTicks": {
+              "type": "Auto"
+            },
+            "minorTicks": {
+              "type": "Auto"
+            }
+          }
+        }
+      },
+      "fieldLabels": {
+        "columns": {
+          "showDividerLine": false,
+          "showLabels": true
+        },
+        "rows": {
+          "showDividerLine": false,
+          "showLabels": true
+        }
+      },
+      "fit": "Standard",
+      "fonts": {
+        "actionableHeaders": {
+          "color": "#0250D9",
+          "size": 13
+        },
+        "axisTickLabels": {
+          "color": "#E60000",
+          "size": 13
+        },
+        "fieldLabels": {
+          "color": "#E60000",
+          "size": 13
+        },
+        "headers": {
+          "color": "#E60000",
+          "size": 13
+        },
+        "legendLabels": {
+          "color": "#E60000",
+          "size": 13
+        },
+        "markLabels": {
+          "color": "#E60000",
+          "size": 13
+        },
+        "marks": {
+          "color": "#E60000",
+          "size": 13
+        }
+      },
+      "lines": {
+        "axisLine": {
+          "color": "#C9C9C9"
+        },
+        "fieldLabelDividerLine": {
+          "color": "#C9C9C9"
+        },
+        "separatorLine": {
+          "color": "#C9C9C9"
+        },
+        "zeroLine": {
+          "color": "#C9C9C9"
+        }
+      },
+      "marks": {
+        "ALL": {
+          "color": {
+            "color": ""
+          },
+          "isAutomaticSize": true,
+          "label": {
+            "canOverlapLabels": false,
+            "marksToLabel": {
+              "type": "All"
+            },
+            "showMarkLabels": false
+          },
+          "range": {
+            "reverse": true
+          },
+          "size": {
+            "isAutomatic": true,
+            "type": "Percentage",
+            "value": 75
+          }
+        }
+      },
+      "panes": {
+        "F1": {
+          "defaults": {
+            "format": {
+              "numberFormatInfo": {
+                "decimalPlaces": 2,
+                "displayUnits": "Auto",
+                "includeThousandSeparator": true,
+                "negativeValuesFormat": "Auto",
+                "prefix": "",
+                "suffix": "",
+                "type": "Number"
+              }
+            }
+          }
+        }
+      },
+      "referenceLines": {},
+      "shading": {
+        "backgroundColor": "#FFFFFF",
+        "banding": {
+          "rows": {
+            "color": "#E5E5E5"
+          }
+        }
+      },
+      "showDataPlaceholder": false,
+      "title": {
+        "isVisible": true
+      }
+    }
+  },
+  "workspace" : {
+    "name" : "${App.Workspaces.CustomersWorkspace.Name}"
+  }
+}

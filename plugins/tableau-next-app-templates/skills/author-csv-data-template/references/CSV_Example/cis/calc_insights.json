@@ -1,0 +1,11 @@
+{
+    "displayName": "Customer Insight ${Variables.LabelSuffix}",
+    "apiName": "CustomerInsight",
+    "definitionType": "CALCULATED_METRIC",
+    "dataSpaceName": "default",
+    "description": null,
+    "expression": "SELECT COUNT(${App.DataModelObjects.CustomersDMO.Name}.Index__c) AS total_count__c, ${App.DataModelObjects.CustomersDMO.Name}.City__c AS city__c,  ${App.DataModelObjects.CustomersDMO.Name}.Company__c AS company__c,  ${App.DataModelObjects.CustomersDMO.Name}.First_Name__c AS first_name__c,  ${App.DataModelObjects.CustomersDMO.Name}.Last_Name__c AS last_name__c,  ${App.DataModelObjects.CustomersDMO.Name}.Subscription_Date__c AS subscription_date__c FROM ${App.DataModelObjects.CustomersDMO.Name} GROUP BY city__c, company__c, first_name__c,  last_name__c,  subscription_date__c",
+    "publishScheduleEndDate": null,
+    "publishScheduleInterval": "ONE",
+    "publishScheduleStartDateTime": "2025-10-13T22:00"
+}

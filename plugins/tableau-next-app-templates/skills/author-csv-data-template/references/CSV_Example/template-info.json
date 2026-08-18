@@ -1,0 +1,30 @@
+{
+  "label" : "CSV Example Template",
+  "description" : "This template imports a CSV and creates downstream assets",
+  "releaseInfo" : {
+    "templateVersion" : "1.0",
+    "notesFile" : null
+  },
+  "templateType" : "App",
+  "templateSubtype" : null,
+  "name" : "CSV_Example",
+  "namespace" : null,
+  "assetVersion" : 66.0,
+  "maxAppCount" : null,
+  "icons" : {
+    "templatePreviews" : [ ],
+    "layoutImages" : [ {
+      "name" : "background",
+      "file" : "images/background.png"
+    } ]
+  },
+  "variableDefinition" : "variables.json",
+  "layoutDefinition" : "layout.json",
+  "tags" : { },
+  "chainDefinitions" : [ {
+    "type" : "Create",
+    "name" : null,
+    "file" : "create-chain.json"
+  } ],
+  "templateStatus" : null
+}

@@ -1,0 +1,222 @@
+{
+  "dataSource" : {
+    "name" : "${App.SemanticModels.Superstore_Semantic_Model.Name}",
+    "id" : "${App.SemanticModels.Superstore_Semantic_Model.Id}",
+    "type" : "SemanticModel"
+  },
+  "fields" : {
+    "F13" : {
+      "displayCategory" : "Discrete",
+      "fieldName" : "Person1",
+      "objectName" : "Superstore_People1",
+      "role" : "Dimension",
+      "type" : "Field"
+    },
+    "F1" : {
+      "displayCategory" : "Discrete",
+      "fieldName" : "Order_Date2",
+      "function" : "DatePartMonth",
+      "objectName" : "Superstore_Orders1",
+      "role" : "Dimension",
+      "type" : "Field"
+    },
+    "F2" : {
+      "displayCategory" : "Continuous",
+      "fieldName" : "Sales1",
+      "function" : "Sum",
+      "objectName" : "Superstore_Orders1",
+      "role" : "Measure",
+      "type" : "Field"
+    }
+  },
+  "interactions" : [ ],
+  "label" : "Spoke Viz",
+  "name" : "Spoke_Viz",
+  "view" : {
+    "label" : "default",
+    "name" : "Spoke_Viz_default",
+    "viewSpecification" : {
+      "filter" : {
+        "filters" : [ ]
+      },
+      "sortOrders" : {
+        "columns" : [ ],
+        "fields" : { },
+        "rows" : [ ]
+      },
+      "style" : {
+        "headers" : {
+          "columns" : {
+            "sizing" : {
+              "fieldHeight" : { }
+            }
+          },
+          "rows" : {
+            "sizing" : {
+              "fieldWidth" : { }
+            }
+          }
+        }
+      }
+    }
+  },
+  "visualSpecification" : {
+    "layout" : "Radial",
+    "legends" : {
+      "F13" : {
+        "isVisible" : true,
+        "position" : "Right",
+        "title" : {
+          "isVisible" : true
+        }
+      }
+    },
+    "marks" : {
+      "panes" : {
+        "encodings" : [ {
+          "fieldKey" : "F13",
+          "type" : "Color"
+        } ],
+        "isAutomatic" : false,
+        "stack" : {
+          "isAutomatic" : true,
+          "isStacked" : true
+        },
+        "type" : "Bar"
+      }
+    },
+    "rings" : [ "F2" ],
+    "slices" : [ "F1" ],
+    "style" : {
+      "ban" : { },
+      "encodings" : {
+        "fields" : {
+          "F13" : {
+            "colors" : {
+              "customColors" : [ ],
+              "palette" : {
+                "colors" : [ "#BEC7F6", "#9EA9F1", "#7F8CED", "#5867E8", "#3A49DA", "#2F2CB7", "#3ba755", "#8a033e", "#e3066a", "#002775" ],
+                "type" : "Custom"
+              },
+              "type" : "Discrete"
+            },
+            "defaults" : {
+              "format" : { }
+            }
+          },
+          "F2" : {
+            "defaults" : {
+              "format" : {
+                "numberFormatInfo" : {
+                  "decimalPlaces" : 2,
+                  "displayUnits" : "Auto",
+                  "includeThousandSeparator" : true,
+                  "negativeValuesFormat" : "Auto",
+                  "prefix" : "",
+                  "suffix" : "",
+                  "type" : "Number"
+                }
+              }
+            }
+          }
+        }
+      },
+      "fieldLabels" : {
+        "columns" : {
+          "showDividerLine" : false,
+          "showLabels" : false
+        },
+        "rows" : {
+          "showDividerLine" : false,
+          "showLabels" : false
+        }
+      },
+      "fonts" : {
+        "actionableHeaders" : {
+          "color" : "#0250D9",
+          "size" : 13
+        },
+        "axisTickLabels" : {
+          "color" : "#2E2E2E",
+          "size" : 13
+        },
+        "fieldLabels" : {
+          "color" : "#2E2E2E",
+          "size" : 13
+        },
+        "headers" : {
+          "color" : "#2E2E2E",
+          "size" : 13
+        },
+        "legendLabels" : {
+          "color" : "#2E2E2E",
+          "size" : 13
+        },
+        "markLabels" : {
+          "color" : "#2E2E2E",
+          "size" : 13
+        },
+        "marks" : {
+          "color" : "#2E2E2E",
+          "size" : 13
+        }
+      },
+      "lines" : {
+        "axisLine" : {
+          "color" : "#C9C9C9"
+        },
+        "fieldLabelDividerLine" : {
+          "color" : "#C9C9C9"
+        },
+        "separatorLine" : {
+          "color" : "#C9C9C9"
+        },
+        "zeroLine" : {
+          "color" : "#C9C9C9"
+        }
+      },
+      "marks" : {
+        "panes" : {
+          "color" : {
+            "color" : ""
+          },
+          "isAutomaticOpacity" : true,
+          "isAutomaticSize" : true,
+          "isStackingAxisCentered" : false,
+          "label" : {
+            "canOverlapLabels" : false,
+            "marksToLabel" : {
+              "type" : "All"
+            },
+            "showMarkLabels" : false,
+            "textDirection" : "Horizontal"
+          },
+          "opacity" : 100,
+          "range" : {
+            "reverse" : true
+          },
+          "size" : {
+            "isAutomatic" : true,
+            "type" : "Percentage",
+            "value" : 100
+          }
+        }
+      },
+      "shading" : {
+        "backgroundColor" : "#FFFFFF",
+        "banding" : {
+          "rows" : {
+            "color" : "#E5E5E5"
+          }
+        }
+      },
+      "title" : {
+        "isVisible" : true
+      }
+    }
+  },
+  "workspace" : {
+    "label" : "Superstore Demo Workspace",
+    "name" : "${App.Workspaces.Superstore_Demo_Workspace.Name}"
+  }
+}

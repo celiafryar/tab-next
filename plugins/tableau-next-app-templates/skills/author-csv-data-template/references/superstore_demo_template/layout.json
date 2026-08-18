@@ -1,0 +1,53 @@
+{
+  "displayMessages": [],
+  "pages": [
+    {
+      "type": "Configuration",
+      "title": "Superstore Demo Template",
+      "layout": {
+        "type": "TwoColumn",
+        "header": {
+          "text": "Select what to create, then we'll build your Superstore app."
+        },
+        "left": {
+          "items": [
+            {
+              "type": "Variable",
+              "name": "CreateWorkspace",
+              "visibility": "Visible"
+            },
+            {
+              "type": "Variable",
+              "name": "CreateSDM",
+              "visibility": "Visible"
+            },
+            {
+              "type": "Variable",
+              "name": "CreateViz1",
+              "visibility": "Visible"
+            },
+            {
+              "type": "Variable",
+              "name": "CreateViz2",
+              "visibility": "Visible"
+            },
+            {
+              "type": "Variable",
+              "name": "CreateDashboard",
+              "visibility": "Visible"
+            }
+          ]
+        },
+        "right": {
+          "items": [
+            {
+              "type": "Variable",
+              "name": "LabelSuffix",
+              "visibility": "Visible"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

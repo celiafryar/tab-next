@@ -8,7 +8,16 @@ A Claude Code **plugin marketplace** of pro-code skills for building **Tableau N
 
 ## What you get
 
-Installing the **`tableau-next-semantics`** plugin adds **thirteen skills** in two families. Both families share one philosophy: retrieve real state, change it deliberately, verify the change landed, and commit only verified states.
+This marketplace ships **two plugins**, split by what you are trying to do:
+
+| Plugin | Install it to | Skills |
+|---|---|---|
+| **`tableau-next-semantics`** | **Build the model.** Load data, author and deploy semantic models, relationships, geo roles, metrics, and Business Preferences. | 13 |
+| **`tableau-next-app-templates`** | **Ship the app.** Package a finished app as an installable template that carries its own CSV data and rebuilds itself in any org. | 1 |
+
+They chain: build with the first, distribute with the second. Install either alone or both.
+
+Installing **`tableau-next-semantics`** adds **thirteen skills** in two families. Both families share one philosophy: retrieve real state, change it deliberately, verify the change landed, and commit only verified states.
 
 ### The semantic authoring family
 
@@ -39,6 +48,16 @@ Seven newer skills that run the full asset lifecycle **entirely over REST**. No 
 
 The status column is honest by design. "Verified live" means exercised against a live org with the result checked; "partial" and "unsolved" mean exactly that. Open threads live in `TBX-TODO.md` at the repo root.
 
+### The app packaging plugin
+
+Installing **`tableau-next-app-templates`** adds **one skill**. It answers a different question from everything above: not "how do I build this model" but "how does someone else get this whole app, data included, in their own org."
+
+| Skill | The value it delivers | It kicks in when you |
+|---|---|---|
+| **author-csv-data-template** | Turns a finished analytics app into an **App Template Framework** template that ships its own CSVs. On Create it assembles the entire stack bottom-up in any org: CSV to Data Stream to Data Lake Object to Semantic Model to visualizations to dashboard, with nothing pre-existing. Carries the two rules that decide whether a template travels: every cross-asset reference must be a `${App....}` token rather than a physical `__dll` name, and shipped CSV dates must be ISO `yyyy-MM-dd` or the whole stream is rejected with zero rows and an error visible only in Data Cloud's Refresh History. | want to package a dataset and dashboard as a one-click installable app, or you have a template that only works in the org it was exported from. |
+
+It bundles the `CSV_Example` and `superstore_demo_template` reference implementations plus the Superstore case study under `references/`, so the file shapes are on disk rather than described. **Origin:** the Salesforce `aftest` template pack, redistributed here rather than XeoMatrix-authored; see `references/PROVENANCE.md` in the skill.
+
 **The families chain.** Extract metadata with the Snowflake/dbt skill or start from a workbook. Load the files with `tbx-dataobject`, getting keys and types right the one time that matters. Build the model with `tbx-semantic-model` or the VS Code loop. Describe, relate, and geo-role it. Wire it into a workspace. Then teach the agent how the business speaks with Business Preferences, and test it against a precomputed answer key. Each step hands the next a known shape.
 
 ---
@@ -67,8 +86,11 @@ Tip for org login: `sf org login web` against the generic login page can time ou
 ```text
 /plugin marketplace add celiafryar/tab-next
 /plugin install tableau-next-semantics@tab-next
+/plugin install tableau-next-app-templates@tab-next
 /reload-plugins
 ```
+
+Install either plugin on its own. Take `tableau-next-semantics` to build models, and add `tableau-next-app-templates` when you are ready to hand the finished app to someone else.
 
 This repo is **private**, so you need read access to it (you will authenticate with your GitHub account or `gh`). See **Access** below.
 
@@ -211,11 +233,18 @@ tab-next/
         tbx-workspace/
         tbx-viz/
         tbx-dashboard/
+    tableau-next-app-templates/      # one plugin, one skill
+      .claude-plugin/
+        plugin.json                  # the plugin manifest
+      skills/
+        author-csv-data-template/
+          SKILL.md
+          references/                # CSV_Example + superstore_demo_template + case study
   README.md
   TBX-TODO.md                        # open threads and future ideas
 ```
 
-The `plugins/` layout leaves room to add more Tableau Next plugins to this same marketplace later. Skill families beyond Tableau Next will live in their own marketplace repos.
+The two plugins are split by purpose: **build the model** versus **ship the app**. The `plugins/` layout leaves room to add more Tableau Next plugins to this same marketplace later. Skill families beyond Tableau Next will live in their own marketplace repos.
 
 ---
 
@@ -233,9 +262,11 @@ gh repo edit celiafryar/tab-next --visibility public
 
 Each skill's source of truth lives in `~/.claude/skills/`. This repo holds the distributed copies. When a skill changes:
 
-1. Update the copy here under `plugins/tableau-next-semantics/skills/`.
-2. Bump `version` in **both** `.claude-plugin/marketplace.json` and `plugins/tableau-next-semantics/.claude-plugin/plugin.json`; they move in lockstep.
+1. Update the copy here, under `plugins/tableau-next-semantics/skills/` or `plugins/tableau-next-app-templates/skills/`, whichever plugin owns it.
+2. Bump `version` in `.claude-plugin/marketplace.json` **and** in the owning plugin's `.claude-plugin/plugin.json`. The marketplace version covers the repo as a whole; each plugin versions independently.
 3. Commit and push. Installers pick up the update through `/plugin`.
+
+There is a third copy to keep in step: the backup in `celia-claude-sync/claude-skills/`, whose own README lists the skills. A skill change touches `~/.claude/skills/`, that backup, and this repo.
 
 **Keep the claims true.** These skills are valuable because what they assert has actually been verified. When something turns out to be wrong, correct it everywhere rather than bolting on a caveat, and give any known-bug note an explicit re-test date so it gets deleted once the platform fixes it. A stale warning misleads as much as a wrong rule.
 

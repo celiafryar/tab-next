@@ -1,0 +1,258 @@
+{
+  "dataSource" : {
+    "name" : "${App.SemanticModels.Superstore_Semantic_Model.Name}",
+    "id" : "${App.SemanticModels.Superstore_Semantic_Model.Id}",
+    "type" : "SemanticModel"
+  },
+  "fields" : {
+    "F32" : {
+      "displayCategory" : "Discrete",
+      "fieldName" : "Segment1",
+      "objectName" : "Superstore_Orders1",
+      "role" : "Dimension",
+      "type" : "Field"
+    },
+    "F34" : {
+      "displayCategory" : "Discrete",
+      "fieldName" : "Sub_Category1",
+      "objectName" : "Superstore_Orders1",
+      "role" : "Dimension",
+      "type" : "Field"
+    },
+    "F35" : {
+      "displayCategory" : "Discrete",
+      "fieldName" : "Category3",
+      "objectName" : "Superstore_Orders1",
+      "role" : "Dimension",
+      "type" : "Field"
+    },
+    "F27" : {
+      "displayCategory" : "Continuous",
+      "fieldName" : "Sales1",
+      "function" : "Sum",
+      "label" : "Sales",
+      "objectName" : "Superstore_Orders1",
+      "role" : "Measure",
+      "type" : "Field"
+    },
+    "F28" : {
+      "displayCategory" : "Continuous",
+      "fieldName" : "Sales1",
+      "function" : "Sum",
+      "objectName" : "Superstore_Orders1",
+      "role" : "Measure",
+      "type" : "Field"
+    }
+  },
+  "interactions" : [ ],
+  "label" : "Radial Viz",
+  "name" : "Radial_Viz",
+  "view" : {
+    "label" : "default",
+    "name" : "Radial_Viz_default",
+    "viewSpecification" : {
+      "filter" : {
+        "filters" : [ ]
+      },
+      "sortOrders" : {
+        "columns" : [ ],
+        "fields" : { },
+        "rows" : [ ]
+      },
+      "style" : {
+        "headers" : {
+          "columns" : {
+            "sizing" : {
+              "fieldHeight" : { }
+            }
+          },
+          "rows" : {
+            "sizing" : {
+              "fieldWidth" : { }
+            }
+          }
+        }
+      }
+    }
+  },
+  "visualSpecification" : {
+    "ban" : [ "F27" ],
+    "layout" : "Radial",
+    "legends" : {
+      "F32" : {
+        "isVisible" : true,
+        "position" : "Right",
+        "title" : {
+          "isVisible" : true
+        }
+      }
+    },
+    "marks" : {
+      "panes" : {
+        "encodings" : [ {
+          "fieldKey" : "F32",
+          "type" : "Color"
+        } ],
+        "isAutomatic" : false,
+        "stack" : {
+          "isAutomatic" : true,
+          "isStacked" : true
+        },
+        "type" : "Donut"
+      }
+    },
+    "rings" : [ "F35" ],
+    "slices" : [ "F34", "F28" ],
+    "style" : {
+      "ban" : {
+        "fields" : {
+          "F27" : {
+            "fieldLabel" : {
+              "showDividerLine" : false,
+              "showLabels" : true
+            },
+            "format" : {
+              "numberFormatInfo" : {
+                "decimalPlaces" : 2,
+                "displayUnits" : "Auto",
+                "includeThousandSeparator" : true,
+                "negativeValuesFormat" : "Auto",
+                "prefix" : "",
+                "suffix" : "",
+                "type" : "NumberShort"
+              }
+            }
+          }
+        }
+      },
+      "encodings" : {
+        "fields" : {
+          "F32" : {
+            "colors" : {
+              "customColors" : [ ],
+              "palette" : {
+                "colors" : [ "#BEC7F6", "#7F8CED", "#2F2CB7", "#3a49da", "#fe5c4c", "#024d4c", "#3ba755", "#8a033e", "#e3066a", "#002775" ],
+                "type" : "Custom"
+              },
+              "type" : "Discrete"
+            },
+            "defaults" : {
+              "format" : { }
+            }
+          },
+          "F28" : {
+            "defaults" : {
+              "format" : {
+                "numberFormatInfo" : {
+                  "decimalPlaces" : 2,
+                  "displayUnits" : "Auto",
+                  "includeThousandSeparator" : true,
+                  "negativeValuesFormat" : "Auto",
+                  "prefix" : "",
+                  "suffix" : "",
+                  "type" : "Number"
+                }
+              }
+            }
+          }
+        }
+      },
+      "fieldLabels" : {
+        "columns" : {
+          "showDividerLine" : false,
+          "showLabels" : false
+        },
+        "rows" : {
+          "showDividerLine" : false,
+          "showLabels" : false
+        }
+      },
+      "fonts" : {
+        "actionableHeaders" : {
+          "color" : "#0250D9",
+          "size" : 13
+        },
+        "axisTickLabels" : {
+          "color" : "#2E2E2E",
+          "size" : 13
+        },
+        "fieldLabels" : {
+          "color" : "#2E2E2E",
+          "size" : 13
+        },
+        "headers" : {
+          "color" : "#2E2E2E",
+          "size" : 13
+        },
+        "legendLabels" : {
+          "color" : "#2E2E2E",
+          "size" : 13
+        },
+        "markLabels" : {
+          "color" : "#2E2E2E",
+          "size" : 13
+        },
+        "marks" : {
+          "color" : "#2E2E2E",
+          "size" : 13
+        }
+      },
+      "lines" : {
+        "axisLine" : {
+          "color" : "#C9C9C9"
+        },
+        "fieldLabelDividerLine" : {
+          "color" : "#C9C9C9"
+        },
+        "separatorLine" : {
+          "color" : "#C9C9C9"
+        },
+        "zeroLine" : {
+          "color" : "#C9C9C9"
+        }
+      },
+      "marks" : {
+        "panes" : {
+          "color" : {
+            "color" : ""
+          },
+          "isAutomaticOpacity" : true,
+          "isAutomaticSize" : true,
+          "isStackingAxisCentered" : false,
+          "label" : {
+            "canOverlapLabels" : false,
+            "marksToLabel" : {
+              "type" : "All"
+            },
+            "showMarkLabels" : false,
+            "textDirection" : "Horizontal"
+          },
+          "opacity" : 100,
+          "range" : {
+            "reverse" : true
+          },
+          "size" : {
+            "isAutomatic" : true,
+            "type" : "Percentage",
+            "value" : 80
+          }
+        }
+      },
+      "shading" : {
+        "backgroundColor" : "#FFFFFF",
+        "banding" : {
+          "rows" : {
+            "color" : "#E5E5E5"
+          }
+        }
+      },
+      "title" : {
+        "isVisible" : true
+      }
+    }
+  },
+  "workspace" : {
+    "label" : "Superstore Demo Workspace",
+    "name" : "${App.Workspaces.Superstore_Demo_Workspace.Name}"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "name": "tableau-next-app-templates",
+  "description": "Package a Tableau Next analytics app as an installable App Template Framework (ATF) template that ships its own CSV data. On Create it builds the whole stack bottom-up in any org — CSV to Data Stream to Data Lake Object to Semantic Model to visualizations to dashboard — with no pre-existing assets and no hardcoded org-specific names. Bundles the CSV_Example and superstore_demo_template reference implementations and the Superstore case study.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Cecilia Fryar",
+    "url": "https://github.com/celiafryar"
+  },
+  "homepage": "https://github.com/celiafryar/tab-next",
+  "repository": "https://github.com/celiafryar/tab-next",
+  "keywords": [
+    "app-template-framework",
+    "atf",
+    "claude-code",
+    "create-chain",
+    "csv-data-template",
+    "data-cloud",
+    "data-lake-object",
+    "data-stream",
+    "distribution",
+    "ingestion",
+    "packaging",
+    "portability",
+    "tableau",
+    "tableau-next",
+    "tokenization"
+  ]
+}

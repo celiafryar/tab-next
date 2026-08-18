@@ -1,0 +1,195 @@
+{
+  "customConfig" : {
+    "queryCacheEnabled" : true,
+    "queryCacheStaleness" : "30min"
+  },
+  "label" : "Demo Dashboard",
+  "layouts" : [ {
+    "columnCount" : 48,
+    "maxWidth" : 1200,
+    "name" : "default",
+    "pages" : [ {
+      "label" : "Page 1",
+      "name" : "8b438c97-e6f6-410e-96a8-197fa4a60ee1",
+      "widgets" : [ {
+        "colspan" : 23,
+        "column" : 1,
+        "name" : "visualization_1",
+        "row" : 3,
+        "rowspan" : 15
+      }, {
+        "colspan" : 22,
+        "column" : 25,
+        "name" : "visualization_2",
+        "row" : 3,
+        "rowspan" : 15
+      }, {
+        "colspan" : 9,
+        "column" : 1,
+        "name" : "filter_1",
+        "row" : 1,
+        "rowspan" : 2
+      }, {
+        "colspan" : 9,
+        "column" : 10,
+        "name" : "filter_2",
+        "row" : 1,
+        "rowspan" : 2
+      }, {
+        "colspan" : 9,
+        "column" : 25,
+        "name" : "filter_3",
+        "row" : 1,
+        "rowspan" : 2
+      }, {
+        "colspan" : 9,
+        "column" : 34,
+        "name" : "filter_4",
+        "row" : 1,
+        "rowspan" : 2
+      } ]
+    } ],
+    "rowHeight" : 20,
+    "style" : {
+      "backgroundColor" : "#ffffff",
+      "cellSpacingX" : 4,
+      "cellSpacingY" : 4,
+      "gutterColor" : "#F3F3F3"
+    }
+  } ],
+  "name" : "Demo_Dashboard1",
+  "style" : {
+    "widgetStyle" : {
+      "backgroundColor" : "#FFFFFF",
+      "borderColor" : "#CCCCCC",
+      "borderEdges" : [ ],
+      "borderRadius" : 0,
+      "borderWidth" : 1
+    }
+  },
+  "widgets" : {
+    "visualization_2" : {
+      "actions" : [ ],
+      "name" : "visualization_2",
+      "parameters" : {
+        "legendPosition" : "Right",
+        "receiveFilterSource" : {
+          "filterMode" : "all",
+          "publishers" : [ ],
+          "widgetIds" : [ ]
+        },
+        "receiveParameterSource" : {
+          "parameterMode" : "all",
+          "publishers" : [ ]
+        }
+      },
+      "source" : {
+        "id" : "${App.Visualizations.Spoke_Viz.Id}",
+        "name" : "${App.Visualizations.Spoke_Viz.Name}"
+      },
+      "type" : "visualization"
+    },
+    "visualization_1" : {
+      "actions" : [ ],
+      "name" : "visualization_1",
+      "parameters" : {
+        "legendPosition" : "Right",
+        "receiveFilterSource" : {
+          "filterMode" : "all",
+          "publishers" : [ ],
+          "widgetIds" : [ ]
+        },
+        "receiveParameterSource" : {
+          "parameterMode" : "all",
+          "publishers" : [ ]
+        }
+      },
+      "source" : {
+        "id" : "${App.Visualizations.Radial_Viz.Id}",
+        "name" : "${App.Visualizations.Radial_Viz.Name}"
+      },
+      "type" : "visualization"
+    },
+    "filter_2" : {
+      "actions" : [ ],
+      "label" : "Sub-Category",
+      "name" : "filter_2",
+      "parameters" : {
+        "filterOption" : {
+          "dataType" : "Text",
+          "fieldName" : "Sub_Category1",
+          "objectName" : "Superstore_Orders1",
+          "selectionType" : "multiple"
+        },
+        "isLabelHidden" : false,
+        "viewType" : "listcard"
+      },
+      "source" : {
+        "name" : "${App.SemanticModels.Superstore_Semantic_Model.Name}",
+        "id" : "${App.SemanticModels.Superstore_Semantic_Model.Id}"
+      },
+      "type" : "filter"
+    },
+    "filter_1" : {
+      "actions" : [ ],
+      "label" : "Category",
+      "name" : "filter_1",
+      "parameters" : {
+        "filterOption" : {
+          "dataType" : "Text",
+          "fieldName" : "Category3",
+          "objectName" : "Superstore_Orders1",
+          "selectionType" : "multiple"
+        },
+        "isLabelHidden" : false,
+        "viewType" : "listcard"
+      },
+      "source" : {
+        "name" : "${App.SemanticModels.Superstore_Semantic_Model.Name}",
+        "id" : "${App.SemanticModels.Superstore_Semantic_Model.Id}"
+      },
+      "type" : "filter"
+    },
+    "filter_4" : {
+      "actions" : [ ],
+      "label" : "Region",
+      "name" : "filter_4",
+      "parameters" : {
+        "filterOption" : {
+          "dataType" : "Text",
+          "fieldName" : "Region2",
+          "objectName" : "Superstore_Orders1",
+          "selectionType" : "multiple"
+        },
+        "isLabelHidden" : false,
+        "viewType" : "listcard"
+      },
+      "source" : {
+        "name" : "${App.SemanticModels.Superstore_Semantic_Model.Name}",
+        "id" : "${App.SemanticModels.Superstore_Semantic_Model.Id}"
+      },
+      "type" : "filter"
+    },
+    "filter_3" : {
+      "actions" : [ ],
+      "label" : "Segment",
+      "name" : "filter_3",
+      "parameters" : {
+        "filterOption" : {
+          "dataType" : "Text",
+          "fieldName" : "Segment1",
+          "objectName" : "Superstore_Orders1",
+          "selectionType" : "multiple"
+        },
+        "isLabelHidden" : false,
+        "viewType" : "listcard"
+      },
+      "source" : {
+        "name" : "${App.SemanticModels.Superstore_Semantic_Model.Name}",
+        "id" : "${App.SemanticModels.Superstore_Semantic_Model.Id}"
+      },
+      "type" : "filter"
+    }
+  },
+  "workspaceIdOrApiName" : "${App.Workspaces.Superstore_Demo_Workspace.Name}"
+}

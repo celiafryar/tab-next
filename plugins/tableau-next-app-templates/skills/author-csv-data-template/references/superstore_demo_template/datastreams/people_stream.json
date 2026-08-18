@@ -1,0 +1,68 @@
+{
+    "name": "SuperstorePeopleDS",
+    "label": "Superstore People DS ${Variables.LabelSuffix}",
+    "datastreamType": "CONNECTORSFRAMEWORK",
+    "connectorInfo": {
+        "connectorType": "DataConnector",
+        "connectorDetails": {
+            "name": "UploadedFiles"
+        }
+    },
+    "sourceFields": [
+        {
+            "dataType": "Text",
+            "name": "Person"
+        },
+        {
+            "dataType": "Text",
+            "name": "Region"
+        }
+    ],
+    "dataLakeObjectInfo": {
+        "name": "${App.DataLakeObjects.Superstore_People_DLO.Name}",
+        "label": "Superstore People DLO ${Variables.LabelSuffix}",
+        "category": "OTHER",
+        "dataspaceInfo": [
+            {
+                "name": "default"
+            }
+        ],
+        "fields": [
+            {
+                "dataType": "Text",
+                "isPrimaryKey": true,
+                "name": "Person",
+                "label": "Person"
+            },
+            {
+                "dataType": "Text",
+                "isPrimaryKey": false,
+                "name": "Region",
+                "label": "Region"
+            }
+        ]
+    },
+    "mappings": [
+        {
+            "sourceFieldLabel": "Person",
+            "targetFieldName": "Person"
+        },
+        {
+            "sourceFieldLabel": "Region",
+            "targetFieldName": "Region"
+        }
+    ],
+    "refreshConfig": {
+        "refreshMode": "TOTAL_REPLACE",
+        "frequency": {
+            "frequencyType": "None"
+        }
+    },
+    "advancedAttributes": {
+        "importDirectory": "${App.CSVs.SuperstorePeopleCSV.ImportDirectory}",
+        "fileName": "${App.CSVs.SuperstorePeopleCSV.FileName}",
+        "delimiter": ",",
+        "parentDirectory": "${App.CSVs.SuperstorePeopleCSV.ParentDirectory}",
+        "fileType": "${App.CSVs.SuperstorePeopleCSV.FileType}"
+    }
+}

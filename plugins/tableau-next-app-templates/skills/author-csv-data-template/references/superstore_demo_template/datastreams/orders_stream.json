@@ -1,0 +1,101 @@
+{
+    "name": "SuperstoreOrdersDS",
+    "label": "Superstore Orders DS ${Variables.LabelSuffix}",
+    "datastreamType": "CONNECTORSFRAMEWORK",
+    "connectorInfo": {
+        "connectorType": "DataConnector",
+        "connectorDetails": {
+            "name": "UploadedFiles"
+        }
+    },
+    "sourceFields": [
+        { "dataType": "Text", "name": "Row ID" },
+        { "dataType": "Text", "name": "Order ID" },
+        { "dataType": "Date", "format": "yyyy-MM-dd", "name": "Order Date" },
+        { "dataType": "Date", "format": "yyyy-MM-dd", "name": "Ship Date" },
+        { "dataType": "Text", "name": "Ship Mode" },
+        { "dataType": "Text", "name": "Customer ID" },
+        { "dataType": "Text", "name": "Customer Name" },
+        { "dataType": "Text", "name": "Segment" },
+        { "dataType": "Text", "name": "Country" },
+        { "dataType": "Text", "name": "City" },
+        { "dataType": "Text", "name": "State" },
+        { "dataType": "Number", "name": "Postal Code" },
+        { "dataType": "Text", "name": "Region" },
+        { "dataType": "Text", "name": "Product ID" },
+        { "dataType": "Text", "name": "Category" },
+        { "dataType": "Text", "name": "Sub-Category" },
+        { "dataType": "Text", "name": "Product Name" },
+        { "dataType": "Number", "name": "Sales" },
+        { "dataType": "Number", "name": "Quantity" },
+        { "dataType": "Number", "name": "Discount" },
+        { "dataType": "Number", "name": "Profit" }
+    ],
+    "dataLakeObjectInfo": {
+        "name": "${App.DataLakeObjects.Superstore_Orders_DLO.Name}",
+        "label": "Superstore Orders DLO ${Variables.LabelSuffix}",
+        "category": "OTHER",
+        "dataspaceInfo": [
+            { "name": "default" }
+        ],
+        "fields": [
+            { "dataType": "Text", "isPrimaryKey": true, "name": "Row_ID", "label": "Row ID" },
+            { "dataType": "Text", "isPrimaryKey": false, "name": "Order_ID", "label": "Order ID" },
+            { "dataType": "Date", "isPrimaryKey": false, "name": "Order_Date", "label": "Order Date" },
+            { "dataType": "Date", "isPrimaryKey": false, "name": "Ship_Date", "label": "Ship Date" },
+            { "dataType": "Text", "isPrimaryKey": false, "name": "Ship_Mode", "label": "Ship Mode" },
+            { "dataType": "Text", "isPrimaryKey": false, "name": "Customer_ID", "label": "Customer ID" },
+            { "dataType": "Text", "isPrimaryKey": false, "name": "Customer_Name", "label": "Customer Name" },
+            { "dataType": "Text", "isPrimaryKey": false, "name": "Segment", "label": "Segment" },
+            { "dataType": "Text", "isPrimaryKey": false, "name": "Country", "label": "Country" },
+            { "dataType": "Text", "isPrimaryKey": false, "name": "City", "label": "City" },
+            { "dataType": "Text", "isPrimaryKey": false, "name": "State", "label": "State" },
+            { "dataType": "Number", "isPrimaryKey": false, "name": "Postal_Code", "label": "Postal Code" },
+            { "dataType": "Text", "isPrimaryKey": false, "name": "Region", "label": "Region" },
+            { "dataType": "Text", "isPrimaryKey": false, "name": "Product_ID", "label": "Product ID" },
+            { "dataType": "Text", "isPrimaryKey": false, "name": "Category", "label": "Category" },
+            { "dataType": "Text", "isPrimaryKey": false, "name": "Sub_Category", "label": "Sub-Category" },
+            { "dataType": "Text", "isPrimaryKey": false, "name": "Product_Name", "label": "Product Name" },
+            { "dataType": "Number", "isPrimaryKey": false, "name": "Sales", "label": "Sales" },
+            { "dataType": "Number", "isPrimaryKey": false, "name": "Quantity", "label": "Quantity" },
+            { "dataType": "Number", "isPrimaryKey": false, "name": "Discount", "label": "Discount" },
+            { "dataType": "Number", "isPrimaryKey": false, "name": "Profit", "label": "Profit" }
+        ]
+    },
+    "mappings": [
+        { "sourceFieldLabel": "Row ID", "targetFieldName": "Row_ID" },
+        { "sourceFieldLabel": "Order ID", "targetFieldName": "Order_ID" },
+        { "sourceFieldLabel": "Order Date", "targetFieldName": "Order_Date" },
+        { "sourceFieldLabel": "Ship Date", "targetFieldName": "Ship_Date" },
+        { "sourceFieldLabel": "Ship Mode", "targetFieldName": "Ship_Mode" },
+        { "sourceFieldLabel": "Customer ID", "targetFieldName": "Customer_ID" },
+        { "sourceFieldLabel": "Customer Name", "targetFieldName": "Customer_Name" },
+        { "sourceFieldLabel": "Segment", "targetFieldName": "Segment" },
+        { "sourceFieldLabel": "Country", "targetFieldName": "Country" },
+        { "sourceFieldLabel": "City", "targetFieldName": "City" },
+        { "sourceFieldLabel": "State", "targetFieldName": "State" },
+        { "sourceFieldLabel": "Postal Code", "targetFieldName": "Postal_Code" },
+        { "sourceFieldLabel": "Region", "targetFieldName": "Region" },
+        { "sourceFieldLabel": "Product ID", "targetFieldName": "Product_ID" },
+        { "sourceFieldLabel": "Category", "targetFieldName": "Category" },
+        { "sourceFieldLabel": "Sub-Category", "targetFieldName": "Sub_Category" },
+        { "sourceFieldLabel": "Product Name", "targetFieldName": "Product_Name" },
+        { "sourceFieldLabel": "Sales", "targetFieldName": "Sales" },
+        { "sourceFieldLabel": "Quantity", "targetFieldName": "Quantity" },
+        { "sourceFieldLabel": "Discount", "targetFieldName": "Discount" },
+        { "sourceFieldLabel": "Profit", "targetFieldName": "Profit" }
+    ],
+    "refreshConfig": {
+        "refreshMode": "TOTAL_REPLACE",
+        "frequency": {
+            "frequencyType": "None"
+        }
+    },
+    "advancedAttributes": {
+        "importDirectory": "${App.CSVs.SuperstoreOrdersCSV.ImportDirectory}",
+        "fileName": "${App.CSVs.SuperstoreOrdersCSV.FileName}",
+        "delimiter": ",",
+        "parentDirectory": "${App.CSVs.SuperstoreOrdersCSV.ParentDirectory}",
+        "fileType": "${App.CSVs.SuperstoreOrdersCSV.FileType}"
+    }
+}

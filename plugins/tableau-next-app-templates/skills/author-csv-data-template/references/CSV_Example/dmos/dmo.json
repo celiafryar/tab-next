@@ -1,0 +1,81 @@
+{
+  "name": "CustomerDMO",
+  "label": "Customer DMO ${Variables.LabelSuffix}",
+  "description": "A DMO created from the CSV Template",
+  "category": "OTHER",
+  "dataSpaceName": "default",
+  "fields": [
+    {
+      "label": "Index",
+      "name": "Index__c",
+      "dataType": "Number",
+      "isPrimaryKey": true
+    },
+    {
+      "label": "First Name",
+      "name": "First_Name__c",
+      "dataType": "Text",
+      "isPrimaryKey": false
+    },
+    {
+      "label": "Last Name",
+      "name": "Last_Name__c",
+      "dataType": "Text",
+      "isPrimaryKey": false
+    },
+    {
+      "label": "City",
+      "name": "City__c",
+      "dataType": "Text",
+      "isPrimaryKey": false
+    },
+    {
+      "label": "Company",
+      "name": "Company__c",
+      "dataType": "Text",
+      "isPrimaryKey": false
+    },
+    {
+      "label": "Country",
+      "name": "Country__c",
+      "dataType": "Text",
+      "isPrimaryKey": false
+    },
+    {
+      "label": "Customer Id",
+      "name": "Customer_Id__c",
+      "dataType": "Text",
+      "isPrimaryKey": false
+    },
+    {
+      "label": "Email",
+      "name": "Email__c",
+      "dataType": "Text",
+      "isPrimaryKey": false
+    },
+    {
+      "label": "Phone 1",
+      "name": "Phone_1__c",
+      "dataType": "Text",
+      "isPrimaryKey": false
+    },
+    {
+      "label": "Phone 2",
+      "name": "Phone_2__c",
+      "dataType": "Text",
+      "isPrimaryKey": false
+    },
+    {
+      "label": "Subscription Date",
+      "name": "Subscription_Date__c",
+      "dataType": "Date",
+      "isPrimaryKey": false
+    },
+    {
+      "label": "Website",
+      "name": "Website__c",
+      "dataType": "Text",
+      "isPrimaryKey": false
+    }
+  ]
+}

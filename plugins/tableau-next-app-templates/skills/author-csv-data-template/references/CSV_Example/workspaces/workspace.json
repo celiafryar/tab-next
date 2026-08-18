@@ -1,0 +1,4 @@
+{
+  "label" : "Customer Workspace ${Variables.LabelSuffix}",
+  "name" : "CustomersWS"
+}

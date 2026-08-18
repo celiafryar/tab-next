@@ -1,0 +1,79 @@
+{
+  "name" : "CustomersDashboard",
+  "label" : "Customers Dashboard ${Variables.LabelSuffix}",
+  "description" : "A Dashboard generated from the CSV Template",
+  "layouts" : [ {
+    "columnCount" : 36,
+    "maxWidth" : 1200,
+    "name" : "default",
+    "pages" : [ {
+      "label" : "Page 1",
+      "name" : "9740d932-4967-4a64-a56d-533515e1221c",
+      "widgets" : [ {
+        "colspan" : 30,
+        "column" : 1,
+        "name" : "visualization_1",
+        "row" : 1,
+        "rowspan" : 10
+      }, {
+        "colspan" : 10,
+        "column" : 1,
+        "name" : "visualization_3",
+        "row" : 11,
+        "rowspan" : 10
+      } ]
+    } ],
+    "rowHeight" : 24,
+    "style" : {
+      "backgroundColor" : "#ffffff",
+      "cellSpacingX" : 8,
+      "cellSpacingY" : 8,
+      "gutterColor" : "#f3f3f3"
+    }
+  } ],
+
+  "style" : {
+    "widgetStyle" : {
+      "backgroundColor" : "#ffffff",
+      "borderColor" : "#cccccc",
+      "borderEdges" : [ ],
+      "borderRadius" : 0,
+      "borderWidth" : 1
+    }
+  },
+  "widgets" : {
+    "visualization_1" : {
+      "actions" : [ ],
+      "name" : "visualization_1",
+      "parameters" : {
+        "legendPosition" : "Right",
+        "receiveFilterSource" : {
+          "filterMode" : "all",
+          "widgetIds" : [ ]
+        }
+      },
+      "source" : {
+        "id" : "${App.Visualizations.CustomersVisualizationOne.Id}",
+        "name" : "${App.Visualizations.CustomersVisualizationOne.Name}"
+      },
+      "type" : "visualization"
+    },
+    "visualization_3" : {
+      "actions" : [ ],
+      "name" : "visualization_3",
+      "parameters" : {
+        "legendPosition" : "Right",
+        "receiveFilterSource" : {
+          "filterMode" : "all",
+          "widgetIds" : [ ]
+        }
+      },
+      "source" : {
+        "id" : "${App.Visualizations.CustomersVisualizationTwo.Id}",
+        "name" : "${App.Visualizations.CustomersVisualizationTwo.Name}"
+      },
+      "type" : "visualization"
+    }
+  },
+  "workspaceIdOrApiName" : "${App.Workspaces.CustomersWorkspace.Name}"
+}

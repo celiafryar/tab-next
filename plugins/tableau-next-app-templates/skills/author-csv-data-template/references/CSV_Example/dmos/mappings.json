@@ -1,0 +1,57 @@
+{
+  "name" : "CSVMapping",
+  "label" : "A CSV Mapping",
+  "description" : "Customers Mapping DLO ${App.DataLakeObjects.CustomersDLO.Name} to DMO ${App.DataModelObjects.CustomersDMO.Name}",
+  "sourceEntityDeveloperName": "${App.DataLakeObjects.CustomersDLO.Name}",
+  "targetEntityDeveloperName": "${App.DataModelObjects.CustomersDMO.Name}",
+  "fieldMapping": [
+    {
+      "sourceFieldDeveloperName": "Index__c",
+      "targetFieldDeveloperName": "Index__c"
+    },
+    {
+      "sourceFieldDeveloperName": "Last_Name__c",
+      "targetFieldDeveloperName": "Last_Name__c"
+    },
+    {
+      "sourceFieldDeveloperName": "First_Name__c",
+      "targetFieldDeveloperName": "First_Name__c"
+    },
+    {
+      "sourceFieldDeveloperName": "Customer_Id__c",
+      "targetFieldDeveloperName": "Customer_Id__c"
+    },
+    {
+      "sourceFieldDeveloperName": "Company__c",
+      "targetFieldDeveloperName": "Company__c"
+    },
+    {
+      "sourceFieldDeveloperName": "City__c",
+      "targetFieldDeveloperName": "City__c"
+    },
+    {
+      "sourceFieldDeveloperName": "Country__c",
+      "targetFieldDeveloperName": "Country__c"
+    },
+    {
+      "sourceFieldDeveloperName": "Phone_1__c",
+      "targetFieldDeveloperName": "Phone_1__c"
+    },
+    {
+      "sourceFieldDeveloperName": "Phone_2__c",
+      "targetFieldDeveloperName": "Phone_2__c"
+    },
+    {
+      "sourceFieldDeveloperName": "Subscription_Date__c",
+      "targetFieldDeveloperName": "Subscription_Date__c"
+    },
+    {
+      "sourceFieldDeveloperName": "Email__c",
+      "targetFieldDeveloperName": "Email__c"
+    },
+    {
+      "sourceFieldDeveloperName": "Website__c",
+      "targetFieldDeveloperName": "Website__c"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "label" : "Superstore Demo Template",
+  "description" : "Demo based on the Superstore dataset",
+  "releaseInfo" : {
+    "templateVersion" : "1.0",
+    "notesFile" : null
+  },
+  "templateType" : "App",
+  "templateSubtype" : null,
+  "name" : "superstore_demo_template",
+  "namespace" : null,
+  "assetVersion" : 66.0,
+  "maxAppCount" : null,
+  "variableDefinition" : "variables.json",
+  "layoutDefinition" : "layout.json",
+  "tags" : { },
+  "chainDefinitions" : [ {
+    "type" : "Create",
+    "name" : null,
+    "file" : "create-chain.json"
+  }, {
+    "type" : "Update",
+    "name" : null,
+    "file" : "create-chain.json",
+    "revAppVersion" : null
+  } ],
+  "templateStatus" : null
+}

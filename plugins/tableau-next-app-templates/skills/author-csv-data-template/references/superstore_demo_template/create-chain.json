@@ -1,0 +1,212 @@
+{
+  "name" : "superstore_demo_template1",
+  "label" : "Superstore Demo Template",
+  "description" : "Demo based on the Superstore dataset",
+  "parameters" : { },
+  "dominoVariant" : "sfdc_internal__UnifiedAnalyticsDominoVariant",
+  "definition" : {
+    "nodes" : {
+      "upload_orders_csv" : {
+        "referenceId" : "upload_orders_csv",
+        "sources" : [ ],
+        "parameters" : {
+          "name" : "SuperstoreOrdersCSV",
+          "file" : "csvs/Superstore_Orders.csv"
+        },
+        "graphNodeType" : {
+          "name" : "CSVUpsert",
+          "label" : "Upload a CSV file"
+        },
+        "runAs" : "CurrentUser"
+      },
+      "upsert_orders_stream" : {
+        "referenceId" : "upsert_orders_stream",
+        "sources" : [ "upload_orders_csv" ],
+        "parameters" : {
+          "name" : "SuperstoreOrdersDS",
+          "file" : "datastreams/orders_stream.json",
+          "dataLakeObject" : {
+            "name" : "Superstore_Orders_DLO"
+          }
+        },
+        "graphNodeType" : {
+          "name" : "DataStreamUpsert",
+          "label" : "Create/Update a DataStream from a Template"
+        },
+        "runAs" : "CurrentUser"
+      },
+      "run_orders_stream" : {
+        "referenceId" : "run_orders_stream",
+        "sources" : [ "upsert_orders_stream" ],
+        "parameters" : {
+          "name" : "SuperstoreOrdersDS"
+        },
+        "graphNodeType" : {
+          "name" : "DataStreamRun",
+          "label" : "Refresh a DataStream created from a Template"
+        },
+        "runAs" : "CurrentUser"
+      },
+      "upload_people_csv" : {
+        "referenceId" : "upload_people_csv",
+        "sources" : [ ],
+        "parameters" : {
+          "name" : "SuperstorePeopleCSV",
+          "file" : "csvs/Superstore_People.csv"
+        },
+        "graphNodeType" : {
+          "name" : "CSVUpsert",
+          "label" : "Upload a CSV file"
+        },
+        "runAs" : "CurrentUser"
+      },
+      "upsert_people_stream" : {
+        "referenceId" : "upsert_people_stream",
+        "sources" : [ "upload_people_csv" ],
+        "parameters" : {
+          "name" : "SuperstorePeopleDS",
+          "file" : "datastreams/people_stream.json",
+          "dataLakeObject" : {
+            "name" : "Superstore_People_DLO"
+          }
+        },
+        "graphNodeType" : {
+          "name" : "DataStreamUpsert",
+          "label" : "Create/Update a DataStream from a Template"
+        },
+        "runAs" : "CurrentUser"
+      },
+      "run_people_stream" : {
+        "referenceId" : "run_people_stream",
+        "sources" : [ "upsert_people_stream" ],
+        "parameters" : {
+          "name" : "SuperstorePeopleDS"
+        },
+        "graphNodeType" : {
+          "name" : "DataStreamRun",
+          "label" : "Refresh a DataStream created from a Template"
+        },
+        "runAs" : "CurrentUser"
+      },
+      "upload_returns_csv" : {
+        "referenceId" : "upload_returns_csv",
+        "sources" : [ ],
+        "parameters" : {
+          "name" : "SuperstoreReturnsCSV",
+          "file" : "csvs/Superstore_Returns.csv"
+        },
+        "graphNodeType" : {
+          "name" : "CSVUpsert",
+          "label" : "Upload a CSV file"
+        },
+        "runAs" : "CurrentUser"
+      },
+      "upsert_returns_stream" : {
+        "referenceId" : "upsert_returns_stream",
+        "sources" : [ "upload_returns_csv" ],
+        "parameters" : {
+          "name" : "SuperstoreReturnsDS",
+          "file" : "datastreams/returns_stream.json",
+          "dataLakeObject" : {
+            "name" : "Superstore_Returns_DLO"
+          }
+        },
+        "graphNodeType" : {
+          "name" : "DataStreamUpsert",
+          "label" : "Create/Update a DataStream from a Template"
+        },
+        "runAs" : "CurrentUser"
+      },
+      "run_returns_stream" : {
+        "referenceId" : "run_returns_stream",
+        "sources" : [ "upsert_returns_stream" ],
+        "parameters" : {
+          "name" : "SuperstoreReturnsDS"
+        },
+        "graphNodeType" : {
+          "name" : "DataStreamRun",
+          "label" : "Refresh a DataStream created from a Template"
+        },
+        "runAs" : "CurrentUser"
+      },
+      "upsert_workspace_Superstore_Demo_Workspace" : {
+        "referenceId" : "upsert_workspace_Superstore_Demo_Workspace",
+        "sources" : [ "run_orders_stream", "run_people_stream", "run_returns_stream" ],
+        "parameters" : {
+          "name" : "Superstore_Demo_Workspace",
+          "file" : "/workspaces/Superstore_Demo_Workspace.json",
+          "assets" : [ {
+            "name" : "Superstore_Semantic_Model",
+            "assetType" : "SemanticModel",
+            "usageType" : "Referenced"
+          } ],
+          "condition" : "${Variables.CreateWorkspace}"
+        },
+        "graphNodeType" : {
+          "name" : "WorkspaceUpsert",
+          "label" : "Create/Update a Workspace from a Template"
+        },
+        "runAs" : "CurrentUser"
+      },
+      "upsert_sdm_Superstore_Semantic_Model" : {
+        "referenceId" : "upsert_sdm_Superstore_Semantic_Model",
+        "sources" : [ "upsert_workspace_Superstore_Demo_Workspace" ],
+        "parameters" : {
+          "name" : "Superstore_Semantic_Model",
+          "file" : "/sdms/Superstore_Semantic_Model.json",
+          "condition" : "${Variables.CreateSDM}"
+        },
+        "graphNodeType" : {
+          "name" : "SemanticModelUpsert",
+          "label" : null
+        },
+        "runAs" : "CurrentUser"
+      },
+      "upsert_visualization_Spoke_Viz" : {
+        "referenceId" : "upsert_visualization_Spoke_Viz",
+        "sources" : [ "upsert_sdm_Superstore_Semantic_Model" ],
+        "parameters" : {
+          "name" : "Spoke_Viz",
+          "file" : "/visualizations/Spoke_Viz.json",
+          "condition" : "${Variables.CreateViz1}"
+        },
+        "graphNodeType" : {
+          "name" : "VisualizationUpsert",
+          "label" : "Create/Update a Visualization from a Template"
+        },
+        "runAs" : "CurrentUser"
+      },
+      "upsert_visualization_Radial_Viz" : {
+        "referenceId" : "upsert_visualization_Radial_Viz",
+        "sources" : [ "upsert_sdm_Superstore_Semantic_Model" ],
+        "parameters" : {
+          "name" : "Radial_Viz",
+          "file" : "/visualizations/Radial_Viz.json",
+          "condition" : "${Variables.CreateViz2}"
+        },
+        "graphNodeType" : {
+          "name" : "VisualizationUpsert",
+          "label" : "Create/Update a Visualization from a Template"
+        },
+        "runAs" : "CurrentUser"
+      },
+      "upsert_dashboard_Demo_Dashboard1" : {
+        "referenceId" : "upsert_dashboard_Demo_Dashboard1",
+        "sources" : [ "upsert_visualization_Spoke_Viz", "upsert_visualization_Radial_Viz" ],
+        "parameters" : {
+          "name" : "Demo_Dashboard1",
+          "file" : "/dashboards/Demo_Dashboard1.json",
+          "condition" : "${Variables.CreateDashboard}"
+        },
+        "graphNodeType" : {
+          "name" : "DashboardUpsert",
+          "label" : "Create/Update a Dashboard from a Template"
+        },
+        "runAs" : "CurrentUser"
+      }
+    }
+  },
+  "finallyDefinition" : {
+    "nodes" : { }
+  }
+}

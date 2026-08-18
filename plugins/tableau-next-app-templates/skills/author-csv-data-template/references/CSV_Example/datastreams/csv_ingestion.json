@@ -1,0 +1,209 @@
+{
+    "name": "CustomersDS",
+    "label": "Customers DS ${Variables.LabelSuffix}",
+    "datastreamType": "CONNECTORSFRAMEWORK",
+    "connectorInfo": {
+        "connectorType": "DataConnector",
+        "connectorDetails": {
+            "name": "UploadedFiles"
+        }
+    },
+    "sourceFields": [
+        {
+            "dataType": "Number",
+            "name": "Index"
+        },
+        {
+            "dataType": "Text",
+            "name": "Customer Id"
+        },
+        {
+            "dataType": "Text",
+            "name": "First Name"
+        },
+        {
+            "dataType": "Text",
+            "name": "Last Name"
+        },
+        {
+            "dataType": "Text",
+            "name": "Company"
+        },
+        {
+            "dataType": "Text",
+            "name": "City"
+        },
+        {
+            "dataType": "Text",
+            "name": "Country"
+        },
+        {
+            "dataType": "Text",
+            "name": "Phone 1"
+        },
+        {
+            "dataType": "Text",
+            "name": "Phone 2"
+        },
+        {
+            "dataType": "Text",
+            "name": "Email"
+        },
+        {
+            "dataType": "Date",
+            "format": "yyyy-MM-dd",
+            "name": "Subscription Date"
+        },
+        {
+            "dataType": "Text",
+            "name": "Website"
+        }
+    ],
+    "dataLakeObjectInfo": {
+        "name": "${App.DataLakeObjects.CustomersDLO.Name}",
+        "label": "Customers DLO ${Variables.LabelSuffix}",
+        "category": "OTHER",
+        "dataspaceInfo": [
+            {
+                "name": "default"
+            }
+        ],
+        "fields": [
+            {
+                "dataType": "Number",
+                "isPrimaryKey": true,
+                "label": "Index",
+                "name": "Index"
+            },
+            {
+                "dataType": "Text",
+                "isPrimaryKey": false,
+                "name": "Customer_Id",
+                "label": "Customer Id"
+            },
+            {
+                "dataType": "Text",
+                "isPrimaryKey": false,
+                "name": "First_Name",
+                "label": "First Name"
+            },
+            {
+                "dataType": "Text",
+                "isPrimaryKey": false,
+                "name": "Last_Name",
+                "label": "Last Name"
+            },
+            {
+                "dataType": "Text",
+                "isPrimaryKey": false,
+                "name": "Company",
+                "label": "Company"
+            },
+            {
+                "dataType": "Text",
+                "isPrimaryKey": false,
+                "name": "City",
+                "label": "City"
+            },
+            {
+                "dataType": "Text",
+                "isPrimaryKey": false,
+                "name": "Country",
+                "label": "Country"
+            },
+            {
+                "dataType": "Text",
+                "isPrimaryKey": false,
+                "name": "Phone_1",
+                "label": "Phone 1"
+            },
+            {
+                "dataType": "Text",
+                "isPrimaryKey": false,
+                "name": "Phone_2",
+                "label": "Phone 2"
+            },
+            {
+                "dataType": "Text",
+                "isPrimaryKey": false,
+                "name": "Email",
+                "label": "Email"
+            },
+            {
+                "dataType": "Date",
+                "isPrimaryKey": false,
+                "name": "Subscription_Date",
+                "label": "Subscription Date"
+            },
+            {
+                "dataType": "Text",
+                "isPrimaryKey": false,
+                "name": "Website",
+                "label": "Website"
+            }
+        ]
+    },
+    "mappings": [
+        {
+            "sourceFieldLabel": "Index",
+            "targetFieldName": "Index"
+        },
+        {
+            "sourceFieldLabel": "Customer Id",
+            "targetFieldName": "Customer_Id"
+        },
+        {
+            "sourceFieldLabel": "First Name",
+            "targetFieldName": "First_Name"
+        },
+        {
+            "sourceFieldLabel": "Last Name",
+            "targetFieldName": "Last_Name"
+        },
+        {
+            "sourceFieldLabel": "Company",
+            "targetFieldName": "Company"
+        },
+        {
+            "sourceFieldLabel": "City",
+            "targetFieldName": "City"
+        },
+        {
+            "sourceFieldLabel": "Country",
+            "targetFieldName": "Country"
+        },
+        {
+            "sourceFieldLabel": "Phone 1",
+            "targetFieldName": "Phone_1"
+        },
+        {
+            "sourceFieldLabel": "Phone 2",
+            "targetFieldName": "Phone_2"
+        },
+        {
+            "sourceFieldLabel": "Email",
+            "targetFieldName": "Email"
+        },
+        {
+            "sourceFieldLabel": "Subscription Date",
+            "targetFieldName": "Subscription_Date"
+        },
+        {
+            "sourceFieldLabel": "Website",
+            "targetFieldName": "Website"
+        }
+    ],
+    "refreshConfig": {
+        "refreshMode": "TOTAL_REPLACE",
+        "frequency": {
+            "frequencyType": "None"
+        }
+    },
+    "advancedAttributes": {
+        "importDirectory": "${App.CSVs.CustomersCSV.ImportDirectory}",
+        "fileName": "${App.CSVs.CustomersCSV.FileName}",
+        "delimiter": ",",
+        "parentDirectory": "${App.CSVs.CustomersCSV.ParentDirectory}",
+        "fileType": "${App.CSVs.CustomersCSV.FileType}"
+    }
+}

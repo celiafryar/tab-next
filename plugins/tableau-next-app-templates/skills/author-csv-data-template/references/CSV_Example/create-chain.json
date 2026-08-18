@@ -1,0 +1,192 @@
+{
+  "name" : "load_a_csv5",
+  "label" : "Creates a Simple CSV",
+  "description" : null,
+  "parameters" : { },
+  "dominoVariant" : "sfdc_internal__UnifiedAnalyticsDominoVariant",
+  "definition" : {
+    "nodes" : {
+      "update_csv" : {
+        "referenceId" : "update_csv",
+        "sources" : [ ],
+        "parameters" : {
+          "name" : "CustomersCSV",
+          "file" : "csvs/customers-100.csv"
+        },
+        "graphNodeType" : {
+          "name" : "CSVUpsert",
+          "label" : "Upload a CSV file"
+        },
+        "runAs" : "CurrentUser"
+      },
+      "upsert_data_stream1" : {
+        "referenceId" : "upsert_data_stream1",
+        "sources" : [ "update_csv" ],
+        "parameters" : {
+          "name" : "CustomersDS",
+          "file" : "datastreams/csv_ingestion.json",
+          "dataLakeObject" : {
+            "name" : "CustomersDLO"
+          }
+        },
+        "graphNodeType" : {
+          "name" : "DataStreamUpsert",
+          "label" : "Create/Update a DataStream  from a Template"
+        },
+        "runAs" : "CurrentUser"
+      },
+      "run_data_stream1" : {
+        "referenceId" : "run_data_stream1",
+        "sources" : [ "upsert_data_stream1" ],
+        "parameters" : {
+          "name" : "CustomersDS"
+        },
+        "graphNodeType" : {
+          "name" : "DataStreamRun",
+          "label" : "Refresh a DataSteam created from a Template"
+        },
+        "runAs" : "CurrentUser"
+      },
+      "upsert_dmo" : {
+        "referenceId" : "upsert_dmo",
+        "sources" : [ "run_data_stream1" ],
+        "parameters" : {
+          "name" : "CustomersDMO",
+          "file" : "dmos/dmo.json",
+          "condition" : "${Variables.CreateDMO}",
+          "capabilities" : {
+            "deleteLocked" : "false",
+            "editLocked" : "false"
+          }
+        },
+        "graphNodeType" : {
+          "name" : "DataModelObjectUpsert",
+          "label" : "Create/Update a DMO from a Template"
+        },
+        "runAs" : "CurrentUser"
+      },
+      "dmo_mapping" : {
+        "referenceId" : "dmo_mapping",
+        "sources" : [ "upsert_dmo" ],
+        "parameters" : {
+          "name" : "CSVMapping",
+          "file" : "dmos/mappings.json",
+          "condition" : "${Variables.CreateDMO}"
+        },
+        "graphNodeType" : {
+          "name" : "Mapping",
+          "label" : "Map a DMO created from a Template"
+        },
+        "runAs" : "CurrentUser"
+      },
+      "upsert_ci" : {
+        "referenceId" : "upsert_ci",
+        "sources" : [ "dmo_mapping" ],
+        "parameters" : {
+          "name" : "CustomerInsight",
+          "file" : "cis/calc_insights.json",
+          "condition" : "${Variables.CreateCalculatedInsight}"
+        },
+        "graphNodeType" : {
+          "name" : "CalculatedInsightUpsert",
+          "label" : "Create a Calculated Insight"
+        },
+        "runAs" : "CurrentUser"
+      },
+      "run_ci" : {
+        "referenceId" : "run_ci",
+        "sources" : [ "upsert_ci" ],
+        "parameters" : {
+          "name" : "CustomerInsight",
+          "condition" : "${Variables.CreateCalculatedInsight}"
+        },
+        "graphNodeType" : {
+          "name" : "CalculatedInsightRun",
+          "label" : "Run a Calculated Insight"
+        },
+        "runAs" : "CurrentUser"
+      },
+      "upsert_workspace1" : {
+        "referenceId" : "upsert_workspace1",
+        "sources" : [ "run_ci" ],
+        "parameters" : {
+          "name" : "CustomersWorkspace",
+          "label" : "Customers Workspace",
+          "file" : "workspaces/workspace.json",
+          "condition" : "${Variables.CreateWorkspace}",
+          "assets" : [ {
+            "name" : "CustomersSemanticModel",
+            "assetType" : "SemanticModel",
+            "usageType" : "Referenced"
+          } ]
+        },
+        "graphNodeType" : {
+          "name" : "WorkspaceUpsert",
+          "label" : "Create/Update a Workspace from a Template"
+        },
+        "runAs" : "CurrentUser"
+      },
+      "upsert_sdm" : {
+        "referenceId" : "upsert_sdm",
+        "sources" : [ "upsert_workspace1" ],
+        "parameters" : {
+          "name" : "CustomersSemanticModel",
+          "label" : "Customers Semantic Model",
+          "file" : "sdms/sdm.json",
+          "condition" : "${Variables.CreateSDM}"
+        },
+        "graphNodeType" : {
+          "name" : "SemanticModelUpsert",
+          "label" : null
+        },
+        "runAs" : "CurrentUser"
+      },
+      "upsert_visualization1" : {
+        "referenceId" : "upsert_visualization1",
+        "sources" : [ "upsert_sdm" ],
+        "parameters" : {
+          "name" : "CustomersVisualizationOne",
+          "file" : "visualizations/viz1.json",
+          "condition" : "${Variables.CreateViz1}"
+        },
+        "graphNodeType" : {
+          "name" : "VisualizationUpsert",
+          "label" : "Create/Update a Visualization from a Template"
+        },
+        "runAs" : "CurrentUser"
+      },
+      "upsert_visualization2" : {
+        "referenceId" : "upsert_visualization2",
+        "sources" : [ "upsert_sdm" ],
+        "parameters" : {
+          "name" : "CustomersVisualizationTwo",
+          "file" : "visualizations/viz2.json",
+          "condition" : "${Variables.CreateViz2}"
+        },
+        "graphNodeType" : {
+          "name" : "VisualizationUpsert",
+          "label" : "Create/Update a Visualization from a Template"
+        },
+        "runAs" : "CurrentUser"
+      },
+      "upsert_dashboard1" : {
+        "referenceId" : "upsert_dashboard1",
+        "sources" : [ "upsert_visualization1", "upsert_visualization2" ],
+        "parameters" : {
+          "name" : "tua",
+          "label" : "tua",
+          "file" : "dashboards/dashboard.json",
+          "condition" : "${Variables.CreateDashboard}"
+        },
+        "graphNodeType" : {
+          "name" : "DashboardUpsert",
+          "label" : "Create/Update a Dashboard from a Template"
+         },
+        "runAs" : "CurrentUser"
+     }
+    }
+  },
+  "finallyDefinition" : {
+    "nodes" : { }
+  }
+}

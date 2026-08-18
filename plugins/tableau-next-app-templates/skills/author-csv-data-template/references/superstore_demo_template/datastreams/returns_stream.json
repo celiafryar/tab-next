@@ -1,0 +1,68 @@
+{
+    "name": "SuperstoreReturnsDS",
+    "label": "Superstore Returns DS ${Variables.LabelSuffix}",
+    "datastreamType": "CONNECTORSFRAMEWORK",
+    "connectorInfo": {
+        "connectorType": "DataConnector",
+        "connectorDetails": {
+            "name": "UploadedFiles"
+        }
+    },
+    "sourceFields": [
+        {
+            "dataType": "Text",
+            "name": "Returned"
+        },
+        {
+            "dataType": "Text",
+            "name": "Order ID"
+        }
+    ],
+    "dataLakeObjectInfo": {
+        "name": "${App.DataLakeObjects.Superstore_Returns_DLO.Name}",
+        "label": "Superstore Returns DLO ${Variables.LabelSuffix}",
+        "category": "OTHER",
+        "dataspaceInfo": [
+            {
+                "name": "default"
+            }
+        ],
+        "fields": [
+            {
+                "dataType": "Text",
+                "isPrimaryKey": true,
+                "name": "Order_ID",
+                "label": "Order ID"
+            },
+            {
+                "dataType": "Text",
+                "isPrimaryKey": false,
+                "name": "Returned",
+                "label": "Returned"
+            }
+        ]
+    },
+    "mappings": [
+        {
+            "sourceFieldLabel": "Order ID",
+            "targetFieldName": "Order_ID"
+        },
+        {
+            "sourceFieldLabel": "Returned",
+            "targetFieldName": "Returned"
+        }
+    ],
+    "refreshConfig": {
+        "refreshMode": "TOTAL_REPLACE",
+        "frequency": {
+            "frequencyType": "None"
+        }
+    },
+    "advancedAttributes": {
+        "importDirectory": "${App.CSVs.SuperstoreReturnsCSV.ImportDirectory}",
+        "fileName": "${App.CSVs.SuperstoreReturnsCSV.FileName}",
+        "delimiter": ",",
+        "parentDirectory": "${App.CSVs.SuperstoreReturnsCSV.ParentDirectory}",
+        "fileType": "${App.CSVs.SuperstoreReturnsCSV.FileType}"
+    }
+}

@@ -1,0 +1,56 @@
+{
+  "LabelSuffix": {
+    "label": "Asset Label Suffix",
+    "description": "Tacked on to the end of each asset's label, for better identification",
+    "defaultValue": "",
+    "required": false,
+    "variableType": {
+      "type": "StringType"
+    }
+  },
+  "CreateWorkspace": {
+    "label": "Create Workspace",
+    "description": "Conditionally create a workspace or not",
+    "defaultValue": true,
+    "required": true,
+    "variableType": {
+      "type": "BooleanType"
+    }
+  },
+  "CreateSDM": {
+    "label": "Create SDM",
+    "description": "Conditionally create the Semantic Data Model or not",
+    "defaultValue": true,
+    "required": true,
+    "variableType": {
+      "type": "BooleanType"
+    }
+  },
+  "CreateViz1": {
+    "label": "Create Spoke Viz",
+    "description": "Conditionally create the Spoke visualization or not",
+    "defaultValue": true,
+    "required": true,
+    "variableType": {
+      "type": "BooleanType"
+    }
+  },
+  "CreateViz2": {
+    "label": "Create Radial Viz",
+    "description": "Conditionally create the Radial visualization or not",
+    "defaultValue": true,
+    "required": true,
+    "variableType": {
+      "type": "BooleanType"
+    }
+  },
+  "CreateDashboard": {
+    "label": "Create Dashboard",
+    "description": "Conditionally create the dashboard or not",
+    "defaultValue": true,
+    "required": true,
+    "variableType": {
+      "type": "BooleanType"
+    }
+  }
+}

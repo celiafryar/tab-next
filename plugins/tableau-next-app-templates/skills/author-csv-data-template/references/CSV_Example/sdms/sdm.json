@@ -1,0 +1,196 @@
+{
+  "label" : "Customers Semantic Model ${Variables.LabelSuffix}",
+  "agentEnabled" : false,
+  "app" : "${App.Name}",
+  "dataspace" : "default",
+  "categories" : [ ],
+  "currency" : {
+    "useOrgDefault" : true
+  },
+  "fieldsOverrides" : [ ],
+  "hasUnmapped" : false,
+  "isLocked" : false,
+  "lockedActions" : { },
+  "queryUnrelatedDataObjects" : "Exception",
+  "semanticCalculatedDimensions" : [ ],
+  "semanticCalculatedDimensionsUrl" : "/services/data/v66.0/ssot/semantic/models/New_Semantic_Model/calculated-dimensions",
+  "semanticCalculatedMeasurements" : [ ],
+  "semanticCalculatedMeasurementsUrl" : "/services/data/v66.0/ssot/semantic/models/New_Semantic_Model/calculated-measurements",
+  "semanticDataObjects" : [ {
+    "apiName" : "Customers_DMO",
+    "dataObjectName" : "${App.DataModelObjects.CustomersDMO.Name}",
+    "dataObjectType" : "Dmo",
+    "filters" : [ ],
+    "label" : "Customer DMO",
+    "semanticDimensions" : [ {
+      "apiName" : "Data_Source_Object",
+      "dataObjectFieldName" : "DataSourceObject__c",
+      "dataType" : "Text",
+      "displayCategory" : "Discrete",
+      "isVisible" : true,
+      "label" : "Data Source Object",
+      "semanticDataType" : "None",
+      "storageDataType" : "Text"
+    }, {
+      "apiName" : "Internal_Organization",
+      "dataObjectFieldName" : "InternalOrganization__c",
+      "dataType" : "Text",
+      "displayCategory" : "Discrete",
+      "isVisible" : true,
+      "label" : "Internal Organization",
+      "semanticDataType" : "None",
+      "storageDataType" : "Text"
+    }, {
+      "apiName" : "Data_Source",
+      "dataObjectFieldName" : "DataSource__c",
+      "dataType" : "Text",
+      "displayCategory" : "Discrete",
+      "isVisible" : true,
+      "label" : "Data Source",
+      "semanticDataType" : "None",
+      "storageDataType" : "Text"
+    }, {
+      "apiName" : "Customer_Id",
+      "dataObjectFieldName" : "Customer_Id__c",
+      "dataType" : "Text",
+      "displayCategory" : "Discrete",
+      "isVisible" : true,
+      "label" : "Customer Id",
+      "semanticDataType" : "None",
+      "storageDataType" : "Text"
+    }, {
+      "apiName" : "Last_Name",
+      "dataObjectFieldName" : "Last_Name__c",
+      "dataType" : "Text",
+      "displayCategory" : "Discrete",
+      "isVisible" : true,
+      "label" : "Last Name",
+      "semanticDataType" : "None",
+      "storageDataType" : "Text"
+    }, {
+      "apiName" : "Website",
+      "dataObjectFieldName" : "Website__c",
+      "dataType" : "Text",
+      "displayCategory" : "Discrete",
+      "isVisible" : true,
+      "label" : "Website",
+      "semanticDataType" : "None",
+      "storageDataType" : "Text"
+    }, {
+      "apiName" : "Email",
+      "dataObjectFieldName" : "Email__c",
+      "dataType" : "Text",
+      "displayCategory" : "Discrete",
+      "isVisible" : true,
+      "label" : "Email",
+      "semanticDataType" : "None",
+      "storageDataType" : "Text"
+    }, {
+      "apiName" : "Phone_2",
+      "dataObjectFieldName" : "Phone_2__c",
+      "dataType" : "Text",
+      "displayCategory" : "Discrete",
+      "isVisible" : true,
+      "label" : "Phone 2",
+      "semanticDataType" : "None",
+      "storageDataType" : "Text"
+    }, {
+      "apiName" : "City",
+      "dataObjectFieldName" : "City__c",
+      "dataType" : "Text",
+      "displayCategory" : "Discrete",
+      "isVisible" : true,
+      "label" : "City",
+      "semanticDataType" : "None",
+      "storageDataType" : "Text"
+    }, {
+      "apiName" : "First_Name",
+      "dataObjectFieldName" : "First_Name__c",
+      "dataType" : "Text",
+      "displayCategory" : "Discrete",
+      "isVisible" : true,
+      "label" : "First Name",
+      "semanticDataType" : "None",
+      "storageDataType" : "Text"
+    }, {
+      "apiName" : "Country",
+      "dataObjectFieldName" : "Country__c",
+      "dataType" : "Text",
+      "displayCategory" : "Discrete",
+      "isVisible" : true,
+      "label" : "Country",
+      "semanticDataType" : "None",
+      "storageDataType" : "Text"
+    }, {
+      "apiName" : "Key_Qualifier_Index",
+      "dataObjectFieldName" : "KQ_Index__c",
+      "dataType" : "Text",
+      "displayCategory" : "Discrete",
+      "isVisible" : true,
+      "label" : "Key Qualifier Index",
+      "semanticDataType" : "None",
+      "storageDataType" : "Text"
+    }, {
+      "apiName" : "Company",
+      "dataObjectFieldName" : "Company__c",
+      "dataType" : "Text",
+      "displayCategory" : "Discrete",
+      "isVisible" : true,
+      "label" : "Company",
+      "semanticDataType" : "None",
+      "storageDataType" : "Text"
+    }, {
+      "apiName" : "Subscription_Date",
+      "dataObjectFieldName" : "Subscription_Date__c",
+      "dataType" : "Date",
+      "displayCategory" : "Discrete",
+      "isVisible" : true,
+      "label" : "Subscription Date",
+      "semanticDataType" : "None",
+      "storageDataType" : "Date"
+    }, {
+      "apiName" : "Phone_1",
+      "dataObjectFieldName" : "Phone_1__c",
+      "dataType" : "Text",
+      "displayCategory" : "Discrete",
+      "isVisible" : true,
+      "label" : "Phone 1",
+      "semanticDataType" : "None",
+      "storageDataType" : "Text"
+    } ],
+    "semanticDimensionsUrl" : "/services/data/v66.0/ssot/semantic/models/New_Semantic_Model/data-objects/${App.DataModelObjects.CustomersDMO.Name}/dimensions",
+    "semanticMeasurements" : [ {
+      "aggregationType" : "Sum",
+      "apiName" : "Index",
+      "dataObjectFieldName" : "Index__c",
+      "dataType" : "Number",
+      "decimalPlace" : 2,
+      "displayCategory" : "Continuous",
+      "isAggregatable" : true,
+      "isVisible" : true,
+      "label" : "Index",
+      "semanticDataType" : "None",
+      "shouldTreatNullsAsZeros" : false,
+      "storageDataType" : "Number"
+    } ],
+    "semanticMeasurementsUrl" : "/services/data/v66.0/ssot/semantic/models/New_Semantic_Model/data-objects/${App.DataModelObjects.CustomersDMO.Name}/measurements",
+    "shouldIncludeAllFields" : true,
+    "tableType" : "Standard"
+  } ],
+  "semanticDataObjectsUrl" : "/services/data/v66.0/ssot/semantic/models/New_Semantic_Model/data-objects",
+  "semanticGroupings" : [ ],
+  "semanticGroupingsUrl" : "/services/data/v66.0/ssot/semantic/models/New_Semantic_Model/groupings",
+  "semanticLogicalViews" : [ ],
+  "semanticMetrics" : [ ],
+  "semanticModelFilters" : [ ],
+  "semanticModelInfo" : {
+    "definitionsCount" : 1,
+    "maxDefinitionCount" : 1000,
+    "modelHierarchyDepth" : 1
+  },
+  "semanticParameters" : [ ],
+  "semanticParametersUrl" : "/services/data/v66.0/ssot/semantic/models/New_Semantic_Model/parameters",
+  "semanticRelationships" : [ ],
+  "semanticRelationshipsUrl" : "/services/data/v66.0/ssot/semantic/models/New_Semantic_Model/relationships",
+  "sourceCreation" : "Workspace"
+}

@@ -1,0 +1,93 @@
+{
+  "SampleSize": {
+    "label": "Sample Size",
+    "required": true,
+    "variableType": {
+      "type": "StringType",
+      "enums": [
+        "100",
+        "1000",
+        "10000",
+        "100000"
+      ],
+      "enumsLabels": [
+        "One Hundred (17 KB)",
+        "One Thousand (170 KB)",
+        "Ten Thousand (1.7 MB)",
+        "One Hundred Thousand (17 MB)"
+      ]
+    }
+  },
+  "LabelSuffix": {
+    "label": "Asset Label Suffix",
+    "description": "Tacked on to the end of each assets label, for better identification",
+    "defaultValue": "",
+    "required": false,
+    "variableType": {
+      "type": "StringType"
+    }
+  },
+  "CreateDMO": {
+    "label": "Create DMO",
+    "description": "Conditionally create and map DMO",
+    "defaultValue": true,
+    "required": true,
+    "variableType": {
+      "type": "BooleanType"
+    }
+  },
+  "CreateWorkspace": {
+    "label": "Create Workspace",
+    "description": "Conditionally create a workspace or not",
+    "defaultValue": true,
+    "required": true,
+    "variableType": {
+      "type": "BooleanType"
+    }
+  },
+  "CreateSDM": {
+    "label": "Create SDM",
+    "description": "Conditionally create a Semantic Data Model or not",
+    "defaultValue": true,
+    "required": true,
+    "variableType": {
+      "type": "BooleanType"
+    }
+  },
+  "CreateDashboard": {
+    "label": "Create Dashboard",
+    "description": "Conditionally create a dashboard or not",
+    "defaultValue": true,
+    "required": true,
+    "variableType": {
+      "type": "BooleanType"
+    }
+  },
+  "CreateViz1": {
+    "label": "Create Viz One",
+    "description": "Conditionally create a visualization or not",
+    "defaultValue": true,
+    "required": true,
+    "variableType": {
+      "type": "BooleanType"
+    }
+  },
+  "CreateViz2": {
+    "label": "Create Viz Two",
+    "description": "Conditionally create a visualization or not",
+    "defaultValue": true,
+    "required": true,
+    "variableType": {
+      "type": "BooleanType"
+    }
+  },
+  "CreateCalculatedInsight": {
+    "label": "Create Calculated Insight",
+    "description": "Conditionally create a calculated insight",
+    "defaultValue": false,
+    "required": true,
+    "variableType": {
+      "type": "BooleanType"
+    }
+  }
+}
