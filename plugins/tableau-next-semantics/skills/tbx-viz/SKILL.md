@@ -182,6 +182,19 @@ A discrete measure sitting alone on a shelf with an empty pane renders its value
 while `fieldLabels` sizes the caption above it. Read `rows` / `columns` /
 `marks.panes.encodings` before changing a size, rather than trusting the key name.
 
+## Verify styling from the API, not the screen
+
+A dashboard caches its queries (`queryCacheEnabled: true`, `queryCacheStaleness: 30min`), so a
+styling change that landed correctly can keep showing the **old** rendering for up to half an
+hour. This has produced two separate false alarms: a font size reported as "not applying" when
+the asset already carried it, and a map that appeared broken and then fixed itself.
+
+Before concluding a styling change failed, **read the deployed asset back**
+(`GET /tableau/visualizations/<id>?`) and check the value. If the API says the size is right,
+the problem is the render, not the change. Hard refresh, then look again. Chasing a stale
+render leads to "fixing" a setting that was never wrong, which is how the `markLabels` /
+`marks` / `headers` detour happened.
+
 ## `style.fonts` vs `stylesheet`: only one is portable
 
 | | Carries | Survives packaging? |
