@@ -172,6 +172,21 @@ sf data query -q "SELECT Id, Source FROM AnalyticsMetricWidgetDef" --target-org 
   widths (e.g. 1200px/48col vs 1600px/96col) are why an identical label fits one dashboard and
   overruns another. **Fix the canvas, not the label.** The same values appear in the retrieved
   `.uadash-meta.xml` as `columnCount` and `maxWidth`, alongside each widget's grid position.
+- **An image widget references a `ContentAsset` by developer name**, and the asset is NOT carried
+  inside a template bundle. Ship it as **sibling metadata** (`contentassets/<name>.asset` plus
+  `.asset-meta.xml`, retrievable with `sf project retrieve start --metadata ContentAsset:<name>`)
+  and `DashboardUpsert` resolves it at Create time, rewriting `source` to a full
+  `{id, label, name, type, url}`. Verified 2026-08-19 with a two-node probe template
+  (WorkspaceUpsert + DashboardUpsert, no data) that runs in ~30s — the way to test a dashboard
+  question without paying for a full data build. **Consequence: a dashboard with an image widget
+  is no longer self-contained.** A missing ContentAsset fails the ENTIRE dashboard, every widget,
+  not just the image.
+- **`imageScale` valid values: `fill`, `original`, `fitToHeight`, `fitToWidth`** (also accepted
+  capitalized, e.g. `FitToHeight`). **`fit` is NOT valid** and neither are `contain`, `cover`,
+  `none`, `stretch`, `crop`, `auto`. The UI label "Fit to Height" maps to `fitToHeight`. Deploy
+  rejects a bad value with `Invalid value for image scale type: <v>`, so the enum is discoverable
+  by probing. `fill` crops to the box aspect ratio, so a square logo needs a near-square box;
+  `fitToHeight` scales to the box height and is usually what you want.
 - **Resizing a widget persists; repositioning it does not.** Dragging a text widget to a new spot
   in the UI is silently lost, and the retrieve comes back byte-identical, which reads as "the
   retrieve is broken" when the edit simply never saved. Changing its height (`rowspan`) saves
