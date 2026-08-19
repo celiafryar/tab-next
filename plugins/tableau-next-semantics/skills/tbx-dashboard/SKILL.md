@@ -172,6 +172,15 @@ sf data query -q "SELECT Id, Source FROM AnalyticsMetricWidgetDef" --target-org 
   widths (e.g. 1200px/48col vs 1600px/96col) are why an identical label fits one dashboard and
   overruns another. **Fix the canvas, not the label.** The same values appear in the retrieved
   `.uadash-meta.xml` as `columnCount` and `maxWidth`, alongside each widget's grid position.
+- **Resizing a widget persists; repositioning it does not.** Dragging a text widget to a new spot
+  in the UI is silently lost, and the retrieve comes back byte-identical, which reads as "the
+  retrieve is broken" when the edit simply never saved. Changing its height (`rowspan`) saves
+  reliably. **To move a text widget vertically, shorten it rather than drag it** — a shorter box
+  seats its text higher. Verified on a 3-page dashboard where all three titles needed the same
+  position and only the resized one held.
+- **A map renders without its basemap for a while after Create.** The tiles fill in on their own
+  some time later. This is not a permissions problem and not a missing feature — resist
+  "fixing" it. Confirmed twice; both times it resolved untouched.
 - **Number format lives here, not in the model.** A metric has no format property; a tile's decimals
   come from the widget's style settings. Don't deploy model changes hoping to fix formatting.
 
