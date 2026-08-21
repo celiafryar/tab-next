@@ -108,6 +108,12 @@ side runs as. **Provisioning frequently creates them and stalls before assigning
 same traversal trap hides ordinary permission sets on a user — count with
 `SELECT COUNT(Id) FROM PermissionSetAssignment WHERE AssigneeId = '<id>'` instead.
 
+**Field evidence, four orgs in a row (2026-08-12 to 2026-08-21):** freshly provisioned orgs
+arrived with 0, 0, 2 and 0 of the six assigned. If someone tells you this preflight is
+unnecessary, that is the counter-evidence. Note also that
+**`SemanticAnalyticsAgentPermSet` does not exist until Tableau Next is enabled** in the org, so
+in a brand-new org expect to assign five now and the sixth after enablement.
+
 ### The fix, which Setup cannot do
 
 Setup's Add Assignment picker dead-ends: these require the `Cloud Integration User` license, which
