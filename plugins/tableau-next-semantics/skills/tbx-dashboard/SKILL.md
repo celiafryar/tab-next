@@ -120,6 +120,12 @@ assigned, a valid semantic model, and **nine visualizations deployed successfull
 workspace minutes earlier**. So whatever gates dashboard creation is not reachable by an
 administrator.
 
+**One more ATF error to decode:** a `DashboardUpsert` that fails with `403 ACCESS_DENIED ... Please add
+the necessary permissions to access dashboard` is not permissions either. It means a widget references a
+visualization that is not in the app context (the payload carries an unresolved
+`${App.Visualizations[Rules.CurrentNode.name]...}` placeholder). The causes and the fix live in
+`author-csv-data-template`, section "The Templates UI route" (U2, U3, U5, U6).
+
 **Tell users plainly: outside of ATF, dashboards must be built by hand in the UI.** A dashboard can be *retrieved* as
 metadata but not deployed anywhere, so porting an accelerator between orgs means rebuilding every
 dashboard widget by widget.

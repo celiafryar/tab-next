@@ -95,6 +95,30 @@ Every one of these was catchable before load and permanent afterward. Ask, don't
   cause was never identified. Keep "opens in the editor" in the migration verification checklist,
   and delete this entry if the next migration also opens clean.
 
+## App template packaging, the Templates UI route (org clock 2026-08-14, `customization-platform-3917-dev-ed`)
+
+Findings are written up in `author-csv-data-template` (section "The Templates UI route", U1 to U8).
+Open threads:
+
+- **`Test008` (Sales Opportunity closure, 14 resources) has not installed yet.** Five of its eleven
+  visualizations are Table or Radial layouts (`Product Family Table`, `Rep Table`,
+  `Region Product Opps Table`, `Spiral Booking Amount`, `Donut for Spiral Booking Amount`). Remove
+  them from the template AND from the `Sales Insights and Analysis` dashboard's widgets, or the
+  dashboard task will 403. Check each remaining chart reads clean at 67.0 first (tbx-viz, R11).
+- **Why did the Sales Opportunity closure add fail silently four times, then succeed later?** Same
+  workspace, same session, no feedback either way. Unknown. Treat a Select that does not close as a
+  rejected add.
+- **`Employee_2fe` is locked to a deleted app (`1zAdi00000007r7EAA`).** No Decouple target exists.
+  Either Salesforce releases it or it stays unusable for templates. Reported in the BUG2 write-up.
+- **P3 Insights Dashboard (`Sales Analysis` workspace) is still not packageable as built:** its five
+  visualizations have `Sales Opportunity` as home. Rebuild them inside `Sales Analysis` (or rebuild
+  the whole app in one fresh workspace) before templatizing.
+- Bug write-ups for Salesforce, in `~/Downloads` on Cooper's machine:
+  `BUG1-addendum-template-builder-drops-all-visualizations.md` and
+  `BUG2 - Template Builder silently drops cross-workspace visualizations.md`.
+- Housekeeping in that org: failed apps `Test0011`, `Test007` and their minted workspace copies
+  (`Sales_Analysis1`, `HR_New_Copy1`, ...). Decouple before deleting.
+
 ## Housekeeping owed in `platform-efficiency-2400` (from the 2026-08-06 migration session)
 
 - Kill the localhost CORS server if still running on `127.0.0.1:8765` (Celia's machine).

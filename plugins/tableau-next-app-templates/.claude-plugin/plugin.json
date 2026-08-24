@@ -1,7 +1,7 @@
 {
   "name": "tableau-next-app-templates",
   "description": "Package a finished Tableau Next app as an installable App Template Framework template that carries its own CSV data. On Create it builds the whole stack bottom-up in any org, from CSV to Data Stream to Data Lake Object to Semantic Model to visualizations to dashboard, with nothing pre-existing and no org-specific names baked in. Bundles the CSV_Example and superstore_demo_template references and the Superstore case study.",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "author": {
     "name": "Cecilia Fryar",
     "url": "https://github.com/celiafryar"

@@ -7,7 +7,7 @@
   },
   "metadata": {
     "description": "XeoMatrix skills for Tableau Next / Data 360: build semantic models as code, then package the whole app as an installable template that ships its own data.",
-    "version": "2.8.4"
+    "version": "2.9.0"
   },
   "plugins": [
     {

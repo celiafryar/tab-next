@@ -210,6 +210,81 @@ verified live 2026-08-18 against a v67.0 org. The older recipe gets three detail
   itself persists in the list, and a `destructiveChanges.xml` for the
   `AppFrameworkTemplateBundle` fails. Expect to clear the leftover shells in the UI.
 
+## The Templates UI route: Template Builder and Create App (verified live, org clock 2026-08-14)
+
+Everything above is the metadata route: author JSON, deploy the bundle, create through the API.
+There is a second route entirely inside Tableau Next: **Templates page > Add Resources >
+Create App**, watched from **Setup > App Hub > Monitor**. It is what a Salesforce partner brief
+means by "use ATF bundles", it is what a non-developer will reach for, and it has its own set of
+silent failures. Two consecutive apps installed cleanly through it in one org
+(`Test 3`, 4 resources, 11 tasks; `test0072`, same shape) once these rules were followed, after
+a full day of installs that all died on one misleading error.
+
+- **U1: only Workspace and Semantic Model are selectable resource types.** The picker's type
+  filter offers exactly `All Types`, `Workspace`, `Semantic Model`. Dashboards and visualizations
+  can only enter a template through a workspace's dependency closure. There is no way to add a
+  visualization by hand, so if the closure drops one there is no recovery in the UI.
+
+- **U2: the closure keeps only assets whose HOME workspace is the one you selected.** The preview
+  panel ("The template will include the following assets") lists the dashboard and every
+  visualization it uses, wherever they live. On Select the toast says success and the resource
+  list contains only the same-home assets. A dashboard in workspace B that uses visualizations
+  created in workspace A (attached to B, which the product allows and which works fine for
+  viewing) templatizes as workspace plus dashboard, with every visualization silently gone.
+  Same visualizations, selected through their own home workspace, all persist. **Check the
+  resource count after every Select**; it must match the preview.
+
+- **U3: the closure never includes the semantic model.** It is not in the preview and it is not
+  added. Add it yourself: Add Resources, filter `Semantic Model`, pick the model. Without it the
+  first visualization task fails on execute with
+  `Error processing expression "${App.SemanticModels.<Name>.Name}". Variable part [SemanticModels]
+  not found in context map`, and the dashboard task never runs. The model does not have to live
+  in the templatized workspace; it only has to be in the template.
+
+- **U4: one app per asset, and deleted apps keep their claim.** Adding a workspace whose model is
+  already owned by an app fails with
+  `SemanticModel [...] is already part of a different app [1zA...]`. The owning app can be one
+  that no longer exists: an `1zA` id absent from the Apps list still held its claim, which locks
+  that model out of every future template. The app page has a **Decouple** action; use it before
+  Delete. Build each template test on freshly created assets, and coordinate in a shared org,
+  because two people templatizing the same model will collide on this.
+
+- **U5: Table and Radial charts, and any chart carrying `stylesheet` (R11), poison the add.**
+  Selecting a workspace whose closure includes them can do nothing at all: the dialog stays open,
+  no toast, no error, and the underlying `aura.AppFramework.createAppAsset` call returns HTTP 200
+  with the action error swallowed. The same closure added cleanly once, then failed silently on
+  retry, so treat a Select that does not close as a rejected add, not a slow one. Keep
+  packageable workspaces to Vizql and Map layouts styled through `style.fonts`.
+
+- **U6: the misleading error, decoded.** `DashboardUpsert` failing with
+  `403 [[ACCESS_DENIED ... Please add the necessary permissions to access dashboard]]` is not a
+  permissions problem. It means the dashboard payload references a visualization that is not in
+  the app context. Open the task's **Log View** at Finest and look at the POSTed dashboard JSON:
+  the widget sources read `${App.Visualizations.${App.Visualizations[Rules.CurrentNode.name].Name}.Id}`,
+  an unresolved placeholder, and the chain's context map shows `Workspaces` only. Every cause in
+  U2, U3 and U5 ends here.
+
+- **U7: the Monitor is the truth; the toasts are not.** Setup > App Hub > Monitor > the
+  `Create <app>` event > click a task > Log View. The validate phase passes for a task that will
+  fail on execute, so a green validate row proves nothing. Deleting a failed app also removes its
+  events from the Monitor, so capture the log before cleanup. Every retry mints suffixed copies
+  of the created assets (`Sales_Analysis1`, `Sales_Analysis2`), so use a new app name each time
+  and expect to clean up.
+
+- **U8: `runAs` was not the fix.** The successful chains ran their workspace, visualization and
+  dashboard tasks as `autoproc@...` (Automated Process) and succeeded once the resources were
+  complete. The partner-brief tip to set `runAs: Current User` addresses a different failure.
+
+- **Contrast with V4:** a template authored in the UI renders in the Templates page with its full
+  resource list; only metadata-deployed templates show as empty there.
+
+The recipe that installs, in order: create a new workspace; create a new, never-templatized
+semantic model; create the visualizations inside that workspace on that model, Vizql or Map only,
+no UI restyling; create the dashboard in the same workspace from those visualizations; new
+template, Add Resources > the workspace, verify the count; Add Resources > Semantic Model > the
+model; Create App with a fresh name; read the Monitor. Success is one row per resource across
+validate, execute and finish, all green, in about ten seconds.
+
 ## Self-check before reporting done
 
 - [ ] No hardcoded `…__dll` / physical name in shipped JSON (R1)
@@ -223,6 +298,8 @@ verified live 2026-08-18 against a v67.0 org. The older recipe gets three detail
 - [ ] `chainDefinitions[].name` is null (V5)
 - [ ] `template-policy.json` present (R9)
 - [ ] Deployed whole dir; verified end-to-end in a CLEAN org (R10)
+- [ ] UI route: resource count matches the closure preview (U2); semantic model added by hand (U3);
+      assets never claimed by an app (U4); Monitor Log View read for every failed task (U6, U7)
 
 ## References
 
