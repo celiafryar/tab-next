@@ -39,6 +39,17 @@ Full write-ups: `references/csv-data-templates-guide.md` (human on-ramp),
 `references/FOR-CODING-AGENTS.md` (rule-dense playbook), and the case study
 `references/superstore-case-study.md`.
 
+## The proven path (verified end to end, 2026-08-24)
+
+The full pipeline has been run once, live, with zero manual touches at install time:
+bundle in git -> classic 1GP unmanaged package -> installation URL -> installed into a second
+org -> Create App -> 48-node chain to SuccessStatus in ~72 minutes -> 38 assets, 10/10 streams
+with exact row counts, dashboard rendering with its packaged logo. The step-by-step recipe,
+including the 2GP bypass (the component picker calls this bundle type "App Template") and the
+three install errors you will hit in your own dev orgs, lives in
+`references/proven-path.md`. The evidence dossier, with the primary-source payloads behind
+every claim, is `docs/Sales-Opportunity-Insights-Proven-Path.html` at the repo root.
+
 ## Critical gates (must follow)
 
 1. **Ship your own data; assume nothing in the target org.** The chain must *create* the
