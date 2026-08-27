@@ -105,3 +105,5 @@ Gotchas:
 - Managed LWC bundles need a few minutes after install before the chain can resolve them.
 
 Promoted to Released 2026-08-27: 04tQQ00000FxUsfYAF (XeoMatrix Sales Insights 1.0.0.6). Install URL: https://login.salesforce.com/packaging/installPackage.apexp?p0=04tQQ00000FxUsfYAF
+
+Review org proof (2026-08-27): c8 orgfarm-a08e1b90c8 (permanent Developer Edition, no namespace). Installed 1.0.0.6 through the public install link, app Sales_Opportunity_Insights (1zAjV00000006lNUAQ) SuccessStatus 93/93 in 4096 s, dashboard 0TrjV0000000RD7SAM, logo renders. BUG 3 (chain stall in c8) did not recur.
