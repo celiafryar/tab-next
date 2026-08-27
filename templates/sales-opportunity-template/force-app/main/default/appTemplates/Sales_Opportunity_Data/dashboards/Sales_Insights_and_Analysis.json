@@ -1593,7 +1593,7 @@
       "label": "XeoMatrix Logo Image",
       "name": "logo_extension",
       "parameters": {
-        "fullyQualifiedName": "c:xmDashboardImage",
+        "fullyQualifiedName": "xeomatrix:xmDashboardImage",
         "properties": {
           "imageScale": "Fit to Height",
           "horizontalAlignment": "Center",
@@ -1610,8 +1610,8 @@
         }
       },
       "source": {
-        "name": "c:xmDashboardImage",
-        "namespace": "c",
+        "name": "xeomatrix:xmDashboardImage",
+        "namespace": "xeomatrix",
         "type": "LightningWebComponent"
       },
       "type": "extension"
