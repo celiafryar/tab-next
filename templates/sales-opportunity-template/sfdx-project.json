@@ -3,13 +3,18 @@
     {
       "path": "force-app",
       "default": true,
-      "package": "Sales Opportunity Insights",
+      "package": "XeoMatrix Sales Insights",
       "versionName": "ver 1.0",
       "versionNumber": "1.0.0.NEXT"
     }
   ],
   "name": "sales-opportunity-template",
-  "namespace": "",
+  "namespace": "xeomatrix",
   "sfdcLoginUrl": "https://login.salesforce.com",
-  "sourceApiVersion": "67.0"
+  "sourceApiVersion": "67.0",
+  "packageAliases": {
+    "XeoMatrix Sales Insights": "0HoQQ000000i4Cn0AI",
+    "XeoMatrix Sales Insights@1.0.0-1": "04tQQ00000FvXxtYAF",
+    "XeoMatrix Sales Insights@1.0.0-2": "04tQQ00000FwUTJYA3"
+  }
 }
