@@ -12,3 +12,9 @@ package.xml
 **/__tests__/**
 
 node_modules/
+
+# security-scan tooling (never package)
+code-analyzer.yml
+CodeAnalyzerReport.html
+CodeAnalyzerReport.json
+**/CodeAnalyzerReport.html
