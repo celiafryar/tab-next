@@ -75,3 +75,26 @@ Proof, unmanaged path, 3917:
 Still to prove: managed path. Dashboard JSON stores the widget as source.name c:xmDashboardImage with namespace c. Whether install rewrites c to xeomatrix is unknown. If the managed Create App fails at the dashboard node, change both fullyQualifiedName and source.name to xeomatrix:xmDashboardImage and source.namespace to xeomatrix in a managed-only copy.
 
 Gotcha: an org holding the managed xeomatrix__Sales_Opportunity_Data will not register chains for an unmanaged deploy of the same template name (CHAINNOTFOUND). Rename the test copy.
+
+## Managed 2GP result (2026-08-27)
+
+Package XeoMatrix Sales Insights, 0HoQQ000000i4Cn0AI, namespace xeomatrix, PBO Dev Hub.
+
+Finding: managed install does not rewrite extension widget references in template JSON. Create App resolves c:xmDashboardImage but stores it verbatim, and the viewer then cannot load it. The form that works at both create and render is the namespaced one in both fields:
+
+    "source": {"name": "xeomatrix:xmDashboardImage", "namespace": "xeomatrix", "type": "LightningWebComponent"},
+    "parameters": {"fullyQualifiedName": "xeomatrix:xmDashboardImage", ...}
+
+Probe matrix (five one-widget templates in 1.0.0.5, run in 3917):
+- c: + fqn xeomatrix:   create OK, stored as xeomatrix
+- bare name, ns xeomatrix, fqn bare   create OK, stored as c (does not render)
+- xeomatrix__xmDashboardImage   create fails, not found
+- bare name, ns xeomatrix, fqn xeomatrix:   create OK
+- xeomatrix: in both   create OK, renders (this is the shipped form)
+
+Final proof: 1.0.0.6 = 04tQQ00000FxUsfYAF, installed fresh in 3917, app SO_Managed_Final3 (1zAdi00000009OHEAY), SuccessStatus 93/93 in 3638 s, dashboard 0Trdi0000000M3lCAE, logo renders.
+
+Gotchas:
+- Beta versions cannot be upgraded in place. Uninstall, then install the new version.
+- sf project delete source also deletes the local files. Builds 1.0.0.3 and 1.0.0.4 shipped without the LWC because of this.
+- Managed LWC bundles need a few minutes after install before the chain can resolve them.
