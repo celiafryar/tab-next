@@ -1,18 +1,23 @@
 # Sales Opportunity Insights: build, package, install, verify
 
-The reusable pipeline, verified live 2026-08-24. Source of truth is this repo; the org is
-disposable. No namespace anywhere, deliberately: the namespaced-org semantic-model defect
-(CDP_DATA_OBJECT_FIELDS_NOT_FOUND) is unfixed, so managed/AgentExchange packaging waits on
-Salesforce.
+Current state (2026-08-27): shipped as a **2GP managed package**, namespace `xeomatrix`,
+built on the XeoMatrix PBO Dev Hub. Version 1.0.0.6 = `04tQQ00000FxUsfYAF`, Released.
+Install link: https://login.salesforce.com/packaging/installPackage.apexp?p0=04tQQ00000FxUsfYAF
+Full managed story is in the "Managed 2GP result" section at the bottom. The 1GP unmanaged
+section below is the earlier proven path (2026-08-24) and is kept as history.
+
+The namespaced-org semantic-model defect (BUG 4, CDP_DATA_OBJECT_FIELDS_NOT_FOUND) only
+affects subscriber orgs that themselves have a namespace registered. Normal customer orgs
+are unaffected; the managed package installs and runs clean in them.
 
 ## What ships
 
 `force-app/main/default/appTemplates/Sales_Opportunity_Data/` - the ATF template (48-node
 create chain: 10 CSVs -> 10 streams -> 10 runs -> workspace -> semantic model -> 15
-visualizations -> dashboard), plus `contentassets/APEX_essential_components` (the dashboard
-logo; ship it or one missing image fails the whole dashboard).
+visualizations -> dashboard), `lwc/xmDashboardImage` (the logo widget) and
+`staticresources/APEX_essential_components` (the logo image). No ContentAsset.
 
-## Package (1GP unmanaged, no Dev Hub needed)
+## Package, 1GP unmanaged (historical, superseded by the managed 2GP build)
 
 2GP (`sf package version create`) is preferred when `Package2` exists in the packaging org.
 In orgs where 2GP provisioning never materializes (observed: orgfarm-a08e1b90c8, 40+ min
@@ -72,7 +77,7 @@ Proof, unmanaged path, 3917:
 - created dashboard 0Trdi0000000LcLCAU, widget logo_extension status Ok, source c:xmDashboardImage
 - logo renders in the viewer
 
-Still to prove: managed path. Dashboard JSON stores the widget as source.name c:xmDashboardImage with namespace c. Whether install rewrites c to xeomatrix is unknown. If the managed Create App fails at the dashboard node, change both fullyQualifiedName and source.name to xeomatrix:xmDashboardImage and source.namespace to xeomatrix in a managed-only copy.
+Managed path: resolved the same night. Install does not rewrite c: to xeomatrix; the bundle now carries xeomatrix:xmDashboardImage in both fields. See "Managed 2GP result" below.
 
 Gotcha: an org holding the managed xeomatrix__Sales_Opportunity_Data will not register chains for an unmanaged deploy of the same template name (CHAINNOTFOUND). Rename the test copy.
 
