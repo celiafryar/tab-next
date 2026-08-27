@@ -98,3 +98,5 @@ Gotchas:
 - Beta versions cannot be upgraded in place. Uninstall, then install the new version.
 - sf project delete source also deletes the local files. Builds 1.0.0.3 and 1.0.0.4 shipped without the LWC because of this.
 - Managed LWC bundles need a few minutes after install before the chain can resolve them.
+
+Promoted to Released 2026-08-27: 04tQQ00000FxUsfYAF (XeoMatrix Sales Insights 1.0.0.6). Install URL: https://login.salesforce.com/packaging/installPackage.apexp?p0=04tQQ00000FxUsfYAF
