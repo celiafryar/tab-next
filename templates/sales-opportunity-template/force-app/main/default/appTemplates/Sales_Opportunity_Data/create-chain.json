@@ -1,0 +1,754 @@
+{
+  "name" : "sales_opportunity13621",
+  "label" : "sales_opportunity",
+  "parameters" : { },
+  "dominoVariant" : "sfdc_internal__UnifiedAnalyticsDominoVariant",
+  "definition" : {
+    "nodes" : {
+      "upload_account_csv" : {
+        "referenceId" : "upload_account_csv",
+        "sources" : [ ],
+        "parameters" : {
+          "name" : "AccountCSV",
+          "file" : "csvs/Account.csv",
+          "runAs" : "CurrentUser",
+          "minorVersion" : "13"
+        },
+        "graphNodeType" : {
+          "name" : "CSVUpsert",
+          "label" : "Upload a CSV file"
+        },
+        "runAs" : "CurrentUser"
+      },
+      "upload_analyticsgoldopportunity_csv" : {
+        "referenceId" : "upload_analyticsgoldopportunity_csv",
+        "sources" : [ ],
+        "parameters" : {
+          "name" : "AnalyticsGoldOpportunityCSV",
+          "file" : "csvs/AnalyticsGoldOpportunity.csv",
+          "runAs" : "CurrentUser",
+          "minorVersion" : "13"
+        },
+        "graphNodeType" : {
+          "name" : "CSVUpsert",
+          "label" : "Upload a CSV file"
+        },
+        "runAs" : "CurrentUser"
+      },
+      "upload_businessregion_csv" : {
+        "referenceId" : "upload_businessregion_csv",
+        "sources" : [ ],
+        "parameters" : {
+          "name" : "BusinessRegionCSV",
+          "file" : "csvs/BusinessRegion.csv",
+          "runAs" : "CurrentUser",
+          "minorVersion" : "13"
+        },
+        "graphNodeType" : {
+          "name" : "CSVUpsert",
+          "label" : "Upload a CSV file"
+        },
+        "runAs" : "CurrentUser"
+      },
+      "upload_companylocation_csv" : {
+        "referenceId" : "upload_companylocation_csv",
+        "sources" : [ ],
+        "parameters" : {
+          "name" : "CompanyLocationCSV",
+          "file" : "csvs/CompanyLocation.csv",
+          "runAs" : "CurrentUser",
+          "minorVersion" : "13"
+        },
+        "graphNodeType" : {
+          "name" : "CSVUpsert",
+          "label" : "Upload a CSV file"
+        },
+        "runAs" : "CurrentUser"
+      },
+      "upload_contact_csv" : {
+        "referenceId" : "upload_contact_csv",
+        "sources" : [ ],
+        "parameters" : {
+          "name" : "ContactCSV",
+          "file" : "csvs/Contact.csv",
+          "runAs" : "CurrentUser",
+          "minorVersion" : "13"
+        },
+        "graphNodeType" : {
+          "name" : "CSVUpsert",
+          "label" : "Upload a CSV file"
+        },
+        "runAs" : "CurrentUser"
+      },
+      "upload_opportunity_csv" : {
+        "referenceId" : "upload_opportunity_csv",
+        "sources" : [ ],
+        "parameters" : {
+          "name" : "OpportunityCSV",
+          "file" : "csvs/Opportunity.csv",
+          "runAs" : "CurrentUser",
+          "minorVersion" : "13"
+        },
+        "graphNodeType" : {
+          "name" : "CSVUpsert",
+          "label" : "Upload a CSV file"
+        },
+        "runAs" : "CurrentUser"
+      },
+      "upload_opportunitylineitem_csv" : {
+        "referenceId" : "upload_opportunitylineitem_csv",
+        "sources" : [ ],
+        "parameters" : {
+          "name" : "OpportunityLineItemCSV",
+          "file" : "csvs/OpportunityLineItem.csv",
+          "runAs" : "CurrentUser",
+          "minorVersion" : "13"
+        },
+        "graphNodeType" : {
+          "name" : "CSVUpsert",
+          "label" : "Upload a CSV file"
+        },
+        "runAs" : "CurrentUser"
+      },
+      "upload_product_csv" : {
+        "referenceId" : "upload_product_csv",
+        "sources" : [ ],
+        "parameters" : {
+          "name" : "ProductCSV",
+          "file" : "csvs/Product.csv",
+          "runAs" : "CurrentUser",
+          "minorVersion" : "13"
+        },
+        "graphNodeType" : {
+          "name" : "CSVUpsert",
+          "label" : "Upload a CSV file"
+        },
+        "runAs" : "CurrentUser"
+      },
+      "upload_salesterritory_csv" : {
+        "referenceId" : "upload_salesterritory_csv",
+        "sources" : [ ],
+        "parameters" : {
+          "name" : "SalesTerritoryCSV",
+          "file" : "csvs/SalesTerritory.csv",
+          "runAs" : "CurrentUser",
+          "minorVersion" : "13"
+        },
+        "graphNodeType" : {
+          "name" : "CSVUpsert",
+          "label" : "Upload a CSV file"
+        },
+        "runAs" : "CurrentUser"
+      },
+      "upload_user_csv" : {
+        "referenceId" : "upload_user_csv",
+        "sources" : [ ],
+        "parameters" : {
+          "name" : "UserCSV",
+          "file" : "csvs/User.csv",
+          "runAs" : "CurrentUser",
+          "minorVersion" : "13"
+        },
+        "graphNodeType" : {
+          "name" : "CSVUpsert",
+          "label" : "Upload a CSV file"
+        },
+        "runAs" : "CurrentUser"
+      },
+      "upsert_account_stream" : {
+        "referenceId" : "upsert_account_stream",
+        "sources" : [ "upload_account_csv" ],
+        "parameters" : {
+          "name" : "AccountDS",
+          "file" : "datastreams/account_stream.json",
+          "dataLakeObject" : {
+            "name" : "Account_DLO"
+          },
+          "runAs" : "CurrentUser",
+          "minorVersion" : "13"
+        },
+        "graphNodeType" : {
+          "name" : "DataStreamUpsert",
+          "label" : "Create/Update a DataStream  from a Template"
+        },
+        "runAs" : "CurrentUser"
+      },
+      "upsert_analyticsgoldopportunity_stream" : {
+        "referenceId" : "upsert_analyticsgoldopportunity_stream",
+        "sources" : [ "upload_analyticsgoldopportunity_csv" ],
+        "parameters" : {
+          "name" : "AnalyticsGoldOpportunityDS",
+          "file" : "datastreams/analyticsgoldopportunity_stream.json",
+          "dataLakeObject" : {
+            "name" : "AnalyticsGoldOpportunity_DLO"
+          },
+          "runAs" : "CurrentUser",
+          "minorVersion" : "13"
+        },
+        "graphNodeType" : {
+          "name" : "DataStreamUpsert",
+          "label" : "Create/Update a DataStream  from a Template"
+        },
+        "runAs" : "CurrentUser"
+      },
+      "upsert_businessregion_stream" : {
+        "referenceId" : "upsert_businessregion_stream",
+        "sources" : [ "upload_businessregion_csv" ],
+        "parameters" : {
+          "name" : "BusinessRegionDS",
+          "file" : "datastreams/businessregion_stream.json",
+          "dataLakeObject" : {
+            "name" : "BusinessRegion_DLO"
+          },
+          "runAs" : "CurrentUser",
+          "minorVersion" : "13"
+        },
+        "graphNodeType" : {
+          "name" : "DataStreamUpsert",
+          "label" : "Create/Update a DataStream  from a Template"
+        },
+        "runAs" : "CurrentUser"
+      },
+      "upsert_companylocation_stream" : {
+        "referenceId" : "upsert_companylocation_stream",
+        "sources" : [ "upload_companylocation_csv" ],
+        "parameters" : {
+          "name" : "CompanyLocationDS",
+          "file" : "datastreams/companylocation_stream.json",
+          "dataLakeObject" : {
+            "name" : "CompanyLocation_DLO"
+          },
+          "runAs" : "CurrentUser",
+          "minorVersion" : "13"
+        },
+        "graphNodeType" : {
+          "name" : "DataStreamUpsert",
+          "label" : "Create/Update a DataStream  from a Template"
+        },
+        "runAs" : "CurrentUser"
+      },
+      "upsert_contact_stream" : {
+        "referenceId" : "upsert_contact_stream",
+        "sources" : [ "upload_contact_csv" ],
+        "parameters" : {
+          "name" : "ContactDS",
+          "file" : "datastreams/contact_stream.json",
+          "dataLakeObject" : {
+            "name" : "Contact_DLO"
+          },
+          "runAs" : "CurrentUser",
+          "minorVersion" : "13"
+        },
+        "graphNodeType" : {
+          "name" : "DataStreamUpsert",
+          "label" : "Create/Update a DataStream  from a Template"
+        },
+        "runAs" : "CurrentUser"
+      },
+      "upsert_opportunity_stream" : {
+        "referenceId" : "upsert_opportunity_stream",
+        "sources" : [ "upload_opportunity_csv" ],
+        "parameters" : {
+          "name" : "OpportunityDS",
+          "file" : "datastreams/opportunity_stream.json",
+          "dataLakeObject" : {
+            "name" : "Opportunity_DLO"
+          },
+          "runAs" : "CurrentUser",
+          "minorVersion" : "13"
+        },
+        "graphNodeType" : {
+          "name" : "DataStreamUpsert",
+          "label" : "Create/Update a DataStream  from a Template"
+        },
+        "runAs" : "CurrentUser"
+      },
+      "upsert_opportunitylineitem_stream" : {
+        "referenceId" : "upsert_opportunitylineitem_stream",
+        "sources" : [ "upload_opportunitylineitem_csv" ],
+        "parameters" : {
+          "name" : "OpportunityLineItemDS",
+          "file" : "datastreams/opportunitylineitem_stream.json",
+          "dataLakeObject" : {
+            "name" : "OpportunityLineItem_DLO"
+          },
+          "runAs" : "CurrentUser",
+          "minorVersion" : "13"
+        },
+        "graphNodeType" : {
+          "name" : "DataStreamUpsert",
+          "label" : "Create/Update a DataStream  from a Template"
+        },
+        "runAs" : "CurrentUser"
+      },
+      "upsert_product_stream" : {
+        "referenceId" : "upsert_product_stream",
+        "sources" : [ "upload_product_csv" ],
+        "parameters" : {
+          "name" : "ProductDS",
+          "file" : "datastreams/product_stream.json",
+          "dataLakeObject" : {
+            "name" : "Product_DLO"
+          },
+          "runAs" : "CurrentUser",
+          "minorVersion" : "13"
+        },
+        "graphNodeType" : {
+          "name" : "DataStreamUpsert",
+          "label" : "Create/Update a DataStream  from a Template"
+        },
+        "runAs" : "CurrentUser"
+      },
+      "upsert_salesterritory_stream" : {
+        "referenceId" : "upsert_salesterritory_stream",
+        "sources" : [ "upload_salesterritory_csv" ],
+        "parameters" : {
+          "name" : "SalesTerritoryDS",
+          "file" : "datastreams/salesterritory_stream.json",
+          "dataLakeObject" : {
+            "name" : "SalesTerritory_DLO"
+          },
+          "runAs" : "CurrentUser",
+          "minorVersion" : "13"
+        },
+        "graphNodeType" : {
+          "name" : "DataStreamUpsert",
+          "label" : "Create/Update a DataStream  from a Template"
+        },
+        "runAs" : "CurrentUser"
+      },
+      "upsert_user_stream" : {
+        "referenceId" : "upsert_user_stream",
+        "sources" : [ "upload_user_csv" ],
+        "parameters" : {
+          "name" : "UserDS",
+          "file" : "datastreams/user_stream.json",
+          "dataLakeObject" : {
+            "name" : "User_DLO"
+          },
+          "runAs" : "CurrentUser",
+          "minorVersion" : "13"
+        },
+        "graphNodeType" : {
+          "name" : "DataStreamUpsert",
+          "label" : "Create/Update a DataStream  from a Template"
+        },
+        "runAs" : "CurrentUser"
+      },
+      "run_account_stream" : {
+        "referenceId" : "run_account_stream",
+        "sources" : [ "upsert_account_stream" ],
+        "parameters" : {
+          "name" : "AccountDS",
+          "runAs" : "CurrentUser",
+          "minorVersion" : "13"
+        },
+        "graphNodeType" : {
+          "name" : "DataStreamRun",
+          "label" : "Refresh a DataSteam created from a Template"
+        },
+        "runAs" : "CurrentUser"
+      },
+      "run_analyticsgoldopportunity_stream" : {
+        "referenceId" : "run_analyticsgoldopportunity_stream",
+        "sources" : [ "upsert_analyticsgoldopportunity_stream" ],
+        "parameters" : {
+          "name" : "AnalyticsGoldOpportunityDS",
+          "runAs" : "CurrentUser",
+          "minorVersion" : "13"
+        },
+        "graphNodeType" : {
+          "name" : "DataStreamRun",
+          "label" : "Refresh a DataSteam created from a Template"
+        },
+        "runAs" : "CurrentUser"
+      },
+      "run_businessregion_stream" : {
+        "referenceId" : "run_businessregion_stream",
+        "sources" : [ "upsert_businessregion_stream" ],
+        "parameters" : {
+          "name" : "BusinessRegionDS",
+          "runAs" : "CurrentUser",
+          "minorVersion" : "13"
+        },
+        "graphNodeType" : {
+          "name" : "DataStreamRun",
+          "label" : "Refresh a DataSteam created from a Template"
+        },
+        "runAs" : "CurrentUser"
+      },
+      "run_companylocation_stream" : {
+        "referenceId" : "run_companylocation_stream",
+        "sources" : [ "upsert_companylocation_stream" ],
+        "parameters" : {
+          "name" : "CompanyLocationDS",
+          "runAs" : "CurrentUser",
+          "minorVersion" : "13"
+        },
+        "graphNodeType" : {
+          "name" : "DataStreamRun",
+          "label" : "Refresh a DataSteam created from a Template"
+        },
+        "runAs" : "CurrentUser"
+      },
+      "run_contact_stream" : {
+        "referenceId" : "run_contact_stream",
+        "sources" : [ "upsert_contact_stream" ],
+        "parameters" : {
+          "name" : "ContactDS",
+          "runAs" : "CurrentUser",
+          "minorVersion" : "13"
+        },
+        "graphNodeType" : {
+          "name" : "DataStreamRun",
+          "label" : "Refresh a DataSteam created from a Template"
+        },
+        "runAs" : "CurrentUser"
+      },
+      "run_opportunity_stream" : {
+        "referenceId" : "run_opportunity_stream",
+        "sources" : [ "upsert_opportunity_stream" ],
+        "parameters" : {
+          "name" : "OpportunityDS",
+          "runAs" : "CurrentUser",
+          "minorVersion" : "13"
+        },
+        "graphNodeType" : {
+          "name" : "DataStreamRun",
+          "label" : "Refresh a DataSteam created from a Template"
+        },
+        "runAs" : "CurrentUser"
+      },
+      "run_opportunitylineitem_stream" : {
+        "referenceId" : "run_opportunitylineitem_stream",
+        "sources" : [ "upsert_opportunitylineitem_stream" ],
+        "parameters" : {
+          "name" : "OpportunityLineItemDS",
+          "runAs" : "CurrentUser",
+          "minorVersion" : "13"
+        },
+        "graphNodeType" : {
+          "name" : "DataStreamRun",
+          "label" : "Refresh a DataSteam created from a Template"
+        },
+        "runAs" : "CurrentUser"
+      },
+      "run_product_stream" : {
+        "referenceId" : "run_product_stream",
+        "sources" : [ "upsert_product_stream" ],
+        "parameters" : {
+          "name" : "ProductDS",
+          "runAs" : "CurrentUser",
+          "minorVersion" : "13"
+        },
+        "graphNodeType" : {
+          "name" : "DataStreamRun",
+          "label" : "Refresh a DataSteam created from a Template"
+        },
+        "runAs" : "CurrentUser"
+      },
+      "run_salesterritory_stream" : {
+        "referenceId" : "run_salesterritory_stream",
+        "sources" : [ "upsert_salesterritory_stream" ],
+        "parameters" : {
+          "name" : "SalesTerritoryDS",
+          "runAs" : "CurrentUser",
+          "minorVersion" : "13"
+        },
+        "graphNodeType" : {
+          "name" : "DataStreamRun",
+          "label" : "Refresh a DataSteam created from a Template"
+        },
+        "runAs" : "CurrentUser"
+      },
+      "run_user_stream" : {
+        "referenceId" : "run_user_stream",
+        "sources" : [ "upsert_user_stream" ],
+        "parameters" : {
+          "name" : "UserDS",
+          "runAs" : "CurrentUser",
+          "minorVersion" : "13"
+        },
+        "graphNodeType" : {
+          "name" : "DataStreamRun",
+          "label" : "Refresh a DataSteam created from a Template"
+        },
+        "runAs" : "CurrentUser"
+      },
+      "upsert_workspace_Sales_Opportunity" : {
+        "referenceId" : "upsert_workspace_Sales_Opportunity",
+        "sources" : [ "run_account_stream", "run_analyticsgoldopportunity_stream", "run_businessregion_stream", "run_companylocation_stream", "run_contact_stream", "run_opportunity_stream", "run_opportunitylineitem_stream", "run_product_stream", "run_salesterritory_stream", "run_user_stream" ],
+        "parameters" : {
+          "name" : "Sales_Opportunity",
+          "file" : "/workspaces/Sales_Opportunity.json",
+          "assets" : [ ],
+          "condition" : "true",
+          "runAs" : "CurrentUser",
+          "minorVersion" : "13"
+        },
+        "graphNodeType" : {
+          "name" : "WorkspaceUpsert",
+          "label" : "Create/Update a Workspace from a Template"
+        }
+      },
+      "upsert_sdm_SDX_Opportunity" : {
+        "referenceId" : "upsert_sdm_SDX_Opportunity",
+        "sources" : [ "upsert_workspace_Sales_Opportunity" ],
+        "parameters" : {
+          "name" : "SDX_Opportunity",
+          "file" : "/sdms/SDX_Opportunity.json",
+          "condition" : "true",
+          "runAs" : "CurrentUser",
+          "minorVersion" : "13"
+        },
+        "graphNodeType" : {
+          "name" : "SemanticModelUpsert",
+          "label" : null
+        }
+      },
+      "upsert_visualization_Product_Heatmap" : {
+        "referenceId" : "upsert_visualization_Product_Heatmap",
+        "sources" : [ "upsert_sdm_SDX_Opportunity" ],
+        "parameters" : {
+          "name" : "Product_Heatmap",
+          "file" : "/visualizations/Product_Heatmap.json",
+          "condition" : "true",
+          "runAs" : "CurrentUser",
+          "minorVersion" : "13"
+        },
+        "graphNodeType" : {
+          "name" : "VisualizationUpsert",
+          "label" : "Create/Update a Visualization from a Template"
+        }
+      },
+      "upsert_visualization_Clone_Family_Product_Group_Stats" : {
+        "referenceId" : "upsert_visualization_Clone_Family_Product_Group_Stats",
+        "sources" : [ "upsert_visualization_Product_Heatmap" ],
+        "parameters" : {
+          "name" : "Clone_Family_Product_Group_Stats",
+          "file" : "/visualizations/Clone_Family_Product_Group_Stats.json",
+          "condition" : "true",
+          "runAs" : "CurrentUser",
+          "minorVersion" : "13"
+        },
+        "graphNodeType" : {
+          "name" : "VisualizationUpsert",
+          "label" : "Create/Update a Visualization from a Template"
+        }
+      },
+      "upsert_visualization_Revenue_by_Country_and_Prod_Family" : {
+        "referenceId" : "upsert_visualization_Revenue_by_Country_and_Prod_Family",
+        "sources" : [ "upsert_visualization_Clone_Family_Product_Group_Stats" ],
+        "parameters" : {
+          "name" : "Revenue_by_Country_and_Prod_Family",
+          "file" : "/visualizations/Revenue_by_Country_and_Prod_Family.json",
+          "condition" : "true",
+          "runAs" : "CurrentUser",
+          "minorVersion" : "13"
+        },
+        "graphNodeType" : {
+          "name" : "VisualizationUpsert",
+          "label" : "Create/Update a Visualization from a Template"
+        }
+      },
+      "upsert_visualization_KPI_Average_Discount" : {
+        "referenceId" : "upsert_visualization_KPI_Average_Discount",
+        "sources" : [ "upsert_visualization_Revenue_by_Country_and_Prod_Family" ],
+        "parameters" : {
+          "name" : "KPI_Average_Discount",
+          "file" : "/visualizations/KPI_Average_Discount.json",
+          "condition" : "true",
+          "runAs" : "CurrentUser",
+          "minorVersion" : "13"
+        },
+        "graphNodeType" : {
+          "name" : "VisualizationUpsert",
+          "label" : "Create/Update a Visualization from a Template"
+        }
+      },
+      "upsert_visualization_Open_Deal_Count_Arc_Circles" : {
+        "referenceId" : "upsert_visualization_Open_Deal_Count_Arc_Circles",
+        "sources" : [ "upsert_visualization_KPI_Average_Discount" ],
+        "parameters" : {
+          "name" : "Open_Deal_Count_Arc_Circles",
+          "file" : "/visualizations/Open_Deal_Count_Arc_Circles.json",
+          "condition" : "true",
+          "runAs" : "CurrentUser",
+          "minorVersion" : "13"
+        },
+        "graphNodeType" : {
+          "name" : "VisualizationUpsert",
+          "label" : "Create/Update a Visualization from a Template"
+        }
+      },
+      "upsert_visualization_KPI_xxx" : {
+        "referenceId" : "upsert_visualization_KPI_xxx",
+        "sources" : [ "upsert_visualization_Open_Deal_Count_Arc_Circles" ],
+        "parameters" : {
+          "name" : "KPI_xxx",
+          "file" : "/visualizations/KPI_xxx.json",
+          "condition" : "true",
+          "runAs" : "CurrentUser",
+          "minorVersion" : "13"
+        },
+        "graphNodeType" : {
+          "name" : "VisualizationUpsert",
+          "label" : "Create/Update a Visualization from a Template"
+        }
+      },
+      "upsert_visualization_Opp_Value_Win_Rate" : {
+        "referenceId" : "upsert_visualization_Opp_Value_Win_Rate",
+        "sources" : [ "upsert_visualization_KPI_xxx" ],
+        "parameters" : {
+          "name" : "Opp_Value_Win_Rate",
+          "file" : "/visualizations/Opp_Value_Win_Rate.json",
+          "condition" : "true",
+          "runAs" : "CurrentUser",
+          "minorVersion" : "13"
+        },
+        "graphNodeType" : {
+          "name" : "VisualizationUpsert",
+          "label" : "Create/Update a Visualization from a Template"
+        }
+      },
+      "upsert_visualization_Product_Family_Opps_Win_Rate_Bars" : {
+        "referenceId" : "upsert_visualization_Product_Family_Opps_Win_Rate_Bars",
+        "sources" : [ "upsert_visualization_Opp_Value_Win_Rate" ],
+        "parameters" : {
+          "name" : "Product_Family_Opps_Win_Rate_Bars",
+          "file" : "/visualizations/Product_Family_Opps_Win_Rate_Bars.json",
+          "condition" : "true",
+          "runAs" : "CurrentUser",
+          "minorVersion" : "13"
+        },
+        "graphNodeType" : {
+          "name" : "VisualizationUpsert",
+          "label" : "Create/Update a Visualization from a Template"
+        }
+      },
+      "upsert_visualization_Clients_by_Tier" : {
+        "referenceId" : "upsert_visualization_Clients_by_Tier",
+        "sources" : [ "upsert_visualization_Product_Family_Opps_Win_Rate_Bars" ],
+        "parameters" : {
+          "name" : "Clients_by_Tier",
+          "file" : "/visualizations/Clients_by_Tier.json",
+          "condition" : "true",
+          "runAs" : "CurrentUser",
+          "minorVersion" : "13"
+        },
+        "graphNodeType" : {
+          "name" : "VisualizationUpsert",
+          "label" : "Create/Update a Visualization from a Template"
+        }
+      },
+      "upsert_visualization_KPI_Gross_Margin" : {
+        "referenceId" : "upsert_visualization_KPI_Gross_Margin",
+        "sources" : [ "upsert_visualization_Clients_by_Tier" ],
+        "parameters" : {
+          "name" : "KPI_Gross_Margin",
+          "file" : "/visualizations/KPI_Gross_Margin.json",
+          "condition" : "true",
+          "runAs" : "CurrentUser",
+          "minorVersion" : "13"
+        },
+        "graphNodeType" : {
+          "name" : "VisualizationUpsert",
+          "label" : "Create/Update a Visualization from a Template"
+        }
+      },
+      "upsert_visualization_Company_Locations" : {
+        "referenceId" : "upsert_visualization_Company_Locations",
+        "sources" : [ "upsert_visualization_KPI_Gross_Margin" ],
+        "parameters" : {
+          "name" : "Company_Locations",
+          "file" : "/visualizations/Company_Locations.json",
+          "condition" : "true",
+          "runAs" : "CurrentUser",
+          "minorVersion" : "13"
+        },
+        "graphNodeType" : {
+          "name" : "VisualizationUpsert",
+          "label" : "Create/Update a Visualization from a Template"
+        }
+      },
+      "upsert_visualization_Open_Opportunities" : {
+        "referenceId" : "upsert_visualization_Open_Opportunities",
+        "sources" : [ "upsert_visualization_Company_Locations" ],
+        "parameters" : {
+          "name" : "Open_Opportunities",
+          "file" : "/visualizations/Open_Opportunities.json",
+          "condition" : "true",
+          "runAs" : "CurrentUser",
+          "minorVersion" : "13"
+        },
+        "graphNodeType" : {
+          "name" : "VisualizationUpsert",
+          "label" : "Create/Update a Visualization from a Template"
+        }
+      },
+      "upsert_visualization_Net_Revenue_by_Region" : {
+        "referenceId" : "upsert_visualization_Net_Revenue_by_Region",
+        "sources" : [ "upsert_visualization_Open_Opportunities" ],
+        "parameters" : {
+          "name" : "Net_Revenue_by_Region",
+          "file" : "/visualizations/Net_Revenue_by_Region.json",
+          "condition" : "true",
+          "runAs" : "CurrentUser",
+          "minorVersion" : "13"
+        },
+        "graphNodeType" : {
+          "name" : "VisualizationUpsert",
+          "label" : "Create/Update a Visualization from a Template"
+        }
+      },
+      "upsert_visualization_Net_Revenue_by_Rep" : {
+        "referenceId" : "upsert_visualization_Net_Revenue_by_Rep",
+        "sources" : [ "upsert_visualization_Net_Revenue_by_Region" ],
+        "parameters" : {
+          "name" : "Net_Revenue_by_Rep",
+          "file" : "/visualizations/Net_Revenue_by_Rep.json",
+          "condition" : "true",
+          "runAs" : "CurrentUser",
+          "minorVersion" : "13"
+        },
+        "graphNodeType" : {
+          "name" : "VisualizationUpsert",
+          "label" : "Create/Update a Visualization from a Template"
+        }
+      },
+      "upsert_visualization_Product_Family_Bookings_Dot_Plot" : {
+        "referenceId" : "upsert_visualization_Product_Family_Bookings_Dot_Plot",
+        "sources" : [ "upsert_visualization_Net_Revenue_by_Rep" ],
+        "parameters" : {
+          "name" : "Product_Family_Bookings_Dot_Plot",
+          "file" : "/visualizations/Product_Family_Bookings_Dot_Plot.json",
+          "condition" : "true",
+          "runAs" : "CurrentUser",
+          "minorVersion" : "13"
+        },
+        "graphNodeType" : {
+          "name" : "VisualizationUpsert",
+          "label" : "Create/Update a Visualization from a Template"
+        }
+      },
+      "upsert_dashboard_Sales_Insights_and_Analysis" : {
+        "referenceId" : "upsert_dashboard_Sales_Insights_and_Analysis",
+        "sources" : [ "upsert_visualization_Product_Family_Bookings_Dot_Plot" ],
+        "parameters" : {
+          "name" : "Sales_Insights_and_Analysis",
+          "file" : "/dashboards/Sales_Insights_and_Analysis.json",
+          "condition" : "true",
+          "runAs" : "CurrentUser",
+          "minorVersion" : "13"
+        },
+        "graphNodeType" : {
+          "name" : "DashboardUpsert",
+          "label" : "Create/Update a Dashboard from a Template"
+        }
+      }
+    }
+  },
+  "finallyDefinition" : {
+    "nodes" : { }
+  }
+}

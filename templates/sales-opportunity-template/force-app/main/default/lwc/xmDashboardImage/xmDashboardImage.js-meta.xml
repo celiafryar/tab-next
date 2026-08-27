@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>67.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>XeoMatrix Logo Image</masterLabel>
+    <description>Displays the packaged company logo (a static resource) in a Tableau Next dashboard widget with scale, alignment, and opacity controls. No external URLs, no third-party libraries.</description>
+    <targets>
+        <target>analytics__Dashboard</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="analytics__Dashboard">
+            <property
+                name="staticResourceName"
+                label="Static Resource Name"
+                type="String"
+                description="Optional. Name of a static resource in this org to show instead of the packaged logo. Leave blank to use the packaged logo."
+            />
+            <property
+                name="imageScale"
+                label="Image Scale"
+                type="String"
+                default="Fit to Height"
+                datasource="Fit to Width,Fit to Height,Fill,Original"
+                description="Fit to Width: full width. Fit to Height: full height. Fill: fills the widget (may crop). Original: natural size (may crop)."
+            />
+            <property
+                name="horizontalAlignment"
+                label="Horizontal Alignment"
+                type="String"
+                default="Center"
+                datasource="Left,Center,Right"
+                description="Horizontal position of the image within the widget."
+            />
+            <property
+                name="verticalAlignment"
+                label="Vertical Alignment"
+                type="String"
+                default="Middle"
+                datasource="Top,Middle,Bottom"
+                description="Vertical position of the image within the widget."
+            />
+            <property
+                name="imageOpacity"
+                label="Image Opacity"
+                type="Integer"
+                default="100"
+                min="0"
+                max="100"
+                description="Opacity from 0 (transparent) to 100 (opaque)."
+            />
+            <property
+                name="backgroundColor"
+                label="Background Color"
+                type="String"
+                description="Optional CSS color behind the image (e.g. #ffffff). Leave blank for none."
+            />
+            <property
+                name="altText"
+                label="Alternative Text"
+                type="String"
+                default="Company logo"
+                description="Accessible description of the image."
+            />
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

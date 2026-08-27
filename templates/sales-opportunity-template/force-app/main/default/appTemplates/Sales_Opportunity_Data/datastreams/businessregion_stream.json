@@ -1,0 +1,124 @@
+{
+  "name": "BusinessRegionDS",
+  "label": "BusinessRegion DS",
+  "datastreamType": "CONNECTORSFRAMEWORK",
+  "connectorInfo": {
+    "connectorType": "DataConnector",
+    "connectorDetails": {
+      "name": "UploadedFiles"
+    }
+  },
+  "sourceFields": [
+    {
+      "dataType": "Text",
+      "name": "RegionId"
+    },
+    {
+      "dataType": "Text",
+      "name": "RegionName"
+    },
+    {
+      "dataType": "Text",
+      "name": "CountryScope"
+    },
+    {
+      "dataType": "Text",
+      "name": "DirectorGroup"
+    },
+    {
+      "dataType": "Number",
+      "name": "SortOrder"
+    },
+    {
+      "dataType": "Text",
+      "name": "Description"
+    }
+  ],
+  "dataLakeObjectInfo": {
+    "name": "${App.DataLakeObjects.BusinessRegion_DLO.Name}",
+    "label": "BusinessRegion DLO",
+    "category": "OTHER",
+    "dataspaceInfo": [
+      {
+        "name": "default"
+      }
+    ],
+    "fields": [
+      {
+        "dataType": "Text",
+        "isPrimaryKey": true,
+        "name": "RegionId",
+        "label": "RegionId"
+      },
+      {
+        "dataType": "Text",
+        "isPrimaryKey": false,
+        "name": "RegionName",
+        "label": "RegionName"
+      },
+      {
+        "dataType": "Text",
+        "isPrimaryKey": false,
+        "name": "CountryScope",
+        "label": "CountryScope"
+      },
+      {
+        "dataType": "Text",
+        "isPrimaryKey": false,
+        "name": "DirectorGroup",
+        "label": "DirectorGroup"
+      },
+      {
+        "dataType": "Number",
+        "isPrimaryKey": false,
+        "name": "SortOrder",
+        "label": "SortOrder"
+      },
+      {
+        "dataType": "Text",
+        "isPrimaryKey": false,
+        "name": "Description",
+        "label": "Description"
+      }
+    ]
+  },
+  "mappings": [
+    {
+      "sourceFieldLabel": "RegionId",
+      "targetFieldName": "RegionId"
+    },
+    {
+      "sourceFieldLabel": "RegionName",
+      "targetFieldName": "RegionName"
+    },
+    {
+      "sourceFieldLabel": "CountryScope",
+      "targetFieldName": "CountryScope"
+    },
+    {
+      "sourceFieldLabel": "DirectorGroup",
+      "targetFieldName": "DirectorGroup"
+    },
+    {
+      "sourceFieldLabel": "SortOrder",
+      "targetFieldName": "SortOrder"
+    },
+    {
+      "sourceFieldLabel": "Description",
+      "targetFieldName": "Description"
+    }
+  ],
+  "refreshConfig": {
+    "refreshMode": "TOTAL_REPLACE",
+    "frequency": {
+      "frequencyType": "None"
+    }
+  },
+  "advancedAttributes": {
+    "importDirectory": "${App.CSVs.BusinessRegionCSV.ImportDirectory}",
+    "fileName": "${App.CSVs.BusinessRegionCSV.FileName}",
+    "delimiter": ",",
+    "parentDirectory": "${App.CSVs.BusinessRegionCSV.ParentDirectory}",
+    "fileType": "${App.CSVs.BusinessRegionCSV.FileType}"
+  }
+}

@@ -1,0 +1,8 @@
+RegionId,RegionName,CountryScope,DirectorGroup,SortOrder,Description
+RegionGL,Great Lakes,USA,Central Sales,1,Mature Midwest automotive customer base.
+RegionNE,Northeast,USA,Eastern Sales,2,Northeastern customer and supplier coverage.
+RegionSE,Southeast,USA,Eastern Sales,3,Growing southeastern automotive manufacturing corridor.
+RegionSC,South Central,USA,Central Sales,4,"South central OEM, fleet, and distribution coverage."
+RegionWest,West,USA,Western and International Sales,5,"Western mobility, fleet, and technology-oriented accounts."
+RegionCA,Canada,Canada,Western and International Sales,6,Stable Canadian OEM and supplier market.
+RegionMX,Mexico,Mexico,Western and International Sales,7,Large manufacturing programs with longer sales cycles.

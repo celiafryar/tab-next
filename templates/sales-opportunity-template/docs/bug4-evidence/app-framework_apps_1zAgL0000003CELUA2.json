@@ -1,0 +1,32 @@
+{
+  "id": "1zAgL0000003CELUA2",
+  "name": "Dreamforce_SalesOpportunity_Template",
+  "label": "Dreamforce_SalesOpportunity_Template",
+  "description": null,
+  "createdBy": {
+    "id": "005gL00000N2s2HQAR",
+    "name": "Celia Fryar",
+    "profilePhotoUrl": "https://orgfarm-d7af4e1689-dev-ed.develop.file.force.com/profilephoto/005/T"
+  },
+  "createdDate": "2026-08-25T03:42:05.000Z",
+  "lastModifiedBy": {
+    "id": "005gL00000N2s2HQAR",
+    "name": "Celia Fryar",
+    "profilePhotoUrl": "https://orgfarm-d7af4e1689-dev-ed.develop.file.force.com/profilephoto/005/T"
+  },
+  "lastModifiedDate": "2026-08-25T03:42:05.000Z",
+  "templateSourceId": "1zDgL0000000317UAA",
+  "templateVersion": "1.0",
+  "appAssetVersion": 67,
+  "templateType": "app",
+  "templateSubtype": null,
+  "templateValues": {},
+  "url": "/services/data/v67.0/app-framework/apps/1zAgL0000003CELUA2",
+  "latestActivityUrl": "/services/data/v67.0/app-framework/apps/1zAgL0000003CELUA2/activities/latest",
+  "installationHistoryUrl": "https://orgfarm-d7af4e1689-dev-ed.develop.my.salesforce.com/lightning/setup/InsightsSetupAppHistoryControlPanel/home?c__appId=1zAgL0000003CELUA2",
+  "assetUrl": "/services/data/v67.0/app-framework/apps/1zAgL0000003CELUA2/assets",
+  "refreshUrl": "/services/data/v67.0/app-framework/apps/1zAgL0000003CELUA2/refresh",
+  "updateBasicAppUrl": "/services/data/v67.0/app-framework/apps/1zAgL0000003CELUA2/updateBasicApp",
+  "applicationStatus": "FailedStatus",
+  "activitiesUrl": "/services/data/v67.0/app-framework/apps/1zAgL0000003CELUA2/activities"
+}

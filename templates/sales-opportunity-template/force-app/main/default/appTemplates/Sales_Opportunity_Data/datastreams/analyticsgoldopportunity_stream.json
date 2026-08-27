@@ -1,0 +1,321 @@
+{
+  "name": "AnalyticsGoldOpportunityDS",
+  "label": "AnalyticsGoldOpportunity DS",
+  "datastreamType": "CONNECTORSFRAMEWORK",
+  "connectorInfo": {
+    "connectorType": "DataConnector",
+    "connectorDetails": {
+      "name": "UploadedFiles"
+    }
+  },
+  "sourceFields": [
+    {
+      "dataType": "Text",
+      "name": "OpportunityId"
+    },
+    {
+      "dataType": "Date",
+      "format": "yyyy-MM-dd",
+      "name": "AsOfDate"
+    },
+    {
+      "dataType": "Number",
+      "name": "OpportunityAge"
+    },
+    {
+      "dataType": "Text",
+      "name": "OpportunityAgeBucket"
+    },
+    {
+      "dataType": "Number",
+      "name": "SalesCycleDays"
+    },
+    {
+      "dataType": "Number",
+      "name": "WeightedAmount"
+    },
+    {
+      "dataType": "Number",
+      "name": "UniqueProductCount"
+    },
+    {
+      "dataType": "Number",
+      "name": "UniqueProductFamilyCount"
+    },
+    {
+      "dataType": "Number",
+      "name": "AverageDiscount"
+    },
+    {
+      "dataType": "Number",
+      "name": "NetRevenue"
+    },
+    {
+      "dataType": "Number",
+      "name": "GrossMarginAmount"
+    },
+    {
+      "dataType": "Number",
+      "name": "GrossMarginRate"
+    },
+    {
+      "dataType": "Number",
+      "name": "CloseDateSlipDays"
+    },
+    {
+      "dataType": "Number",
+      "name": "CloseDateChangeCount"
+    },
+    {
+      "dataType": "Number",
+      "name": "HybridProductShare"
+    },
+    {
+      "dataType": "Number",
+      "name": "OpportunityHealthScore"
+    },
+    {
+      "dataType": "Number",
+      "name": "OpportunityRiskScore"
+    },
+    {
+      "dataType": "Number",
+      "name": "ForecastConfidence"
+    },
+    {
+      "dataType": "Boolean",
+      "name": "HighRiskFlag"
+    },
+    {
+      "dataType": "Boolean",
+      "name": "ProductAttachOpportunityFlag"
+    }
+  ],
+  "dataLakeObjectInfo": {
+    "name": "${App.DataLakeObjects.AnalyticsGoldOpportunity_DLO.Name}",
+    "label": "AnalyticsGoldOpportunity DLO",
+    "category": "OTHER",
+    "dataspaceInfo": [
+      {
+        "name": "default"
+      }
+    ],
+    "fields": [
+      {
+        "dataType": "Text",
+        "isPrimaryKey": true,
+        "name": "OpportunityId",
+        "label": "OpportunityId"
+      },
+      {
+        "dataType": "Date",
+        "isPrimaryKey": false,
+        "name": "AsOfDate",
+        "label": "AsOfDate"
+      },
+      {
+        "dataType": "Number",
+        "isPrimaryKey": false,
+        "name": "OpportunityAge",
+        "label": "OpportunityAge"
+      },
+      {
+        "dataType": "Text",
+        "isPrimaryKey": false,
+        "name": "OpportunityAgeBucket",
+        "label": "OpportunityAgeBucket"
+      },
+      {
+        "dataType": "Number",
+        "isPrimaryKey": false,
+        "name": "SalesCycleDays",
+        "label": "SalesCycleDays"
+      },
+      {
+        "dataType": "Number",
+        "isPrimaryKey": false,
+        "name": "WeightedAmount",
+        "label": "WeightedAmount"
+      },
+      {
+        "dataType": "Number",
+        "isPrimaryKey": false,
+        "name": "UniqueProductCount",
+        "label": "UniqueProductCount"
+      },
+      {
+        "dataType": "Number",
+        "isPrimaryKey": false,
+        "name": "UniqueProductFamilyCount",
+        "label": "UniqueProductFamilyCount"
+      },
+      {
+        "dataType": "Number",
+        "isPrimaryKey": false,
+        "name": "AverageDiscount",
+        "label": "AverageDiscount"
+      },
+      {
+        "dataType": "Number",
+        "isPrimaryKey": false,
+        "name": "NetRevenue",
+        "label": "NetRevenue"
+      },
+      {
+        "dataType": "Number",
+        "isPrimaryKey": false,
+        "name": "GrossMarginAmount",
+        "label": "GrossMarginAmount"
+      },
+      {
+        "dataType": "Number",
+        "isPrimaryKey": false,
+        "name": "GrossMarginRate",
+        "label": "GrossMarginRate"
+      },
+      {
+        "dataType": "Number",
+        "isPrimaryKey": false,
+        "name": "CloseDateSlipDays",
+        "label": "CloseDateSlipDays"
+      },
+      {
+        "dataType": "Number",
+        "isPrimaryKey": false,
+        "name": "CloseDateChangeCount",
+        "label": "CloseDateChangeCount"
+      },
+      {
+        "dataType": "Number",
+        "isPrimaryKey": false,
+        "name": "HybridProductShare",
+        "label": "HybridProductShare"
+      },
+      {
+        "dataType": "Number",
+        "isPrimaryKey": false,
+        "name": "OpportunityHealthScore",
+        "label": "OpportunityHealthScore"
+      },
+      {
+        "dataType": "Number",
+        "isPrimaryKey": false,
+        "name": "OpportunityRiskScore",
+        "label": "OpportunityRiskScore"
+      },
+      {
+        "dataType": "Number",
+        "isPrimaryKey": false,
+        "name": "ForecastConfidence",
+        "label": "ForecastConfidence"
+      },
+      {
+        "dataType": "Boolean",
+        "isPrimaryKey": false,
+        "name": "HighRiskFlag",
+        "label": "HighRiskFlag"
+      },
+      {
+        "dataType": "Boolean",
+        "isPrimaryKey": false,
+        "name": "ProductAttachOpportunityFlag",
+        "label": "ProductAttachOpportunityFlag"
+      }
+    ]
+  },
+  "mappings": [
+    {
+      "sourceFieldLabel": "OpportunityId",
+      "targetFieldName": "OpportunityId"
+    },
+    {
+      "sourceFieldLabel": "AsOfDate",
+      "targetFieldName": "AsOfDate"
+    },
+    {
+      "sourceFieldLabel": "OpportunityAge",
+      "targetFieldName": "OpportunityAge"
+    },
+    {
+      "sourceFieldLabel": "OpportunityAgeBucket",
+      "targetFieldName": "OpportunityAgeBucket"
+    },
+    {
+      "sourceFieldLabel": "SalesCycleDays",
+      "targetFieldName": "SalesCycleDays"
+    },
+    {
+      "sourceFieldLabel": "WeightedAmount",
+      "targetFieldName": "WeightedAmount"
+    },
+    {
+      "sourceFieldLabel": "UniqueProductCount",
+      "targetFieldName": "UniqueProductCount"
+    },
+    {
+      "sourceFieldLabel": "UniqueProductFamilyCount",
+      "targetFieldName": "UniqueProductFamilyCount"
+    },
+    {
+      "sourceFieldLabel": "AverageDiscount",
+      "targetFieldName": "AverageDiscount"
+    },
+    {
+      "sourceFieldLabel": "NetRevenue",
+      "targetFieldName": "NetRevenue"
+    },
+    {
+      "sourceFieldLabel": "GrossMarginAmount",
+      "targetFieldName": "GrossMarginAmount"
+    },
+    {
+      "sourceFieldLabel": "GrossMarginRate",
+      "targetFieldName": "GrossMarginRate"
+    },
+    {
+      "sourceFieldLabel": "CloseDateSlipDays",
+      "targetFieldName": "CloseDateSlipDays"
+    },
+    {
+      "sourceFieldLabel": "CloseDateChangeCount",
+      "targetFieldName": "CloseDateChangeCount"
+    },
+    {
+      "sourceFieldLabel": "HybridProductShare",
+      "targetFieldName": "HybridProductShare"
+    },
+    {
+      "sourceFieldLabel": "OpportunityHealthScore",
+      "targetFieldName": "OpportunityHealthScore"
+    },
+    {
+      "sourceFieldLabel": "OpportunityRiskScore",
+      "targetFieldName": "OpportunityRiskScore"
+    },
+    {
+      "sourceFieldLabel": "ForecastConfidence",
+      "targetFieldName": "ForecastConfidence"
+    },
+    {
+      "sourceFieldLabel": "HighRiskFlag",
+      "targetFieldName": "HighRiskFlag"
+    },
+    {
+      "sourceFieldLabel": "ProductAttachOpportunityFlag",
+      "targetFieldName": "ProductAttachOpportunityFlag"
+    }
+  ],
+  "refreshConfig": {
+    "refreshMode": "TOTAL_REPLACE",
+    "frequency": {
+      "frequencyType": "None"
+    }
+  },
+  "advancedAttributes": {
+    "importDirectory": "${App.CSVs.AnalyticsGoldOpportunityCSV.ImportDirectory}",
+    "fileName": "${App.CSVs.AnalyticsGoldOpportunityCSV.FileName}",
+    "delimiter": ",",
+    "parentDirectory": "${App.CSVs.AnalyticsGoldOpportunityCSV.ParentDirectory}",
+    "fileType": "${App.CSVs.AnalyticsGoldOpportunityCSV.FileType}"
+  }
+}

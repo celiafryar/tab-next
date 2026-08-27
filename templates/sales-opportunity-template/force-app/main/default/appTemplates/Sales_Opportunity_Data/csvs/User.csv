@@ -1,0 +1,31 @@
+UserId,FullName,RoleLevel,Title,ManagerUserId,DirectorGroup,SalesTerritoryId,HomeLocationId,HireDate,RampStartDate,ActiveFlag
+005000000000001AAA,Cameron Brooks,VP Sales,VP Sales,,Executive Sales,,Location001,2016-02-01,,true
+005000000000002AAA,Riley Bennett,Sales Director,"Director, Central Sales",005000000000001AAA,Central Sales,,Location001,2017-05-15,,true
+005000000000003AAA,Dana Foster,Sales Director,"Director, Eastern Sales",005000000000001AAA,Eastern Sales,,Location006,2018-03-12,,true
+005000000000004AAA,Avery Chen,Sales Director,"Director, Western and International Sales",005000000000001AAA,Western and International Sales,,Location005,2017-11-06,,true
+005000000000005AAA,Leslie Grant,Regional Manager,"Regional Manager, Great Lakes",005000000000002AAA,Central Sales,TerritoryGL,Location001,2019-01-14,,true
+005000000000006AAA,Chris Monroe,Regional Manager,"Regional Manager, South Central",005000000000002AAA,Central Sales,TerritorySC,Location005,2019-09-09,,true
+005000000000007AAA,Sydney Ross,Regional Manager,"Regional Manager, Northeast",005000000000003AAA,Eastern Sales,TerritoryNE,Location006,2020-02-17,,true
+005000000000008AAA,Marin Flores,Regional Manager,"Regional Manager, Southeast",005000000000003AAA,Eastern Sales,TerritorySE,Location006,2020-08-10,,true
+005000000000009AAA,Jules Harper,Regional Manager,"Regional Manager, West",005000000000004AAA,Western and International Sales,TerritoryWest,Location005,2018-06-25,,true
+005000000000010AAA,Adrian Silva,Regional Manager,"Regional Manager, International",005000000000004AAA,Eastern Sales,,Location007,2019-04-08,,true
+005000000000011AAA,Jordan Patel,Account Executive,Senior Account Executive,005000000000005AAA,Central Sales,TerritoryGL,Location001,2018-08-20,,true
+005000000000012AAA,Alex Rivera,Account Executive,Account Executive,005000000000005AAA,Central Sales,TerritoryGL,Location001,2020-01-13,,true
+005000000000013AAA,Jamie Carter,Account Executive,Account Executive,005000000000005AAA,Central Sales,TerritoryGL,Location004,2021-04-05,,true
+005000000000014AAA,Robin Lee,Account Executive,Account Executive,005000000000005AAA,Central Sales,TerritoryGL,Location002,2022-06-06,,true
+005000000000015AAA,Casey Morgan,Account Executive,Senior Account Executive,005000000000007AAA,Eastern Sales,TerritoryNE,Location006,2019-02-11,,true
+005000000000016AAA,Sam Nguyen,Account Executive,Account Executive,005000000000007AAA,Eastern Sales,TerritoryNE,Location006,2021-03-15,,true
+005000000000017AAA,Drew Wallace,Account Executive,Account Executive,005000000000007AAA,Eastern Sales,TerritoryNE,Location006,2022-10-03,,true
+005000000000018AAA,Morgan Ellis,Account Executive,Account Executive,005000000000008AAA,Eastern Sales,TerritorySE,Location006,2025-04-01,2025-04-01,true
+005000000000019AAA,Bailey Cooper,Account Executive,Account Executive,005000000000008AAA,Eastern Sales,TerritorySE,Location006,2021-07-12,,true
+005000000000020AAA,Logan Price,Account Executive,Account Executive,005000000000008AAA,Eastern Sales,TerritorySE,Location003,2023-01-09,,true
+005000000000021AAA,Taylor Kim,Account Executive,Senior Account Executive,005000000000006AAA,Central Sales,TerritorySC,Location005,2018-10-15,,true
+005000000000022AAA,Parker Davis,Account Executive,Account Executive,005000000000006AAA,Central Sales,TerritorySC,Location005,2020-11-02,,true
+005000000000023AAA,Quinn Reed,Account Executive,Account Executive,005000000000006AAA,Central Sales,TerritorySC,Location005,2022-02-21,,true
+005000000000024AAA,Skyler James,Account Executive,Account Executive,005000000000009AAA,Western and International Sales,TerritoryWest,Location005,2020-05-18,,true
+005000000000025AAA,Reese Turner,Account Executive,Account Executive,005000000000009AAA,Western and International Sales,TerritoryWest,Location005,2021-09-13,,true
+005000000000026AAA,Hayden Clark,Account Executive,Account Executive,005000000000009AAA,Western and International Sales,TerritoryWest,Location005,2023-03-06,,true
+005000000000027AAA,Emerson Hall,Account Executive,Account Executive,005000000000010AAA,Western and International Sales,TerritoryCanada,Location007,2020-02-03,,true
+005000000000028AAA,Finley Ward,Account Executive,Account Executive,005000000000010AAA,Western and International Sales,TerritoryCanada,Location007,2022-08-22,,true
+005000000000029AAA,Rowan Cruz,Account Executive,Account Executive,005000000000010AAA,Western and International Sales,TerritoryMexico,Location008,2020-04-27,,true
+005000000000030AAA,Dakota Vega,Account Executive,Account Executive,005000000000010AAA,Western and International Sales,TerritoryMexico,Location008,2023-02-13,,true

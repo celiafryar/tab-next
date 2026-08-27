@@ -1,0 +1,501 @@
+AccountId,AccountName,AccountType,AccountTier,Industry,AnnualRevenue,EmployeeCount,City,StateProvince,Country,SalesTerritoryId,CustomerSinceDate,StrategicAccountFlag,PrimaryPowertrainFocus,AccountStatus
+001000000000001AAA,Northstar Automotive Group,OEM,Platinum,Automotive Manufacturing,29527245032,45427,Grand Rapids,Michigan,USA,TerritoryGL,2012-10-01,true,Both,Active
+001000000000002AAA,MetroVale Motors,OEM,Gold,Automotive Manufacturing,16282372790,25050,Nashville,Tennessee,USA,TerritorySE,2022-09-06,true,ICE,Active
+001000000000003AAA,Summit Motorworks,OEM,Platinum,Automotive Manufacturing,37191573537,57218,Milwaukee,Wisconsin,USA,TerritoryGL,2013-10-10,true,Both,Active
+001000000000004AAA,Continental Mobility Systems,OEM,Platinum,Automotive Manufacturing,31921942358,49111,Boston,Massachusetts,USA,TerritoryNE,2012-08-24,true,Both,Active
+001000000000005AAA,Aurora Vehicle Works,OEM,Platinum,Automotive Manufacturing,32713870195,50329,Oshawa,Ontario,Canada,TerritoryCanada,2022-02-05,true,Both,Active
+001000000000006AAA,Rio Grande Mobility,OEM,Platinum,Automotive Manufacturing,17820000000,27415,Monterrey,Nuevo León,Mexico,TerritoryMexico,2023-12-11,true,ICE,Active
+001000000000007AAA,Sierra Roadcraft,OEM,Gold,Automotive Manufacturing,13608203188,20936,Seattle,Washington,USA,TerritoryWest,2012-12-29,true,Hybrid,Active
+001000000000008AAA,BlueRiver Vehicle Systems,Tier 1 Supplier,Gold,Automotive Manufacturing,5590751500,13311,Detroit,Michigan,USA,TerritoryGL,2023-04-21,true,Both,Active
+001000000000009AAA,Pioneer Chassis Group,Tier 1 Supplier,Gold,Automotive Manufacturing,3421033817,8145,Baton Rouge,Louisiana,USA,TerritorySC,2018-01-27,true,ICE,Active
+001000000000010AAA,Evergreen Fleet Services,Fleet,Gold,Fleet Operations,1015122958,3275,Seattle,Washington,USA,TerritoryWest,2010-08-08,true,Hybrid,Active
+001000000000011AAA,Alder Mobility,OEM,Silver,Automotive Manufacturing,10291151558,15833,Los Angeles,California,USA,TerritoryWest,2017-09-12,false,ICE,Active
+001000000000012AAA,Blue Ridge Automotive,OEM,Silver,Automotive Manufacturing,17480595452,26893,Fort Wayne,Indiana,USA,TerritoryGL,2023-03-05,false,ICE,Active
+001000000000013AAA,Alder Motor Systems,OEM,Standard,Automotive Manufacturing,8353325441,12851,Austin,Texas,USA,TerritorySC,2008-01-29,false,Both,Active
+001000000000014AAA,Eastgate Vehicle Systems,OEM,Silver,Automotive Manufacturing,13326007331,20502,Nashville,Tennessee,USA,TerritorySE,2016-10-06,false,Hybrid,Active
+001000000000015AAA,Cedar Distribution,OEM,Silver,Automotive Manufacturing,8415000000,12946,Charlotte,North Carolina,USA,TerritorySE,2023-07-26,false,ICE,Active
+001000000000016AAA,Meridian Manufacturing,OEM,Standard,Automotive Manufacturing,8712946911,13405,Montreal,Quebec,Canada,TerritoryCanada,2008-10-26,false,Both,Active
+001000000000017AAA,Meridian Automotive,OEM,Silver,Automotive Manufacturing,14845651856,22839,Charlotte,North Carolina,USA,TerritorySE,2024-05-27,false,Both,Active
+001000000000018AAA,Cobalt Components,OEM,Standard,Automotive Manufacturing,9198843462,14152,Monterrey,Nuevo León,Mexico,TerritoryMexico,2009-02-28,false,Both,Active
+001000000000019AAA,Blue Ridge Powertrain,OEM,Standard,Automotive Manufacturing,10673543757,16421,Columbus,Ohio,USA,TerritoryGL,2022-05-17,false,Both,Active
+001000000000020AAA,Blue Ridge Transport Group,OEM,Silver,Automotive Manufacturing,22472911877,34574,Little Rock,Arkansas,USA,TerritorySC,2011-04-24,false,Hybrid,Active
+001000000000021AAA,Oakline Performance Parts,OEM,Gold,Automotive Manufacturing,28222710549,43420,Silao,Guanajuato,Mexico,TerritoryMexico,2024-10-29,false,Both,Active
+001000000000022AAA,Westgate Industrial Supply,OEM,Silver,Automotive Manufacturing,14346366662,22071,Pittsburgh,Pennsylvania,USA,TerritoryNE,2010-08-27,false,ICE,Active
+001000000000023AAA,Suncrest Fleet Solutions,OEM,Gold,Automotive Manufacturing,26974468799,41499,Oshawa,Ontario,Canada,TerritoryCanada,2012-02-07,false,Both,Active
+001000000000024AAA,Atlas Performance Parts,OEM,Silver,Automotive Manufacturing,19129047317,29429,Monterrey,Nuevo León,Mexico,TerritoryMexico,2023-07-05,false,ICE,Active
+001000000000025AAA,Blue Ridge Assembly,OEM,Standard,Automotive Manufacturing,10539754988,16215,Puebla,Puebla,Mexico,TerritoryMexico,2010-09-16,false,Hybrid,Active
+001000000000026AAA,Westgate Motor Systems,OEM,Standard,Automotive Manufacturing,10277961421,15812,Greenville,South Carolina,USA,TerritorySE,2019-10-07,false,ICE,Active
+001000000000027AAA,Beacon Distribution,OEM,Standard,Automotive Manufacturing,9981659606,15356,Grand Rapids,Michigan,USA,TerritoryGL,2015-07-23,false,Both,Active
+001000000000028AAA,Pinnacle Fleet Solutions,OEM,Standard,Automotive Manufacturing,9954817180,15315,Buffalo,New York,USA,TerritoryNE,2013-10-30,false,Both,Active
+001000000000029AAA,Oakline Distribution,OEM,Standard,Automotive Manufacturing,10997783593,16920,Detroit,Michigan,USA,TerritoryGL,2016-03-10,false,Both,Active
+001000000000030AAA,Northfield Transport Group,OEM,Standard,Automotive Manufacturing,9574814117,14730,Boston,Massachusetts,USA,TerritoryNE,2024-05-01,false,ICE,Active
+001000000000031AAA,Cedar Transport Group,OEM,Standard,Automotive Manufacturing,10044263305,15453,Milwaukee,Wisconsin,USA,TerritoryGL,2013-09-20,false,ICE,Active
+001000000000032AAA,Beacon Performance Parts,OEM,Standard,Automotive Manufacturing,9504878780,14623,Columbus,Ohio,USA,TerritoryGL,2011-03-30,false,ICE,Active
+001000000000033AAA,Eastgate Manufacturing,OEM,Silver,Automotive Manufacturing,13772598790,21189,Austin,Texas,USA,TerritorySC,2023-08-31,false,Both,Active
+001000000000034AAA,Meridian Distribution,Tier 1 Supplier,Gold,Automotive Manufacturing,4002355590,9529,Columbus,Ohio,USA,TerritoryGL,2008-07-24,true,Both,Active
+001000000000035AAA,Northfield Assembly,Tier 1 Supplier,Silver,Automotive Manufacturing,2510823624,5978,Charlotte,North Carolina,USA,TerritorySE,2015-05-22,false,Both,Active
+001000000000036AAA,Silverline Powertrain,Tier 1 Supplier,Silver,Automotive Manufacturing,2747790572,6542,Monterrey,Nuevo León,Mexico,TerritoryMexico,2014-10-28,false,ICE,Active
+001000000000037AAA,Frontier Automotive,Tier 1 Supplier,Silver,Automotive Manufacturing,2221737813,5290,Columbus,Ohio,USA,TerritoryGL,2010-06-10,false,Both,Active
+001000000000038AAA,Prairie Components,Tier 1 Supplier,Silver,Automotive Manufacturing,3332995380,7936,Louisville,Kentucky,USA,TerritorySE,2020-01-18,false,Both,Active
+001000000000039AAA,Timberline Motor Systems,Tier 1 Supplier,Gold,Automotive Manufacturing,4462528191,10625,Fort Wayne,Indiana,USA,TerritoryGL,2025-03-20,true,ICE,Active
+001000000000040AAA,Frontier Assembly,Tier 1 Supplier,Silver,Automotive Manufacturing,2924099423,6962,Grand Rapids,Michigan,USA,TerritoryGL,2011-03-25,false,Both,Active
+001000000000041AAA,Suncrest Manufacturing,Tier 1 Supplier,Standard,Automotive Manufacturing,2632671720,6268,Puebla,Puebla,Mexico,TerritoryMexico,2017-07-12,false,Both,Active
+001000000000042AAA,Crescent Industrial Supply,Tier 1 Supplier,Standard,Automotive Manufacturing,2035390601,4846,Silao,Guanajuato,Mexico,TerritoryMexico,2020-10-01,false,Hybrid,Active
+001000000000043AAA,Alder Industrial Supply,Tier 1 Supplier,Standard,Automotive Manufacturing,1324916062,3155,Greenville,South Carolina,USA,TerritorySE,2018-06-07,false,ICE,Active
+001000000000044AAA,Westgate Performance Parts,Tier 1 Supplier,Silver,Automotive Manufacturing,2523416793,6008,Montreal,Quebec,Canada,TerritoryCanada,2008-12-06,false,Both,Active
+001000000000045AAA,Meridian Distribution 78,Tier 1 Supplier,Standard,Automotive Manufacturing,1418912255,3378,Atlanta,Georgia,USA,TerritorySE,2020-12-15,false,ICE,Active
+001000000000046AAA,Crown Fleet Solutions,Tier 1 Supplier,Standard,Automotive Manufacturing,1262262500,3005,Newark,New Jersey,USA,TerritoryNE,2021-06-20,false,ICE,Active
+001000000000047AAA,Harbor Transport Group,Tier 1 Supplier,Standard,Automotive Manufacturing,1397514587,3327,Louisville,Kentucky,USA,TerritorySE,2022-06-14,false,Both,Active
+001000000000048AAA,Union Automotive,Tier 1 Supplier,Gold,Automotive Manufacturing,3943306032,9389,Little Rock,Arkansas,USA,TerritorySC,2019-01-10,false,ICE,Active
+001000000000049AAA,Lakeview Fleet Solutions,Tier 1 Supplier,Standard,Automotive Manufacturing,2240766803,5335,Detroit,Michigan,USA,TerritoryGL,2016-03-05,false,Both,Active
+001000000000050AAA,Granite Fleet Solutions,Tier 1 Supplier,Standard,Automotive Manufacturing,1830381231,4358,Dallas,Texas,USA,TerritorySC,2011-12-03,false,Hybrid,Active
+001000000000051AAA,Prairie Motor Systems,Tier 1 Supplier,Silver,Automotive Manufacturing,2782202384,6624,Nashville,Tennessee,USA,TerritorySE,2011-03-12,false,ICE,Active
+001000000000052AAA,Crown Fleet Solutions 43,Tier 1 Supplier,Gold,Automotive Manufacturing,4396785322,10469,Windsor,Ontario,Canada,TerritoryCanada,2020-03-11,false,ICE,Active
+001000000000053AAA,Delta Mobility,Tier 1 Supplier,Standard,Automotive Manufacturing,1693750367,4033,Los Angeles,California,USA,TerritoryWest,2013-11-01,false,Both,Active
+001000000000054AAA,Stonebridge Powertrain,Tier 1 Supplier,Standard,Automotive Manufacturing,2303568744,5485,Baton Rouge,Louisiana,USA,TerritorySC,2019-02-09,false,ICE,Active
+001000000000055AAA,Beacon Vehicle Systems,Tier 1 Supplier,Gold,Automotive Manufacturing,4258716627,10140,Toledo,Ohio,USA,TerritoryGL,2011-10-14,false,ICE,Active
+001000000000056AAA,Valley Assembly,Tier 1 Supplier,Silver,Automotive Manufacturing,2602733442,6197,Baton Rouge,Louisiana,USA,TerritorySC,2008-03-07,false,ICE,Active
+001000000000057AAA,Silverline Assembly,Tier 1 Supplier,Silver,Automotive Manufacturing,2940199460,7000,Newark,New Jersey,USA,TerritoryNE,2012-08-07,false,Both,Active
+001000000000058AAA,Valley Performance Parts,Tier 1 Supplier,Gold,Automotive Manufacturing,3579654112,8523,Oshawa,Ontario,Canada,TerritoryCanada,2023-07-24,false,Both,Active
+001000000000059AAA,Ridgeway Vehicle Systems,Tier 1 Supplier,Silver,Automotive Manufacturing,2872787992,6840,Denver,Colorado,USA,TerritoryWest,2013-08-27,false,Both,Active
+001000000000060AAA,Westgate Automotive,Tier 1 Supplier,Standard,Automotive Manufacturing,1765278903,4203,Buffalo,New York,USA,TerritoryNE,2011-07-12,false,Both,Active
+001000000000061AAA,Meridian Distribution 91,Tier 1 Supplier,Silver,Automotive Manufacturing,3042467037,7244,Seattle,Washington,USA,TerritoryWest,2019-04-08,false,Hybrid,Active
+001000000000062AAA,Central Mobility,Tier 1 Supplier,Silver,Automotive Manufacturing,2069222932,4927,Newark,New Jersey,USA,TerritoryNE,2016-10-25,false,ICE,Active
+001000000000063AAA,Windward Vehicle Systems,Tier 1 Supplier,Standard,Automotive Manufacturing,2127464049,5065,Fort Wayne,Indiana,USA,TerritoryGL,2010-10-16,false,ICE,Active
+001000000000064AAA,Crescent Mobility,Tier 1 Supplier,Silver,Automotive Manufacturing,2828524084,6735,Dallas,Texas,USA,TerritorySC,2014-04-27,false,ICE,Active
+001000000000065AAA,Canyon Motor Systems,Tier 1 Supplier,Gold,Automotive Manufacturing,4696780457,11183,Denver,Colorado,USA,TerritoryWest,2010-03-04,false,ICE,Active
+001000000000066AAA,Atlas Powertrain,Tier 1 Supplier,Standard,Automotive Manufacturing,2012582027,4792,Birmingham,Alabama,USA,TerritorySE,2021-09-10,false,Hybrid,Active
+001000000000067AAA,Pacific Transport Group,Tier 1 Supplier,Standard,Automotive Manufacturing,1925569843,4585,Tulsa,Oklahoma,USA,TerritorySC,2013-09-24,false,Both,Active
+001000000000068AAA,Suncrest Performance Parts,Tier 1 Supplier,Silver,Automotive Manufacturing,2434927711,5797,Birmingham,Alabama,USA,TerritorySE,2015-09-07,false,ICE,Active
+001000000000069AAA,Crescent Engineering,Tier 1 Supplier,Standard,Automotive Manufacturing,1655667279,3942,Nashville,Tennessee,USA,TerritorySE,2012-11-23,false,ICE,Active
+001000000000070AAA,Pacific Automotive,Tier 1 Supplier,Standard,Automotive Manufacturing,1720591145,4097,San Jose,California,USA,TerritoryWest,2018-06-14,false,Both,Active
+001000000000071AAA,Union Motor Systems,Tier 1 Supplier,Silver,Automotive Manufacturing,3004366067,7153,Portland,Oregon,USA,TerritoryWest,2015-08-30,false,Both,Active
+001000000000072AAA,Liberty Manufacturing,Tier 1 Supplier,Standard,Automotive Manufacturing,1941563728,4623,Pittsburgh,Pennsylvania,USA,TerritoryNE,2016-07-19,false,Both,Active
+001000000000073AAA,Maple Engineering,Tier 1 Supplier,Silver,Automotive Manufacturing,2388947596,5688,Dallas,Texas,USA,TerritorySC,2018-10-29,false,Hybrid,Active
+001000000000074AAA,Maple Manufacturing,Tier 1 Supplier,Standard,Automotive Manufacturing,1644985743,3917,Dallas,Texas,USA,TerritorySC,2021-11-05,false,ICE,Active
+001000000000075AAA,Suncrest Mobility,Tier 1 Supplier,Silver,Automotive Manufacturing,3284812924,7821,Pittsburgh,Pennsylvania,USA,TerritoryNE,2024-03-22,false,ICE,Active
+001000000000076AAA,Valley Fleet Solutions,Tier 1 Supplier,Standard,Automotive Manufacturing,1597626057,3804,Buffalo,New York,USA,TerritoryNE,2016-08-15,false,Both,Active
+001000000000077AAA,Liberty Components,Tier 1 Supplier,Silver,Automotive Manufacturing,2298291967,5472,Querétaro,Querétaro,Mexico,TerritoryMexico,2018-03-31,false,Both,Active
+001000000000078AAA,Westgate Fleet Solutions,Tier 1 Supplier,Standard,Automotive Manufacturing,1539911650,3666,Grand Rapids,Michigan,USA,TerritoryGL,2014-11-12,false,Hybrid,Active
+001000000000079AAA,Stonebridge Powertrain 34,Tier 1 Supplier,Silver,Automotive Manufacturing,1496000000,3562,Fort Wayne,Indiana,USA,TerritoryGL,2023-10-20,false,ICE,Active
+001000000000080AAA,Eastgate Manufacturing 42,Tier 1 Supplier,Standard,Automotive Manufacturing,1689152543,4022,Milwaukee,Wisconsin,USA,TerritoryGL,2016-08-01,false,Both,Active
+001000000000081AAA,Cobalt Performance Parts,Tier 1 Supplier,Standard,Automotive Manufacturing,990228957,2358,Puebla,Puebla,Mexico,TerritoryMexico,2013-09-11,false,ICE,Active
+001000000000082AAA,Harbor Distribution,Tier 1 Supplier,Silver,Automotive Manufacturing,2477306807,5898,Los Angeles,California,USA,TerritoryWest,2011-01-26,false,ICE,Active
+001000000000083AAA,Timberline Assembly,Tier 1 Supplier,Standard,Automotive Manufacturing,968000000,2305,Buffalo,New York,USA,TerritoryNE,2013-06-04,false,Both,Active
+001000000000084AAA,Maple Performance Parts,Tier 1 Supplier,Silver,Automotive Manufacturing,2965085951,7060,Baton Rouge,Louisiana,USA,TerritorySC,2020-12-08,false,Both,Active
+001000000000085AAA,Westgate Transport Group,Tier 1 Supplier,Silver,Automotive Manufacturing,2624673105,6249,Little Rock,Arkansas,USA,TerritorySC,2008-01-23,false,Both,Active
+001000000000086AAA,Pacific Transport Group 88,Tier 1 Supplier,Silver,Automotive Manufacturing,2386177256,5681,Pittsburgh,Pennsylvania,USA,TerritoryNE,2020-03-11,false,Both,Active
+001000000000087AAA,Pacific Powertrain,Tier 1 Supplier,Silver,Automotive Manufacturing,2705344194,6441,Denver,Colorado,USA,TerritoryWest,2024-04-16,false,Both,Active
+001000000000088AAA,Union Fleet Solutions,Tier 1 Supplier,Standard,Automotive Manufacturing,2023509916,4818,Toledo,Ohio,USA,TerritoryGL,2009-12-13,false,ICE,Active
+001000000000089AAA,Valley Mobility,Tier 1 Supplier,Silver,Automotive Manufacturing,3444755639,8202,Portland,Oregon,USA,TerritoryWest,2015-07-09,false,ICE,Active
+001000000000090AAA,Prairie Assembly,Tier 1 Supplier,Gold,Automotive Manufacturing,4862596655,11578,Atlanta,Georgia,USA,TerritorySE,2008-03-30,false,Hybrid,Active
+001000000000091AAA,Frontier Distribution,Tier 1 Supplier,Silver,Automotive Manufacturing,2940773129,7002,Columbus,Ohio,USA,TerritoryGL,2008-03-06,false,Both,Active
+001000000000092AAA,Crescent Powertrain,Tier 1 Supplier,Standard,Automotive Manufacturing,1325015648,3155,Louisville,Kentucky,USA,TerritorySE,2011-01-17,false,ICE,Active
+001000000000093AAA,Heritage Engineering,Tier 1 Supplier,Standard,Automotive Manufacturing,1375757150,3276,Monterrey,Nuevo León,Mexico,TerritoryMexico,2020-06-11,false,Hybrid,Active
+001000000000094AAA,Silverline Components,Tier 1 Supplier,Standard,Automotive Manufacturing,2304049662,5486,Montreal,Quebec,Canada,TerritoryCanada,2018-09-28,false,ICE,Active
+001000000000095AAA,Keystone Transport Group,Tier 1 Supplier,Standard,Automotive Manufacturing,2075856509,4943,Los Angeles,California,USA,TerritoryWest,2023-02-18,false,Both,Active
+001000000000096AAA,Timberline Vehicle Systems,Tier 1 Supplier,Standard,Automotive Manufacturing,2088047637,4972,Puebla,Puebla,Mexico,TerritoryMexico,2016-10-06,false,Hybrid,Active
+001000000000097AAA,Prairie Transport Group,Tier 1 Supplier,Gold,Automotive Manufacturing,2855734273,6799,Charlotte,North Carolina,USA,TerritorySE,2008-02-05,false,Both,Active
+001000000000098AAA,Cedar Vehicle Systems,Tier 1 Supplier,Gold,Automotive Manufacturing,4505747634,10728,Denver,Colorado,USA,TerritoryWest,2009-01-09,false,ICE,Active
+001000000000099AAA,Silverline Powertrain 19,Tier 1 Supplier,Silver,Automotive Manufacturing,2879747724,6857,Louisville,Kentucky,USA,TerritorySE,2011-06-06,false,Hybrid,Active
+001000000000100AAA,Ridgeway Distribution,Tier 1 Supplier,Standard,Automotive Manufacturing,1660922653,3955,Austin,Texas,USA,TerritorySC,2018-07-14,false,ICE,Active
+001000000000101AAA,Timberline Assembly 6,Tier 1 Supplier,Standard,Automotive Manufacturing,1335583037,3180,Toledo,Ohio,USA,TerritoryGL,2024-09-27,false,ICE,Active
+001000000000102AAA,Union Fleet Solutions 69,Tier 1 Supplier,Standard,Automotive Manufacturing,1751791391,4171,Detroit,Michigan,USA,TerritoryGL,2018-01-29,false,Both,Active
+001000000000103AAA,Maple Motor Systems,Tier 1 Supplier,Standard,Automotive Manufacturing,1496451043,3563,Portland,Oregon,USA,TerritoryWest,2024-12-08,false,Hybrid,Active
+001000000000104AAA,Granite Assembly,Tier 1 Supplier,Standard,Automotive Manufacturing,1692015251,4029,Birmingham,Alabama,USA,TerritorySE,2020-03-15,false,Hybrid,Active
+001000000000105AAA,Harbor Fleet Solutions,Tier 1 Supplier,Gold,Automotive Manufacturing,4852075085,11553,Grand Rapids,Michigan,USA,TerritoryGL,2010-12-10,false,Both,Active
+001000000000106AAA,Beacon Engineering,Tier 1 Supplier,Standard,Automotive Manufacturing,2328246637,5543,Montreal,Quebec,Canada,TerritoryCanada,2012-02-24,false,Both,Active
+001000000000107AAA,Windward Industrial Supply,Tier 1 Supplier,Silver,Automotive Manufacturing,3443532590,8199,Columbus,Ohio,USA,TerritoryGL,2019-01-29,false,Both,Active
+001000000000108AAA,Silverline Performance Parts,Tier 1 Supplier,Silver,Automotive Manufacturing,3357457791,7994,Newark,New Jersey,USA,TerritoryNE,2019-10-01,false,Both,Active
+001000000000109AAA,Valley Powertrain,Tier 1 Supplier,Standard,Automotive Manufacturing,1538481224,3663,Denver,Colorado,USA,TerritoryWest,2019-07-01,false,ICE,Active
+001000000000110AAA,Pacific Performance Parts,Tier 1 Supplier,Standard,Automotive Manufacturing,2062229139,4910,Grand Rapids,Michigan,USA,TerritoryGL,2015-03-07,false,Hybrid,Active
+001000000000111AAA,Keystone Distribution,Tier 1 Supplier,Silver,Automotive Manufacturing,2503768299,5961,Pittsburgh,Pennsylvania,USA,TerritoryNE,2015-10-02,false,ICE,Active
+001000000000112AAA,Stonebridge Motor Systems,Tier 1 Supplier,Silver,Automotive Manufacturing,2756095944,6562,Phoenix,Arizona,USA,TerritoryWest,2012-10-10,false,Both,Active
+001000000000113AAA,Ridgeway Manufacturing,Tier 1 Supplier,Standard,Automotive Manufacturing,1271002196,3026,Austin,Texas,USA,TerritorySC,2017-04-25,false,Both,Active
+001000000000114AAA,Eastgate Automotive,Tier 1 Supplier,Silver,Automotive Manufacturing,2581859928,6147,Austin,Texas,USA,TerritorySC,2008-12-13,false,ICE,Active
+001000000000115AAA,Cobalt Engineering,Tier 1 Supplier,Standard,Automotive Manufacturing,2200945530,5240,Windsor,Ontario,Canada,TerritoryCanada,2018-06-08,false,ICE,Active
+001000000000116AAA,Suncrest Transport Group,Tier 1 Supplier,Standard,Automotive Manufacturing,1251142757,2979,Toledo,Ohio,USA,TerritoryGL,2011-04-10,false,ICE,Active
+001000000000117AAA,Keystone Mobility,Tier 1 Supplier,Standard,Automotive Manufacturing,1611329391,3836,Portland,Oregon,USA,TerritoryWest,2023-06-16,false,Both,Active
+001000000000118AAA,Alder Assembly,Tier 1 Supplier,Standard,Automotive Manufacturing,2459570365,5856,Pittsburgh,Pennsylvania,USA,TerritoryNE,2019-04-02,false,Both,Active
+001000000000119AAA,Granite Transport Group,Tier 1 Supplier,Gold,Automotive Manufacturing,2200000000,5238,Little Rock,Arkansas,USA,TerritorySC,2022-08-16,false,ICE,Active
+001000000000120AAA,Oakline Engineering,Tier 1 Supplier,Standard,Automotive Manufacturing,1449666220,3452,Grand Rapids,Michigan,USA,TerritoryGL,2012-09-04,false,Hybrid,Active
+001000000000121AAA,Alder Components,Tier 1 Supplier,Standard,Automotive Manufacturing,2133820553,5081,Atlanta,Georgia,USA,TerritorySE,2019-02-02,false,ICE,Active
+001000000000122AAA,Pinnacle Distribution,Tier 1 Supplier,Standard,Automotive Manufacturing,1670870319,3978,Toledo,Ohio,USA,TerritoryGL,2019-07-23,false,Both,Active
+001000000000123AAA,Crescent Fleet Solutions,Tier 1 Supplier,Gold,Automotive Manufacturing,3366982556,8017,Toronto,Ontario,Canada,TerritoryCanada,2009-05-26,false,Both,Active
+001000000000124AAA,Cedar Distribution 46,Tier 1 Supplier,Standard,Automotive Manufacturing,2181176705,5193,Phoenix,Arizona,USA,TerritoryWest,2013-05-02,false,ICE,Active
+001000000000125AAA,Frontier Assembly 31,Tier 1 Supplier,Silver,Automotive Manufacturing,3566676391,8492,San Jose,California,USA,TerritoryWest,2015-07-08,false,ICE,Active
+001000000000126AAA,Windward Distribution,Tier 1 Supplier,Silver,Automotive Manufacturing,1969058700,4688,Charlotte,North Carolina,USA,TerritorySE,2018-05-21,false,Both,Active
+001000000000127AAA,Atlas Mobility,Tier 1 Supplier,Silver,Automotive Manufacturing,2791537466,6647,Louisville,Kentucky,USA,TerritorySE,2008-09-08,false,Hybrid,Active
+001000000000128AAA,Blue Ridge Motor Systems,Tier 1 Supplier,Standard,Automotive Manufacturing,2084847355,4964,Denver,Colorado,USA,TerritoryWest,2023-09-06,false,Both,Active
+001000000000129AAA,Cedar Motor Systems,Tier 1 Supplier,Silver,Automotive Manufacturing,2349440028,5594,Charlotte,North Carolina,USA,TerritorySE,2022-08-20,false,ICE,Active
+001000000000130AAA,Crescent Engineering 66,Tier 1 Supplier,Gold,Automotive Manufacturing,2343153452,5579,Seattle,Washington,USA,TerritoryWest,2012-12-09,false,Hybrid,Active
+001000000000131AAA,Alder Vehicle Systems,Tier 1 Supplier,Standard,Automotive Manufacturing,2197741615,5233,Tulsa,Oklahoma,USA,TerritorySC,2012-12-02,false,Both,Active
+001000000000132AAA,Blue Ridge Performance Parts,Tier 2 Supplier,Standard,Automotive Manufacturing,416415756,991,Little Rock,Arkansas,USA,TerritorySC,2019-11-17,false,Both,Active
+001000000000133AAA,Oakline Mobility,Tier 2 Supplier,Standard,Automotive Manufacturing,535212639,1274,Oshawa,Ontario,Canada,TerritoryCanada,2023-01-18,false,Hybrid,Active
+001000000000134AAA,Ridgeway Fleet Solutions,Tier 2 Supplier,Gold,Automotive Manufacturing,1629686496,3880,Fort Wayne,Indiana,USA,TerritoryGL,2015-05-02,false,ICE,Active
+001000000000135AAA,Crescent Automotive,Tier 2 Supplier,Standard,Automotive Manufacturing,429101400,1022,Charlotte,North Carolina,USA,TerritorySE,2015-04-13,false,ICE,Active
+001000000000136AAA,Redwood Industrial Supply,Tier 2 Supplier,Standard,Automotive Manufacturing,320215970,762,Toronto,Ontario,Canada,TerritoryCanada,2022-04-29,false,Both,Active
+001000000000137AAA,Harbor Engineering,Tier 2 Supplier,Standard,Automotive Manufacturing,494173036,1177,Detroit,Michigan,USA,TerritoryGL,2013-03-08,false,Both,Active
+001000000000138AAA,Heritage Manufacturing,Tier 2 Supplier,Silver,Automotive Manufacturing,496811013,1183,Atlanta,Georgia,USA,TerritorySE,2021-05-25,false,Hybrid,Active
+001000000000139AAA,Prairie Mobility,Tier 2 Supplier,Silver,Automotive Manufacturing,819225597,1951,Boston,Massachusetts,USA,TerritoryNE,2016-03-25,false,Hybrid,Active
+001000000000140AAA,Union Fleet Solutions 74,Tier 2 Supplier,Standard,Automotive Manufacturing,525106398,1250,Austin,Texas,USA,TerritorySC,2024-10-16,false,ICE,Active
+001000000000141AAA,Crown Fleet Solutions 29,Tier 2 Supplier,Standard,Automotive Manufacturing,475671654,1133,Oshawa,Ontario,Canada,TerritoryCanada,2015-02-01,false,Both,Active
+001000000000142AAA,Liberty Mobility,Tier 2 Supplier,Standard,Automotive Manufacturing,717041013,1707,Louisville,Kentucky,USA,TerritorySE,2013-07-06,false,ICE,Active
+001000000000143AAA,Silverline Performance Parts 98,Tier 2 Supplier,Silver,Automotive Manufacturing,772463376,1839,Fort Wayne,Indiana,USA,TerritoryGL,2019-08-20,false,Both,Active
+001000000000144AAA,Central Manufacturing,Tier 2 Supplier,Standard,Automotive Manufacturing,583022784,1388,Phoenix,Arizona,USA,TerritoryWest,2023-06-06,false,ICE,Active
+001000000000145AAA,Maple Distribution,Tier 2 Supplier,Silver,Automotive Manufacturing,533036079,1269,Milwaukee,Wisconsin,USA,TerritoryGL,2012-10-10,false,Both,Active
+001000000000146AAA,Redwood Mobility,Tier 2 Supplier,Standard,Automotive Manufacturing,454398333,1082,Grand Rapids,Michigan,USA,TerritoryGL,2023-02-04,false,Both,Active
+001000000000147AAA,Pacific Fleet Solutions,Tier 2 Supplier,Standard,Automotive Manufacturing,257125000,612,Grand Rapids,Michigan,USA,TerritoryGL,2009-10-30,false,Both,Active
+001000000000148AAA,Granite Fleet Solutions 46,Tier 2 Supplier,Standard,Automotive Manufacturing,483459093,1151,Pittsburgh,Pennsylvania,USA,TerritoryNE,2021-10-22,false,Both,Active
+001000000000149AAA,Crescent Motor Systems,Tier 2 Supplier,Silver,Automotive Manufacturing,557865505,1328,Columbus,Ohio,USA,TerritoryGL,2024-07-24,false,Both,Active
+001000000000150AAA,Union Manufacturing,Tier 2 Supplier,Silver,Automotive Manufacturing,767498647,1827,Seattle,Washington,USA,TerritoryWest,2011-02-25,false,Both,Active
+001000000000151AAA,Cobalt Industrial Supply,Tier 2 Supplier,Standard,Automotive Manufacturing,355540946,847,Seattle,Washington,USA,TerritoryWest,2016-01-04,false,Both,Active
+001000000000152AAA,Frontier Industrial Supply,Tier 2 Supplier,Silver,Automotive Manufacturing,470375380,1120,Buffalo,New York,USA,TerritoryNE,2021-12-25,false,Both,Active
+001000000000153AAA,Central Mobility 2,Tier 2 Supplier,Gold,Automotive Manufacturing,967801200,2304,Boston,Massachusetts,USA,TerritoryNE,2014-03-05,true,Both,Active
+001000000000154AAA,Beacon Transport Group,Tier 2 Supplier,Standard,Automotive Manufacturing,552434809,1315,Little Rock,Arkansas,USA,TerritorySC,2023-01-22,false,ICE,Active
+001000000000155AAA,Pinnacle Mobility,Tier 2 Supplier,Standard,Automotive Manufacturing,524077026,1248,Milwaukee,Wisconsin,USA,TerritoryGL,2014-03-30,false,Both,Active
+001000000000156AAA,Maple Powertrain,Tier 2 Supplier,Standard,Automotive Manufacturing,479321134,1141,Los Angeles,California,USA,TerritoryWest,2024-11-06,false,Hybrid,Active
+001000000000157AAA,Suncrest Manufacturing 17,Tier 2 Supplier,Gold,Automotive Manufacturing,895839058,2133,Toledo,Ohio,USA,TerritoryGL,2022-09-22,false,Both,Active
+001000000000158AAA,Cobalt Mobility,Tier 2 Supplier,Standard,Automotive Manufacturing,543538680,1294,Columbus,Ohio,USA,TerritoryGL,2023-09-17,false,Both,Active
+001000000000159AAA,Redwood Performance Parts,Tier 2 Supplier,Standard,Automotive Manufacturing,585161005,1393,Dallas,Texas,USA,TerritorySC,2011-07-23,false,ICE,Active
+001000000000160AAA,Lakeview Vehicle Systems,Tier 2 Supplier,Silver,Automotive Manufacturing,672177535,1600,San Jose,California,USA,TerritoryWest,2013-04-27,false,Hybrid,Active
+001000000000161AAA,Central Fleet Solutions,Tier 2 Supplier,Gold,Automotive Manufacturing,1076300045,2563,Querétaro,Querétaro,Mexico,TerritoryMexico,2015-08-01,false,Both,Active
+001000000000162AAA,Cobalt Manufacturing,Tier 2 Supplier,Silver,Automotive Manufacturing,397375000,946,Portland,Oregon,USA,TerritoryWest,2009-03-30,false,Hybrid,Active
+001000000000163AAA,Blue Ridge Engineering,Tier 2 Supplier,Silver,Automotive Manufacturing,432069345,1029,Baton Rouge,Louisiana,USA,TerritorySC,2016-01-04,false,ICE,Active
+001000000000164AAA,Beacon Automotive,Tier 2 Supplier,Silver,Automotive Manufacturing,601907883,1433,Denver,Colorado,USA,TerritoryWest,2016-09-02,false,Hybrid,Active
+001000000000165AAA,Maple Motor Systems 51,Tier 2 Supplier,Silver,Automotive Manufacturing,545865570,1300,Birmingham,Alabama,USA,TerritorySE,2010-09-26,false,ICE,Active
+001000000000166AAA,Silverline Mobility,Tier 2 Supplier,Standard,Automotive Manufacturing,493584217,1175,Toledo,Ohio,USA,TerritoryGL,2016-02-14,false,Both,Active
+001000000000167AAA,Central Vehicle Systems,Tier 2 Supplier,Standard,Automotive Manufacturing,483766632,1152,Columbus,Ohio,USA,TerritoryGL,2017-07-23,false,Hybrid,Active
+001000000000168AAA,Westgate Distribution,Tier 2 Supplier,Standard,Automotive Manufacturing,510793154,1216,Milwaukee,Wisconsin,USA,TerritoryGL,2021-10-31,false,Hybrid,Active
+001000000000169AAA,Redwood Industrial Supply 37,Tier 2 Supplier,Standard,Automotive Manufacturing,271874141,647,San Jose,California,USA,TerritoryWest,2022-11-23,false,ICE,Active
+001000000000170AAA,Cobalt Components 50,Tier 2 Supplier,Standard,Automotive Manufacturing,390349425,929,Los Angeles,California,USA,TerritoryWest,2014-10-26,false,ICE,Active
+001000000000171AAA,Northfield Manufacturing,Tier 2 Supplier,Standard,Automotive Manufacturing,506812546,1207,Denver,Colorado,USA,TerritoryWest,2014-04-23,false,Both,Active
+001000000000172AAA,Atlas Vehicle Systems,Tier 2 Supplier,Standard,Automotive Manufacturing,570126593,1357,Louisville,Kentucky,USA,TerritorySE,2010-05-01,false,Both,Active
+001000000000173AAA,Valley Industrial Supply,Tier 2 Supplier,Gold,Automotive Manufacturing,922983146,2198,Windsor,Ontario,Canada,TerritoryCanada,2009-10-23,true,Both,Active
+001000000000174AAA,Pinnacle Mobility 52,Tier 2 Supplier,Silver,Automotive Manufacturing,876269864,2086,Calgary,Alberta,Canada,TerritoryCanada,2021-12-23,false,ICE,Active
+001000000000175AAA,Crescent Powertrain 79,Tier 2 Supplier,Silver,Automotive Manufacturing,539671560,1285,Newark,New Jersey,USA,TerritoryNE,2008-07-05,false,ICE,Active
+001000000000176AAA,Windward Engineering,Tier 2 Supplier,Silver,Automotive Manufacturing,827675801,1971,Atlanta,Georgia,USA,TerritorySE,2024-01-09,false,ICE,Active
+001000000000177AAA,Keystone Motor Systems,Tier 2 Supplier,Standard,Automotive Manufacturing,572069234,1362,Saltillo,Coahuila,Mexico,TerritoryMexico,2015-06-30,false,Both,Active
+001000000000178AAA,Cedar Fleet Solutions,Tier 2 Supplier,Standard,Automotive Manufacturing,562100538,1338,Boston,Massachusetts,USA,TerritoryNE,2023-04-06,false,ICE,Active
+001000000000179AAA,Valley Powertrain 29,Tier 2 Supplier,Standard,Automotive Manufacturing,394930611,940,Windsor,Ontario,Canada,TerritoryCanada,2024-09-29,false,ICE,Active
+001000000000180AAA,Pacific Manufacturing,Tier 2 Supplier,Silver,Automotive Manufacturing,733159713,1746,Portland,Oregon,USA,TerritoryWest,2018-04-04,false,Hybrid,Active
+001000000000181AAA,Westgate Mobility,Tier 2 Supplier,Standard,Automotive Manufacturing,462014019,1100,Grand Rapids,Michigan,USA,TerritoryGL,2011-09-03,false,ICE,Active
+001000000000182AAA,Windward Vehicle Systems 73,Tier 2 Supplier,Standard,Automotive Manufacturing,405482299,965,Baton Rouge,Louisiana,USA,TerritorySC,2025-02-11,false,Hybrid,Active
+001000000000183AAA,Suncrest Components,Tier 2 Supplier,Silver,Automotive Manufacturing,572827699,1364,Buffalo,New York,USA,TerritoryNE,2022-02-07,false,Hybrid,Active
+001000000000184AAA,Atlas Performance Parts 54,Tier 2 Supplier,Silver,Automotive Manufacturing,837763955,1995,Little Rock,Arkansas,USA,TerritorySC,2008-10-02,false,ICE,Active
+001000000000185AAA,Harbor Distribution 46,Tier 2 Supplier,Standard,Automotive Manufacturing,487252722,1160,Seattle,Washington,USA,TerritoryWest,2009-05-08,false,Hybrid,Active
+001000000000186AAA,Granite Powertrain,Tier 2 Supplier,Silver,Automotive Manufacturing,798886463,1902,Montreal,Quebec,Canada,TerritoryCanada,2014-01-22,false,Both,Active
+001000000000187AAA,Prairie Vehicle Systems,Tier 2 Supplier,Silver,Automotive Manufacturing,894873245,2131,Toledo,Ohio,USA,TerritoryGL,2018-11-06,false,ICE,Active
+001000000000188AAA,Beacon Manufacturing,Tier 2 Supplier,Gold,Automotive Manufacturing,771215937,1836,Tulsa,Oklahoma,USA,TerritorySC,2024-06-12,false,Hybrid,Active
+001000000000189AAA,Westgate Transport Group 85,Tier 2 Supplier,Silver,Automotive Manufacturing,702421265,1672,Phoenix,Arizona,USA,TerritoryWest,2017-05-16,false,Both,Active
+001000000000190AAA,Eastgate Assembly,Tier 2 Supplier,Silver,Automotive Manufacturing,899347700,2141,Toledo,Ohio,USA,TerritoryGL,2012-01-20,false,ICE,Active
+001000000000191AAA,Stonebridge Powertrain 53,Tier 2 Supplier,Silver,Automotive Manufacturing,867872966,2066,Detroit,Michigan,USA,TerritoryGL,2019-09-23,false,ICE,Active
+001000000000192AAA,Valley Distribution,Tier 2 Supplier,Standard,Automotive Manufacturing,356673832,849,Windsor,Ontario,Canada,TerritoryCanada,2012-11-23,false,Hybrid,Active
+001000000000193AAA,Ridgeway Distribution 83,Tier 2 Supplier,Standard,Automotive Manufacturing,636784354,1516,Austin,Texas,USA,TerritorySC,2012-07-25,false,Both,Active
+001000000000194AAA,Atlas Engineering,Tier 2 Supplier,Standard,Automotive Manufacturing,582028657,1386,Los Angeles,California,USA,TerritoryWest,2013-11-09,false,Both,Active
+001000000000195AAA,Blue Ridge Automotive 81,Tier 2 Supplier,Silver,Automotive Manufacturing,714898297,1702,Baton Rouge,Louisiana,USA,TerritorySC,2025-01-23,false,Both,Active
+001000000000196AAA,Alder Distribution,Tier 2 Supplier,Standard,Automotive Manufacturing,451818661,1076,Calgary,Alberta,Canada,TerritoryCanada,2018-05-27,false,Hybrid,Active
+001000000000197AAA,Liberty Engineering,Tier 2 Supplier,Silver,Automotive Manufacturing,763920688,1819,Grand Rapids,Michigan,USA,TerritoryGL,2011-01-30,false,Both,Active
+001000000000198AAA,Crescent Transport Group,Tier 2 Supplier,Standard,Automotive Manufacturing,430267545,1024,Silao,Guanajuato,Mexico,TerritoryMexico,2023-11-04,false,Hybrid,Active
+001000000000199AAA,Crescent Distribution,Tier 2 Supplier,Standard,Automotive Manufacturing,521237002,1241,Toronto,Ontario,Canada,TerritoryCanada,2016-05-05,false,ICE,Active
+001000000000200AAA,Keystone Vehicle Systems,Tier 2 Supplier,Silver,Automotive Manufacturing,806450763,1920,Birmingham,Alabama,USA,TerritorySE,2012-06-06,false,ICE,Active
+001000000000201AAA,Redwood Powertrain,Tier 2 Supplier,Silver,Automotive Manufacturing,852396271,2030,Calgary,Alberta,Canada,TerritoryCanada,2023-03-15,false,ICE,Active
+001000000000202AAA,Westgate Transport Group 15,Tier 2 Supplier,Standard,Automotive Manufacturing,577159978,1374,Atlanta,Georgia,USA,TerritorySE,2021-09-19,false,ICE,Active
+001000000000203AAA,Keystone Motor Systems 83,Tier 2 Supplier,Silver,Automotive Manufacturing,693059371,1650,Toledo,Ohio,USA,TerritoryGL,2012-09-25,false,Both,Active
+001000000000204AAA,Windward Fleet Solutions,Tier 2 Supplier,Standard,Automotive Manufacturing,610819141,1454,Austin,Texas,USA,TerritorySC,2015-01-09,false,ICE,Active
+001000000000205AAA,Valley Motor Systems,Tier 2 Supplier,Standard,Automotive Manufacturing,275422566,656,Baton Rouge,Louisiana,USA,TerritorySC,2022-02-19,false,Hybrid,Active
+001000000000206AAA,Timberline Components,Tier 2 Supplier,Standard,Automotive Manufacturing,441990857,1052,Boston,Massachusetts,USA,TerritoryNE,2021-11-09,false,Hybrid,Active
+001000000000207AAA,Maple Powertrain 96,Tier 2 Supplier,Silver,Automotive Manufacturing,626231195,1491,Columbus,Ohio,USA,TerritoryGL,2023-04-30,false,Both,Active
+001000000000208AAA,Eastgate Automotive 50,Tier 2 Supplier,Gold,Automotive Manufacturing,1097565469,2613,Windsor,Ontario,Canada,TerritoryCanada,2022-04-02,true,Both,Active
+001000000000209AAA,Pinnacle Manufacturing,Tier 2 Supplier,Silver,Automotive Manufacturing,809079396,1926,Baton Rouge,Louisiana,USA,TerritorySC,2014-01-25,false,Both,Active
+001000000000210AAA,Frontier Industrial Supply 32,Tier 2 Supplier,Silver,Automotive Manufacturing,678469048,1615,Birmingham,Alabama,USA,TerritorySE,2013-06-08,false,Hybrid,Active
+001000000000211AAA,Eastgate Transport Group,Tier 2 Supplier,Silver,Automotive Manufacturing,629001079,1498,Oshawa,Ontario,Canada,TerritoryCanada,2021-09-27,false,ICE,Active
+001000000000212AAA,Cobalt Engineering 79,Tier 2 Supplier,Silver,Automotive Manufacturing,796511152,1896,Newark,New Jersey,USA,TerritoryNE,2020-01-30,false,Both,Active
+001000000000213AAA,Blue Ridge Assembly 42,Tier 2 Supplier,Standard,Automotive Manufacturing,455904183,1085,Seattle,Washington,USA,TerritoryWest,2010-05-04,false,Both,Active
+001000000000214AAA,Timberline Components 50,Tier 2 Supplier,Standard,Automotive Manufacturing,500373237,1191,Milwaukee,Wisconsin,USA,TerritoryGL,2021-10-08,false,Both,Active
+001000000000215AAA,Liberty Distribution,Tier 2 Supplier,Gold,Automotive Manufacturing,905408823,2156,Charlotte,North Carolina,USA,TerritorySE,2024-03-08,false,ICE,Active
+001000000000216AAA,Union Mobility,Tier 2 Supplier,Silver,Automotive Manufacturing,793396621,1889,Puebla,Puebla,Mexico,TerritoryMexico,2008-07-04,false,ICE,Active
+001000000000217AAA,Westgate Manufacturing,Tier 2 Supplier,Gold,Automotive Manufacturing,719519408,1713,San Jose,California,USA,TerritoryWest,2011-07-21,false,ICE,Active
+001000000000218AAA,Redwood Industrial Supply 94,Tier 2 Supplier,Gold,Automotive Manufacturing,1285663279,3061,Montreal,Quebec,Canada,TerritoryCanada,2016-06-14,false,Both,Active
+001000000000219AAA,Meridian Fleet Solutions,Tier 2 Supplier,Silver,Automotive Manufacturing,888706649,2116,Atlanta,Georgia,USA,TerritorySE,2021-04-11,false,ICE,Active
+001000000000220AAA,Union Vehicle Systems,Tier 2 Supplier,Silver,Automotive Manufacturing,606792449,1445,Windsor,Ontario,Canada,TerritoryCanada,2017-06-08,false,ICE,Active
+001000000000221AAA,Windward Mobility,Tier 2 Supplier,Silver,Automotive Manufacturing,761872678,1814,Toledo,Ohio,USA,TerritoryGL,2012-11-18,false,Both,Active
+001000000000222AAA,Silverline Performance Parts 81,Tier 2 Supplier,Standard,Automotive Manufacturing,494239080,1177,Dallas,Texas,USA,TerritorySC,2015-06-01,false,Both,Active
+001000000000223AAA,Keystone Mobility 8,Tier 2 Supplier,Standard,Automotive Manufacturing,483301223,1151,Hartford,Connecticut,USA,TerritoryNE,2024-12-18,false,Both,Active
+001000000000224AAA,Alder Components 36,Tier 2 Supplier,Standard,Automotive Manufacturing,290992400,693,Seattle,Washington,USA,TerritoryWest,2020-10-22,false,ICE,Active
+001000000000225AAA,Silverline Performance Parts 18,Tier 2 Supplier,Gold,Automotive Manufacturing,881858284,2100,Dallas,Texas,USA,TerritorySC,2017-06-28,false,Both,Active
+001000000000226AAA,Stonebridge Automotive,Tier 2 Supplier,Silver,Automotive Manufacturing,771606534,1837,Puebla,Puebla,Mexico,TerritoryMexico,2012-01-11,false,ICE,Active
+001000000000227AAA,Oakline Manufacturing,Tier 2 Supplier,Standard,Automotive Manufacturing,368575815,878,Columbus,Ohio,USA,TerritoryGL,2010-03-15,false,Both,Active
+001000000000228AAA,Silverline Fleet Solutions,Tier 2 Supplier,Standard,Automotive Manufacturing,623350063,1484,Tulsa,Oklahoma,USA,TerritorySC,2008-06-11,false,Hybrid,Active
+001000000000229AAA,Silverline Powertrain 68,Tier 2 Supplier,Silver,Automotive Manufacturing,869297880,2070,Toronto,Ontario,Canada,TerritoryCanada,2013-03-03,false,ICE,Active
+001000000000230AAA,Cedar Automotive,Tier 2 Supplier,Standard,Automotive Manufacturing,504164241,1200,Fort Wayne,Indiana,USA,TerritoryGL,2017-07-25,false,Both,Active
+001000000000231AAA,Blue Ridge Vehicle Systems,Tier 2 Supplier,Standard,Automotive Manufacturing,724625000,1725,Fort Wayne,Indiana,USA,TerritoryGL,2017-04-17,false,ICE,Active
+001000000000232AAA,Pacific Fleet Solutions 20,Tier 2 Supplier,Gold,Automotive Manufacturing,1039683973,2475,Grand Rapids,Michigan,USA,TerritoryGL,2019-03-19,false,ICE,Active
+001000000000233AAA,Crescent Mobility 39,Tier 2 Supplier,Gold,Automotive Manufacturing,828435467,1972,Fort Wayne,Indiana,USA,TerritoryGL,2008-08-20,false,ICE,Active
+001000000000234AAA,Cobalt Powertrain,Tier 2 Supplier,Silver,Automotive Manufacturing,833870398,1985,Querétaro,Querétaro,Mexico,TerritoryMexico,2012-09-28,false,ICE,Active
+001000000000235AAA,Alder Manufacturing,Tier 2 Supplier,Silver,Automotive Manufacturing,573690353,1366,Toronto,Ontario,Canada,TerritoryCanada,2011-07-15,false,Both,Active
+001000000000236AAA,Pinnacle Assembly,Tier 2 Supplier,Standard,Automotive Manufacturing,589884791,1404,Austin,Texas,USA,TerritorySC,2013-11-23,false,Both,Active
+001000000000237AAA,Northfield Industrial Supply,Tier 2 Supplier,Standard,Automotive Manufacturing,535134160,1274,Montreal,Quebec,Canada,TerritoryCanada,2025-03-15,false,Both,Active
+001000000000238AAA,Maple Fleet Solutions,Tier 2 Supplier,Silver,Automotive Manufacturing,637234954,1517,Grand Rapids,Michigan,USA,TerritoryGL,2013-06-05,false,Both,Active
+001000000000239AAA,Union Performance Parts,Tier 2 Supplier,Silver,Automotive Manufacturing,778838160,1854,Baton Rouge,Louisiana,USA,TerritorySC,2015-11-22,false,ICE,Active
+001000000000240AAA,Timberline Components 5,Tier 2 Supplier,Standard,Automotive Manufacturing,385839392,919,Little Rock,Arkansas,USA,TerritorySC,2024-07-14,false,Both,Active
+001000000000241AAA,Granite Mobility,Tier 2 Supplier,Standard,Automotive Manufacturing,511239390,1217,Calgary,Alberta,Canada,TerritoryCanada,2021-10-23,false,ICE,Active
+001000000000242AAA,Pinnacle Engineering,Tier 2 Supplier,Silver,Automotive Manufacturing,706339000,1682,Buffalo,New York,USA,TerritoryNE,2018-01-04,false,Hybrid,Active
+001000000000243AAA,Pinnacle Components,Tier 2 Supplier,Silver,Automotive Manufacturing,974243963,2320,Calgary,Alberta,Canada,TerritoryCanada,2011-10-07,false,Hybrid,Active
+001000000000244AAA,Ridgeway Engineering,Tier 2 Supplier,Standard,Automotive Manufacturing,562855107,1340,Querétaro,Querétaro,Mexico,TerritoryMexico,2008-05-05,false,Hybrid,Active
+001000000000245AAA,Cedar Distribution 89,Tier 2 Supplier,Standard,Automotive Manufacturing,487163487,1160,Monterrey,Nuevo León,Mexico,TerritoryMexico,2020-09-03,false,Both,Active
+001000000000246AAA,Valley Mobility 58,Tier 2 Supplier,Standard,Automotive Manufacturing,312744825,745,Louisville,Kentucky,USA,TerritorySE,2018-04-06,false,Both,Active
+001000000000247AAA,Blue Ridge Transport Group 28,Tier 2 Supplier,Gold,Automotive Manufacturing,829480797,1975,Columbus,Ohio,USA,TerritoryGL,2017-09-29,true,Both,Active
+001000000000248AAA,Pinnacle Transport Group,Tier 2 Supplier,Gold,Automotive Manufacturing,1181497836,2813,San Jose,California,USA,TerritoryWest,2012-07-25,true,Hybrid,Active
+001000000000249AAA,Central Transport Group,Tier 2 Supplier,Standard,Automotive Manufacturing,534612659,1273,Birmingham,Alabama,USA,TerritorySE,2025-09-17,false,ICE,Active
+001000000000250AAA,Crescent Assembly,Tier 2 Supplier,Silver,Automotive Manufacturing,865552384,2061,Fort Wayne,Indiana,USA,TerritoryGL,2013-09-12,false,Both,Active
+001000000000251AAA,Canyon Industrial Supply,Tier 2 Supplier,Standard,Automotive Manufacturing,438366118,1044,Los Angeles,California,USA,TerritoryWest,2021-11-28,false,Both,Active
+001000000000252AAA,Cobalt Distribution,Tier 2 Supplier,Gold,Automotive Manufacturing,1024893239,2440,Montreal,Quebec,Canada,TerritoryCanada,2025-02-28,false,Both,Active
+001000000000253AAA,Delta Components,Tier 2 Supplier,Standard,Automotive Manufacturing,476412978,1134,Calgary,Alberta,Canada,TerritoryCanada,2010-09-09,false,Hybrid,Active
+001000000000254AAA,Timberline Components 30,Tier 2 Supplier,Standard,Automotive Manufacturing,449909968,1071,Atlanta,Georgia,USA,TerritorySE,2012-04-23,false,ICE,Active
+001000000000255AAA,Oakline Performance Parts 86,Tier 2 Supplier,Silver,Automotive Manufacturing,1119875000,2666,Oshawa,Ontario,Canada,TerritoryCanada,2019-12-29,false,ICE,Active
+001000000000256AAA,Beacon Distribution 91,Tier 2 Supplier,Silver,Automotive Manufacturing,766196786,1824,Milwaukee,Wisconsin,USA,TerritoryGL,2012-04-26,false,Hybrid,Active
+001000000000257AAA,Central Powertrain,Distributor,Standard,Automotive Manufacturing,226598783,731,Nashville,Tennessee,USA,TerritorySE,2020-06-11,false,Hybrid,Active
+001000000000258AAA,Central Fleet Solutions 24,Distributor,Gold,Automotive Manufacturing,445132656,1436,Buffalo,New York,USA,TerritoryNE,2023-10-28,false,Both,Active
+001000000000259AAA,Stonebridge Transport Group,Distributor,Standard,Automotive Manufacturing,167064724,539,Louisville,Kentucky,USA,TerritorySE,2011-08-12,false,Hybrid,Active
+001000000000260AAA,Beacon Manufacturing 52,Distributor,Standard,Automotive Manufacturing,218528048,705,Atlanta,Georgia,USA,TerritorySE,2021-06-08,false,Hybrid,Active
+001000000000261AAA,Suncrest Industrial Supply,Distributor,Gold,Automotive Manufacturing,619269979,1998,Nashville,Tennessee,USA,TerritorySE,2022-05-17,true,ICE,Active
+001000000000262AAA,Keystone Transport Group 37,Distributor,Standard,Automotive Manufacturing,168499973,544,Dallas,Texas,USA,TerritorySC,2021-01-10,false,Both,Active
+001000000000263AAA,Prairie Engineering,Distributor,Silver,Automotive Manufacturing,491358273,1585,Fort Wayne,Indiana,USA,TerritoryGL,2021-06-29,false,Both,Active
+001000000000264AAA,Lakeview Vehicle Systems 32,Distributor,Standard,Automotive Manufacturing,151481206,489,Grand Rapids,Michigan,USA,TerritoryGL,2024-12-12,false,ICE,Active
+001000000000265AAA,Blue Ridge Vehicle Systems 36,Distributor,Gold,Automotive Manufacturing,600300732,1936,Grand Rapids,Michigan,USA,TerritoryGL,2018-08-26,false,Hybrid,Active
+001000000000266AAA,Harbor Fleet Solutions 84,Distributor,Silver,Automotive Manufacturing,357434438,1153,Los Angeles,California,USA,TerritoryWest,2025-08-24,false,ICE,Active
+001000000000267AAA,Keystone Motor Systems 21,Distributor,Standard,Automotive Manufacturing,254587114,821,Detroit,Michigan,USA,TerritoryGL,2012-03-12,false,Both,Active
+001000000000268AAA,Eastgate Performance Parts,Distributor,Silver,Automotive Manufacturing,337126651,1088,Louisville,Kentucky,USA,TerritorySE,2011-11-22,false,ICE,Active
+001000000000269AAA,Crescent Automotive 28,Distributor,Standard,Automotive Manufacturing,293712927,947,Baton Rouge,Louisiana,USA,TerritorySC,2022-10-15,false,Both,Active
+001000000000270AAA,Westgate Distribution 51,Distributor,Standard,Automotive Manufacturing,172560499,557,Boston,Massachusetts,USA,TerritoryNE,2023-06-06,false,ICE,Active
+001000000000271AAA,Alder Fleet Solutions,Distributor,Standard,Automotive Manufacturing,299842649,967,Puebla,Puebla,Mexico,TerritoryMexico,2025-01-17,false,Both,Active
+001000000000272AAA,Timberline Industrial Supply,Distributor,Silver,Automotive Manufacturing,408460863,1318,Denver,Colorado,USA,TerritoryWest,2013-11-16,false,Both,Active
+001000000000273AAA,Prairie Distribution,Distributor,Standard,Automotive Manufacturing,225087787,726,Louisville,Kentucky,USA,TerritorySE,2021-03-08,false,ICE,Active
+001000000000274AAA,Stonebridge Components,Distributor,Silver,Automotive Manufacturing,227248565,733,Denver,Colorado,USA,TerritoryWest,2019-06-08,false,ICE,Active
+001000000000275AAA,Cobalt Transport Group,Distributor,Standard,Automotive Manufacturing,269610554,870,Grand Rapids,Michigan,USA,TerritoryGL,2010-01-23,false,ICE,Active
+001000000000276AAA,Windward Mobility 68,Distributor,Gold,Automotive Manufacturing,544417050,1756,Toledo,Ohio,USA,TerritoryGL,2012-01-02,false,Both,Active
+001000000000277AAA,Prairie Mobility 99,Distributor,Gold,Automotive Manufacturing,413912787,1335,San Jose,California,USA,TerritoryWest,2012-02-26,true,Both,Active
+001000000000278AAA,Westgate Manufacturing 6,Distributor,Silver,Automotive Manufacturing,319702968,1031,Newark,New Jersey,USA,TerritoryNE,2016-03-21,false,Both,Active
+001000000000279AAA,Frontier Automotive 59,Distributor,Silver,Automotive Manufacturing,277469185,895,Oshawa,Ontario,Canada,TerritoryCanada,2021-03-25,false,Both,Active
+001000000000280AAA,Frontier Mobility,Distributor,Silver,Automotive Manufacturing,295568751,953,Detroit,Michigan,USA,TerritoryGL,2012-02-16,false,Both,Active
+001000000000281AAA,Alder Motor Systems 24,Distributor,Standard,Automotive Manufacturing,196443546,634,Baton Rouge,Louisiana,USA,TerritorySC,2022-03-24,false,Both,Active
+001000000000282AAA,Alder Automotive,Distributor,Gold,Automotive Manufacturing,778252096,2510,Louisville,Kentucky,USA,TerritorySE,2021-01-23,false,Both,Active
+001000000000283AAA,Liberty Components 71,Distributor,Standard,Automotive Manufacturing,352621240,1137,Grand Rapids,Michigan,USA,TerritoryGL,2011-11-28,false,ICE,Active
+001000000000284AAA,Suncrest Transport Group 93,Distributor,Silver,Automotive Manufacturing,457868847,1477,Portland,Oregon,USA,TerritoryWest,2020-05-28,false,ICE,Active
+001000000000285AAA,Ridgeway Components,Distributor,Standard,Automotive Manufacturing,218406533,705,Columbus,Ohio,USA,TerritoryGL,2016-06-29,false,Both,Active
+001000000000286AAA,Beacon Components,Distributor,Standard,Automotive Manufacturing,251331859,811,Pittsburgh,Pennsylvania,USA,TerritoryNE,2024-07-31,false,ICE,Active
+001000000000287AAA,Frontier Distribution 32,Distributor,Standard,Automotive Manufacturing,239294827,772,Buffalo,New York,USA,TerritoryNE,2019-07-28,false,Both,Active
+001000000000288AAA,Alder Powertrain,Distributor,Silver,Automotive Manufacturing,261402545,843,Louisville,Kentucky,USA,TerritorySE,2015-05-08,false,Both,Active
+001000000000289AAA,Valley Assembly 65,Distributor,Standard,Automotive Manufacturing,264333405,853,Toledo,Ohio,USA,TerritoryGL,2014-01-29,false,ICE,Active
+001000000000290AAA,Heritage Automotive,Distributor,Silver,Automotive Manufacturing,463528635,1495,Los Angeles,California,USA,TerritoryWest,2014-12-28,false,Hybrid,Active
+001000000000291AAA,Ridgeway Powertrain,Distributor,Standard,Automotive Manufacturing,252705494,815,Windsor,Ontario,Canada,TerritoryCanada,2021-09-29,false,Both,Active
+001000000000292AAA,Crown Manufacturing,Distributor,Gold,Automotive Manufacturing,642740015,2073,Columbus,Ohio,USA,TerritoryGL,2008-07-06,true,Hybrid,Active
+001000000000293AAA,Meridian Transport Group,Distributor,Silver,Automotive Manufacturing,356053885,1149,Toronto,Ontario,Canada,TerritoryCanada,2011-06-01,false,Both,Active
+001000000000294AAA,Canyon Distribution,Distributor,Silver,Automotive Manufacturing,308436605,995,Calgary,Alberta,Canada,TerritoryCanada,2008-12-26,false,Both,Active
+001000000000295AAA,Blue Ridge Transport Group 5,Distributor,Silver,Automotive Manufacturing,389912800,1258,Fort Wayne,Indiana,USA,TerritoryGL,2011-07-15,false,ICE,Active
+001000000000296AAA,Pinnacle Automotive,Distributor,Standard,Automotive Manufacturing,186901077,603,Nashville,Tennessee,USA,TerritorySE,2025-02-06,false,Hybrid,Active
+001000000000297AAA,Harbor Fleet Solutions 15,Distributor,Standard,Automotive Manufacturing,260106691,839,Buffalo,New York,USA,TerritoryNE,2010-04-20,false,Both,Active
+001000000000298AAA,Central Fleet Solutions 20,Distributor,Silver,Automotive Manufacturing,196350000,633,Calgary,Alberta,Canada,TerritoryCanada,2014-05-23,false,Both,Active
+001000000000299AAA,Prairie Mobility 54,Distributor,Standard,Automotive Manufacturing,239492973,773,Austin,Texas,USA,TerritorySC,2017-04-28,false,ICE,Active
+001000000000300AAA,Keystone Powertrain,Distributor,Standard,Automotive Manufacturing,209449950,676,Detroit,Michigan,USA,TerritoryGL,2023-03-15,false,ICE,Active
+001000000000301AAA,Windward Industrial Supply 70,Distributor,Standard,Automotive Manufacturing,176603376,570,Nashville,Tennessee,USA,TerritorySE,2014-12-23,false,ICE,Active
+001000000000302AAA,Alder Components 62,Distributor,Standard,Automotive Manufacturing,234910276,758,Windsor,Ontario,Canada,TerritoryCanada,2021-12-01,false,Both,Active
+001000000000303AAA,Beacon Components 46,Distributor,Gold,Automotive Manufacturing,326948734,1055,Boston,Massachusetts,USA,TerritoryNE,2017-02-15,false,ICE,Active
+001000000000304AAA,Frontier Distribution 85,Distributor,Standard,Automotive Manufacturing,253361017,817,Puebla,Puebla,Mexico,TerritoryMexico,2018-06-21,false,Both,Active
+001000000000305AAA,Atlas Automotive,Distributor,Gold,Automotive Manufacturing,419822819,1354,San Jose,California,USA,TerritoryWest,2024-06-20,false,ICE,Active
+001000000000306AAA,Frontier Engineering,Distributor,Standard,Automotive Manufacturing,264250862,852,Fort Wayne,Indiana,USA,TerritoryGL,2020-03-30,false,Both,Active
+001000000000307AAA,Maple Industrial Supply,Distributor,Standard,Automotive Manufacturing,261752557,844,Birmingham,Alabama,USA,TerritorySE,2018-04-28,false,Both,Active
+001000000000308AAA,Atlas Distribution,Distributor,Standard,Automotive Manufacturing,257302038,830,Calgary,Alberta,Canada,TerritoryCanada,2011-02-14,false,ICE,Active
+001000000000309AAA,Canyon Automotive,Distributor,Silver,Automotive Manufacturing,369144747,1191,Monterrey,Nuevo León,Mexico,TerritoryMexico,2013-12-15,false,ICE,Active
+001000000000310AAA,Oakline Automotive,Distributor,Standard,Automotive Manufacturing,198051650,639,Querétaro,Querétaro,Mexico,TerritoryMexico,2015-10-14,false,Both,Active
+001000000000311AAA,Westgate Performance Parts 68,Distributor,Silver,Automotive Manufacturing,271349014,875,Birmingham,Alabama,USA,TerritorySE,2017-06-11,false,Both,Active
+001000000000312AAA,Prairie Fleet Solutions,Distributor,Standard,Automotive Manufacturing,269679899,870,Saltillo,Coahuila,Mexico,TerritoryMexico,2020-10-18,false,Both,Active
+001000000000313AAA,Granite Assembly 89,Distributor,Silver,Automotive Manufacturing,370396997,1195,Oshawa,Ontario,Canada,TerritoryCanada,2021-12-29,false,Hybrid,Active
+001000000000314AAA,Alder Mobility 89,Distributor,Silver,Automotive Manufacturing,256754155,828,Columbus,Ohio,USA,TerritoryGL,2024-05-27,false,Both,Active
+001000000000315AAA,Redwood Transport Group,Distributor,Standard,Automotive Manufacturing,347079976,1120,Windsor,Ontario,Canada,TerritoryCanada,2016-03-17,false,ICE,Active
+001000000000316AAA,Canyon Engineering,Distributor,Standard,Automotive Manufacturing,176734287,570,Louisville,Kentucky,USA,TerritorySE,2022-12-22,false,Both,Active
+001000000000317AAA,Crescent Fleet Solutions 11,Distributor,Standard,Automotive Manufacturing,358050000,1155,Columbus,Ohio,USA,TerritoryGL,2010-04-23,false,Both,Active
+001000000000318AAA,Meridian Automotive 69,Distributor,Standard,Automotive Manufacturing,218235313,704,Nashville,Tennessee,USA,TerritorySE,2011-11-01,false,ICE,Active
+001000000000319AAA,Heritage Fleet Solutions,Distributor,Standard,Automotive Manufacturing,162072212,523,Pittsburgh,Pennsylvania,USA,TerritoryNE,2009-07-10,false,Hybrid,Active
+001000000000320AAA,Meridian Vehicle Systems,Distributor,Gold,Automotive Manufacturing,363992081,1174,Tulsa,Oklahoma,USA,TerritorySC,2008-12-04,false,Hybrid,Active
+001000000000321AAA,Liberty Vehicle Systems,Distributor,Silver,Automotive Manufacturing,372403589,1201,Buffalo,New York,USA,TerritoryNE,2020-07-18,false,Both,Active
+001000000000322AAA,Cobalt Fleet Solutions,Distributor,Standard,Automotive Manufacturing,300290937,969,San Jose,California,USA,TerritoryWest,2024-07-18,false,ICE,Active
+001000000000323AAA,Delta Vehicle Systems,Distributor,Standard,Automotive Manufacturing,192911707,622,Columbus,Ohio,USA,TerritoryGL,2013-01-20,false,ICE,Active
+001000000000324AAA,Central Assembly,Distributor,Gold,Automotive Manufacturing,737808559,2380,Portland,Oregon,USA,TerritoryWest,2022-12-06,false,Both,Active
+001000000000325AAA,Granite Assembly 86,Distributor,Standard,Automotive Manufacturing,281312612,907,Hartford,Connecticut,USA,TerritoryNE,2009-04-29,false,ICE,Active
+001000000000326AAA,Delta Performance Parts,Distributor,Gold,Automotive Manufacturing,517968788,1671,Detroit,Michigan,USA,TerritoryGL,2013-01-12,false,Both,Active
+001000000000327AAA,Meridian Distribution 96,Distributor,Standard,Automotive Manufacturing,249503098,805,Los Angeles,California,USA,TerritoryWest,2012-06-03,false,Both,Active
+001000000000328AAA,Oakline Industrial Supply,Distributor,Standard,Automotive Manufacturing,266658104,860,Windsor,Ontario,Canada,TerritoryCanada,2022-07-16,false,ICE,Active
+001000000000329AAA,Suncrest Transport Group 79,Distributor,Standard,Automotive Manufacturing,286381268,924,Buffalo,New York,USA,TerritoryNE,2012-04-27,false,ICE,Active
+001000000000330AAA,Suncrest Fleet Solutions 13,Distributor,Gold,Automotive Manufacturing,513780874,1657,Austin,Texas,USA,TerritorySC,2012-09-07,false,ICE,Active
+001000000000331AAA,Timberline Transport Group,Distributor,Standard,Automotive Manufacturing,263638439,850,Querétaro,Querétaro,Mexico,TerritoryMexico,2018-11-28,false,ICE,Active
+001000000000332AAA,Eastgate Distribution,Distributor,Standard,Automotive Manufacturing,350859085,1132,Little Rock,Arkansas,USA,TerritorySC,2012-08-04,false,Both,Active
+001000000000333AAA,Union Motor Systems 14,Distributor,Silver,Automotive Manufacturing,322820226,1041,Silao,Guanajuato,Mexico,TerritoryMexico,2011-03-23,false,Both,Active
+001000000000334AAA,Prairie Fleet Solutions 16,Distributor,Silver,Automotive Manufacturing,307914121,993,Grand Rapids,Michigan,USA,TerritoryGL,2014-05-16,false,ICE,Active
+001000000000335AAA,Beacon Performance Parts 44,Distributor,Standard,Automotive Manufacturing,238577507,770,Toronto,Ontario,Canada,TerritoryCanada,2021-05-22,false,ICE,Active
+001000000000336AAA,Delta Performance Parts 77,Distributor,Silver,Automotive Manufacturing,353120875,1139,Saltillo,Coahuila,Mexico,TerritoryMexico,2012-09-09,false,Both,Active
+001000000000337AAA,Windward Components,Fleet,Gold,Fleet Operations,786353845,2537,Charlotte,North Carolina,USA,TerritorySE,2015-12-02,false,Hybrid,Active
+001000000000338AAA,Eastgate Components,Fleet,Silver,Fleet Operations,665887497,2148,Buffalo,New York,USA,TerritoryNE,2024-09-29,false,Both,Active
+001000000000339AAA,Northfield Motor Systems,Fleet,Gold,Fleet Operations,1077324862,3475,Phoenix,Arizona,USA,TerritoryWest,2022-01-06,false,ICE,Active
+001000000000340AAA,Oakline Transport Group,Fleet,Standard,Fleet Operations,196625000,634,Boston,Massachusetts,USA,TerritoryNE,2022-06-23,false,ICE,Active
+001000000000341AAA,Cobalt Manufacturing 48,Fleet,Standard,Fleet Operations,374140010,1207,Toledo,Ohio,USA,TerritoryGL,2019-12-28,false,ICE,Active
+001000000000342AAA,Suncrest Motor Systems,Fleet,Standard,Fleet Operations,308111190,994,Birmingham,Alabama,USA,TerritorySE,2018-02-27,false,Both,Active
+001000000000343AAA,Alder Transport Group,Fleet,Standard,Fleet Operations,446044913,1439,Denver,Colorado,USA,TerritoryWest,2021-10-06,false,Hybrid,Active
+001000000000344AAA,Pacific Transport Group 78,Fleet,Gold,Fleet Operations,955524687,3082,Silao,Guanajuato,Mexico,TerritoryMexico,2010-12-21,false,ICE,Active
+001000000000345AAA,Harbor Motor Systems,Fleet,Silver,Fleet Operations,595442151,1921,Greenville,South Carolina,USA,TerritorySE,2016-02-14,false,Both,Active
+001000000000346AAA,Alder Automotive 75,Fleet,Standard,Fleet Operations,320239641,1033,Monterrey,Nuevo León,Mexico,TerritoryMexico,2008-07-12,false,ICE,Active
+001000000000347AAA,Alder Automotive 84,Fleet,Standard,Fleet Operations,439451485,1418,Greenville,South Carolina,USA,TerritorySE,2011-04-30,false,Both,Active
+001000000000348AAA,Meridian Motor Systems,Fleet,Standard,Fleet Operations,245339977,791,Puebla,Puebla,Mexico,TerritoryMexico,2009-03-03,false,Both,Active
+001000000000349AAA,Central Motor Systems,Fleet,Standard,Fleet Operations,247892087,800,Milwaukee,Wisconsin,USA,TerritoryGL,2025-02-23,false,Both,Active
+001000000000350AAA,Eastgate Powertrain,Fleet,Standard,Fleet Operations,337434832,1088,Oshawa,Ontario,Canada,TerritoryCanada,2012-08-02,false,Both,Active
+001000000000351AAA,Eastgate Engineering,Fleet,Silver,Fleet Operations,589537427,1902,Phoenix,Arizona,USA,TerritoryWest,2019-09-14,false,Both,Active
+001000000000352AAA,Eastgate Motor Systems,Fleet,Silver,Fleet Operations,770549586,2486,Boston,Massachusetts,USA,TerritoryNE,2023-03-25,false,ICE,Active
+001000000000353AAA,Pinnacle Assembly 50,Fleet,Gold,Fleet Operations,761603287,2457,Denver,Colorado,USA,TerritoryWest,2014-01-22,false,ICE,Active
+001000000000354AAA,Granite Engineering,Fleet,Standard,Fleet Operations,432652427,1396,Detroit,Michigan,USA,TerritoryGL,2008-11-21,false,ICE,Active
+001000000000355AAA,Atlas Distribution 78,Fleet,Gold,Fleet Operations,592483089,1911,Toledo,Ohio,USA,TerritoryGL,2009-09-20,false,Hybrid,Active
+001000000000356AAA,Westgate Components,Fleet,Standard,Fleet Operations,441271788,1423,Fort Wayne,Indiana,USA,TerritoryGL,2021-08-26,false,Hybrid,Active
+001000000000357AAA,Cedar Distribution 87,Fleet,Standard,Fleet Operations,306048161,987,Monterrey,Nuevo León,Mexico,TerritoryMexico,2016-08-31,false,Both,Active
+001000000000358AAA,Cobalt Distribution 14,Fleet,Silver,Fleet Operations,493951654,1593,Dallas,Texas,USA,TerritorySC,2013-12-28,false,ICE,Active
+001000000000359AAA,Alder Assembly 77,Fleet,Standard,Fleet Operations,404199314,1304,Los Angeles,California,USA,TerritoryWest,2009-04-22,false,Hybrid,Active
+001000000000360AAA,Canyon Components,Fleet,Silver,Fleet Operations,314848671,1016,Little Rock,Arkansas,USA,TerritorySC,2021-11-12,false,Both,Active
+001000000000361AAA,Redwood Powertrain 22,Fleet,Standard,Fleet Operations,291540248,940,Louisville,Kentucky,USA,TerritorySE,2013-05-02,false,Hybrid,Active
+001000000000362AAA,Harbor Fleet Solutions 78,Fleet,Standard,Fleet Operations,373700955,1205,Columbus,Ohio,USA,TerritoryGL,2011-04-23,false,Both,Active
+001000000000363AAA,Lakeview Powertrain,Fleet,Standard,Fleet Operations,314232920,1014,Louisville,Kentucky,USA,TerritorySE,2015-12-13,false,Both,Active
+001000000000364AAA,Crescent Automotive 17,Fleet,Standard,Fleet Operations,450699925,1454,Baton Rouge,Louisiana,USA,TerritorySC,2009-05-20,false,Both,Active
+001000000000365AAA,Redwood Engineering,Fleet,Standard,Fleet Operations,407102964,1313,Charlotte,North Carolina,USA,TerritorySE,2017-10-24,false,Both,Active
+001000000000366AAA,Keystone Motor Systems 28,Fleet,Standard,Fleet Operations,375314876,1211,Milwaukee,Wisconsin,USA,TerritoryGL,2018-04-16,false,ICE,Active
+001000000000367AAA,Redwood Motor Systems,Fleet,Silver,Fleet Operations,692543389,2234,Boston,Massachusetts,USA,TerritoryNE,2021-03-04,false,ICE,Active
+001000000000368AAA,Beacon Automotive 90,Fleet,Silver,Fleet Operations,617226138,1991,Greenville,South Carolina,USA,TerritorySE,2021-04-16,false,Both,Active
+001000000000369AAA,Pinnacle Automotive 41,Fleet,Silver,Fleet Operations,647904410,2090,Birmingham,Alabama,USA,TerritorySE,2008-10-19,false,Both,Active
+001000000000370AAA,Valley Automotive,Fleet,Silver,Fleet Operations,613378971,1979,Hartford,Connecticut,USA,TerritoryNE,2015-05-17,false,Both,Active
+001000000000371AAA,Meridian Fleet Solutions 80,Fleet,Silver,Fleet Operations,459780711,1483,Tulsa,Oklahoma,USA,TerritorySC,2014-02-12,false,Both,Active
+001000000000372AAA,Maple Performance Parts 84,Fleet,Silver,Fleet Operations,768149983,2478,Toronto,Ontario,Canada,TerritoryCanada,2021-11-04,false,ICE,Active
+001000000000373AAA,Atlas Motor Systems,Fleet,Standard,Fleet Operations,413722563,1335,Detroit,Michigan,USA,TerritoryGL,2022-11-10,false,ICE,Active
+001000000000374AAA,Blue Ridge Manufacturing,Fleet,Silver,Fleet Operations,383856416,1238,Toronto,Ontario,Canada,TerritoryCanada,2010-01-08,false,ICE,Active
+001000000000375AAA,Suncrest Automotive,Fleet,Silver,Fleet Operations,500726711,1615,Baton Rouge,Louisiana,USA,TerritorySC,2013-12-06,false,ICE,Active
+001000000000376AAA,Frontier Components,Fleet,Standard,Fleet Operations,377411245,1217,Hartford,Connecticut,USA,TerritoryNE,2017-02-07,false,ICE,Active
+001000000000377AAA,Windward Powertrain,Fleet,Standard,Fleet Operations,319479273,1031,Austin,Texas,USA,TerritorySC,2022-05-20,false,Both,Active
+001000000000378AAA,Crown Vehicle Systems,Fleet,Silver,Fleet Operations,644410341,2079,Birmingham,Alabama,USA,TerritorySE,2012-09-18,false,Hybrid,Active
+001000000000379AAA,Windward Performance Parts,Fleet,Standard,Fleet Operations,337167195,1088,Silao,Guanajuato,Mexico,TerritoryMexico,2008-04-06,false,Hybrid,Active
+001000000000380AAA,Suncrest Vehicle Systems,Fleet,Standard,Fleet Operations,403896159,1303,Louisville,Kentucky,USA,TerritorySE,2019-03-06,false,Both,Active
+001000000000381AAA,Meridian Vehicle Systems 11,Fleet,Standard,Fleet Operations,196625000,634,Toronto,Ontario,Canada,TerritoryCanada,2024-11-14,false,Both,Active
+001000000000382AAA,Westgate Mobility 91,Fleet,Standard,Fleet Operations,478379663,1543,Monterrey,Nuevo León,Mexico,TerritoryMexico,2010-10-13,false,Both,Active
+001000000000383AAA,Maple Performance Parts 37,Fleet,Silver,Fleet Operations,427166189,1378,Denver,Colorado,USA,TerritoryWest,2014-11-27,false,Both,Active
+001000000000384AAA,Heritage Performance Parts,Fleet,Standard,Fleet Operations,329470597,1063,Portland,Oregon,USA,TerritoryWest,2012-08-26,false,Both,Active
+001000000000385AAA,Prairie Transport Group 96,Fleet,Silver,Fleet Operations,373796913,1206,San Jose,California,USA,TerritoryWest,2013-09-16,false,ICE,Active
+001000000000386AAA,Windward Transport Group,Fleet,Silver,Fleet Operations,451761981,1457,Grand Rapids,Michigan,USA,TerritoryGL,2017-01-31,false,Both,Active
+001000000000387AAA,Union Motor Systems 59,Fleet,Standard,Fleet Operations,406958108,1313,Silao,Guanajuato,Mexico,TerritoryMexico,2014-04-09,false,Both,Active
+001000000000388AAA,Central Distribution,Fleet,Silver,Fleet Operations,521214857,1681,Buffalo,New York,USA,TerritoryNE,2011-05-24,false,Hybrid,Active
+001000000000389AAA,Atlas Vehicle Systems 28,Fleet,Standard,Fleet Operations,359913193,1161,Greenville,South Carolina,USA,TerritorySE,2008-08-29,false,Both,Active
+001000000000390AAA,Silverline Motor Systems,Fleet,Standard,Fleet Operations,454010095,1465,Dallas,Texas,USA,TerritorySC,2014-04-10,false,Both,Active
+001000000000391AAA,Pacific Performance Parts 72,Fleet,Gold,Fleet Operations,880900417,2842,Greenville,South Carolina,USA,TerritorySE,2025-08-02,false,Both,Active
+001000000000392AAA,Heritage Mobility,Fleet,Silver,Fleet Operations,663472902,2140,Dallas,Texas,USA,TerritorySC,2018-06-12,false,Hybrid,Active
+001000000000393AAA,Valley Engineering,Fleet,Standard,Fleet Operations,489965774,1581,San Jose,California,USA,TerritoryWest,2018-12-13,false,ICE,Active
+001000000000394AAA,Delta Distribution,Fleet,Silver,Fleet Operations,553731891,1786,Newark,New Jersey,USA,TerritoryNE,2023-08-15,false,ICE,Active
+001000000000395AAA,Northfield Engineering,Fleet,Standard,Fleet Operations,444684487,1434,Nashville,Tennessee,USA,TerritorySE,2017-10-28,false,Hybrid,Active
+001000000000396AAA,Cedar Mobility,Fleet,Standard,Fleet Operations,408876349,1319,Boston,Massachusetts,USA,TerritoryNE,2019-06-27,false,Both,Active
+001000000000397AAA,Pinnacle Assembly 95,Fleet,Standard,Fleet Operations,331998058,1071,Toledo,Ohio,USA,TerritoryGL,2013-08-08,false,Hybrid,Active
+001000000000398AAA,Lakeview Fleet Solutions 69,Fleet,Standard,Fleet Operations,327049577,1055,Oshawa,Ontario,Canada,TerritoryCanada,2023-07-20,false,Hybrid,Active
+001000000000399AAA,Keystone Performance Parts,Fleet,Silver,Fleet Operations,352018837,1136,Newark,New Jersey,USA,TerritoryNE,2020-06-23,false,Both,Active
+001000000000400AAA,Maple Distribution 22,Fleet,Standard,Fleet Operations,424769042,1370,Montreal,Quebec,Canada,TerritoryCanada,2011-08-11,false,Both,Active
+001000000000401AAA,Frontier Engineering 49,Fleet,Silver,Fleet Operations,485661712,1567,Atlanta,Georgia,USA,TerritorySE,2009-06-03,false,Both,Active
+001000000000402AAA,Maple Powertrain 8,Fleet,Standard,Fleet Operations,312531530,1008,Seattle,Washington,USA,TerritoryWest,2009-03-01,false,Hybrid,Active
+001000000000403AAA,Liberty Fleet Solutions,Fleet,Gold,Fleet Operations,446875000,1442,Newark,New Jersey,USA,TerritoryNE,2016-04-18,false,Both,Active
+001000000000404AAA,Cedar Distribution 85,Fleet,Silver,Fleet Operations,399444362,1289,Oshawa,Ontario,Canada,TerritoryCanada,2009-03-24,false,Both,Active
+001000000000405AAA,Maple Engineering 73,Fleet,Standard,Fleet Operations,295580927,953,Columbus,Ohio,USA,TerritoryGL,2025-05-14,false,Both,Active
+001000000000406AAA,Redwood Engineering 57,Aftermarket,Standard,Automotive Aftermarket,145693475,470,Little Rock,Arkansas,USA,TerritorySC,2010-03-12,false,ICE,Active
+001000000000407AAA,Meridian Manufacturing 86,Aftermarket,Silver,Automotive Aftermarket,194799148,628,Dallas,Texas,USA,TerritorySC,2019-11-16,false,ICE,Active
+001000000000408AAA,Lakeview Powertrain 8,Aftermarket,Silver,Automotive Aftermarket,220443026,711,San Jose,California,USA,TerritoryWest,2010-11-12,false,ICE,Active
+001000000000409AAA,Delta Engineering,Aftermarket,Gold,Automotive Aftermarket,388585621,1254,San Jose,California,USA,TerritoryWest,2012-01-03,true,Hybrid,Active
+001000000000410AAA,Valley Motor Systems 91,Aftermarket,Silver,Automotive Aftermarket,238672452,770,Dallas,Texas,USA,TerritorySC,2012-11-02,false,Both,Active
+001000000000411AAA,Crescent Components,Aftermarket,Gold,Automotive Aftermarket,322532535,1040,Baton Rouge,Louisiana,USA,TerritorySC,2025-04-06,false,Hybrid,Active
+001000000000412AAA,Blue Ridge Mobility,Aftermarket,Standard,Automotive Aftermarket,165003933,532,Denver,Colorado,USA,TerritoryWest,2025-05-10,false,ICE,Active
+001000000000413AAA,Oakline Vehicle Systems,Aftermarket,Silver,Automotive Aftermarket,158106107,510,Detroit,Michigan,USA,TerritoryGL,2009-06-08,false,Both,Active
+001000000000414AAA,Timberline Automotive,Aftermarket,Standard,Automotive Aftermarket,238700000,770,Fort Wayne,Indiana,USA,TerritoryGL,2015-01-04,false,Both,Active
+001000000000415AAA,Blue Ridge Industrial Supply,Aftermarket,Silver,Automotive Aftermarket,223350835,720,Puebla,Puebla,Mexico,TerritoryMexico,2024-09-24,false,ICE,Active
+001000000000416AAA,Alder Components 47,Aftermarket,Silver,Automotive Aftermarket,216826127,699,Nashville,Tennessee,USA,TerritorySE,2020-03-03,false,ICE,Active
+001000000000417AAA,Stonebridge Mobility,Aftermarket,Gold,Automotive Aftermarket,290962701,939,Milwaukee,Wisconsin,USA,TerritoryGL,2015-04-10,false,Both,Active
+001000000000418AAA,Delta Distribution 37,Aftermarket,Gold,Automotive Aftermarket,261375165,843,Querétaro,Querétaro,Mexico,TerritoryMexico,2008-04-28,true,ICE,Active
+001000000000419AAA,Beacon Fleet Solutions,Aftermarket,Silver,Automotive Aftermarket,236288273,762,Louisville,Kentucky,USA,TerritorySE,2023-01-23,false,Both,Active
+001000000000420AAA,Eastgate Vehicle Systems 63,Aftermarket,Standard,Automotive Aftermarket,120102000,387,Portland,Oregon,USA,TerritoryWest,2015-01-08,false,Both,Active
+001000000000421AAA,Prairie Engineering 71,Aftermarket,Silver,Automotive Aftermarket,165947351,535,Phoenix,Arizona,USA,TerritoryWest,2021-02-01,false,ICE,Active
+001000000000422AAA,Northfield Performance Parts,Aftermarket,Standard,Automotive Aftermarket,88883586,287,Dallas,Texas,USA,TerritorySC,2013-02-21,false,ICE,Active
+001000000000423AAA,Redwood Engineering 55,Aftermarket,Silver,Automotive Aftermarket,254339111,820,Boston,Massachusetts,USA,TerritoryNE,2021-08-22,false,Both,Active
+001000000000424AAA,Suncrest Mobility 39,Aftermarket,Gold,Automotive Aftermarket,339246140,1094,Los Angeles,California,USA,TerritoryWest,2025-01-22,false,Both,Active
+001000000000425AAA,Central Transport Group 45,Aftermarket,Silver,Automotive Aftermarket,218565163,705,Austin,Texas,USA,TerritorySC,2019-02-12,false,ICE,Active
+001000000000426AAA,Prairie Vehicle Systems 51,Aftermarket,Silver,Automotive Aftermarket,287096632,926,Toledo,Ohio,USA,TerritoryGL,2020-03-17,false,Both,Active
+001000000000427AAA,Cobalt Motor Systems,Aftermarket,Gold,Automotive Aftermarket,289169350,933,Denver,Colorado,USA,TerritoryWest,2022-01-12,true,Hybrid,Active
+001000000000428AAA,Heritage Powertrain,Aftermarket,Silver,Automotive Aftermarket,303950693,980,Milwaukee,Wisconsin,USA,TerritoryGL,2011-08-11,false,Both,Active
+001000000000429AAA,Pinnacle Engineering 54,Aftermarket,Gold,Automotive Aftermarket,313639246,1012,Portland,Oregon,USA,TerritoryWest,2021-09-05,false,ICE,Active
+001000000000430AAA,Harbor Fleet Solutions 57,Aftermarket,Standard,Automotive Aftermarket,106124200,342,Newark,New Jersey,USA,TerritoryNE,2021-12-01,false,Both,Active
+001000000000431AAA,Valley Fleet Solutions 86,Aftermarket,Standard,Automotive Aftermarket,200979365,648,Querétaro,Querétaro,Mexico,TerritoryMexico,2009-02-10,false,Both,Active
+001000000000432AAA,Timberline Manufacturing,Aftermarket,Standard,Automotive Aftermarket,213722011,689,Tulsa,Oklahoma,USA,TerritorySC,2023-07-10,false,ICE,Active
+001000000000433AAA,Union Transport Group,Aftermarket,Silver,Automotive Aftermarket,257375831,830,Atlanta,Georgia,USA,TerritorySE,2021-06-20,false,ICE,Active
+001000000000434AAA,Suncrest Motor Systems 69,Aftermarket,Standard,Automotive Aftermarket,144896365,467,Pittsburgh,Pennsylvania,USA,TerritoryNE,2015-12-01,false,Hybrid,Active
+001000000000435AAA,Maple Engineering 82,Aftermarket,Gold,Automotive Aftermarket,392906733,1267,Charlotte,North Carolina,USA,TerritorySE,2008-03-06,false,Hybrid,Active
+001000000000436AAA,Granite Vehicle Systems,Aftermarket,Standard,Automotive Aftermarket,191640287,618,Oshawa,Ontario,Canada,TerritoryCanada,2010-03-08,false,Both,Active
+001000000000437AAA,Suncrest Fleet Solutions 69,Aftermarket,Silver,Automotive Aftermarket,160553276,518,Newark,New Jersey,USA,TerritoryNE,2017-06-30,false,Hybrid,Active
+001000000000438AAA,Crown Vehicle Systems 97,Aftermarket,Standard,Automotive Aftermarket,126234965,407,Louisville,Kentucky,USA,TerritorySE,2023-03-19,false,Both,Active
+001000000000439AAA,Maple Performance Parts 21,Aftermarket,Standard,Automotive Aftermarket,208587326,673,Charlotte,North Carolina,USA,TerritorySE,2024-10-25,false,ICE,Active
+001000000000440AAA,Frontier Industrial Supply 30,Aftermarket,Silver,Automotive Aftermarket,189421558,611,Dallas,Texas,USA,TerritorySC,2017-09-21,false,ICE,Active
+001000000000441AAA,Stonebridge Distribution,Aftermarket,Gold,Automotive Aftermarket,461915740,1490,Nashville,Tennessee,USA,TerritorySE,2017-03-17,false,Both,Active
+001000000000442AAA,Northfield Engineering 73,Aftermarket,Standard,Automotive Aftermarket,177530993,573,Columbus,Ohio,USA,TerritoryGL,2011-10-07,false,Hybrid,Active
+001000000000443AAA,Windward Automotive,Aftermarket,Standard,Automotive Aftermarket,117947358,380,Fort Wayne,Indiana,USA,TerritoryGL,2020-12-10,false,Hybrid,Active
+001000000000444AAA,Union Components,Aftermarket,Standard,Automotive Aftermarket,166241902,536,Portland,Oregon,USA,TerritoryWest,2015-02-07,false,ICE,Active
+001000000000445AAA,Cedar Powertrain,Aftermarket,Gold,Automotive Aftermarket,356460177,1150,Oshawa,Ontario,Canada,TerritoryCanada,2017-12-27,true,Both,Active
+001000000000446AAA,Crescent Automotive 72,Aftermarket,Silver,Automotive Aftermarket,229960060,742,Greenville,South Carolina,USA,TerritorySE,2017-05-19,false,Both,Active
+001000000000447AAA,Keystone Motor Systems 39,Aftermarket,Standard,Automotive Aftermarket,188961682,610,Nashville,Tennessee,USA,TerritorySE,2008-08-13,false,Both,Active
+001000000000448AAA,Ridgeway Assembly,Aftermarket,Standard,Automotive Aftermarket,153413843,495,Toledo,Ohio,USA,TerritoryGL,2010-02-19,false,Hybrid,Active
+001000000000449AAA,Granite Vehicle Systems 24,Aftermarket,Standard,Automotive Aftermarket,136582153,441,Milwaukee,Wisconsin,USA,TerritoryGL,2016-12-09,false,ICE,Active
+001000000000450AAA,Westgate Powertrain,Aftermarket,Standard,Automotive Aftermarket,129397179,417,Columbus,Ohio,USA,TerritoryGL,2009-10-24,false,Both,Active
+001000000000451AAA,Cedar Industrial Supply,Aftermarket,Silver,Automotive Aftermarket,188805594,609,Seattle,Washington,USA,TerritoryWest,2017-12-13,false,Both,Active
+001000000000452AAA,Heritage Assembly,Aftermarket,Silver,Automotive Aftermarket,271947372,877,Oshawa,Ontario,Canada,TerritoryCanada,2020-11-16,false,ICE,Active
+001000000000453AAA,Silverline Components 41,Aftermarket,Standard,Automotive Aftermarket,131988116,426,Detroit,Michigan,USA,TerritoryGL,2009-06-28,false,Both,Active
+001000000000454AAA,Beacon Automotive 96,Aftermarket,Silver,Automotive Aftermarket,215721094,696,Dallas,Texas,USA,TerritorySC,2020-02-19,false,Both,Active
+001000000000455AAA,Silverline Manufacturing,Aftermarket,Standard,Automotive Aftermarket,147002852,474,Boston,Massachusetts,USA,TerritoryNE,2013-07-17,false,Both,Active
+001000000000456AAA,Suncrest Transport Group 97,Aftermarket,Silver,Automotive Aftermarket,324006821,1045,Boston,Massachusetts,USA,TerritoryNE,2011-07-30,false,Both,Active
+001000000000457AAA,Valley Mobility 30,Aftermarket,Silver,Automotive Aftermarket,241792882,780,Toronto,Ontario,Canada,TerritoryCanada,2019-09-04,false,ICE,Active
+001000000000458AAA,Oakline Performance Parts 52,Aftermarket,Standard,Automotive Aftermarket,138527368,447,Montreal,Quebec,Canada,TerritoryCanada,2020-03-09,false,Both,Active
+001000000000459AAA,Pinnacle Transport Group 38,Aftermarket,Standard,Automotive Aftermarket,122752463,396,Hartford,Connecticut,USA,TerritoryNE,2025-05-03,false,Hybrid,Active
+001000000000460AAA,Atlas Powertrain 71,Aftermarket,Standard,Automotive Aftermarket,156246094,504,Atlanta,Georgia,USA,TerritorySE,2024-07-24,false,Both,Active
+001000000000461AAA,Oakline Mobility 3,Aftermarket,Gold,Automotive Aftermarket,375028024,1210,Phoenix,Arizona,USA,TerritoryWest,2011-02-04,false,ICE,Active
+001000000000462AAA,Cobalt Powertrain 60,Aftermarket,Standard,Automotive Aftermarket,99181267,320,Austin,Texas,USA,TerritorySC,2021-02-27,false,Both,Active
+001000000000463AAA,Crescent Fleet Solutions 53,Aftermarket,Standard,Automotive Aftermarket,208410701,672,Nashville,Tennessee,USA,TerritorySE,2016-12-21,false,Both,Active
+001000000000464AAA,Pacific Vehicle Systems,Aftermarket,Silver,Automotive Aftermarket,262248266,846,Milwaukee,Wisconsin,USA,TerritoryGL,2012-06-25,false,Both,Active
+001000000000465AAA,Harbor Powertrain,Aftermarket,Standard,Automotive Aftermarket,151005595,487,Querétaro,Querétaro,Mexico,TerritoryMexico,2010-10-05,false,Hybrid,Active
+001000000000466AAA,Oakline Automotive 33,Aftermarket,Standard,Automotive Aftermarket,154608968,499,Pittsburgh,Pennsylvania,USA,TerritoryNE,2023-05-12,false,ICE,Active
+001000000000467AAA,Silverline Engineering,Aftermarket,Gold,Automotive Aftermarket,273595133,883,Grand Rapids,Michigan,USA,TerritoryGL,2022-12-06,false,Both,Active
+001000000000468AAA,Redwood Industrial Supply 97,Aftermarket,Standard,Automotive Aftermarket,128351094,414,Toledo,Ohio,USA,TerritoryGL,2009-07-26,false,Both,Active
+001000000000469AAA,Delta Automotive,Aftermarket,Standard,Automotive Aftermarket,179509020,579,Austin,Texas,USA,TerritorySC,2009-10-09,false,ICE,Active
+001000000000470AAA,Windward Performance Parts 66,Aftermarket,Silver,Automotive Aftermarket,281054098,907,Atlanta,Georgia,USA,TerritorySE,2020-08-11,false,Hybrid,Active
+001000000000471AAA,Pacific Automotive 66,Aftermarket,Standard,Automotive Aftermarket,163134182,526,Phoenix,Arizona,USA,TerritoryWest,2009-04-14,false,Hybrid,Active
+001000000000472AAA,Granite Vehicle Systems 86,Aftermarket,Gold,Automotive Aftermarket,318065138,1026,Los Angeles,California,USA,TerritoryWest,2008-05-09,false,Hybrid,Active
+001000000000473AAA,Northfield Manufacturing 89,Aftermarket,Standard,Automotive Aftermarket,117827300,380,Dallas,Texas,USA,TerritorySC,2024-06-23,false,ICE,Active
+001000000000474AAA,Ridgeway Vehicle Systems 66,Aftermarket,Standard,Automotive Aftermarket,136872623,442,Seattle,Washington,USA,TerritoryWest,2013-07-13,false,ICE,Active
+001000000000475AAA,Beacon Fleet Solutions 95,Aftermarket,Gold,Automotive Aftermarket,350511922,1131,Denver,Colorado,USA,TerritoryWest,2008-04-06,false,Hybrid,Active
+001000000000476AAA,Lakeview Mobility,Aftermarket,Silver,Automotive Aftermarket,172353315,556,Toronto,Ontario,Canada,TerritoryCanada,2013-10-30,false,Both,Active
+001000000000477AAA,Crown Performance Parts,Aftermarket,Standard,Automotive Aftermarket,123550104,399,Greenville,South Carolina,USA,TerritorySE,2021-04-04,false,ICE,Active
+001000000000478AAA,Keystone Automotive,Aftermarket,Silver,Automotive Aftermarket,256333800,827,Portland,Oregon,USA,TerritoryWest,2023-05-10,false,Hybrid,Active
+001000000000479AAA,Canyon Distribution 65,Aftermarket,Standard,Automotive Aftermarket,189758195,612,Atlanta,Georgia,USA,TerritorySE,2022-12-08,false,Both,Active
+001000000000480AAA,Cobalt Automotive,Aftermarket,Standard,Automotive Aftermarket,141074811,455,Detroit,Michigan,USA,TerritoryGL,2018-12-04,false,Both,Active
+001000000000481AAA,Windward Distribution 3,Aftermarket,Silver,Automotive Aftermarket,240398561,775,Greenville,South Carolina,USA,TerritorySE,2012-11-23,false,Both,Active
+001000000000482AAA,Delta Assembly,Aftermarket,Silver,Automotive Aftermarket,270397129,872,San Jose,California,USA,TerritoryWest,2017-09-27,false,Both,Active
+001000000000483AAA,Crescent Fleet Solutions 46,Aftermarket,Silver,Automotive Aftermarket,252986327,816,Denver,Colorado,USA,TerritoryWest,2018-06-22,false,Both,Active
+001000000000484AAA,Prairie Components 75,Aftermarket,Standard,Automotive Aftermarket,175344971,566,Detroit,Michigan,USA,TerritoryGL,2020-03-13,false,ICE,Active
+001000000000485AAA,Atlas Powertrain 94,Aftermarket,Standard,Automotive Aftermarket,121721363,393,Silao,Guanajuato,Mexico,TerritoryMexico,2010-04-23,false,ICE,Active
+001000000000486AAA,Central Fleet Solutions 56,Aftermarket,Standard,Automotive Aftermarket,207780868,670,Querétaro,Querétaro,Mexico,TerritoryMexico,2021-01-13,false,Both,Active
+001000000000487AAA,Lakeview Motor Systems,Aftermarket,Silver,Automotive Aftermarket,206520782,666,Toledo,Ohio,USA,TerritoryGL,2008-01-19,false,Both,Active
+001000000000488AAA,Central Vehicle Systems 63,Aftermarket,Standard,Automotive Aftermarket,191475838,618,Calgary,Alberta,Canada,TerritoryCanada,2020-02-01,false,Both,Active
+001000000000489AAA,Silverline Transport Group,Aftermarket,Standard,Automotive Aftermarket,204028588,658,Oshawa,Ontario,Canada,TerritoryCanada,2022-08-03,false,Hybrid,Active
+001000000000490AAA,Stonebridge Components 97,Aftermarket,Silver,Automotive Aftermarket,258883497,835,Fort Wayne,Indiana,USA,TerritoryGL,2022-11-20,false,Hybrid,Active
+001000000000491AAA,Heritage Automotive 56,Aftermarket,Standard,Automotive Aftermarket,164505125,531,Tulsa,Oklahoma,USA,TerritorySC,2023-03-28,false,Hybrid,Active
+001000000000492AAA,Cedar Automotive 76,Aftermarket,Standard,Automotive Aftermarket,158199907,510,San Jose,California,USA,TerritoryWest,2008-04-25,false,ICE,Active
+001000000000493AAA,Valley Industrial Supply 6,Aftermarket,Standard,Automotive Aftermarket,191230223,617,Denver,Colorado,USA,TerritoryWest,2021-10-17,false,Both,Active
+001000000000494AAA,Cobalt Fleet Solutions 97,Aftermarket,Silver,Automotive Aftermarket,166166638,536,Birmingham,Alabama,USA,TerritorySE,2021-09-03,false,ICE,Active
+001000000000495AAA,Atlas Automotive 67,Aftermarket,Standard,Automotive Aftermarket,236580656,763,Dallas,Texas,USA,TerritorySC,2010-04-17,false,ICE,Active
+001000000000496AAA,Suncrest Distribution,Aftermarket,Silver,Automotive Aftermarket,313599473,1012,Baton Rouge,Louisiana,USA,TerritorySC,2008-11-17,false,ICE,Active
+001000000000497AAA,Canyon Distribution 92,Aftermarket,Silver,Automotive Aftermarket,268721503,867,Baton Rouge,Louisiana,USA,TerritorySC,2016-11-01,false,ICE,Active
+001000000000498AAA,Suncrest Mobility 59,Aftermarket,Silver,Automotive Aftermarket,279556830,902,Charlotte,North Carolina,USA,TerritorySE,2008-09-25,false,ICE,Active
+001000000000499AAA,Granite Motor Systems,Aftermarket,Silver,Automotive Aftermarket,244995526,790,Toronto,Ontario,Canada,TerritoryCanada,2010-09-26,false,Hybrid,Active
+001000000000500AAA,Liberty Mobility 10,Aftermarket,Silver,Automotive Aftermarket,205531009,663,Saltillo,Coahuila,Mexico,TerritoryMexico,2018-07-19,false,ICE,Active

@@ -1,0 +1,248 @@
+{
+  "name" : "sales_opportunity136",
+  "label" : "sales_opportunity",
+  "parameters" : { },
+  "dominoVariant" : "sfdc_internal__UnifiedAnalyticsDominoVariant",
+  "definition" : {
+    "nodes" : {
+      "upsert_workspace_Sales_Opportunity" : {
+        "referenceId" : "upsert_workspace_Sales_Opportunity",
+        "sources" : [ ],
+        "parameters" : {
+          "name" : "Sales_Opportunity",
+          "file" : "/workspaces/Sales_Opportunity.json",
+          "assets" : [ ],
+          "condition" : "true"
+        },
+        "graphNodeType" : {
+          "name" : "WorkspaceUpsert",
+          "label" : "Create/Update a Workspace from a Template"
+        }
+      },
+      "upsert_sdm_SDX_Opportunity" : {
+        "referenceId" : "upsert_sdm_SDX_Opportunity",
+        "sources" : [ "upsert_workspace_Sales_Opportunity" ],
+        "parameters" : {
+          "name" : "SDX_Opportunity",
+          "file" : "/sdms/SDX_Opportunity.json",
+          "condition" : "true"
+        },
+        "graphNodeType" : {
+          "name" : "SemanticModelUpsert",
+          "label" : null
+        }
+      },
+      "upsert_visualization_Product_Heatmap" : {
+        "referenceId" : "upsert_visualization_Product_Heatmap",
+        "sources" : [ "upsert_sdm_SDX_Opportunity" ],
+        "parameters" : {
+          "name" : "Product_Heatmap",
+          "file" : "/visualizations/Product_Heatmap.json",
+          "condition" : "true"
+        },
+        "graphNodeType" : {
+          "name" : "VisualizationUpsert",
+          "label" : "Create/Update a Visualization from a Template"
+        }
+      },
+      "upsert_visualization_Clone_Family_Product_Group_Stats" : {
+        "referenceId" : "upsert_visualization_Clone_Family_Product_Group_Stats",
+        "sources" : [ "upsert_visualization_Product_Heatmap" ],
+        "parameters" : {
+          "name" : "Clone_Family_Product_Group_Stats",
+          "file" : "/visualizations/Clone_Family_Product_Group_Stats.json",
+          "condition" : "true"
+        },
+        "graphNodeType" : {
+          "name" : "VisualizationUpsert",
+          "label" : "Create/Update a Visualization from a Template"
+        }
+      },
+      "upsert_visualization_Revenue_by_Country_and_Prod_Family" : {
+        "referenceId" : "upsert_visualization_Revenue_by_Country_and_Prod_Family",
+        "sources" : [ "upsert_visualization_Clone_Family_Product_Group_Stats" ],
+        "parameters" : {
+          "name" : "Revenue_by_Country_and_Prod_Family",
+          "file" : "/visualizations/Revenue_by_Country_and_Prod_Family.json",
+          "condition" : "true"
+        },
+        "graphNodeType" : {
+          "name" : "VisualizationUpsert",
+          "label" : "Create/Update a Visualization from a Template"
+        }
+      },
+      "upsert_visualization_KPI_Average_Discount" : {
+        "referenceId" : "upsert_visualization_KPI_Average_Discount",
+        "sources" : [ "upsert_visualization_Revenue_by_Country_and_Prod_Family" ],
+        "parameters" : {
+          "name" : "KPI_Average_Discount",
+          "file" : "/visualizations/KPI_Average_Discount.json",
+          "condition" : "true"
+        },
+        "graphNodeType" : {
+          "name" : "VisualizationUpsert",
+          "label" : "Create/Update a Visualization from a Template"
+        }
+      },
+      "upsert_visualization_Open_Deal_Count_Arc_Circles" : {
+        "referenceId" : "upsert_visualization_Open_Deal_Count_Arc_Circles",
+        "sources" : [ "upsert_visualization_KPI_Average_Discount" ],
+        "parameters" : {
+          "name" : "Open_Deal_Count_Arc_Circles",
+          "file" : "/visualizations/Open_Deal_Count_Arc_Circles.json",
+          "condition" : "true"
+        },
+        "graphNodeType" : {
+          "name" : "VisualizationUpsert",
+          "label" : "Create/Update a Visualization from a Template"
+        }
+      },
+      "upsert_visualization_KPI_xxx" : {
+        "referenceId" : "upsert_visualization_KPI_xxx",
+        "sources" : [ "upsert_visualization_Open_Deal_Count_Arc_Circles" ],
+        "parameters" : {
+          "name" : "KPI_xxx",
+          "file" : "/visualizations/KPI_xxx.json",
+          "condition" : "true"
+        },
+        "graphNodeType" : {
+          "name" : "VisualizationUpsert",
+          "label" : "Create/Update a Visualization from a Template"
+        }
+      },
+      "upsert_visualization_Opp_Value_Win_Rate" : {
+        "referenceId" : "upsert_visualization_Opp_Value_Win_Rate",
+        "sources" : [ "upsert_visualization_KPI_xxx" ],
+        "parameters" : {
+          "name" : "Opp_Value_Win_Rate",
+          "file" : "/visualizations/Opp_Value_Win_Rate.json",
+          "condition" : "true"
+        },
+        "graphNodeType" : {
+          "name" : "VisualizationUpsert",
+          "label" : "Create/Update a Visualization from a Template"
+        }
+      },
+      "upsert_visualization_Product_Family_Opps_Win_Rate_Bars" : {
+        "referenceId" : "upsert_visualization_Product_Family_Opps_Win_Rate_Bars",
+        "sources" : [ "upsert_visualization_Opp_Value_Win_Rate" ],
+        "parameters" : {
+          "name" : "Product_Family_Opps_Win_Rate_Bars",
+          "file" : "/visualizations/Product_Family_Opps_Win_Rate_Bars.json",
+          "condition" : "true"
+        },
+        "graphNodeType" : {
+          "name" : "VisualizationUpsert",
+          "label" : "Create/Update a Visualization from a Template"
+        }
+      },
+      "upsert_visualization_Clients_by_Tier" : {
+        "referenceId" : "upsert_visualization_Clients_by_Tier",
+        "sources" : [ "upsert_visualization_Product_Family_Opps_Win_Rate_Bars" ],
+        "parameters" : {
+          "name" : "Clients_by_Tier",
+          "file" : "/visualizations/Clients_by_Tier.json",
+          "condition" : "true"
+        },
+        "graphNodeType" : {
+          "name" : "VisualizationUpsert",
+          "label" : "Create/Update a Visualization from a Template"
+        }
+      },
+      "upsert_visualization_KPI_Gross_Margin" : {
+        "referenceId" : "upsert_visualization_KPI_Gross_Margin",
+        "sources" : [ "upsert_visualization_Clients_by_Tier" ],
+        "parameters" : {
+          "name" : "KPI_Gross_Margin",
+          "file" : "/visualizations/KPI_Gross_Margin.json",
+          "condition" : "true"
+        },
+        "graphNodeType" : {
+          "name" : "VisualizationUpsert",
+          "label" : "Create/Update a Visualization from a Template"
+        }
+      },
+      "upsert_visualization_Company_Locations" : {
+        "referenceId" : "upsert_visualization_Company_Locations",
+        "sources" : [ "upsert_visualization_KPI_Gross_Margin" ],
+        "parameters" : {
+          "name" : "Company_Locations",
+          "file" : "/visualizations/Company_Locations.json",
+          "condition" : "true"
+        },
+        "graphNodeType" : {
+          "name" : "VisualizationUpsert",
+          "label" : "Create/Update a Visualization from a Template"
+        }
+      },
+      "upsert_visualization_Open_Opportunities" : {
+        "referenceId" : "upsert_visualization_Open_Opportunities",
+        "sources" : [ "upsert_visualization_Company_Locations" ],
+        "parameters" : {
+          "name" : "Open_Opportunities",
+          "file" : "/visualizations/Open_Opportunities.json",
+          "condition" : "true"
+        },
+        "graphNodeType" : {
+          "name" : "VisualizationUpsert",
+          "label" : "Create/Update a Visualization from a Template"
+        }
+      },
+      "upsert_visualization_Net_Revenue_by_Region" : {
+        "referenceId" : "upsert_visualization_Net_Revenue_by_Region",
+        "sources" : [ "upsert_visualization_Open_Opportunities" ],
+        "parameters" : {
+          "name" : "Net_Revenue_by_Region",
+          "file" : "/visualizations/Net_Revenue_by_Region.json",
+          "condition" : "true"
+        },
+        "graphNodeType" : {
+          "name" : "VisualizationUpsert",
+          "label" : "Create/Update a Visualization from a Template"
+        }
+      },
+      "upsert_visualization_Net_Revenue_by_Rep" : {
+        "referenceId" : "upsert_visualization_Net_Revenue_by_Rep",
+        "sources" : [ "upsert_visualization_Net_Revenue_by_Region" ],
+        "parameters" : {
+          "name" : "Net_Revenue_by_Rep",
+          "file" : "/visualizations/Net_Revenue_by_Rep.json",
+          "condition" : "true"
+        },
+        "graphNodeType" : {
+          "name" : "VisualizationUpsert",
+          "label" : "Create/Update a Visualization from a Template"
+        }
+      },
+      "upsert_visualization_Product_Family_Bookings_Dot_Plot" : {
+        "referenceId" : "upsert_visualization_Product_Family_Bookings_Dot_Plot",
+        "sources" : [ "upsert_visualization_Net_Revenue_by_Rep" ],
+        "parameters" : {
+          "name" : "Product_Family_Bookings_Dot_Plot",
+          "file" : "/visualizations/Product_Family_Bookings_Dot_Plot.json",
+          "condition" : "true"
+        },
+        "graphNodeType" : {
+          "name" : "VisualizationUpsert",
+          "label" : "Create/Update a Visualization from a Template"
+        }
+      },
+      "upsert_dashboard_Sales_Insights_and_Analysis" : {
+        "referenceId" : "upsert_dashboard_Sales_Insights_and_Analysis",
+        "sources" : [ "upsert_visualization_Product_Family_Bookings_Dot_Plot" ],
+        "parameters" : {
+          "name" : "Sales_Insights_and_Analysis",
+          "file" : "/dashboards/Sales_Insights_and_Analysis.json",
+          "condition" : "true"
+        },
+        "graphNodeType" : {
+          "name" : "DashboardUpsert",
+          "label" : "Create/Update a Dashboard from a Template"
+        }
+      }
+    }
+  },
+  "finallyDefinition" : {
+    "nodes" : { }
+  }
+}

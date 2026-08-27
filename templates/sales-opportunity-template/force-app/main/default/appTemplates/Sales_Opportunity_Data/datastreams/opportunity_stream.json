@@ -1,0 +1,394 @@
+{
+  "name": "OpportunityDS",
+  "label": "Opportunity DS",
+  "datastreamType": "CONNECTORSFRAMEWORK",
+  "connectorInfo": {
+    "connectorType": "DataConnector",
+    "connectorDetails": {
+      "name": "UploadedFiles"
+    }
+  },
+  "sourceFields": [
+    {
+      "dataType": "Text",
+      "name": "OpportunityId"
+    },
+    {
+      "dataType": "Text",
+      "name": "OpportunityName"
+    },
+    {
+      "dataType": "Text",
+      "name": "AccountId"
+    },
+    {
+      "dataType": "Text",
+      "name": "OwnerUserId"
+    },
+    {
+      "dataType": "Text",
+      "name": "OpportunityType"
+    },
+    {
+      "dataType": "Text",
+      "name": "VehicleProgramName"
+    },
+    {
+      "dataType": "Text",
+      "name": "VehicleSegment"
+    },
+    {
+      "dataType": "Text",
+      "name": "PowertrainType"
+    },
+    {
+      "dataType": "Text",
+      "name": "StageName"
+    },
+    {
+      "dataType": "Text",
+      "name": "ForecastCategory"
+    },
+    {
+      "dataType": "Number",
+      "name": "Probability"
+    },
+    {
+      "dataType": "Number",
+      "name": "Amount"
+    },
+    {
+      "dataType": "Text",
+      "name": "CurrencyIsoCode"
+    },
+    {
+      "dataType": "Date",
+      "format": "yyyy-MM-dd",
+      "name": "CreatedDate"
+    },
+    {
+      "dataType": "Date",
+      "format": "yyyy-MM-dd",
+      "name": "OriginalCloseDate"
+    },
+    {
+      "dataType": "Text",
+      "name": "PriorCloseDate"
+    },
+    {
+      "dataType": "Date",
+      "format": "yyyy-MM-dd",
+      "name": "CloseDate"
+    },
+    {
+      "dataType": "Number",
+      "name": "CloseDateChangeCount"
+    },
+    {
+      "dataType": "Boolean",
+      "name": "IsClosed"
+    },
+    {
+      "dataType": "Boolean",
+      "name": "IsWon"
+    },
+    {
+      "dataType": "Text",
+      "name": "LossReason"
+    },
+    {
+      "dataType": "Text",
+      "name": "LeadSource"
+    },
+    {
+      "dataType": "Text",
+      "name": "CustomerNeed"
+    },
+    {
+      "dataType": "Text",
+      "name": "NextStep"
+    },
+    {
+      "dataType": "Date",
+      "format": "yyyy-MM-dd",
+      "name": "LastActivityDate"
+    }
+  ],
+  "dataLakeObjectInfo": {
+    "name": "${App.DataLakeObjects.Opportunity_DLO.Name}",
+    "label": "Opportunity DLO",
+    "category": "OTHER",
+    "dataspaceInfo": [
+      {
+        "name": "default"
+      }
+    ],
+    "fields": [
+      {
+        "dataType": "Text",
+        "isPrimaryKey": true,
+        "name": "OpportunityId",
+        "label": "OpportunityId"
+      },
+      {
+        "dataType": "Text",
+        "isPrimaryKey": false,
+        "name": "OpportunityName",
+        "label": "OpportunityName"
+      },
+      {
+        "dataType": "Text",
+        "isPrimaryKey": false,
+        "name": "AccountId",
+        "label": "AccountId"
+      },
+      {
+        "dataType": "Text",
+        "isPrimaryKey": false,
+        "name": "OwnerUserId",
+        "label": "OwnerUserId"
+      },
+      {
+        "dataType": "Text",
+        "isPrimaryKey": false,
+        "name": "OpportunityType",
+        "label": "OpportunityType"
+      },
+      {
+        "dataType": "Text",
+        "isPrimaryKey": false,
+        "name": "VehicleProgramName",
+        "label": "VehicleProgramName"
+      },
+      {
+        "dataType": "Text",
+        "isPrimaryKey": false,
+        "name": "VehicleSegment",
+        "label": "VehicleSegment"
+      },
+      {
+        "dataType": "Text",
+        "isPrimaryKey": false,
+        "name": "PowertrainType",
+        "label": "PowertrainType"
+      },
+      {
+        "dataType": "Text",
+        "isPrimaryKey": false,
+        "name": "StageName",
+        "label": "StageName"
+      },
+      {
+        "dataType": "Text",
+        "isPrimaryKey": false,
+        "name": "ForecastCategory",
+        "label": "ForecastCategory"
+      },
+      {
+        "dataType": "Number",
+        "isPrimaryKey": false,
+        "name": "Probability",
+        "label": "Probability"
+      },
+      {
+        "dataType": "Number",
+        "isPrimaryKey": false,
+        "name": "Amount",
+        "label": "Amount"
+      },
+      {
+        "dataType": "Text",
+        "isPrimaryKey": false,
+        "name": "CurrencyIsoCode",
+        "label": "CurrencyIsoCode"
+      },
+      {
+        "dataType": "Date",
+        "isPrimaryKey": false,
+        "name": "CreatedDate",
+        "label": "CreatedDate"
+      },
+      {
+        "dataType": "Date",
+        "isPrimaryKey": false,
+        "name": "OriginalCloseDate",
+        "label": "OriginalCloseDate"
+      },
+      {
+        "dataType": "Text",
+        "isPrimaryKey": false,
+        "name": "PriorCloseDate",
+        "label": "PriorCloseDate"
+      },
+      {
+        "dataType": "Date",
+        "isPrimaryKey": false,
+        "name": "CloseDate",
+        "label": "CloseDate"
+      },
+      {
+        "dataType": "Number",
+        "isPrimaryKey": false,
+        "name": "CloseDateChangeCount",
+        "label": "CloseDateChangeCount"
+      },
+      {
+        "dataType": "Boolean",
+        "isPrimaryKey": false,
+        "name": "IsClosed",
+        "label": "IsClosed"
+      },
+      {
+        "dataType": "Boolean",
+        "isPrimaryKey": false,
+        "name": "IsWon",
+        "label": "IsWon"
+      },
+      {
+        "dataType": "Text",
+        "isPrimaryKey": false,
+        "name": "LossReason",
+        "label": "LossReason"
+      },
+      {
+        "dataType": "Text",
+        "isPrimaryKey": false,
+        "name": "LeadSource",
+        "label": "LeadSource"
+      },
+      {
+        "dataType": "Text",
+        "isPrimaryKey": false,
+        "name": "CustomerNeed",
+        "label": "CustomerNeed"
+      },
+      {
+        "dataType": "Text",
+        "isPrimaryKey": false,
+        "name": "NextStep",
+        "label": "NextStep"
+      },
+      {
+        "dataType": "Date",
+        "isPrimaryKey": false,
+        "name": "LastActivityDate",
+        "label": "LastActivityDate"
+      }
+    ]
+  },
+  "mappings": [
+    {
+      "sourceFieldLabel": "OpportunityId",
+      "targetFieldName": "OpportunityId"
+    },
+    {
+      "sourceFieldLabel": "OpportunityName",
+      "targetFieldName": "OpportunityName"
+    },
+    {
+      "sourceFieldLabel": "AccountId",
+      "targetFieldName": "AccountId"
+    },
+    {
+      "sourceFieldLabel": "OwnerUserId",
+      "targetFieldName": "OwnerUserId"
+    },
+    {
+      "sourceFieldLabel": "OpportunityType",
+      "targetFieldName": "OpportunityType"
+    },
+    {
+      "sourceFieldLabel": "VehicleProgramName",
+      "targetFieldName": "VehicleProgramName"
+    },
+    {
+      "sourceFieldLabel": "VehicleSegment",
+      "targetFieldName": "VehicleSegment"
+    },
+    {
+      "sourceFieldLabel": "PowertrainType",
+      "targetFieldName": "PowertrainType"
+    },
+    {
+      "sourceFieldLabel": "StageName",
+      "targetFieldName": "StageName"
+    },
+    {
+      "sourceFieldLabel": "ForecastCategory",
+      "targetFieldName": "ForecastCategory"
+    },
+    {
+      "sourceFieldLabel": "Probability",
+      "targetFieldName": "Probability"
+    },
+    {
+      "sourceFieldLabel": "Amount",
+      "targetFieldName": "Amount"
+    },
+    {
+      "sourceFieldLabel": "CurrencyIsoCode",
+      "targetFieldName": "CurrencyIsoCode"
+    },
+    {
+      "sourceFieldLabel": "CreatedDate",
+      "targetFieldName": "CreatedDate"
+    },
+    {
+      "sourceFieldLabel": "OriginalCloseDate",
+      "targetFieldName": "OriginalCloseDate"
+    },
+    {
+      "sourceFieldLabel": "PriorCloseDate",
+      "targetFieldName": "PriorCloseDate"
+    },
+    {
+      "sourceFieldLabel": "CloseDate",
+      "targetFieldName": "CloseDate"
+    },
+    {
+      "sourceFieldLabel": "CloseDateChangeCount",
+      "targetFieldName": "CloseDateChangeCount"
+    },
+    {
+      "sourceFieldLabel": "IsClosed",
+      "targetFieldName": "IsClosed"
+    },
+    {
+      "sourceFieldLabel": "IsWon",
+      "targetFieldName": "IsWon"
+    },
+    {
+      "sourceFieldLabel": "LossReason",
+      "targetFieldName": "LossReason"
+    },
+    {
+      "sourceFieldLabel": "LeadSource",
+      "targetFieldName": "LeadSource"
+    },
+    {
+      "sourceFieldLabel": "CustomerNeed",
+      "targetFieldName": "CustomerNeed"
+    },
+    {
+      "sourceFieldLabel": "NextStep",
+      "targetFieldName": "NextStep"
+    },
+    {
+      "sourceFieldLabel": "LastActivityDate",
+      "targetFieldName": "LastActivityDate"
+    }
+  ],
+  "refreshConfig": {
+    "refreshMode": "TOTAL_REPLACE",
+    "frequency": {
+      "frequencyType": "None"
+    }
+  },
+  "advancedAttributes": {
+    "importDirectory": "${App.CSVs.OpportunityCSV.ImportDirectory}",
+    "fileName": "${App.CSVs.OpportunityCSV.FileName}",
+    "delimiter": ",",
+    "parentDirectory": "${App.CSVs.OpportunityCSV.ParentDirectory}",
+    "fileType": "${App.CSVs.OpportunityCSV.FileType}"
+  }
+}

@@ -1,0 +1,196 @@
+{
+  "name": "UserDS",
+  "label": "User DS",
+  "datastreamType": "CONNECTORSFRAMEWORK",
+  "connectorInfo": {
+    "connectorType": "DataConnector",
+    "connectorDetails": {
+      "name": "UploadedFiles"
+    }
+  },
+  "sourceFields": [
+    {
+      "dataType": "Text",
+      "name": "UserId"
+    },
+    {
+      "dataType": "Text",
+      "name": "FullName"
+    },
+    {
+      "dataType": "Text",
+      "name": "RoleLevel"
+    },
+    {
+      "dataType": "Text",
+      "name": "Title"
+    },
+    {
+      "dataType": "Text",
+      "name": "ManagerUserId"
+    },
+    {
+      "dataType": "Text",
+      "name": "DirectorGroup"
+    },
+    {
+      "dataType": "Text",
+      "name": "SalesTerritoryId"
+    },
+    {
+      "dataType": "Text",
+      "name": "HomeLocationId"
+    },
+    {
+      "dataType": "Date",
+      "format": "yyyy-MM-dd",
+      "name": "HireDate"
+    },
+    {
+      "dataType": "Date",
+      "format": "yyyy-MM-dd",
+      "name": "RampStartDate"
+    },
+    {
+      "dataType": "Boolean",
+      "name": "ActiveFlag"
+    }
+  ],
+  "dataLakeObjectInfo": {
+    "name": "${App.DataLakeObjects.User_DLO.Name}",
+    "label": "User DLO",
+    "category": "OTHER",
+    "dataspaceInfo": [
+      {
+        "name": "default"
+      }
+    ],
+    "fields": [
+      {
+        "dataType": "Text",
+        "isPrimaryKey": true,
+        "name": "UserId",
+        "label": "UserId"
+      },
+      {
+        "dataType": "Text",
+        "isPrimaryKey": false,
+        "name": "FullName",
+        "label": "FullName"
+      },
+      {
+        "dataType": "Text",
+        "isPrimaryKey": false,
+        "name": "RoleLevel",
+        "label": "RoleLevel"
+      },
+      {
+        "dataType": "Text",
+        "isPrimaryKey": false,
+        "name": "Title",
+        "label": "Title"
+      },
+      {
+        "dataType": "Text",
+        "isPrimaryKey": false,
+        "name": "ManagerUserId",
+        "label": "ManagerUserId"
+      },
+      {
+        "dataType": "Text",
+        "isPrimaryKey": false,
+        "name": "DirectorGroup",
+        "label": "DirectorGroup"
+      },
+      {
+        "dataType": "Text",
+        "isPrimaryKey": false,
+        "name": "SalesTerritoryId",
+        "label": "SalesTerritoryId"
+      },
+      {
+        "dataType": "Text",
+        "isPrimaryKey": false,
+        "name": "HomeLocationId",
+        "label": "HomeLocationId"
+      },
+      {
+        "dataType": "Date",
+        "isPrimaryKey": false,
+        "name": "HireDate",
+        "label": "HireDate"
+      },
+      {
+        "dataType": "Date",
+        "isPrimaryKey": false,
+        "name": "RampStartDate",
+        "label": "RampStartDate"
+      },
+      {
+        "dataType": "Boolean",
+        "isPrimaryKey": false,
+        "name": "ActiveFlag",
+        "label": "ActiveFlag"
+      }
+    ]
+  },
+  "mappings": [
+    {
+      "sourceFieldLabel": "UserId",
+      "targetFieldName": "UserId"
+    },
+    {
+      "sourceFieldLabel": "FullName",
+      "targetFieldName": "FullName"
+    },
+    {
+      "sourceFieldLabel": "RoleLevel",
+      "targetFieldName": "RoleLevel"
+    },
+    {
+      "sourceFieldLabel": "Title",
+      "targetFieldName": "Title"
+    },
+    {
+      "sourceFieldLabel": "ManagerUserId",
+      "targetFieldName": "ManagerUserId"
+    },
+    {
+      "sourceFieldLabel": "DirectorGroup",
+      "targetFieldName": "DirectorGroup"
+    },
+    {
+      "sourceFieldLabel": "SalesTerritoryId",
+      "targetFieldName": "SalesTerritoryId"
+    },
+    {
+      "sourceFieldLabel": "HomeLocationId",
+      "targetFieldName": "HomeLocationId"
+    },
+    {
+      "sourceFieldLabel": "HireDate",
+      "targetFieldName": "HireDate"
+    },
+    {
+      "sourceFieldLabel": "RampStartDate",
+      "targetFieldName": "RampStartDate"
+    },
+    {
+      "sourceFieldLabel": "ActiveFlag",
+      "targetFieldName": "ActiveFlag"
+    }
+  ],
+  "refreshConfig": {
+    "refreshMode": "TOTAL_REPLACE",
+    "frequency": {
+      "frequencyType": "None"
+    }
+  },
+  "advancedAttributes": {
+    "importDirectory": "${App.CSVs.UserCSV.ImportDirectory}",
+    "fileName": "${App.CSVs.UserCSV.FileName}",
+    "delimiter": ",",
+    "parentDirectory": "${App.CSVs.UserCSV.ParentDirectory}",
+    "fileType": "${App.CSVs.UserCSV.FileType}"
+  }
+}

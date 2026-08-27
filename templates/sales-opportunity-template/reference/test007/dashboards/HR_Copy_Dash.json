@@ -1,0 +1,59 @@
+{
+  "customConfig" : {
+    "queryCacheEnabled" : true,
+    "queryCacheStaleness" : "30min"
+  },
+  "label" : "HR-Copy-Dash",
+  "layouts" : [ {
+    "columnCount" : 48,
+    "maxWidth" : 1200,
+    "name" : "default",
+    "pages" : [ {
+      "label" : "Page 1",
+      "name" : "50665d2f-afbe-480e-b3d8-18d860fb347e",
+      "widgets" : [ {
+        "colspan" : 48,
+        "column" : 0,
+        "name" : "visualization_1",
+        "row" : 0,
+        "rowspan" : 13
+      } ]
+    } ],
+    "rowHeight" : 20,
+    "style" : {
+      "backgroundColor" : "#ffffff",
+      "cellSpacingX" : 4,
+      "cellSpacingY" : 4,
+      "gutterColor" : "#F3F3F3"
+    }
+  } ],
+  "name" : "HR_Copy_Dash",
+  "style" : {
+    "widgetStyle" : {
+      "backgroundColor" : "#FFFFFF",
+      "borderColor" : "#CCCCCC",
+      "borderEdges" : [ ],
+      "borderRadius" : 0,
+      "borderWidth" : 1
+    }
+  },
+  "widgets" : {
+    "visualization_1" : {
+      "actions" : [ ],
+      "name" : "visualization_1",
+      "parameters" : {
+        "legendPosition" : "Right",
+        "receiveFilterSource" : {
+          "filterMode" : "all",
+          "widgetIds" : [ ]
+        }
+      },
+      "source" : {
+        "id" : "${App.Visualizations.HH_Test.Id}",
+        "name" : "${App.Visualizations.HH_Test.Name}"
+      },
+      "type" : "visualization"
+    }
+  },
+  "workspaceIdOrApiName" : "${App.Workspaces.HR_New_Copy.Name}"
+}

@@ -1,0 +1,255 @@
+{
+  "dataSource" : {
+    "name" : "${App.SemanticModels.SDX_Opportunity.Name}",
+    "id" : "${App.SemanticModels.SDX_Opportunity.Id}",
+    "type" : "SemanticModel"
+  },
+  "fields" : {
+    "F2" : {
+      "displayCategory" : "Discrete",
+      "fieldName" : "GrossMarginRateWon",
+      "function" : "UserAgg",
+      "label" : "GM Rate (Won)",
+      "role" : "Measure",
+      "type" : "Field"
+    }
+  },
+  "interactions" : [ ],
+  "label" : "KPI Gross Margin",
+  "name" : "KPI_Gross_Margin",
+  "view" : {
+    "label" : "default",
+    "name" : "KPI_Gross_Margin_default",
+    "viewSpecification" : {
+      "filter" : {
+        "filters" : [ ]
+      },
+      "sortOrders" : {
+        "columns" : [ ],
+        "fields" : { },
+        "rows" : [ ]
+      },
+      "style" : {
+        "headers" : {
+          "columns" : {
+            "sizing" : {
+              "fieldHeight" : { }
+            }
+          },
+          "rows" : {
+            "sizing" : {
+              "fieldWidth" : { }
+            }
+          }
+        }
+      }
+    }
+  },
+  "visualSpecification" : {
+    "columns" : [ "F2" ],
+    "forecasts" : { },
+    "layout" : "Vizql",
+    "legends" : { },
+    "marks" : {
+      "fields" : { },
+      "headers" : {
+        "encodings" : [ ],
+        "isAutomatic" : true,
+        "stack" : {
+          "isAutomatic" : true,
+          "isStacked" : false
+        },
+        "type" : "Text"
+      },
+      "panes" : {
+        "encodings" : [ ],
+        "isAutomatic" : true,
+        "stack" : {
+          "isAutomatic" : true,
+          "isStacked" : false
+        },
+        "type" : "Text"
+      }
+    },
+    "measureValues" : [ ],
+    "referenceLines" : { },
+    "rows" : [ ],
+    "style" : {
+      "axis" : {
+        "fields" : { }
+      },
+      "encodings" : {
+        "fields" : {
+          "F2" : {
+            "defaults" : {
+              "format" : {
+                "numberFormatInfo" : {
+                  "decimalPlaces" : 1,
+                  "displayUnits" : "Auto",
+                  "includeThousandSeparator" : true,
+                  "negativeValuesFormat" : "Auto",
+                  "prefix" : "",
+                  "suffix" : "",
+                  "type" : "PercentageCustom"
+                }
+              }
+            }
+          }
+        }
+      },
+      "fieldLabels" : {
+        "columns" : {
+          "showDividerLine" : false,
+          "showLabels" : true
+        },
+        "rows" : {
+          "showDividerLine" : false,
+          "showLabels" : true
+        }
+      },
+      "fit" : "Standard",
+      "fonts" : {
+        "actionableHeaders" : {
+          "color" : "#0250D9",
+          "size" : 13
+        },
+        "axisTickLabels" : {
+          "color" : "#2E2E2E",
+          "size" : 13
+        },
+        "fieldLabels" : {
+          "color" : "#2E2E2E",
+          "size" : 13
+        },
+        "headers" : {
+          "color" : "#2E2E2E",
+          "size" : 13
+        },
+        "legendLabels" : {
+          "color" : "#2E2E2E",
+          "size" : 13
+        },
+        "markLabels" : {
+          "color" : "#2E2E2E",
+          "size" : 13
+        },
+        "marks" : {
+          "color" : "#2E2E2E",
+          "size" : 13
+        }
+      },
+      "headers" : {
+        "columns" : {
+          "mergeRepeatedCells" : true,
+          "showIndex" : false,
+          "sizing" : {
+            "fieldHeight" : { }
+          }
+        },
+        "fields" : {
+          "F2" : {
+            "defaults" : {
+              "format" : {
+                "numberFormatInfo" : {
+                  "decimalPlaces" : 1,
+                  "displayUnits" : "Auto",
+                  "includeThousandSeparator" : true,
+                  "negativeValuesFormat" : "Auto",
+                  "prefix" : "",
+                  "suffix" : "",
+                  "type" : "PercentageCustom"
+                }
+              }
+            },
+            "hiddenValues" : [ ],
+            "isVisible" : true,
+            "showMissingValues" : false
+          }
+        },
+        "rows" : {
+          "mergeRepeatedCells" : true,
+          "showIndex" : false,
+          "sizing" : {
+            "fieldWidth" : { }
+          }
+        }
+      },
+      "lines" : {
+        "axisLine" : {
+          "color" : "#C9C9C9"
+        },
+        "fieldLabelDividerLine" : {
+          "color" : "#C9C9C9"
+        },
+        "separatorLine" : {
+          "color" : "#C9C9C9"
+        },
+        "zeroLine" : {
+          "color" : "#C9C9C9"
+        }
+      },
+      "marks" : {
+        "fields" : { },
+        "headers" : {
+          "color" : {
+            "color" : ""
+          },
+          "isAutomaticSize" : true,
+          "label" : {
+            "canOverlapLabels" : false,
+            "marksToLabel" : {
+              "type" : "All"
+            },
+            "showMarkLabels" : false
+          },
+          "range" : {
+            "reverse" : true
+          },
+          "size" : {
+            "isAutomatic" : true,
+            "type" : "Pixel",
+            "value" : 13
+          }
+        },
+        "panes" : {
+          "color" : {
+            "color" : ""
+          },
+          "isAutomaticSize" : true,
+          "label" : {
+            "canOverlapLabels" : false,
+            "marksToLabel" : {
+              "type" : "All"
+            },
+            "showMarkLabels" : false
+          },
+          "range" : {
+            "reverse" : true
+          },
+          "size" : {
+            "isAutomatic" : true,
+            "type" : "Pixel",
+            "value" : 13
+          }
+        }
+      },
+      "referenceLines" : { },
+      "shading" : {
+        "backgroundColor" : "#FFFFFF",
+        "banding" : {
+          "rows" : {
+            "color" : "#E5E5E5"
+          }
+        }
+      },
+      "showDataPlaceholder" : false,
+      "title" : {
+        "isVisible" : true
+      }
+    }
+  },
+  "workspace" : {
+    "label" : "Sales_Opportunity",
+    "name" : "${App.Workspaces.Sales_Opportunity.Name}"
+  }
+}

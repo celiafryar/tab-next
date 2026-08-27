@@ -1,0 +1,51 @@
+{
+  "id": "1zCgL000000B3nNUAS",
+  "appId": "1zAgL0000003CELUA2",
+  "activityType": "create",
+  "runtimeRequest": {
+    "chain": {
+      "createdBy": {
+        "id": "005gL00000N2s2HQAR",
+        "name": "Celia Fryar",
+        "profilePhotoUrl": "https://orgfarm-d7af4e1689-dev-ed.develop.file.force.com/profilephoto/005/T",
+        "username": "cfryar.2e359b5a0a2a@agentforce.com"
+      },
+      "createdDateTime": "2026-08-25T03:42:05.000Z",
+      "dominoVariant": "sfdc_internal__UnifiedAnalyticsDominoVariant",
+      "id": "0ohgL000000OAnpQAG",
+      "label": "sales_opportunity",
+      "lastModifiedBy": {
+        "id": "005gL00000N2s2HQAR",
+        "name": "Celia Fryar",
+        "profilePhotoUrl": "https://orgfarm-d7af4e1689-dev-ed.develop.file.force.com/profilephoto/005/T",
+        "username": "cfryar.2e359b5a0a2a@agentforce.com"
+      },
+      "lastModifiedDateTime": "2026-08-25T03:42:05.000Z",
+      "name": "sales_opportunity1362112",
+      "parameters": {},
+      "runtimesUri": "/services/data/v67.0/domino/runtimes?chain=0ohgL000000OAnpQAG",
+      "uri": "/services/data/v67.0/domino/chains/0ohgL000000OAnpQAG"
+    },
+    "configuration": {
+      "loggingLevel": "InfoLevel"
+    },
+    "createdBy": {
+      "id": "005gL00000N2s2HQAR",
+      "name": "Celia Fryar",
+      "profilePhotoUrl": "https://orgfarm-d7af4e1689-dev-ed.develop.file.force.com/profilephoto/005/T",
+      "username": "cfryar.2e359b5a0a2a@agentforce.com"
+    },
+    "createdDateTime": "2026-08-25T03:42:07.000Z",
+    "durationInSeconds": 3535,
+    "endDateTime": "2026-08-25T04:41:04.000Z",
+    "id": "0okgL000003NBAjQAO",
+    "lastModifiedDateTime": "2026-08-25T04:41:04.000Z",
+    "requestIndexMetadata": {},
+    "requestMethod": "AsynchronousType",
+    "requestStatus": "FailedStatus",
+    "startDateTime": "2026-08-25T03:42:09.000Z",
+    "stateUri": "/services/data/v67.0/domino/runtimes/0okgL000003NBAjQAO/state",
+    "uri": "/services/data/v67.0/domino/runtimes/0okgL000003NBAjQAO"
+  },
+  "url": "/services/data/v67.0/app-framework/apps/1zAgL0000003CELUA2/activities/1zCgL000000B3nNUAS"
+}

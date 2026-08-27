@@ -1,0 +1,166 @@
+{
+  "name": "CompanyLocationDS",
+  "label": "CompanyLocation DS",
+  "datastreamType": "CONNECTORSFRAMEWORK",
+  "connectorInfo": {
+    "connectorType": "DataConnector",
+    "connectorDetails": {
+      "name": "UploadedFiles"
+    }
+  },
+  "sourceFields": [
+    {
+      "dataType": "Text",
+      "name": "LocationId"
+    },
+    {
+      "dataType": "Text",
+      "name": "LocationName"
+    },
+    {
+      "dataType": "Text",
+      "name": "LocationType"
+    },
+    {
+      "dataType": "Text",
+      "name": "City"
+    },
+    {
+      "dataType": "Text",
+      "name": "StateProvince"
+    },
+    {
+      "dataType": "Text",
+      "name": "Country"
+    },
+    {
+      "dataType": "Text",
+      "name": "RegionId"
+    },
+    {
+      "dataType": "Text",
+      "name": "RegionName"
+    },
+    {
+      "dataType": "Text",
+      "name": "PrimaryRole"
+    }
+  ],
+  "dataLakeObjectInfo": {
+    "name": "${App.DataLakeObjects.CompanyLocation_DLO.Name}",
+    "label": "CompanyLocation DLO",
+    "category": "OTHER",
+    "dataspaceInfo": [
+      {
+        "name": "default"
+      }
+    ],
+    "fields": [
+      {
+        "dataType": "Text",
+        "isPrimaryKey": true,
+        "name": "LocationId",
+        "label": "LocationId"
+      },
+      {
+        "dataType": "Text",
+        "isPrimaryKey": false,
+        "name": "LocationName",
+        "label": "LocationName"
+      },
+      {
+        "dataType": "Text",
+        "isPrimaryKey": false,
+        "name": "LocationType",
+        "label": "LocationType"
+      },
+      {
+        "dataType": "Text",
+        "isPrimaryKey": false,
+        "name": "City",
+        "label": "City"
+      },
+      {
+        "dataType": "Text",
+        "isPrimaryKey": false,
+        "name": "StateProvince",
+        "label": "StateProvince"
+      },
+      {
+        "dataType": "Text",
+        "isPrimaryKey": false,
+        "name": "Country",
+        "label": "Country"
+      },
+      {
+        "dataType": "Text",
+        "isPrimaryKey": false,
+        "name": "RegionId",
+        "label": "RegionId"
+      },
+      {
+        "dataType": "Text",
+        "isPrimaryKey": false,
+        "name": "RegionName",
+        "label": "RegionName"
+      },
+      {
+        "dataType": "Text",
+        "isPrimaryKey": false,
+        "name": "PrimaryRole",
+        "label": "PrimaryRole"
+      }
+    ]
+  },
+  "mappings": [
+    {
+      "sourceFieldLabel": "LocationId",
+      "targetFieldName": "LocationId"
+    },
+    {
+      "sourceFieldLabel": "LocationName",
+      "targetFieldName": "LocationName"
+    },
+    {
+      "sourceFieldLabel": "LocationType",
+      "targetFieldName": "LocationType"
+    },
+    {
+      "sourceFieldLabel": "City",
+      "targetFieldName": "City"
+    },
+    {
+      "sourceFieldLabel": "StateProvince",
+      "targetFieldName": "StateProvince"
+    },
+    {
+      "sourceFieldLabel": "Country",
+      "targetFieldName": "Country"
+    },
+    {
+      "sourceFieldLabel": "RegionId",
+      "targetFieldName": "RegionId"
+    },
+    {
+      "sourceFieldLabel": "RegionName",
+      "targetFieldName": "RegionName"
+    },
+    {
+      "sourceFieldLabel": "PrimaryRole",
+      "targetFieldName": "PrimaryRole"
+    }
+  ],
+  "refreshConfig": {
+    "refreshMode": "TOTAL_REPLACE",
+    "frequency": {
+      "frequencyType": "None"
+    }
+  },
+  "advancedAttributes": {
+    "importDirectory": "${App.CSVs.CompanyLocationCSV.ImportDirectory}",
+    "fileName": "${App.CSVs.CompanyLocationCSV.FileName}",
+    "delimiter": ",",
+    "parentDirectory": "${App.CSVs.CompanyLocationCSV.ParentDirectory}",
+    "fileType": "${App.CSVs.CompanyLocationCSV.FileType}"
+  }
+}

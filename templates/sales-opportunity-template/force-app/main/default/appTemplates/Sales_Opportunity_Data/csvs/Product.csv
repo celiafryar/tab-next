@@ -1,0 +1,76 @@
+ProductId,ProductName,ProductCode,ProductFamily,ProductCategory,PowertrainCompatibility,ListPrice,UnitCost,StandardGrossMarginRate,ActiveFlag,LaunchDate,DiscontinueDate,PrimaryPlantLocationId,PrimaryPlantCity
+01t000000000001AAA,Piston Set A01,AMC-0001,Engine Components,Piston Set,ICE,332.86,209.3,0.3712,true,2019-05-19,,Location002,Fort Wayne
+01t000000000002AAA,Valve Train Module A02,AMC-0002,Engine Components,Valve Train Module,ICE,180.18,113.8,0.3684,true,2021-10-30,,Location002,Fort Wayne
+01t000000000003AAA,Timing Assembly A03,AMC-0003,Engine Components,Timing Assembly,Both,205,125.5,0.3878,true,2019-10-13,,Location002,Fort Wayne
+01t000000000004AAA,Connecting Rod A04,AMC-0004,Engine Components,Connecting Rod,Both,398.77,267.02,0.3304,true,2020-04-16,,Location002,Fort Wayne
+01t000000000005AAA,Cylinder Liner A05,AMC-0005,Engine Components,Cylinder Liner,ICE,377.3,272.07,0.2789,true,2022-05-10,,Location002,Fort Wayne
+01t000000000006AAA,Crank Damper A06,AMC-0006,Engine Components,Crank Damper,ICE,467.93,301.3,0.3561,true,2019-03-13,,Location002,Fort Wayne
+01t000000000007AAA,Oil Pump A07,AMC-0007,Engine Components,Oil Pump,ICE,197.51,120.99,0.3874,true,2018-03-24,,Location002,Fort Wayne
+01t000000000008AAA,Engine Mount A08,AMC-0008,Engine Components,Engine Mount,ICE,268.06,179.17,0.3316,true,2023-11-06,,Location002,Fort Wayne
+01t000000000009AAA,Piston Set B09,AMC-0009,Engine Components,Piston Set,Both,343.01,203.75,0.406,true,2017-01-10,,Location002,Fort Wayne
+01t000000000010AAA,Valve Train Module B10,AMC-0010,Engine Components,Valve Train Module,ICE,439.18,280.72,0.3608,true,2018-10-01,,Location002,Fort Wayne
+01t000000000011AAA,Timing Assembly B11,AMC-0011,Engine Components,Timing Assembly,ICE,306.64,204.74,0.3323,true,2019-08-21,,Location002,Fort Wayne
+01t000000000012AAA,Connecting Rod B12,AMC-0012,Engine Components,Connecting Rod,ICE,398.26,249.67,0.3731,true,2022-04-16,,Location002,Fort Wayne
+01t000000000013AAA,Cylinder Liner B13,AMC-0013,Engine Components,Cylinder Liner,Both,328.94,195.82,0.4047,true,2017-12-13,,Location002,Fort Wayne
+01t000000000014AAA,Ignition Coil A01,AMC-0014,Ignition and Electronics,Ignition Coil,Both,122.21,81.05,0.3368,true,2019-01-21,,Location004,Columbus
+01t000000000015AAA,Position Sensor A02,AMC-0015,Ignition and Electronics,Position Sensor,Both,306.71,168.05,0.4521,true,2017-12-01,,Location004,Columbus
+01t000000000016AAA,Control Module A03,AMC-0016,Ignition and Electronics,Control Module,ICE,358.93,212.59,0.4077,true,2020-03-09,,Location004,Columbus
+01t000000000017AAA,Knock Sensor A04,AMC-0017,Ignition and Electronics,Knock Sensor,ICE,189.19,126.45,0.3316,true,2020-09-21,,Location004,Columbus
+01t000000000018AAA,Power Relay A05,AMC-0018,Ignition and Electronics,Power Relay,Both,149.7,92.07,0.385,true,2022-08-23,,Location004,Columbus
+01t000000000019AAA,Temperature Sensor A06,AMC-0019,Ignition and Electronics,Temperature Sensor,Both,348.69,228.88,0.3436,true,2023-03-17,,Location004,Columbus
+01t000000000020AAA,Harness Assembly A07,AMC-0020,Ignition and Electronics,Harness Assembly,Both,383.86,218.34,0.4312,true,2018-10-07,,Location004,Columbus
+01t000000000021AAA,Signal Controller A08,AMC-0021,Ignition and Electronics,Signal Controller,Both,329.87,239.32,0.2745,true,2020-01-30,,Location004,Columbus
+01t000000000022AAA,Ignition Coil B09,AMC-0022,Ignition and Electronics,Ignition Coil,ICE,362.27,241.05,0.3346,true,2023-08-28,,Location004,Columbus
+01t000000000023AAA,Position Sensor B10,AMC-0023,Ignition and Electronics,Position Sensor,Both,339.06,222.39,0.3441,true,2019-08-31,,Location004,Columbus
+01t000000000024AAA,Control Module B11,AMC-0024,Ignition and Electronics,Control Module,Both,323.03,221.7,0.3137,true,2022-09-24,,Location004,Columbus
+01t000000000025AAA,Knock Sensor B12,AMC-0025,Ignition and Electronics,Knock Sensor,Both,73.56,51.29,0.3028,true,2021-06-01,,Location004,Columbus
+01t000000000026AAA,Power Relay B13,AMC-0026,Ignition and Electronics,Power Relay,Both,295.88,198.27,0.3299,true,2020-08-04,,Location004,Columbus
+01t000000000027AAA,Cooling Pump A01,AMC-0027,Thermal Management,Cooling Pump,ICE,406.03,251.82,0.3798,true,2019-02-08,,Location003,Bowling Green
+01t000000000028AAA,Thermostat Module A02,AMC-0028,Thermal Management,Thermostat Module,Both,198.59,110.67,0.4427,true,2018-08-05,,Location003,Bowling Green
+01t000000000029AAA,Heat Exchanger A03,AMC-0029,Thermal Management,Heat Exchanger,Both,225.72,153.08,0.3218,true,2017-02-18,,Location003,Bowling Green
+01t000000000030AAA,Fan Controller A04,AMC-0030,Thermal Management,Fan Controller,Hybrid-Compatible,158.06,108.56,0.3132,true,2023-07-05,,Location003,Bowling Green
+01t000000000031AAA,Coolant Valve A05,AMC-0031,Thermal Management,Coolant Valve,Both,379.39,237.31,0.3745,true,2023-12-20,,Location003,Bowling Green
+01t000000000032AAA,Radiator Assembly A06,AMC-0032,Thermal Management,Radiator Assembly,Hybrid-Compatible,333.99,199.36,0.4031,true,2022-09-25,,Location003,Bowling Green
+01t000000000033AAA,Thermal Sensor A07,AMC-0033,Thermal Management,Thermal Sensor,ICE,409.26,280.14,0.3155,true,2018-03-10,,Location003,Bowling Green
+01t000000000034AAA,Bypass Valve A08,AMC-0034,Thermal Management,Bypass Valve,Hybrid-Compatible,234.75,148.57,0.3671,true,2022-07-20,,Location003,Bowling Green
+01t000000000035AAA,Cooling Pump B09,AMC-0035,Thermal Management,Cooling Pump,Both,389.44,237.75,0.3895,true,2020-04-03,,Location003,Bowling Green
+01t000000000036AAA,Thermostat Module B10,AMC-0036,Thermal Management,Thermostat Module,ICE,143.04,95.18,0.3346,true,2023-07-21,,Location003,Bowling Green
+01t000000000037AAA,Heat Exchanger B11,AMC-0037,Thermal Management,Heat Exchanger,Both,372.1,244.43,0.3431,true,2018-05-09,,Location003,Bowling Green
+01t000000000038AAA,Fan Controller B12,AMC-0038,Thermal Management,Fan Controller,Both,212.82,127.14,0.4026,true,2019-09-17,,Location003,Bowling Green
+01t000000000039AAA,Air Control Valve A01,AMC-0039,Emissions and Air Management,Air Control Valve,ICE,122.04,75.62,0.3804,true,2017-02-12,,Location003,Bowling Green
+01t000000000040AAA,EGR Module A02,AMC-0040,Emissions and Air Management,EGR Module,ICE,229.54,142.61,0.3787,true,2018-06-29,,Location003,Bowling Green
+01t000000000041AAA,Exhaust Sensor A03,AMC-0041,Emissions and Air Management,Exhaust Sensor,ICE,269.61,152.9,0.4329,true,2017-01-03,,Location003,Bowling Green
+01t000000000042AAA,Intake Manifold A04,AMC-0042,Emissions and Air Management,Intake Manifold,ICE,274.55,174.39,0.3648,true,2021-04-15,,Location003,Bowling Green
+01t000000000043AAA,Emission Valve A05,AMC-0043,Emissions and Air Management,Emission Valve,Both,223.6,128.91,0.4235,true,2017-05-30,,Location003,Bowling Green
+01t000000000044AAA,Airflow Sensor A06,AMC-0044,Emissions and Air Management,Airflow Sensor,Both,405.63,243.46,0.3998,true,2021-02-11,,Location003,Bowling Green
+01t000000000045AAA,Vapor Control Unit A07,AMC-0045,Emissions and Air Management,Vapor Control Unit,ICE,104.92,59.87,0.4294,true,2019-06-16,,Location003,Bowling Green
+01t000000000046AAA,Catalyst Housing A08,AMC-0046,Emissions and Air Management,Catalyst Housing,ICE,83.33,53.15,0.3622,true,2020-04-19,,Location003,Bowling Green
+01t000000000047AAA,Air Control Valve B09,AMC-0047,Emissions and Air Management,Air Control Valve,Both,316.77,213.19,0.327,true,2019-06-09,,Location003,Bowling Green
+01t000000000048AAA,EGR Module B10,AMC-0048,Emissions and Air Management,EGR Module,Both,409.16,264.11,0.3545,true,2017-02-22,,Location003,Bowling Green
+01t000000000049AAA,Exhaust Sensor B11,AMC-0049,Emissions and Air Management,Exhaust Sensor,Both,361.42,244.93,0.3223,true,2019-03-19,,Location003,Bowling Green
+01t000000000050AAA,Intake Manifold B12,AMC-0050,Emissions and Air Management,Intake Manifold,ICE,79.35,51.06,0.3565,true,2017-03-14,,Location003,Bowling Green
+01t000000000051AAA,Fuel Rail A01,AMC-0051,Fuel and Fluid Systems,Fuel Rail,ICE,70.04,51.08,0.2707,true,2017-05-17,,Location002,Fort Wayne
+01t000000000052AAA,Fluid Connector A02,AMC-0052,Fuel and Fluid Systems,Fluid Connector,Both,105.6,62.85,0.4048,true,2021-10-03,,Location002,Fort Wayne
+01t000000000053AAA,Delivery Module A03,AMC-0053,Fuel and Fluid Systems,Delivery Module,Both,242.29,158.05,0.3477,true,2019-07-17,,Location002,Fort Wayne
+01t000000000054AAA,Pressure Regulator A04,AMC-0054,Fuel and Fluid Systems,Pressure Regulator,Both,132.18,80.43,0.3915,true,2020-11-17,,Location002,Fort Wayne
+01t000000000055AAA,Filter Housing A05,AMC-0055,Fuel and Fluid Systems,Filter Housing,Both,237.35,130.02,0.4522,true,2023-12-05,,Location002,Fort Wayne
+01t000000000056AAA,Pump Assembly A06,AMC-0056,Fuel and Fluid Systems,Pump Assembly,Both,203.86,130.96,0.3576,true,2021-05-26,,Location002,Fort Wayne
+01t000000000057AAA,Injector Support A07,AMC-0057,Fuel and Fluid Systems,Injector Support,Both,129.32,72.85,0.4367,true,2020-12-15,,Location002,Fort Wayne
+01t000000000058AAA,Reservoir Module A08,AMC-0058,Fuel and Fluid Systems,Reservoir Module,Both,240.29,167.27,0.3039,true,2022-01-24,,Location002,Fort Wayne
+01t000000000059AAA,Fuel Rail B09,AMC-0059,Fuel and Fluid Systems,Fuel Rail,ICE,213.46,136.27,0.3616,true,2018-05-09,,Location002,Fort Wayne
+01t000000000060AAA,Fluid Connector B10,AMC-0060,Fuel and Fluid Systems,Fluid Connector,Both,251.24,164.46,0.3454,true,2017-02-13,,Location002,Fort Wayne
+01t000000000061AAA,Delivery Module B11,AMC-0061,Fuel and Fluid Systems,Delivery Module,Both,204.59,138.34,0.3238,true,2017-10-26,,Location002,Fort Wayne
+01t000000000062AAA,Pressure Regulator B12,AMC-0062,Fuel and Fluid Systems,Pressure Regulator,Both,197.69,121.05,0.3877,true,2023-12-14,,Location002,Fort Wayne
+01t000000000063AAA,Battery Cooling Plate A01,AMC-0063,Hybrid and Electrification Support,Battery Cooling Plate,Hybrid-Compatible,458.07,264.31,0.423,true,2024-03-24,,Location004,Columbus
+01t000000000064AAA,Power Electronics Housing A02,AMC-0064,Hybrid and Electrification Support,Power Electronics Housing,Hybrid-Compatible,238.21,161.48,0.3221,true,2022-11-01,,Location004,Columbus
+01t000000000065AAA,Hybrid Control Valve A03,AMC-0065,Hybrid and Electrification Support,Hybrid Control Valve,Hybrid-Compatible,335.93,228.94,0.3185,true,2022-06-20,,Location004,Columbus
+01t000000000066AAA,High Voltage Sensor A04,AMC-0066,Hybrid and Electrification Support,High Voltage Sensor,Hybrid-Compatible,431.49,251.52,0.4171,true,2022-11-25,,Location004,Columbus
+01t000000000067AAA,Inverter Cooling Module A05,AMC-0067,Hybrid and Electrification Support,Inverter Cooling Module,Hybrid-Compatible,203.7,130.51,0.3593,true,2022-04-06,,Location004,Columbus
+01t000000000068AAA,Electric Pump A06,AMC-0068,Hybrid and Electrification Support,Electric Pump,Hybrid-Compatible,442.41,303.4,0.3142,true,2023-08-08,,Location004,Columbus
+01t000000000069AAA,Thermal Interface A07,AMC-0069,Hybrid and Electrification Support,Thermal Interface,Hybrid-Compatible,350.97,218.13,0.3785,true,2023-02-05,,Location004,Columbus
+01t000000000070AAA,Energy Management Controller A08,AMC-0070,Hybrid and Electrification Support,Energy Management Controller,Hybrid-Compatible,581.91,339.31,0.4169,true,2023-04-22,,Location004,Columbus
+01t000000000071AAA,Battery Cooling Plate B09,AMC-0071,Hybrid and Electrification Support,Battery Cooling Plate,Hybrid-Compatible,460.6,299.11,0.3506,true,2025-01-03,,Location004,Columbus
+01t000000000072AAA,Power Electronics Housing B10,AMC-0072,Hybrid and Electrification Support,Power Electronics Housing,Hybrid-Compatible,586.23,412.18,0.2969,true,2022-09-17,,Location004,Columbus
+01t000000000073AAA,Hybrid Control Valve B11,AMC-0073,Hybrid and Electrification Support,Hybrid Control Valve,Hybrid-Compatible,214.4,136.74,0.3622,true,2023-06-14,,Location004,Columbus
+01t000000000074AAA,High Voltage Sensor B12,AMC-0074,Hybrid and Electrification Support,High Voltage Sensor,Hybrid-Compatible,340.45,224.7,0.34,true,2023-04-03,,Location004,Columbus
+01t000000000075AAA,Inverter Cooling Module B13,AMC-0075,Hybrid and Electrification Support,Inverter Cooling Module,Hybrid-Compatible,602.93,356.45,0.4088,true,2024-07-10,,Location004,Columbus

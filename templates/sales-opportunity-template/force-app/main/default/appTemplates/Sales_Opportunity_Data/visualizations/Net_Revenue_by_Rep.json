@@ -1,0 +1,393 @@
+{
+  "dataSource": {
+    "name": "${App.SemanticModels.SDX_Opportunity.Name}",
+    "id": "${App.SemanticModels.SDX_Opportunity.Id}",
+    "type": "SemanticModel"
+  },
+  "fields": {
+    "F1": {
+      "displayCategory": "Continuous",
+      "fieldName": "BookingsAmount",
+      "function": "UserAgg",
+      "role": "Measure",
+      "type": "Field"
+    },
+    "F2": {
+      "displayCategory": "Discrete",
+      "fieldName": "FullName1",
+      "label": "Sales Executive Bookings",
+      "objectName": "User",
+      "role": "Dimension",
+      "type": "Field"
+    },
+    "F3": {
+      "displayCategory": "Continuous",
+      "fieldName": "BookingsAmount",
+      "function": "UserAgg",
+      "role": "Measure",
+      "type": "Field"
+    },
+    "F4": {
+      "displayCategory": "Continuous",
+      "fieldName": "BookingsAmount",
+      "function": "UserAgg",
+      "role": "Measure",
+      "type": "Field"
+    },
+    "F5": {
+      "displayCategory": "Continuous",
+      "fieldName": "WonDealCount",
+      "function": "UserAgg",
+      "role": "Measure",
+      "type": "Field"
+    },
+    "F6": {
+      "displayCategory": "Discrete",
+      "fieldName": "CountryScope",
+      "label": "Country",
+      "objectName": "BusinessRegion",
+      "role": "Dimension",
+      "type": "Field"
+    }
+  },
+  "interactions": [],
+  "label": "Net Revenue by Rep",
+  "name": "Net_Revenue_by_Rep",
+  "view": {
+    "label": "default",
+    "name": "Net_Revenue_by_Rep_default",
+    "viewSpecification": {
+      "filter": {
+        "filters": []
+      },
+      "sortOrders": {
+        "columns": [],
+        "fields": {
+          "F2": {
+            "byField": "F3",
+            "order": "Descending",
+            "type": "Field"
+          }
+        },
+        "rows": []
+      },
+      "style": {
+        "headers": {
+          "columns": {
+            "sizing": {
+              "fieldHeight": {}
+            }
+          },
+          "rows": {
+            "sizing": {
+              "fieldWidth": {}
+            }
+          }
+        }
+      }
+    }
+  },
+  "visualSpecification": {
+    "columns": [
+      "F1"
+    ],
+    "forecasts": {},
+    "layout": "Vizql",
+    "legends": {
+      "F6": {
+        "isVisible": true,
+        "position": "Right",
+        "title": {
+          "isVisible": true
+        }
+      }
+    },
+    "marks": {
+      "fields": {},
+      "headers": {
+        "encodings": [],
+        "isAutomatic": true,
+        "stack": {
+          "isAutomatic": true,
+          "isStacked": false
+        },
+        "type": "Text"
+      },
+      "panes": {
+        "encodings": [
+          {
+            "fieldKey": "F4",
+            "type": "Tooltip"
+          },
+          {
+            "fieldKey": "F5",
+            "type": "Tooltip"
+          },
+          {
+            "fieldKey": "F6",
+            "type": "Color"
+          }
+        ],
+        "isAutomatic": true,
+        "stack": {
+          "isAutomatic": true,
+          "isStacked": true
+        },
+        "type": "Bar"
+      }
+    },
+    "measureValues": [],
+    "referenceLines": {},
+    "rows": [
+      "F2"
+    ],
+    "style": {
+      "axis": {
+        "fields": {
+          "F1": {
+            "isVisible": false,
+            "isZeroLineVisible": true,
+            "range": {
+              "includeZero": true,
+              "type": "Auto"
+            },
+            "scale": {
+              "format": {
+                "numberFormatInfo": {
+                  "decimalPlaces": 1,
+                  "displayUnits": "Auto",
+                  "includeThousandSeparator": true,
+                  "negativeValuesFormat": "Auto",
+                  "prefix": "$",
+                  "suffix": "",
+                  "type": "NumberCustom"
+                }
+              }
+            },
+            "ticks": {
+              "majorTicks": {
+                "type": "Auto"
+              },
+              "minorTicks": {
+                "type": "Auto"
+              }
+            }
+          }
+        }
+      },
+      "encodings": {
+        "fields": {
+          "F6": {
+            "colors": {
+              "customColors": [],
+              "palette": {
+                "colors": [
+                  "#4992fe",
+                  "#939393",
+                  "#06a59a",
+                  "#3a49da",
+                  "#fe5c4c",
+                  "#024d4c",
+                  "#3ba755",
+                  "#8a033e",
+                  "#e3066a",
+                  "#002775"
+                ],
+                "type": "Custom"
+              },
+              "type": "Discrete"
+            },
+            "defaults": {
+              "format": {}
+            }
+          },
+          "F1": {
+            "defaults": {
+              "format": {
+                "numberFormatInfo": {
+                  "decimalPlaces": 1,
+                  "displayUnits": "Auto",
+                  "includeThousandSeparator": true,
+                  "negativeValuesFormat": "Auto",
+                  "prefix": "$",
+                  "suffix": "",
+                  "type": "NumberCustom"
+                }
+              }
+            }
+          },
+          "F4": {
+            "defaults": {
+              "format": {
+                "numberFormatInfo": {
+                  "decimalPlaces": 1,
+                  "displayUnits": "Auto",
+                  "includeThousandSeparator": true,
+                  "negativeValuesFormat": "Auto",
+                  "prefix": "$",
+                  "suffix": "",
+                  "type": "NumberCustom"
+                }
+              }
+            }
+          },
+          "F5": {
+            "defaults": {
+              "format": {
+                "numberFormatInfo": {
+                  "decimalPlaces": 2,
+                  "displayUnits": "Auto",
+                  "includeThousandSeparator": true,
+                  "negativeValuesFormat": "Auto",
+                  "prefix": "",
+                  "suffix": "",
+                  "type": "Number"
+                }
+              }
+            }
+          }
+        }
+      },
+      "fieldLabels": {
+        "columns": {
+          "showDividerLine": false,
+          "showLabels": true
+        },
+        "rows": {
+          "showDividerLine": false,
+          "showLabels": true
+        }
+      },
+      "fit": "Entire",
+      "fonts": {
+        "actionableHeaders": {
+          "color": "#0250D9",
+          "size": 13
+        },
+        "axisTickLabels": {
+          "color": "#2E2E2E",
+          "size": 13
+        },
+        "fieldLabels": {
+          "color": "#2E2E2E",
+          "size": 13
+        },
+        "headers": {
+          "color": "#2E2E2E",
+          "size": 13
+        },
+        "legendLabels": {
+          "color": "#2E2E2E",
+          "size": 13
+        },
+        "markLabels": {
+          "color": "#2E2E2E",
+          "size": 13
+        },
+        "marks": {
+          "color": "#2E2E2E",
+          "size": 13
+        }
+      },
+      "headers": {
+        "columns": {
+          "mergeRepeatedCells": true,
+          "showIndex": false,
+          "sizing": {
+            "fieldHeight": {}
+          }
+        },
+        "fields": {
+          "F2": {
+            "hiddenValues": [],
+            "isVisible": true,
+            "showMissingValues": false
+          }
+        },
+        "rows": {
+          "mergeRepeatedCells": true,
+          "showIndex": false,
+          "sizing": {
+            "fieldWidth": {}
+          }
+        }
+      },
+      "lines": {
+        "axisLine": {
+          "color": "#C9C9C9"
+        },
+        "fieldLabelDividerLine": {
+          "color": "#C9C9C9"
+        },
+        "separatorLine": {
+          "color": "#C9C9C9"
+        },
+        "zeroLine": {
+          "color": "#C9C9C9"
+        }
+      },
+      "marks": {
+        "fields": {},
+        "headers": {
+          "color": {
+            "color": ""
+          },
+          "isAutomaticSize": true,
+          "label": {
+            "canOverlapLabels": false,
+            "marksToLabel": {
+              "type": "All"
+            },
+            "showMarkLabels": false
+          },
+          "range": {
+            "reverse": true
+          },
+          "size": {
+            "isAutomatic": true,
+            "type": "Pixel",
+            "value": 13
+          }
+        },
+        "panes": {
+          "color": {
+            "color": ""
+          },
+          "isAutomaticSize": true,
+          "label": {
+            "canOverlapLabels": false,
+            "marksToLabel": {
+              "type": "All"
+            },
+            "showMarkLabels": true
+          },
+          "range": {
+            "reverse": true
+          },
+          "size": {
+            "isAutomatic": true,
+            "type": "Percentage",
+            "value": 75
+          }
+        }
+      },
+      "referenceLines": {},
+      "shading": {
+        "backgroundColor": "#FFFFFF",
+        "banding": {
+          "rows": {
+            "color": "#E5E5E5"
+          }
+        }
+      },
+      "showDataPlaceholder": false,
+      "title": {
+        "isVisible": true
+      }
+    }
+  },
+  "workspace": {
+    "label": "Sales_Opportunity",
+    "name": "${App.Workspaces.Sales_Opportunity.Name}"
+  }
+}

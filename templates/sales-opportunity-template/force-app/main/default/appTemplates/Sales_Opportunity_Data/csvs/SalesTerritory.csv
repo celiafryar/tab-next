@@ -1,0 +1,8 @@
+TerritoryId,TerritoryName,RegionId,RegionName,DirectorGroup,CoverageSummary,PrimaryLocationId
+TerritoryGL,Great Lakes,RegionGL,Great Lakes,Central Sales,"MI, OH, IN, IL, WI",Location001
+TerritoryNE,Northeast,RegionNE,Northeast,Eastern Sales,"NY, PA, NJ, MA, CT, and nearby states",Location006
+TerritorySE,Southeast,RegionSE,Southeast,Eastern Sales,"KY, TN, NC, SC, GA, AL",Location006
+TerritorySC,South Central,RegionSC,South Central,Central Sales,"TX, OK, AR, LA",Location005
+TerritoryWest,West,RegionWest,West,Western and International Sales,"CA, WA, OR, AZ, NV, CO, and nearby states",Location005
+TerritoryCanada,Canada,RegionCA,Canada,Western and International Sales,Canadian provinces,Location007
+TerritoryMexico,Mexico,RegionMX,Mexico,Western and International Sales,Mexican states,Location008

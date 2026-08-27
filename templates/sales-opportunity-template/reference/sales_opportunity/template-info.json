@@ -1,0 +1,28 @@
+{
+  "label" : "sales_opportunity",
+  "description" : null,
+  "releaseInfo" : {
+    "templateVersion" : "1.0",
+    "notesFile" : null
+  },
+  "templateType" : "App",
+  "templateSubtype" : null,
+  "name" : "sales_opportunity",
+  "namespace" : null,
+  "assetVersion" : 67.0,
+  "maxAppCount" : null,
+  "variableDefinition" : "variables.json",
+  "layoutDefinition" : "layout.json",
+  "tags" : { },
+  "chainDefinitions" : [ {
+    "type" : "Create",
+    "name" : null,
+    "file" : "create-chain.json"
+  }, {
+    "type" : "Update",
+    "name" : null,
+    "file" : "create-chain.json",
+    "revAppVersion" : null
+  } ],
+  "templateStatus" : null
+}

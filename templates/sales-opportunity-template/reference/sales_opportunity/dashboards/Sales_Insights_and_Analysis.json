@@ -1,0 +1,1463 @@
+{
+  "customConfig" : {
+    "queryCacheEnabled" : true,
+    "queryCacheStaleness" : "30min"
+  },
+  "label" : "Sales Insights and Analysis",
+  "layouts" : [ {
+    "columnCount" : 96,
+    "maxWidth" : 1600,
+    "name" : "default",
+    "pages" : [ {
+      "label" : "Executive",
+      "name" : "fd911685-045e-4305-8830-8f291ba68b15",
+      "widgets" : [ {
+        "colspan" : 18,
+        "column" : 0,
+        "name" : "container_1",
+        "row" : 0,
+        "rowspan" : 65
+      }, {
+        "colspan" : 18,
+        "column" : 0,
+        "name" : "metric_1",
+        "row" : 35,
+        "rowspan" : 30
+      }, {
+        "colspan" : 12,
+        "column" : 3,
+        "name" : "filter_1",
+        "row" : 26,
+        "rowspan" : 4
+      }, {
+        "colspan" : 12,
+        "column" : 3,
+        "name" : "filter_2",
+        "row" : 22,
+        "rowspan" : 4
+      }, {
+        "colspan" : 12,
+        "column" : 3,
+        "name" : "filter_3",
+        "row" : 18,
+        "rowspan" : 4
+      }, {
+        "colspan" : 18,
+        "column" : 0,
+        "name" : "filter_4",
+        "row" : 10,
+        "rowspan" : 5
+      }, {
+        "colspan" : 15,
+        "column" : 1,
+        "name" : "image_1",
+        "row" : 2,
+        "rowspan" : 6
+      }, {
+        "colspan" : 53,
+        "column" : 18,
+        "name" : "container_2",
+        "row" : 19,
+        "rowspan" : 46
+      }, {
+        "colspan" : 53,
+        "column" : 18,
+        "name" : "container_3",
+        "row" : 7,
+        "rowspan" : 12
+      }, {
+        "colspan" : 13,
+        "column" : 19,
+        "name" : "metric_2",
+        "row" : 8,
+        "rowspan" : 10
+      }, {
+        "colspan" : 11,
+        "column" : 45,
+        "name" : "metric_3",
+        "row" : 8,
+        "rowspan" : 10
+      }, {
+        "colspan" : 13,
+        "column" : 57,
+        "name" : "metric_4",
+        "row" : 8,
+        "rowspan" : 10
+      }, {
+        "colspan" : 11,
+        "column" : 33,
+        "name" : "metric_5",
+        "row" : 8,
+        "rowspan" : 10
+      }, {
+        "colspan" : 25,
+        "column" : 71,
+        "name" : "container_4",
+        "row" : 7,
+        "rowspan" : 58
+      }, {
+        "colspan" : 23,
+        "column" : 72,
+        "name" : "visualization_4",
+        "row" : 8,
+        "rowspan" : 56
+      }, {
+        "colspan" : 78,
+        "column" : 18,
+        "name" : "container_5",
+        "row" : 0,
+        "rowspan" : 7
+      }, {
+        "colspan" : 27,
+        "column" : 19,
+        "name" : "text_1",
+        "row" : 0,
+        "rowspan" : 7
+      }, {
+        "colspan" : 8,
+        "column" : 77,
+        "name" : "button_5",
+        "row" : 1,
+        "rowspan" : 5
+      }, {
+        "colspan" : 8,
+        "column" : 68,
+        "name" : "button_7",
+        "row" : 1,
+        "rowspan" : 5
+      }, {
+        "colspan" : 8,
+        "column" : 86,
+        "name" : "button_9",
+        "row" : 1,
+        "rowspan" : 5
+      }, {
+        "colspan" : 53,
+        "column" : 18,
+        "name" : "visualization_3",
+        "row" : 20,
+        "rowspan" : 44
+      } ]
+    }, {
+      "label" : "Opportunity",
+      "name" : "402b35c7-6b8a-4fa5-959e-40b4159e6b50",
+      "widgets" : [ {
+        "colspan" : 18,
+        "column" : 0,
+        "name" : "container_1",
+        "row" : 0,
+        "rowspan" : 65
+      }, {
+        "colspan" : 18,
+        "column" : 0,
+        "name" : "metric_1",
+        "row" : 35,
+        "rowspan" : 30
+      }, {
+        "colspan" : 12,
+        "column" : 3,
+        "name" : "filter_1",
+        "row" : 26,
+        "rowspan" : 4
+      }, {
+        "colspan" : 12,
+        "column" : 3,
+        "name" : "filter_2",
+        "row" : 22,
+        "rowspan" : 4
+      }, {
+        "colspan" : 12,
+        "column" : 3,
+        "name" : "filter_3",
+        "row" : 18,
+        "rowspan" : 4
+      }, {
+        "colspan" : 18,
+        "column" : 0,
+        "name" : "filter_4",
+        "row" : 10,
+        "rowspan" : 5
+      }, {
+        "colspan" : 15,
+        "column" : 1,
+        "name" : "image_1",
+        "row" : 2,
+        "rowspan" : 6
+      }, {
+        "colspan" : 48,
+        "column" : 18,
+        "name" : "container_2",
+        "row" : 7,
+        "rowspan" : 58
+      }, {
+        "colspan" : 13,
+        "column" : 67,
+        "name" : "metric_3",
+        "row" : 8,
+        "rowspan" : 9
+      }, {
+        "colspan" : 14,
+        "column" : 81,
+        "name" : "metric_4",
+        "row" : 8,
+        "rowspan" : 9
+      }, {
+        "colspan" : 30,
+        "column" : 66,
+        "name" : "container_4",
+        "row" : 7,
+        "rowspan" : 58
+      }, {
+        "colspan" : 78,
+        "column" : 18,
+        "name" : "container_5",
+        "row" : 0,
+        "rowspan" : 7
+      }, {
+        "colspan" : 27,
+        "column" : 19,
+        "name" : "text_2",
+        "row" : 0,
+        "rowspan" : 7
+      }, {
+        "colspan" : 22,
+        "column" : 43,
+        "name" : "visualization_8",
+        "row" : 39,
+        "rowspan" : 25
+      }, {
+        "colspan" : 23,
+        "column" : 19,
+        "name" : "visualization_9",
+        "row" : 39,
+        "rowspan" : 25
+      }, {
+        "colspan" : 46,
+        "column" : 19,
+        "name" : "visualization_10",
+        "row" : 8,
+        "rowspan" : 30
+      }, {
+        "colspan" : 8,
+        "column" : 68,
+        "name" : "button_2",
+        "row" : 1,
+        "rowspan" : 5
+      }, {
+        "colspan" : 8,
+        "column" : 77,
+        "name" : "button_4",
+        "row" : 1,
+        "rowspan" : 5
+      }, {
+        "colspan" : 8,
+        "column" : 86,
+        "name" : "button_8",
+        "row" : 1,
+        "rowspan" : 5
+      }, {
+        "colspan" : 28,
+        "column" : 67,
+        "name" : "visualization_5",
+        "row" : 39,
+        "rowspan" : 25
+      }, {
+        "colspan" : 28,
+        "column" : 67,
+        "name" : "visualization_6",
+        "row" : 29,
+        "rowspan" : 8
+      }, {
+        "colspan" : 8,
+        "column" : 77,
+        "name" : "visualization_7",
+        "row" : 19,
+        "rowspan" : 8
+      }, {
+        "colspan" : 9,
+        "column" : 67,
+        "name" : "visualization_11",
+        "row" : 19,
+        "rowspan" : 8
+      }, {
+        "colspan" : 9,
+        "column" : 86,
+        "name" : "visualization_12",
+        "row" : 19,
+        "rowspan" : 8
+      } ]
+    }, {
+      "label" : "Product",
+      "name" : "3e71e4cf-1239-4450-821b-6db4595a0561",
+      "widgets" : [ {
+        "colspan" : 18,
+        "column" : 0,
+        "name" : "container_1",
+        "row" : 0,
+        "rowspan" : 65
+      }, {
+        "colspan" : 18,
+        "column" : 0,
+        "name" : "metric_1",
+        "row" : 35,
+        "rowspan" : 30
+      }, {
+        "colspan" : 12,
+        "column" : 3,
+        "name" : "filter_1",
+        "row" : 26,
+        "rowspan" : 4
+      }, {
+        "colspan" : 12,
+        "column" : 3,
+        "name" : "filter_2",
+        "row" : 22,
+        "rowspan" : 4
+      }, {
+        "colspan" : 12,
+        "column" : 3,
+        "name" : "filter_3",
+        "row" : 18,
+        "rowspan" : 4
+      }, {
+        "colspan" : 18,
+        "column" : 0,
+        "name" : "filter_4",
+        "row" : 10,
+        "rowspan" : 5
+      }, {
+        "colspan" : 15,
+        "column" : 1,
+        "name" : "image_1",
+        "row" : 2,
+        "rowspan" : 6
+      }, {
+        "colspan" : 43,
+        "column" : 53,
+        "name" : "container_2",
+        "row" : 7,
+        "rowspan" : 58
+      }, {
+        "colspan" : 15,
+        "column" : 20,
+        "name" : "metric_2",
+        "row" : 9,
+        "rowspan" : 9
+      }, {
+        "colspan" : 15,
+        "column" : 36,
+        "name" : "metric_3",
+        "row" : 19,
+        "rowspan" : 9
+      }, {
+        "colspan" : 15,
+        "column" : 20,
+        "name" : "metric_4",
+        "row" : 19,
+        "rowspan" : 9
+      }, {
+        "colspan" : 35,
+        "column" : 18,
+        "name" : "container_4",
+        "row" : 7,
+        "rowspan" : 58
+      }, {
+        "colspan" : 78,
+        "column" : 18,
+        "name" : "container_5",
+        "row" : 0,
+        "rowspan" : 7
+      }, {
+        "colspan" : 15,
+        "column" : 36,
+        "name" : "metric_6",
+        "row" : 9,
+        "rowspan" : 9
+      }, {
+        "colspan" : 8,
+        "column" : 68,
+        "name" : "button_1",
+        "row" : 1,
+        "rowspan" : 5
+      }, {
+        "colspan" : 27,
+        "column" : 19,
+        "name" : "text_3",
+        "row" : 1,
+        "rowspan" : 5
+      }, {
+        "colspan" : 8,
+        "column" : 77,
+        "name" : "button_3",
+        "row" : 1,
+        "rowspan" : 5
+      }, {
+        "colspan" : 8,
+        "column" : 86,
+        "name" : "button_6",
+        "row" : 1,
+        "rowspan" : 5
+      }, {
+        "colspan" : 33,
+        "column" : 19,
+        "name" : "visualization_2",
+        "row" : 29,
+        "rowspan" : 34
+      }, {
+        "colspan" : 41,
+        "column" : 54,
+        "name" : "visualization_1",
+        "row" : 8,
+        "rowspan" : 55
+      } ]
+    } ],
+    "rowHeight" : 10,
+    "style" : {
+      "backgroundColor" : "#ffffff",
+      "cellSpacingX" : 2,
+      "cellSpacingY" : 2,
+      "gutterColor" : "#F3F3F3"
+    }
+  } ],
+  "name" : "Sales_Insights_and_Analysis",
+  "style" : {
+    "widgetStyle" : {
+      "backgroundColor" : "#FFFFFF",
+      "borderColor" : "#CCCCCC",
+      "borderEdges" : [ ],
+      "borderRadius" : 0,
+      "borderWidth" : 1
+    }
+  },
+  "widgets" : {
+    "visualization_2" : {
+      "actions" : [ ],
+      "name" : "visualization_2",
+      "parameters" : {
+        "legendPosition" : "Right",
+        "receiveFilterSource" : {
+          "filterMode" : "all",
+          "widgetIds" : [ ]
+        },
+        "widgetStyle" : {
+          "borderColor" : "#C9C9C9",
+          "borderEdges" : [ ],
+          "borderRadius" : 20,
+          "borderWidth" : 1
+        }
+      },
+      "source" : {
+        "id" : "${App.Visualizations.Product_Heatmap.Id}",
+        "name" : "${App.Visualizations.Product_Heatmap.Name}"
+      },
+      "type" : "visualization"
+    },
+    "visualization_1" : {
+      "actions" : [ ],
+      "name" : "visualization_1",
+      "parameters" : {
+        "legendPosition" : "Right",
+        "receiveFilterSource" : {
+          "filterMode" : "all",
+          "widgetIds" : [ ]
+        }
+      },
+      "source" : {
+        "id" : "${App.Visualizations.Revenue_by_Country_and_Prod_Family.Id}",
+        "name" : "${App.Visualizations.Revenue_by_Country_and_Prod_Family.Name}"
+      },
+      "type" : "visualization"
+    },
+    "visualization_8" : {
+      "actions" : [ ],
+      "name" : "visualization_8",
+      "parameters" : {
+        "legendPosition" : "Right",
+        "receiveFilterSource" : {
+          "filterMode" : "all",
+          "widgetIds" : [ ]
+        },
+        "widgetStyle" : {
+          "borderColor" : "#C9C9C9",
+          "borderEdges" : [ ],
+          "borderRadius" : 20,
+          "borderWidth" : 1
+        }
+      },
+      "source" : {
+        "id" : "${App.Visualizations.Opp_Value_Win_Rate.Id}",
+        "name" : "${App.Visualizations.Opp_Value_Win_Rate.Name}"
+      },
+      "type" : "visualization"
+    },
+    "visualization_7" : {
+      "actions" : [ ],
+      "name" : "visualization_7",
+      "parameters" : {
+        "legendPosition" : "Right",
+        "receiveFilterSource" : {
+          "filterMode" : "all",
+          "widgetIds" : [ ]
+        },
+        "widgetStyle" : {
+          "borderColor" : "#C9C9C9",
+          "borderEdges" : [ ],
+          "borderRadius" : 24,
+          "borderWidth" : 1
+        }
+      },
+      "source" : {
+        "id" : "${App.Visualizations.KPI_Average_Discount.Id}",
+        "name" : "${App.Visualizations.KPI_Average_Discount.Name}"
+      },
+      "type" : "visualization"
+    },
+    "visualization_9" : {
+      "actions" : [ ],
+      "name" : "visualization_9",
+      "parameters" : {
+        "legendPosition" : "Right",
+        "receiveFilterSource" : {
+          "filterMode" : "all",
+          "widgetIds" : [ ]
+        },
+        "widgetStyle" : {
+          "borderColor" : "#C9C9C9",
+          "borderEdges" : [ ],
+          "borderRadius" : 20,
+          "borderWidth" : 1
+        }
+      },
+      "source" : {
+        "id" : "${App.Visualizations.Open_Opportunities.Id}",
+        "name" : "${App.Visualizations.Open_Opportunities.Name}"
+      },
+      "type" : "visualization"
+    },
+    "visualization_4" : {
+      "actions" : [ ],
+      "name" : "visualization_4",
+      "parameters" : {
+        "legendPosition" : "Top",
+        "receiveFilterSource" : {
+          "filterMode" : "all",
+          "widgetIds" : [ ]
+        }
+      },
+      "source" : {
+        "id" : "${App.Visualizations.Net_Revenue_by_Rep.Id}",
+        "name" : "${App.Visualizations.Net_Revenue_by_Rep.Name}"
+      },
+      "type" : "visualization"
+    },
+    "visualization_3" : {
+      "actions" : [ ],
+      "name" : "visualization_3",
+      "parameters" : {
+        "legendPosition" : "Top",
+        "receiveFilterSource" : {
+          "filterMode" : "all",
+          "widgetIds" : [ ]
+        },
+        "widgetStyle" : {
+          "borderColor" : "#C9C9C9",
+          "borderEdges" : [ ],
+          "borderRadius" : 20,
+          "borderWidth" : 1
+        }
+      },
+      "source" : {
+        "id" : "${App.Visualizations.Clients_by_Tier.Id}",
+        "name" : "${App.Visualizations.Clients_by_Tier.Name}"
+      },
+      "type" : "visualization"
+    },
+    "visualization_6" : {
+      "actions" : [ ],
+      "name" : "visualization_6",
+      "parameters" : {
+        "legendPosition" : "Right",
+        "receiveFilterSource" : {
+          "filterMode" : "all",
+          "widgetIds" : [ ]
+        },
+        "widgetStyle" : {
+          "borderColor" : "#C9C9C9",
+          "borderEdges" : [ ],
+          "borderRadius" : 20,
+          "borderWidth" : 1
+        }
+      },
+      "source" : {
+        "id" : "${App.Visualizations.Open_Deal_Count_Arc_Circles.Id}",
+        "name" : "${App.Visualizations.Open_Deal_Count_Arc_Circles.Name}"
+      },
+      "type" : "visualization"
+    },
+    "visualization_5" : {
+      "actions" : [ ],
+      "name" : "visualization_5",
+      "parameters" : {
+        "legendPosition" : "Right",
+        "receiveFilterSource" : {
+          "filterMode" : "all",
+          "widgetIds" : [ ]
+        },
+        "widgetStyle" : {
+          "borderColor" : "#C9C9C9",
+          "borderEdges" : [ ],
+          "borderRadius" : 20,
+          "borderWidth" : 1
+        }
+      },
+      "source" : {
+        "id" : "${App.Visualizations.Net_Revenue_by_Region.Id}",
+        "name" : "${App.Visualizations.Net_Revenue_by_Region.Name}"
+      },
+      "type" : "visualization"
+    },
+    "button_2" : {
+      "actions" : [ {
+        "actionType" : "navigate",
+        "eventType" : "click",
+        "parameters" : {
+          "destination" : {
+            "target" : "fd911685-045e-4305-8830-8f291ba68b15",
+            "type" : "page"
+          }
+        }
+      } ],
+      "name" : "button_2",
+      "parameters" : {
+        "alignmentX" : "center",
+        "alignmentY" : "center",
+        "fontSize" : 16,
+        "text" : "Executive",
+        "widgetStyle" : {
+          "backgroundColor" : "#FFFFFF",
+          "borderColor" : "#066AFE",
+          "borderEdges" : [ "all" ],
+          "borderRadius" : 20,
+          "borderWidth" : 1,
+          "fontColor" : "#0250D9",
+          "textStyle" : [ "bold" ]
+        }
+      },
+      "type" : "button"
+    },
+    "button_1" : {
+      "actions" : [ {
+        "actionType" : "navigate",
+        "eventType" : "click",
+        "parameters" : {
+          "destination" : {
+            "target" : "fd911685-045e-4305-8830-8f291ba68b15",
+            "type" : "page"
+          }
+        }
+      } ],
+      "name" : "button_1",
+      "parameters" : {
+        "alignmentX" : "center",
+        "alignmentY" : "center",
+        "fontSize" : 16,
+        "text" : "Executive",
+        "widgetStyle" : {
+          "backgroundColor" : "#FFFFFF",
+          "borderColor" : "#066AFE",
+          "borderEdges" : [ "all" ],
+          "borderRadius" : 20,
+          "borderWidth" : 1,
+          "fontColor" : "#0250D9",
+          "textStyle" : [ "bold" ]
+        }
+      },
+      "type" : "button"
+    },
+    "button_4" : {
+      "actions" : [ {
+        "actionType" : "navigate",
+        "eventType" : "click",
+        "parameters" : {
+          "destination" : {
+            "target" : "402b35c7-6b8a-4fa5-959e-40b4159e6b50",
+            "type" : "page"
+          }
+        }
+      } ],
+      "name" : "button_4",
+      "parameters" : {
+        "alignmentX" : "center",
+        "alignmentY" : "center",
+        "fontSize" : 16,
+        "text" : "Opportunities",
+        "widgetStyle" : {
+          "backgroundColor" : "#FFFFFF",
+          "borderColor" : "#066AFE",
+          "borderEdges" : [ "all" ],
+          "borderRadius" : 20,
+          "borderWidth" : 1,
+          "fontColor" : "#0250D9",
+          "textStyle" : [ "bold" ]
+        }
+      },
+      "type" : "button"
+    },
+    "container_1" : {
+      "actions" : [ ],
+      "name" : "container_1",
+      "parameters" : {
+        "widgetStyle" : {
+          "backgroundColor" : "#FFFFFF",
+          "borderColor" : "#D8E6FE",
+          "borderEdges" : [ "all" ],
+          "borderRadius" : 16,
+          "borderWidth" : 8
+        }
+      },
+      "type" : "container"
+    },
+    "button_3" : {
+      "actions" : [ {
+        "actionType" : "navigate",
+        "eventType" : "click",
+        "parameters" : {
+          "destination" : {
+            "target" : "402b35c7-6b8a-4fa5-959e-40b4159e6b50",
+            "type" : "page"
+          }
+        }
+      } ],
+      "name" : "button_3",
+      "parameters" : {
+        "alignmentX" : "center",
+        "alignmentY" : "center",
+        "fontSize" : 16,
+        "text" : "Opportunities",
+        "widgetStyle" : {
+          "backgroundColor" : "#FFFFFF",
+          "borderColor" : "#066AFE",
+          "borderEdges" : [ "all" ],
+          "borderRadius" : 20,
+          "borderWidth" : 1,
+          "fontColor" : "#0250D9",
+          "textStyle" : [ "bold" ]
+        }
+      },
+      "type" : "button"
+    },
+    "container_2" : {
+      "actions" : [ ],
+      "name" : "container_2",
+      "parameters" : {
+        "widgetStyle" : {
+          "backgroundColor" : "#D8E6FE",
+          "borderColor" : "#C9C9C9",
+          "borderEdges" : [ "all" ],
+          "borderRadius" : 16,
+          "borderWidth" : 1
+        }
+      },
+      "type" : "container"
+    },
+    "container_3" : {
+      "actions" : [ ],
+      "name" : "container_3",
+      "parameters" : {
+        "widgetStyle" : {
+          "backgroundColor" : "#D8E6FE",
+          "borderColor" : "#C9C9C9",
+          "borderEdges" : [ "all" ],
+          "borderRadius" : 16,
+          "borderWidth" : 1
+        }
+      },
+      "type" : "container"
+    },
+    "container_4" : {
+      "actions" : [ ],
+      "name" : "container_4",
+      "parameters" : {
+        "widgetStyle" : {
+          "backgroundColor" : "#D8E6FE",
+          "borderColor" : "#C9C9C9",
+          "borderEdges" : [ "all" ],
+          "borderRadius" : 16,
+          "borderWidth" : 1
+        }
+      },
+      "type" : "container"
+    },
+    "container_5" : {
+      "actions" : [ ],
+      "name" : "container_5",
+      "parameters" : {
+        "widgetStyle" : {
+          "backgroundColor" : "#FFFFFF",
+          "borderColor" : "#D8E6FE",
+          "borderEdges" : [ "all" ],
+          "borderRadius" : 16,
+          "borderWidth" : 8
+        }
+      },
+      "type" : "container"
+    },
+    "text_3" : {
+      "actions" : [ ],
+      "name" : "text_3",
+      "parameters" : {
+        "conditionalFormattingRules" : [ ],
+        "content" : [ {
+          "attributes" : {
+            "color" : "#5C5C5C",
+            "size" : "28px"
+          },
+          "insert" : "PRODUCT FAMILY INSIGHTS",
+          "rules" : [ ]
+        }, {
+          "attributes" : {
+            "align" : "left"
+          },
+          "insert" : "\n",
+          "rules" : [ ]
+        } ],
+        "receiveFilterSource" : {
+          "filterMode" : "all",
+          "widgetIds" : [ ]
+        }
+      },
+      "type" : "text"
+    },
+    "button_9" : {
+      "actions" : [ {
+        "actionType" : "navigate",
+        "eventType" : "click",
+        "parameters" : {
+          "destination" : {
+            "target" : "3e71e4cf-1239-4450-821b-6db4595a0561",
+            "type" : "page"
+          }
+        }
+      } ],
+      "name" : "button_9",
+      "parameters" : {
+        "alignmentX" : "center",
+        "alignmentY" : "center",
+        "fontSize" : 16,
+        "text" : "Product",
+        "widgetStyle" : {
+          "backgroundColor" : "#FFFFFF",
+          "borderColor" : "#066AFE",
+          "borderEdges" : [ "all" ],
+          "borderRadius" : 20,
+          "borderWidth" : 1,
+          "fontColor" : "#0250D9",
+          "textStyle" : [ "bold" ]
+        }
+      },
+      "type" : "button"
+    },
+    "text_2" : {
+      "actions" : [ ],
+      "name" : "text_2",
+      "parameters" : {
+        "conditionalFormattingRules" : [ ],
+        "content" : [ {
+          "attributes" : {
+            "color" : "#5C5C5C",
+            "size" : "28px"
+          },
+          "insert" : "OPPORTUNITY ANALYSIS",
+          "rules" : [ ]
+        }, {
+          "attributes" : {
+            "align" : "left"
+          },
+          "insert" : "\n",
+          "rules" : [ ]
+        } ],
+        "receiveFilterSource" : {
+          "filterMode" : "all",
+          "widgetIds" : [ ]
+        }
+      },
+      "type" : "text"
+    },
+    "button_6" : {
+      "actions" : [ {
+        "actionType" : "navigate",
+        "eventType" : "click",
+        "parameters" : {
+          "destination" : {
+            "target" : "3e71e4cf-1239-4450-821b-6db4595a0561",
+            "type" : "page"
+          }
+        }
+      } ],
+      "name" : "button_6",
+      "parameters" : {
+        "alignmentX" : "center",
+        "alignmentY" : "center",
+        "fontSize" : 16,
+        "text" : "Product",
+        "widgetStyle" : {
+          "backgroundColor" : "#FFFFFF",
+          "borderColor" : "#066AFE",
+          "borderEdges" : [ "all" ],
+          "borderRadius" : 20,
+          "borderWidth" : 1,
+          "fontColor" : "#0250D9",
+          "textStyle" : [ "bold" ]
+        }
+      },
+      "type" : "button"
+    },
+    "button_5" : {
+      "actions" : [ {
+        "actionType" : "navigate",
+        "eventType" : "click",
+        "parameters" : {
+          "destination" : {
+            "target" : "402b35c7-6b8a-4fa5-959e-40b4159e6b50",
+            "type" : "page"
+          }
+        }
+      } ],
+      "name" : "button_5",
+      "parameters" : {
+        "alignmentX" : "center",
+        "alignmentY" : "center",
+        "fontSize" : 16,
+        "text" : "Opportunities",
+        "widgetStyle" : {
+          "backgroundColor" : "#FFFFFF",
+          "borderColor" : "#066AFE",
+          "borderEdges" : [ "all" ],
+          "borderRadius" : 20,
+          "borderWidth" : 1,
+          "fontColor" : "#0250D9",
+          "textStyle" : [ "bold" ]
+        }
+      },
+      "type" : "button"
+    },
+    "button_8" : {
+      "actions" : [ {
+        "actionType" : "navigate",
+        "eventType" : "click",
+        "parameters" : {
+          "destination" : {
+            "target" : "3e71e4cf-1239-4450-821b-6db4595a0561",
+            "type" : "page"
+          }
+        }
+      } ],
+      "name" : "button_8",
+      "parameters" : {
+        "alignmentX" : "center",
+        "alignmentY" : "center",
+        "fontSize" : 16,
+        "text" : "Product",
+        "widgetStyle" : {
+          "backgroundColor" : "#FFFFFF",
+          "borderColor" : "#066AFE",
+          "borderEdges" : [ "all" ],
+          "borderRadius" : 20,
+          "borderWidth" : 1,
+          "fontColor" : "#0250D9",
+          "textStyle" : [ "bold" ]
+        }
+      },
+      "type" : "button"
+    },
+    "button_7" : {
+      "actions" : [ {
+        "actionType" : "navigate",
+        "eventType" : "click",
+        "parameters" : {
+          "destination" : {
+            "target" : "fd911685-045e-4305-8830-8f291ba68b15",
+            "type" : "page"
+          }
+        }
+      } ],
+      "name" : "button_7",
+      "parameters" : {
+        "alignmentX" : "center",
+        "alignmentY" : "center",
+        "fontSize" : 16,
+        "text" : "Executive",
+        "widgetStyle" : {
+          "backgroundColor" : "#FFFFFF",
+          "borderColor" : "#066AFE",
+          "borderEdges" : [ "all" ],
+          "borderRadius" : 20,
+          "borderWidth" : 1,
+          "fontColor" : "#0250D9",
+          "textStyle" : [ "bold" ]
+        }
+      },
+      "type" : "button"
+    },
+    "text_1" : {
+      "actions" : [ ],
+      "name" : "text_1",
+      "parameters" : {
+        "conditionalFormattingRules" : [ ],
+        "content" : [ {
+          "attributes" : {
+            "color" : "#5C5C5C",
+            "size" : "28px"
+          },
+          "insert" : "EXECUTIVE SALES INSIGHTS",
+          "rules" : [ ]
+        }, {
+          "attributes" : {
+            "align" : "left"
+          },
+          "insert" : "\n",
+          "rules" : [ ]
+        } ],
+        "receiveFilterSource" : {
+          "filterMode" : "all",
+          "widgetIds" : [ ]
+        }
+      },
+      "type" : "text"
+    },
+    "filter_2" : {
+      "actions" : [ ],
+      "label" : "Stage Name",
+      "name" : "filter_2",
+      "parameters" : {
+        "filterOption" : {
+          "dataType" : "Text",
+          "fieldName" : "StageName",
+          "objectName" : "Opportunity",
+          "selectionType" : "multiple"
+        },
+        "isLabelHidden" : false,
+        "receiveFilterSource" : {
+          "filterMode" : "all",
+          "widgetIds" : [ ]
+        },
+        "viewType" : "list",
+        "widgetStyle" : {
+          "backgroundColor" : "#00000000",
+          "borderColor" : "#CCCCCC",
+          "borderEdges" : [ ],
+          "borderRadius" : 0,
+          "borderWidth" : 1
+        }
+      },
+      "source" : {
+        "name" : "${App.SemanticModels.SDX_Opportunity.Name}",
+        "id" : "${App.SemanticModels.SDX_Opportunity.Id}"
+      },
+      "type" : "filter"
+    },
+    "filter_1" : {
+      "actions" : [ ],
+      "label" : "Product Family",
+      "name" : "filter_1",
+      "parameters" : {
+        "filterOption" : {
+          "dataType" : "Text",
+          "fieldName" : "ProductFamily",
+          "objectName" : "Product",
+          "selectionType" : "multiple"
+        },
+        "isLabelHidden" : false,
+        "receiveFilterSource" : {
+          "filterMode" : "all",
+          "widgetIds" : [ ]
+        },
+        "viewType" : "list",
+        "widgetStyle" : {
+          "backgroundColor" : "#00000000",
+          "borderColor" : "#CCCCCC",
+          "borderEdges" : [ ],
+          "borderRadius" : 0,
+          "borderWidth" : 1
+        }
+      },
+      "source" : {
+        "name" : "${App.SemanticModels.SDX_Opportunity.Name}",
+        "id" : "${App.SemanticModels.SDX_Opportunity.Id}"
+      },
+      "type" : "filter"
+    },
+    "filter_4" : {
+      "actions" : [ ],
+      "label" : "Country",
+      "name" : "filter_4",
+      "parameters" : {
+        "defaultStyle" : {
+          "fontColor" : "#0250D9",
+          "textStyle" : [ "bold" ]
+        },
+        "filterOption" : {
+          "dataType" : "Geo",
+          "fieldName" : "Country",
+          "objectName" : "Account",
+          "selectionType" : "multiple"
+        },
+        "receiveFilterSource" : {
+          "filterMode" : "all",
+          "widgetIds" : [ ]
+        },
+        "selectedStyle" : {
+          "backgroundColor" : "#0250D9",
+          "fontColor" : "#FFFFFF",
+          "textStyle" : [ ]
+        },
+        "textStyle" : {
+          "alignmentX" : "center",
+          "alignmentY" : "center",
+          "fontSize" : 16
+        },
+        "viewType" : "toggle",
+        "widgetStyle" : {
+          "backgroundColor" : "#EDF4FF",
+          "borderColor" : "#00000000",
+          "borderEdges" : [ "all" ],
+          "borderRadius" : 32,
+          "borderWidth" : 1
+        }
+      },
+      "source" : {
+        "name" : "${App.SemanticModels.SDX_Opportunity.Name}",
+        "id" : "${App.SemanticModels.SDX_Opportunity.Id}"
+      },
+      "type" : "filter"
+    },
+    "filter_3" : {
+      "actions" : [ ],
+      "label" : "Close Date",
+      "name" : "filter_3",
+      "parameters" : {
+        "filterOption" : {
+          "dataType" : "Date",
+          "fieldName" : "CloseDate",
+          "objectName" : "Opportunity",
+          "selectionType" : "multiple"
+        },
+        "isLabelHidden" : false,
+        "receiveFilterSource" : {
+          "filterMode" : "all",
+          "widgetIds" : [ ]
+        },
+        "viewType" : "list",
+        "widgetStyle" : {
+          "backgroundColor" : "#00000000",
+          "borderColor" : "#CCCCCC",
+          "borderEdges" : [ ],
+          "borderRadius" : 0,
+          "borderWidth" : 1
+        }
+      },
+      "source" : {
+        "name" : "${App.SemanticModels.SDX_Opportunity.Name}",
+        "id" : "${App.SemanticModels.SDX_Opportunity.Id}"
+      },
+      "type" : "filter"
+    },
+    "metric_6" : {
+      "actions" : [ ],
+      "name" : "metric_6",
+      "parameters" : {
+        "metricOption" : {
+          "layout" : {
+            "componentVisibility" : {
+              "comparison" : false,
+              "insights" : false,
+              "details" : true,
+              "title" : true,
+              "value" : true,
+              "chart" : false,
+              "goals" : false
+            }
+          },
+          "sdmApiName" : "${App.SemanticModels.SDX_Opportunity.Name}",
+          "sdmId" : "${App.SemanticModels.SDX_Opportunity.Id}"
+        },
+        "receiveFilterSource" : {
+          "filterMode" : "all",
+          "widgetIds" : [ ]
+        },
+        "widgetStyle" : {
+          "backgroundColor" : "#FFFFFF",
+          "borderColor" : "#C9C9C9",
+          "borderEdges" : [ ],
+          "borderRadius" : 20,
+          "borderWidth" : 1,
+          "textColor" : "#2E2E2E"
+        }
+      },
+      "source" : {
+        "name" : "Lost_Value_mtc"
+      },
+      "type" : "metric"
+    },
+    "image_1" : {
+      "actions" : [ ],
+      "name" : "image_1",
+      "parameters" : {
+        "alignmentX" : "center",
+        "alignmentY" : "center",
+        "altText" : "",
+        "imageScale" : "fill",
+        "opacity" : 100,
+        "widgetStyle" : {
+          "backgroundColor" : "#FFFFFF",
+          "borderColor" : "#CCCCCC",
+          "borderEdges" : [ ],
+          "borderRadius" : 0,
+          "borderWidth" : 1
+        }
+      },
+      "source" : {
+        "name" : "apexmotioncomponentsfulllogotranspa"
+      },
+      "type" : "image"
+    },
+    "metric_5" : {
+      "actions" : [ ],
+      "name" : "metric_5",
+      "parameters" : {
+        "metricOption" : {
+          "layout" : {
+            "componentVisibility" : {
+              "comparison" : false,
+              "insights" : false,
+              "details" : true,
+              "title" : true,
+              "value" : true,
+              "chart" : false,
+              "goals" : false
+            }
+          },
+          "sdmApiName" : "${App.SemanticModels.SDX_Opportunity.Name}",
+          "sdmId" : "${App.SemanticModels.SDX_Opportunity.Id}"
+        },
+        "receiveFilterSource" : {
+          "filterMode" : "all",
+          "widgetIds" : [ ]
+        },
+        "widgetStyle" : {
+          "backgroundColor" : "#FFFFFF",
+          "borderColor" : "#C9C9C9",
+          "borderEdges" : [ ],
+          "borderRadius" : 20,
+          "borderWidth" : 1,
+          "textColor" : "#2E2E2E"
+        }
+      },
+      "source" : {
+        "name" : "Win_Rate_mtc"
+      },
+      "type" : "metric"
+    },
+    "metric_4" : {
+      "actions" : [ ],
+      "name" : "metric_4",
+      "parameters" : {
+        "metricOption" : {
+          "layout" : {
+            "componentVisibility" : {
+              "comparison" : false,
+              "insights" : false,
+              "details" : true,
+              "title" : true,
+              "value" : true,
+              "chart" : false,
+              "goals" : false
+            }
+          },
+          "sdmApiName" : "${App.SemanticModels.SDX_Opportunity.Name}",
+          "sdmId" : "${App.SemanticModels.SDX_Opportunity.Id}"
+        },
+        "receiveFilterSource" : {
+          "filterMode" : "all",
+          "widgetIds" : [ ]
+        },
+        "widgetStyle" : {
+          "backgroundColor" : "#FFFFFF",
+          "borderColor" : "#C9C9C9",
+          "borderEdges" : [ ],
+          "borderRadius" : 20,
+          "borderWidth" : 1,
+          "textColor" : "#2E2E2E"
+        }
+      },
+      "source" : {
+        "name" : "of_Existing_Customers_mtc"
+      },
+      "type" : "metric"
+    },
+    "visualization_12" : {
+      "actions" : [ ],
+      "name" : "visualization_12",
+      "parameters" : {
+        "legendPosition" : "Right",
+        "receiveFilterSource" : {
+          "filterMode" : "all",
+          "widgetIds" : [ ]
+        },
+        "widgetStyle" : {
+          "borderColor" : "#C9C9C9",
+          "borderEdges" : [ ],
+          "borderRadius" : 24,
+          "borderWidth" : 1
+        }
+      },
+      "source" : {
+        "id" : "${App.Visualizations.KPI_xxx.Id}",
+        "name" : "${App.Visualizations.KPI_xxx.Name}"
+      },
+      "type" : "visualization"
+    },
+    "metric_3" : {
+      "actions" : [ ],
+      "name" : "metric_3",
+      "parameters" : {
+        "metricOption" : {
+          "layout" : {
+            "componentVisibility" : {
+              "comparison" : false,
+              "insights" : false,
+              "details" : true,
+              "title" : true,
+              "value" : true,
+              "chart" : false,
+              "goals" : false
+            }
+          },
+          "sdmApiName" : "${App.SemanticModels.SDX_Opportunity.Name}",
+          "sdmId" : "${App.SemanticModels.SDX_Opportunity.Id}"
+        },
+        "receiveFilterSource" : {
+          "filterMode" : "all",
+          "widgetIds" : [ ]
+        },
+        "widgetStyle" : {
+          "backgroundColor" : "#FFFFFF",
+          "borderColor" : "#C9C9C9",
+          "borderEdges" : [ ],
+          "borderRadius" : 20,
+          "borderWidth" : 1,
+          "textColor" : "#2E2E2E"
+        }
+      },
+      "source" : {
+        "name" : "of_Customers_mtc"
+      },
+      "type" : "metric"
+    },
+    "visualization_11" : {
+      "actions" : [ ],
+      "name" : "visualization_11",
+      "parameters" : {
+        "legendPosition" : "Right",
+        "receiveFilterSource" : {
+          "filterMode" : "all",
+          "widgetIds" : [ ]
+        },
+        "widgetStyle" : {
+          "borderColor" : "#C9C9C9",
+          "borderEdges" : [ ],
+          "borderRadius" : 24,
+          "borderWidth" : 1
+        }
+      },
+      "source" : {
+        "id" : "${App.Visualizations.KPI_Gross_Margin.Id}",
+        "name" : "${App.Visualizations.KPI_Gross_Margin.Name}"
+      },
+      "type" : "visualization"
+    },
+    "metric_2" : {
+      "actions" : [ ],
+      "name" : "metric_2",
+      "parameters" : {
+        "metricOption" : {
+          "layout" : {
+            "componentVisibility" : {
+              "comparison" : false,
+              "insights" : false,
+              "details" : true,
+              "title" : true,
+              "value" : true,
+              "chart" : false,
+              "goals" : false
+            }
+          },
+          "sdmApiName" : "${App.SemanticModels.SDX_Opportunity.Name}",
+          "sdmId" : "${App.SemanticModels.SDX_Opportunity.Id}"
+        },
+        "receiveFilterSource" : {
+          "filterMode" : "all",
+          "widgetIds" : [ ]
+        },
+        "widgetStyle" : {
+          "backgroundColor" : "#FFFFFF",
+          "borderColor" : "#C9C9C9",
+          "borderEdges" : [ ],
+          "borderRadius" : 20,
+          "borderWidth" : 1,
+          "textColor" : "#2E2E2E"
+        }
+      },
+      "source" : {
+        "name" : "Bookings_mtc"
+      },
+      "type" : "metric"
+    },
+    "visualization_10" : {
+      "actions" : [ ],
+      "name" : "visualization_10",
+      "parameters" : {
+        "legendPosition" : "Right",
+        "receiveFilterSource" : {
+          "filterMode" : "all",
+          "widgetIds" : [ ]
+        }
+      },
+      "source" : {
+        "id" : "${App.Visualizations.Company_Locations.Id}",
+        "name" : "${App.Visualizations.Company_Locations.Name}"
+      },
+      "type" : "visualization"
+    },
+    "metric_1" : {
+      "actions" : [ ],
+      "name" : "metric_1",
+      "parameters" : {
+        "metricOption" : {
+          "layout" : {
+            "componentVisibility" : {
+              "comparison" : true,
+              "insights" : true,
+              "details" : true,
+              "title" : true,
+              "value" : true,
+              "chart" : true,
+              "goals" : true
+            }
+          },
+          "sdmApiName" : "${App.SemanticModels.SDX_Opportunity.Name}",
+          "sdmId" : "${App.SemanticModels.SDX_Opportunity.Id}"
+        },
+        "receiveFilterSource" : {
+          "filterMode" : "all",
+          "widgetIds" : [ ]
+        }
+      },
+      "source" : {
+        "name" : "Open_Pipeline_mtc"
+      },
+      "type" : "metric"
+    }
+  },
+  "workspaceIdOrApiName" : "${App.Workspaces.Sales_Opportunity.Name}"
+}

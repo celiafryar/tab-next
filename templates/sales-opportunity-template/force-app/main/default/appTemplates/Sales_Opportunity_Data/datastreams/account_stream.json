@@ -1,0 +1,251 @@
+{
+  "name": "AccountDS",
+  "label": "Account DS",
+  "datastreamType": "CONNECTORSFRAMEWORK",
+  "connectorInfo": {
+    "connectorType": "DataConnector",
+    "connectorDetails": {
+      "name": "UploadedFiles"
+    }
+  },
+  "sourceFields": [
+    {
+      "dataType": "Text",
+      "name": "AccountId"
+    },
+    {
+      "dataType": "Text",
+      "name": "AccountName"
+    },
+    {
+      "dataType": "Text",
+      "name": "AccountType"
+    },
+    {
+      "dataType": "Text",
+      "name": "AccountTier"
+    },
+    {
+      "dataType": "Text",
+      "name": "Industry"
+    },
+    {
+      "dataType": "Number",
+      "name": "AnnualRevenue"
+    },
+    {
+      "dataType": "Number",
+      "name": "EmployeeCount"
+    },
+    {
+      "dataType": "Text",
+      "name": "City"
+    },
+    {
+      "dataType": "Text",
+      "name": "StateProvince"
+    },
+    {
+      "dataType": "Text",
+      "name": "Country"
+    },
+    {
+      "dataType": "Text",
+      "name": "SalesTerritoryId"
+    },
+    {
+      "dataType": "Date",
+      "format": "yyyy-MM-dd",
+      "name": "CustomerSinceDate"
+    },
+    {
+      "dataType": "Boolean",
+      "name": "StrategicAccountFlag"
+    },
+    {
+      "dataType": "Text",
+      "name": "PrimaryPowertrainFocus"
+    },
+    {
+      "dataType": "Text",
+      "name": "AccountStatus"
+    }
+  ],
+  "dataLakeObjectInfo": {
+    "name": "${App.DataLakeObjects.Account_DLO.Name}",
+    "label": "Account DLO",
+    "category": "OTHER",
+    "dataspaceInfo": [
+      {
+        "name": "default"
+      }
+    ],
+    "fields": [
+      {
+        "dataType": "Text",
+        "isPrimaryKey": true,
+        "name": "AccountId",
+        "label": "AccountId"
+      },
+      {
+        "dataType": "Text",
+        "isPrimaryKey": false,
+        "name": "AccountName",
+        "label": "AccountName"
+      },
+      {
+        "dataType": "Text",
+        "isPrimaryKey": false,
+        "name": "AccountType",
+        "label": "AccountType"
+      },
+      {
+        "dataType": "Text",
+        "isPrimaryKey": false,
+        "name": "AccountTier",
+        "label": "AccountTier"
+      },
+      {
+        "dataType": "Text",
+        "isPrimaryKey": false,
+        "name": "Industry",
+        "label": "Industry"
+      },
+      {
+        "dataType": "Number",
+        "isPrimaryKey": false,
+        "name": "AnnualRevenue",
+        "label": "AnnualRevenue"
+      },
+      {
+        "dataType": "Number",
+        "isPrimaryKey": false,
+        "name": "EmployeeCount",
+        "label": "EmployeeCount"
+      },
+      {
+        "dataType": "Text",
+        "isPrimaryKey": false,
+        "name": "City",
+        "label": "City"
+      },
+      {
+        "dataType": "Text",
+        "isPrimaryKey": false,
+        "name": "StateProvince",
+        "label": "StateProvince"
+      },
+      {
+        "dataType": "Text",
+        "isPrimaryKey": false,
+        "name": "Country",
+        "label": "Country"
+      },
+      {
+        "dataType": "Text",
+        "isPrimaryKey": false,
+        "name": "SalesTerritoryId",
+        "label": "SalesTerritoryId"
+      },
+      {
+        "dataType": "Date",
+        "isPrimaryKey": false,
+        "name": "CustomerSinceDate",
+        "label": "CustomerSinceDate"
+      },
+      {
+        "dataType": "Boolean",
+        "isPrimaryKey": false,
+        "name": "StrategicAccountFlag",
+        "label": "StrategicAccountFlag"
+      },
+      {
+        "dataType": "Text",
+        "isPrimaryKey": false,
+        "name": "PrimaryPowertrainFocus",
+        "label": "PrimaryPowertrainFocus"
+      },
+      {
+        "dataType": "Text",
+        "isPrimaryKey": false,
+        "name": "AccountStatus",
+        "label": "AccountStatus"
+      }
+    ]
+  },
+  "mappings": [
+    {
+      "sourceFieldLabel": "AccountId",
+      "targetFieldName": "AccountId"
+    },
+    {
+      "sourceFieldLabel": "AccountName",
+      "targetFieldName": "AccountName"
+    },
+    {
+      "sourceFieldLabel": "AccountType",
+      "targetFieldName": "AccountType"
+    },
+    {
+      "sourceFieldLabel": "AccountTier",
+      "targetFieldName": "AccountTier"
+    },
+    {
+      "sourceFieldLabel": "Industry",
+      "targetFieldName": "Industry"
+    },
+    {
+      "sourceFieldLabel": "AnnualRevenue",
+      "targetFieldName": "AnnualRevenue"
+    },
+    {
+      "sourceFieldLabel": "EmployeeCount",
+      "targetFieldName": "EmployeeCount"
+    },
+    {
+      "sourceFieldLabel": "City",
+      "targetFieldName": "City"
+    },
+    {
+      "sourceFieldLabel": "StateProvince",
+      "targetFieldName": "StateProvince"
+    },
+    {
+      "sourceFieldLabel": "Country",
+      "targetFieldName": "Country"
+    },
+    {
+      "sourceFieldLabel": "SalesTerritoryId",
+      "targetFieldName": "SalesTerritoryId"
+    },
+    {
+      "sourceFieldLabel": "CustomerSinceDate",
+      "targetFieldName": "CustomerSinceDate"
+    },
+    {
+      "sourceFieldLabel": "StrategicAccountFlag",
+      "targetFieldName": "StrategicAccountFlag"
+    },
+    {
+      "sourceFieldLabel": "PrimaryPowertrainFocus",
+      "targetFieldName": "PrimaryPowertrainFocus"
+    },
+    {
+      "sourceFieldLabel": "AccountStatus",
+      "targetFieldName": "AccountStatus"
+    }
+  ],
+  "refreshConfig": {
+    "refreshMode": "TOTAL_REPLACE",
+    "frequency": {
+      "frequencyType": "None"
+    }
+  },
+  "advancedAttributes": {
+    "importDirectory": "${App.CSVs.AccountCSV.ImportDirectory}",
+    "fileName": "${App.CSVs.AccountCSV.FileName}",
+    "delimiter": ",",
+    "parentDirectory": "${App.CSVs.AccountCSV.ParentDirectory}",
+    "fileType": "${App.CSVs.AccountCSV.FileType}"
+  }
+}

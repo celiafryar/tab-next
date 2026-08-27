@@ -1,0 +1,66 @@
+{
+  "name" : "test00743",
+  "label" : "Test007",
+  "parameters" : { },
+  "dominoVariant" : "sfdc_internal__UnifiedAnalyticsDominoVariant",
+  "definition" : {
+    "nodes" : {
+      "upsert_workspace_HR_New_Copy" : {
+        "referenceId" : "upsert_workspace_HR_New_Copy",
+        "sources" : [ ],
+        "parameters" : {
+          "name" : "HR_New_Copy",
+          "file" : "/workspaces/HR_New_Copy.json",
+          "assets" : [ ],
+          "condition" : "true"
+        },
+        "graphNodeType" : {
+          "name" : "WorkspaceUpsert",
+          "label" : "Create/Update a Workspace from a Template"
+        }
+      },
+      "upsert_sdm_Employee_copy_2fe" : {
+        "referenceId" : "upsert_sdm_Employee_copy_2fe",
+        "sources" : [ "upsert_workspace_HR_New_Copy" ],
+        "parameters" : {
+          "name" : "Employee_copy_2fe",
+          "file" : "/sdms/Employee_copy_2fe.json",
+          "condition" : "true"
+        },
+        "graphNodeType" : {
+          "name" : "SemanticModelUpsert",
+          "label" : null
+        }
+      },
+      "upsert_visualization_HH_Test" : {
+        "referenceId" : "upsert_visualization_HH_Test",
+        "sources" : [ "upsert_sdm_Employee_copy_2fe" ],
+        "parameters" : {
+          "name" : "HH_Test",
+          "file" : "/visualizations/HH_Test.json",
+          "condition" : "true"
+        },
+        "graphNodeType" : {
+          "name" : "VisualizationUpsert",
+          "label" : "Create/Update a Visualization from a Template"
+        }
+      },
+      "upsert_dashboard_HR_Copy_Dash" : {
+        "referenceId" : "upsert_dashboard_HR_Copy_Dash",
+        "sources" : [ "upsert_visualization_HH_Test" ],
+        "parameters" : {
+          "name" : "HR_Copy_Dash",
+          "file" : "/dashboards/HR_Copy_Dash.json",
+          "condition" : "true"
+        },
+        "graphNodeType" : {
+          "name" : "DashboardUpsert",
+          "label" : "Create/Update a Dashboard from a Template"
+        }
+      }
+    }
+  },
+  "finallyDefinition" : {
+    "nodes" : { }
+  }
+}

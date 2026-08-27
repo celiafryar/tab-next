@@ -1,0 +1,293 @@
+{
+  "dataSource" : {
+    "name" : "${App.SemanticModels.Employee_copy_2fe.Name}",
+    "id" : "${App.SemanticModels.Employee_copy_2fe.Id}",
+    "type" : "SemanticModel"
+  },
+  "fields" : {
+    "F1" : {
+      "displayCategory" : "Discrete",
+      "fieldName" : "hire_date_c",
+      "function" : "DatePartYear",
+      "objectName" : "Employee",
+      "role" : "Dimension",
+      "type" : "Field"
+    },
+    "F2" : {
+      "displayCategory" : "Discrete",
+      "fieldName" : "hire_date_c",
+      "function" : "DatePartQuarter",
+      "objectName" : "Employee",
+      "role" : "Dimension",
+      "type" : "Field"
+    },
+    "F3" : {
+      "displayCategory" : "Continuous",
+      "fieldName" : "employee_id_c",
+      "function" : "Sum",
+      "objectName" : "Employee",
+      "role" : "Measure",
+      "type" : "Field"
+    }
+  },
+  "interactions" : [ ],
+  "label" : "HH-Test",
+  "name" : "HH_Test",
+  "view" : {
+    "label" : "default",
+    "name" : "HH_Test_default",
+    "viewSpecification" : {
+      "filter" : {
+        "filters" : [ ]
+      },
+      "sortOrders" : {
+        "columns" : [ ],
+        "fields" : { },
+        "rows" : [ ]
+      },
+      "style" : {
+        "headers" : {
+          "columns" : {
+            "sizing" : {
+              "fieldHeight" : { }
+            }
+          },
+          "rows" : {
+            "sizing" : {
+              "fieldWidth" : { }
+            }
+          }
+        }
+      }
+    }
+  },
+  "visualSpecification" : {
+    "columns" : [ "F1", "F2" ],
+    "forecasts" : { },
+    "layout" : "Vizql",
+    "legends" : { },
+    "marks" : {
+      "fields" : { },
+      "headers" : {
+        "encodings" : [ ],
+        "isAutomatic" : true,
+        "stack" : {
+          "isAutomatic" : true,
+          "isStacked" : false
+        },
+        "type" : "Text"
+      },
+      "panes" : {
+        "encodings" : [ ],
+        "isAutomatic" : false,
+        "stack" : {
+          "isAutomatic" : true,
+          "isStacked" : true
+        },
+        "type" : "Bar"
+      }
+    },
+    "measureValues" : [ ],
+    "referenceLines" : { },
+    "rows" : [ "F3" ],
+    "style" : {
+      "axis" : {
+        "fields" : {
+          "F3" : {
+            "isVisible" : true,
+            "isZeroLineVisible" : true,
+            "range" : {
+              "includeZero" : true,
+              "type" : "Auto"
+            },
+            "scale" : {
+              "format" : {
+                "numberFormatInfo" : {
+                  "decimalPlaces" : 2,
+                  "displayUnits" : "Auto",
+                  "includeThousandSeparator" : true,
+                  "negativeValuesFormat" : "Auto",
+                  "prefix" : "",
+                  "suffix" : "",
+                  "type" : "NumberShort"
+                }
+              }
+            },
+            "ticks" : {
+              "majorTicks" : {
+                "type" : "Auto"
+              },
+              "minorTicks" : {
+                "type" : "Auto"
+              }
+            }
+          }
+        }
+      },
+      "encodings" : {
+        "fields" : {
+          "F3" : {
+            "defaults" : {
+              "format" : {
+                "numberFormatInfo" : {
+                  "decimalPlaces" : 2,
+                  "displayUnits" : "Auto",
+                  "includeThousandSeparator" : true,
+                  "negativeValuesFormat" : "Auto",
+                  "prefix" : "",
+                  "suffix" : "",
+                  "type" : "Number"
+                }
+              }
+            }
+          }
+        }
+      },
+      "fieldLabels" : {
+        "columns" : {
+          "showDividerLine" : false,
+          "showLabels" : true
+        },
+        "rows" : {
+          "showDividerLine" : false,
+          "showLabels" : true
+        }
+      },
+      "fit" : "Entire",
+      "fonts" : {
+        "actionableHeaders" : {
+          "color" : "#0250D9",
+          "size" : 13
+        },
+        "axisTickLabels" : {
+          "color" : "#2E2E2E",
+          "size" : 13
+        },
+        "fieldLabels" : {
+          "color" : "#2E2E2E",
+          "size" : 13
+        },
+        "headers" : {
+          "color" : "#2E2E2E",
+          "size" : 13
+        },
+        "legendLabels" : {
+          "color" : "#2E2E2E",
+          "size" : 13
+        },
+        "markLabels" : {
+          "color" : "#2E2E2E",
+          "size" : 13
+        },
+        "marks" : {
+          "color" : "#2E2E2E",
+          "size" : 13
+        }
+      },
+      "headers" : {
+        "columns" : {
+          "mergeRepeatedCells" : true,
+          "showIndex" : false,
+          "sizing" : {
+            "fieldHeight" : { }
+          }
+        },
+        "fields" : {
+          "F1" : {
+            "hiddenValues" : [ ],
+            "isVisible" : true,
+            "showMissingValues" : false
+          },
+          "F2" : {
+            "hiddenValues" : [ ],
+            "isVisible" : true,
+            "showMissingValues" : false
+          }
+        },
+        "rows" : {
+          "mergeRepeatedCells" : true,
+          "showIndex" : false,
+          "sizing" : {
+            "fieldWidth" : { }
+          }
+        }
+      },
+      "lines" : {
+        "axisLine" : {
+          "color" : "#C9C9C9"
+        },
+        "fieldLabelDividerLine" : {
+          "color" : "#C9C9C9"
+        },
+        "separatorLine" : {
+          "color" : "#C9C9C9"
+        },
+        "zeroLine" : {
+          "color" : "#C9C9C9"
+        }
+      },
+      "marks" : {
+        "fields" : { },
+        "headers" : {
+          "color" : {
+            "color" : ""
+          },
+          "isAutomaticSize" : true,
+          "label" : {
+            "canOverlapLabels" : false,
+            "marksToLabel" : {
+              "type" : "All"
+            },
+            "showMarkLabels" : false
+          },
+          "range" : {
+            "reverse" : true
+          },
+          "size" : {
+            "isAutomatic" : true,
+            "type" : "Pixel",
+            "value" : 13
+          }
+        },
+        "panes" : {
+          "color" : {
+            "color" : ""
+          },
+          "isAutomaticSize" : true,
+          "label" : {
+            "canOverlapLabels" : false,
+            "marksToLabel" : {
+              "type" : "All"
+            },
+            "showMarkLabels" : false
+          },
+          "range" : {
+            "reverse" : true
+          },
+          "size" : {
+            "isAutomatic" : true,
+            "type" : "Percentage",
+            "value" : 75
+          }
+        }
+      },
+      "referenceLines" : { },
+      "shading" : {
+        "backgroundColor" : "#FFFFFF",
+        "banding" : {
+          "rows" : {
+            "color" : "#E5E5E5"
+          }
+        }
+      },
+      "showDataPlaceholder" : false,
+      "title" : {
+        "isVisible" : true
+      }
+    }
+  },
+  "workspace" : {
+    "label" : "HR_New_Copy",
+    "name" : "${App.Workspaces.HR_New_Copy.Name}"
+  }
+}

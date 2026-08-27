@@ -1,0 +1,237 @@
+{
+  "name": "ProductDS",
+  "label": "Product DS",
+  "datastreamType": "CONNECTORSFRAMEWORK",
+  "connectorInfo": {
+    "connectorType": "DataConnector",
+    "connectorDetails": {
+      "name": "UploadedFiles"
+    }
+  },
+  "sourceFields": [
+    {
+      "dataType": "Text",
+      "name": "ProductId"
+    },
+    {
+      "dataType": "Text",
+      "name": "ProductName"
+    },
+    {
+      "dataType": "Text",
+      "name": "ProductCode"
+    },
+    {
+      "dataType": "Text",
+      "name": "ProductFamily"
+    },
+    {
+      "dataType": "Text",
+      "name": "ProductCategory"
+    },
+    {
+      "dataType": "Text",
+      "name": "PowertrainCompatibility"
+    },
+    {
+      "dataType": "Number",
+      "name": "ListPrice"
+    },
+    {
+      "dataType": "Number",
+      "name": "UnitCost"
+    },
+    {
+      "dataType": "Number",
+      "name": "StandardGrossMarginRate"
+    },
+    {
+      "dataType": "Boolean",
+      "name": "ActiveFlag"
+    },
+    {
+      "dataType": "Date",
+      "format": "yyyy-MM-dd",
+      "name": "LaunchDate"
+    },
+    {
+      "dataType": "Text",
+      "name": "DiscontinueDate"
+    },
+    {
+      "dataType": "Text",
+      "name": "PrimaryPlantLocationId"
+    },
+    {
+      "dataType": "Text",
+      "name": "PrimaryPlantCity"
+    }
+  ],
+  "dataLakeObjectInfo": {
+    "name": "${App.DataLakeObjects.Product_DLO.Name}",
+    "label": "Product DLO",
+    "category": "OTHER",
+    "dataspaceInfo": [
+      {
+        "name": "default"
+      }
+    ],
+    "fields": [
+      {
+        "dataType": "Text",
+        "isPrimaryKey": true,
+        "name": "ProductId",
+        "label": "ProductId"
+      },
+      {
+        "dataType": "Text",
+        "isPrimaryKey": false,
+        "name": "ProductName",
+        "label": "ProductName"
+      },
+      {
+        "dataType": "Text",
+        "isPrimaryKey": false,
+        "name": "ProductCode",
+        "label": "ProductCode"
+      },
+      {
+        "dataType": "Text",
+        "isPrimaryKey": false,
+        "name": "ProductFamily",
+        "label": "ProductFamily"
+      },
+      {
+        "dataType": "Text",
+        "isPrimaryKey": false,
+        "name": "ProductCategory",
+        "label": "ProductCategory"
+      },
+      {
+        "dataType": "Text",
+        "isPrimaryKey": false,
+        "name": "PowertrainCompatibility",
+        "label": "PowertrainCompatibility"
+      },
+      {
+        "dataType": "Number",
+        "isPrimaryKey": false,
+        "name": "ListPrice",
+        "label": "ListPrice"
+      },
+      {
+        "dataType": "Number",
+        "isPrimaryKey": false,
+        "name": "UnitCost",
+        "label": "UnitCost"
+      },
+      {
+        "dataType": "Number",
+        "isPrimaryKey": false,
+        "name": "StandardGrossMarginRate",
+        "label": "StandardGrossMarginRate"
+      },
+      {
+        "dataType": "Boolean",
+        "isPrimaryKey": false,
+        "name": "ActiveFlag",
+        "label": "ActiveFlag"
+      },
+      {
+        "dataType": "Date",
+        "isPrimaryKey": false,
+        "name": "LaunchDate",
+        "label": "LaunchDate"
+      },
+      {
+        "dataType": "Text",
+        "isPrimaryKey": false,
+        "name": "DiscontinueDate",
+        "label": "DiscontinueDate"
+      },
+      {
+        "dataType": "Text",
+        "isPrimaryKey": false,
+        "name": "PrimaryPlantLocationId",
+        "label": "PrimaryPlantLocationId"
+      },
+      {
+        "dataType": "Text",
+        "isPrimaryKey": false,
+        "name": "PrimaryPlantCity",
+        "label": "PrimaryPlantCity"
+      }
+    ]
+  },
+  "mappings": [
+    {
+      "sourceFieldLabel": "ProductId",
+      "targetFieldName": "ProductId"
+    },
+    {
+      "sourceFieldLabel": "ProductName",
+      "targetFieldName": "ProductName"
+    },
+    {
+      "sourceFieldLabel": "ProductCode",
+      "targetFieldName": "ProductCode"
+    },
+    {
+      "sourceFieldLabel": "ProductFamily",
+      "targetFieldName": "ProductFamily"
+    },
+    {
+      "sourceFieldLabel": "ProductCategory",
+      "targetFieldName": "ProductCategory"
+    },
+    {
+      "sourceFieldLabel": "PowertrainCompatibility",
+      "targetFieldName": "PowertrainCompatibility"
+    },
+    {
+      "sourceFieldLabel": "ListPrice",
+      "targetFieldName": "ListPrice"
+    },
+    {
+      "sourceFieldLabel": "UnitCost",
+      "targetFieldName": "UnitCost"
+    },
+    {
+      "sourceFieldLabel": "StandardGrossMarginRate",
+      "targetFieldName": "StandardGrossMarginRate"
+    },
+    {
+      "sourceFieldLabel": "ActiveFlag",
+      "targetFieldName": "ActiveFlag"
+    },
+    {
+      "sourceFieldLabel": "LaunchDate",
+      "targetFieldName": "LaunchDate"
+    },
+    {
+      "sourceFieldLabel": "DiscontinueDate",
+      "targetFieldName": "DiscontinueDate"
+    },
+    {
+      "sourceFieldLabel": "PrimaryPlantLocationId",
+      "targetFieldName": "PrimaryPlantLocationId"
+    },
+    {
+      "sourceFieldLabel": "PrimaryPlantCity",
+      "targetFieldName": "PrimaryPlantCity"
+    }
+  ],
+  "refreshConfig": {
+    "refreshMode": "TOTAL_REPLACE",
+    "frequency": {
+      "frequencyType": "None"
+    }
+  },
+  "advancedAttributes": {
+    "importDirectory": "${App.CSVs.ProductCSV.ImportDirectory}",
+    "fileName": "${App.CSVs.ProductCSV.FileName}",
+    "delimiter": ",",
+    "parentDirectory": "${App.CSVs.ProductCSV.ParentDirectory}",
+    "fileType": "${App.CSVs.ProductCSV.FileType}"
+  }
+}

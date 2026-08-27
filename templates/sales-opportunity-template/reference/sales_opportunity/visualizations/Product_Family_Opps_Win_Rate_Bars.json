@@ -1,0 +1,411 @@
+{
+  "dataSource" : {
+    "name" : "${App.SemanticModels.SDX_Opportunity.Name}",
+    "id" : "${App.SemanticModels.SDX_Opportunity.Id}",
+    "type" : "SemanticModel"
+  },
+  "fields" : {
+    "F2" : {
+      "displayCategory" : "Discrete",
+      "fieldName" : "ProductFamily",
+      "label" : "Family",
+      "objectName" : "Product",
+      "role" : "Dimension",
+      "type" : "Field"
+    },
+    "F3" : {
+      "displayCategory" : "Continuous",
+      "fieldName" : "AverageDealSize",
+      "function" : "UserAgg",
+      "role" : "Measure",
+      "type" : "Field"
+    },
+    "F12" : {
+      "displayCategory" : "Continuous",
+      "fieldName" : "AverageDealSize",
+      "function" : "UserAgg",
+      "role" : "Measure",
+      "type" : "Field"
+    },
+    "F13" : {
+      "displayCategory" : "Continuous",
+      "fieldName" : "AverageDealSize",
+      "function" : "UserAgg",
+      "role" : "Measure",
+      "type" : "Field"
+    },
+    "F14" : {
+      "displayCategory" : "Discrete",
+      "fieldName" : "WonDealCount",
+      "function" : "UserAgg",
+      "label" : "Won Deals",
+      "role" : "Measure",
+      "type" : "Field"
+    },
+    "F15" : {
+      "displayCategory" : "Discrete",
+      "fieldName" : "LostDealCount",
+      "function" : "UserAgg",
+      "label" : "Lost Deals",
+      "role" : "Measure",
+      "type" : "Field"
+    },
+    "F16" : {
+      "displayCategory" : "Discrete",
+      "fieldName" : "gen_ai_Win_Rate_By_Product_Family_clc",
+      "function" : "UserAgg",
+      "label" : "Win Rate",
+      "role" : "Measure",
+      "type" : "Field"
+    }
+  },
+  "interactions" : [ ],
+  "label" : "Product Family Opps Win Rate Bars",
+  "name" : "Product_Family_Opps_Win_Rate_Bars",
+  "view" : {
+    "label" : "default",
+    "name" : "Product_Family_Opps_Win_Rate_Bars_default",
+    "viewSpecification" : {
+      "sortOrders" : {
+        "columns" : [ ],
+        "fields" : {
+          "F2" : {
+            "byField" : "F12",
+            "order" : "Descending",
+            "type" : "Field"
+          }
+        },
+        "rows" : [ ]
+      },
+      "style" : {
+        "headers" : {
+          "columns" : {
+            "sizing" : {
+              "fieldHeight" : { }
+            }
+          },
+          "rows" : {
+            "sizing" : {
+              "fieldWidth" : { }
+            }
+          }
+        }
+      }
+    }
+  },
+  "visualSpecification" : {
+    "columns" : [ "F3" ],
+    "forecasts" : { },
+    "layout" : "Vizql",
+    "legends" : {
+      "F13" : {
+        "isVisible" : true,
+        "position" : "Right",
+        "title" : {
+          "isVisible" : true
+        }
+      }
+    },
+    "marks" : {
+      "fields" : { },
+      "headers" : {
+        "encodings" : [ ],
+        "isAutomatic" : true,
+        "stack" : {
+          "isAutomatic" : true,
+          "isStacked" : false
+        },
+        "type" : "Text"
+      },
+      "panes" : {
+        "encodings" : [ {
+          "fieldKey" : "F13",
+          "type" : "Color"
+        }, {
+          "fieldKey" : "F14",
+          "type" : "Tooltip"
+        }, {
+          "fieldKey" : "F15",
+          "type" : "Tooltip"
+        }, {
+          "fieldKey" : "F16",
+          "type" : "Tooltip"
+        } ],
+        "isAutomatic" : true,
+        "stack" : {
+          "isAutomatic" : false,
+          "isStacked" : false
+        },
+        "type" : "Bar"
+      }
+    },
+    "measureValues" : [ ],
+    "referenceLines" : { },
+    "rows" : [ "F2" ],
+    "style" : {
+      "axis" : {
+        "fields" : {
+          "F3" : {
+            "isVisible" : true,
+            "isZeroLineVisible" : true,
+            "range" : {
+              "includeZero" : true,
+              "type" : "Auto"
+            },
+            "scale" : {
+              "format" : {
+                "numberFormatInfo" : {
+                  "decimalPlaces" : 0,
+                  "displayUnits" : "K",
+                  "includeThousandSeparator" : true,
+                  "negativeValuesFormat" : "Auto",
+                  "prefix" : "$",
+                  "suffix" : "",
+                  "type" : "NumberCustom"
+                }
+              }
+            },
+            "ticks" : {
+              "majorTicks" : {
+                "type" : "Auto"
+              },
+              "minorTicks" : {
+                "type" : "Auto"
+              }
+            }
+          }
+        }
+      },
+      "encodings" : {
+        "fields" : {
+          "F14" : {
+            "defaults" : {
+              "format" : {
+                "numberFormatInfo" : {
+                  "decimalPlaces" : 1,
+                  "displayUnits" : "Auto",
+                  "includeThousandSeparator" : true,
+                  "negativeValuesFormat" : "Auto",
+                  "prefix" : "",
+                  "suffix" : "",
+                  "type" : "NumberCustom"
+                }
+              }
+            }
+          },
+          "F13" : {
+            "colors" : {
+              "palette" : {
+                "end" : "#066AFE",
+                "middleToEndSteps" : [ ],
+                "start" : "#D8E6FE",
+                "startToEndSteps" : [ ],
+                "startToMiddleSteps" : [ ]
+              },
+              "type" : "Continuous"
+            },
+            "defaults" : {
+              "format" : {
+                "numberFormatInfo" : {
+                  "decimalPlaces" : 0,
+                  "displayUnits" : "K",
+                  "includeThousandSeparator" : true,
+                  "negativeValuesFormat" : "Auto",
+                  "prefix" : "$",
+                  "suffix" : "",
+                  "type" : "NumberCustom"
+                }
+              }
+            }
+          },
+          "F16" : {
+            "defaults" : {
+              "format" : {
+                "numberFormatInfo" : {
+                  "decimalPlaces" : 3,
+                  "displayUnits" : "Auto",
+                  "includeThousandSeparator" : true,
+                  "negativeValuesFormat" : "Auto",
+                  "prefix" : "",
+                  "suffix" : "",
+                  "type" : "PercentageCustom"
+                }
+              }
+            }
+          },
+          "F15" : {
+            "defaults" : {
+              "format" : {
+                "numberFormatInfo" : {
+                  "decimalPlaces" : 2,
+                  "displayUnits" : "Auto",
+                  "includeThousandSeparator" : true,
+                  "negativeValuesFormat" : "Auto",
+                  "prefix" : "",
+                  "suffix" : "",
+                  "type" : "Number"
+                }
+              }
+            }
+          },
+          "F3" : {
+            "defaults" : {
+              "format" : {
+                "numberFormatInfo" : {
+                  "decimalPlaces" : 0,
+                  "displayUnits" : "K",
+                  "includeThousandSeparator" : true,
+                  "negativeValuesFormat" : "Auto",
+                  "prefix" : "$",
+                  "suffix" : "",
+                  "type" : "NumberCustom"
+                }
+              }
+            }
+          }
+        }
+      },
+      "fieldLabels" : {
+        "columns" : {
+          "showDividerLine" : false,
+          "showLabels" : true
+        },
+        "rows" : {
+          "showDividerLine" : false,
+          "showLabels" : true
+        }
+      },
+      "fit" : "Standard",
+      "fonts" : {
+        "actionableHeaders" : {
+          "color" : "#0250D9",
+          "size" : 13
+        },
+        "axisTickLabels" : {
+          "color" : "#2E2E2E",
+          "size" : 13
+        },
+        "fieldLabels" : {
+          "color" : "#2E2E2E",
+          "size" : 13
+        },
+        "headers" : {
+          "color" : "#2E2E2E",
+          "size" : 13
+        },
+        "legendLabels" : {
+          "color" : "#2E2E2E",
+          "size" : 13
+        },
+        "markLabels" : {
+          "color" : "#2E2E2E",
+          "size" : 13
+        },
+        "marks" : {
+          "color" : "#2E2E2E",
+          "size" : 13
+        }
+      },
+      "headers" : {
+        "columns" : {
+          "mergeRepeatedCells" : true,
+          "showIndex" : false,
+          "sizing" : {
+            "fieldHeight" : { }
+          }
+        },
+        "fields" : {
+          "F2" : {
+            "hiddenValues" : [ ],
+            "isVisible" : true,
+            "showMissingValues" : false
+          }
+        },
+        "rows" : {
+          "mergeRepeatedCells" : true,
+          "showIndex" : false,
+          "sizing" : {
+            "fieldWidth" : { }
+          }
+        }
+      },
+      "lines" : {
+        "axisLine" : {
+          "color" : "#C9C9C9"
+        },
+        "fieldLabelDividerLine" : {
+          "color" : "#C9C9C9"
+        },
+        "separatorLine" : {
+          "color" : "#C9C9C9"
+        },
+        "zeroLine" : {
+          "color" : "#C9C9C9"
+        }
+      },
+      "marks" : {
+        "fields" : { },
+        "headers" : {
+          "color" : {
+            "color" : ""
+          },
+          "isAutomaticSize" : true,
+          "label" : {
+            "canOverlapLabels" : false,
+            "marksToLabel" : {
+              "type" : "All"
+            },
+            "showMarkLabels" : false
+          },
+          "range" : {
+            "reverse" : true
+          },
+          "size" : {
+            "isAutomatic" : true,
+            "type" : "Pixel",
+            "value" : 13
+          }
+        },
+        "panes" : {
+          "color" : {
+            "color" : ""
+          },
+          "isAutomaticSize" : true,
+          "isStackingAxisCentered" : false,
+          "label" : {
+            "canOverlapLabels" : false,
+            "marksToLabel" : {
+              "type" : "All"
+            },
+            "showMarkLabels" : true
+          },
+          "range" : {
+            "reverse" : true
+          },
+          "size" : {
+            "isAutomatic" : true,
+            "type" : "Percentage",
+            "value" : 75
+          }
+        }
+      },
+      "referenceLines" : { },
+      "shading" : {
+        "backgroundColor" : "#FFFFFF",
+        "banding" : {
+          "rows" : {
+            "color" : "#E5E5E5"
+          }
+        }
+      },
+      "showDataPlaceholder" : false,
+      "title" : {
+        "isVisible" : true
+      }
+    }
+  },
+  "workspace" : {
+    "label" : "Sales_Opportunity",
+    "name" : "${App.Workspaces.Sales_Opportunity.Name}"
+  }
+}

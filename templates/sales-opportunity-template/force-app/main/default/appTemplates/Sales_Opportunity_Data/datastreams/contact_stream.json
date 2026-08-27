@@ -1,0 +1,209 @@
+{
+  "name": "ContactDS",
+  "label": "Contact DS",
+  "datastreamType": "CONNECTORSFRAMEWORK",
+  "connectorInfo": {
+    "connectorType": "DataConnector",
+    "connectorDetails": {
+      "name": "UploadedFiles"
+    }
+  },
+  "sourceFields": [
+    {
+      "dataType": "Text",
+      "name": "ContactId"
+    },
+    {
+      "dataType": "Text",
+      "name": "AccountId"
+    },
+    {
+      "dataType": "Text",
+      "name": "FirstName"
+    },
+    {
+      "dataType": "Text",
+      "name": "LastName"
+    },
+    {
+      "dataType": "Text",
+      "name": "FullName"
+    },
+    {
+      "dataType": "Text",
+      "name": "JobTitle"
+    },
+    {
+      "dataType": "Text",
+      "name": "Department"
+    },
+    {
+      "dataType": "Text",
+      "name": "DecisionRole"
+    },
+    {
+      "dataType": "Text",
+      "name": "Email"
+    },
+    {
+      "dataType": "Text",
+      "name": "Phone"
+    },
+    {
+      "dataType": "Boolean",
+      "name": "ActiveFlag"
+    },
+    {
+      "dataType": "Date",
+      "format": "yyyy-MM-dd",
+      "name": "CreatedDate"
+    }
+  ],
+  "dataLakeObjectInfo": {
+    "name": "${App.DataLakeObjects.Contact_DLO.Name}",
+    "label": "Contact DLO",
+    "category": "OTHER",
+    "dataspaceInfo": [
+      {
+        "name": "default"
+      }
+    ],
+    "fields": [
+      {
+        "dataType": "Text",
+        "isPrimaryKey": true,
+        "name": "ContactId",
+        "label": "ContactId"
+      },
+      {
+        "dataType": "Text",
+        "isPrimaryKey": false,
+        "name": "AccountId",
+        "label": "AccountId"
+      },
+      {
+        "dataType": "Text",
+        "isPrimaryKey": false,
+        "name": "FirstName",
+        "label": "FirstName"
+      },
+      {
+        "dataType": "Text",
+        "isPrimaryKey": false,
+        "name": "LastName",
+        "label": "LastName"
+      },
+      {
+        "dataType": "Text",
+        "isPrimaryKey": false,
+        "name": "FullName",
+        "label": "FullName"
+      },
+      {
+        "dataType": "Text",
+        "isPrimaryKey": false,
+        "name": "JobTitle",
+        "label": "JobTitle"
+      },
+      {
+        "dataType": "Text",
+        "isPrimaryKey": false,
+        "name": "Department",
+        "label": "Department"
+      },
+      {
+        "dataType": "Text",
+        "isPrimaryKey": false,
+        "name": "DecisionRole",
+        "label": "DecisionRole"
+      },
+      {
+        "dataType": "Text",
+        "isPrimaryKey": false,
+        "name": "Email",
+        "label": "Email"
+      },
+      {
+        "dataType": "Text",
+        "isPrimaryKey": false,
+        "name": "Phone",
+        "label": "Phone"
+      },
+      {
+        "dataType": "Boolean",
+        "isPrimaryKey": false,
+        "name": "ActiveFlag",
+        "label": "ActiveFlag"
+      },
+      {
+        "dataType": "Date",
+        "isPrimaryKey": false,
+        "name": "CreatedDate",
+        "label": "CreatedDate"
+      }
+    ]
+  },
+  "mappings": [
+    {
+      "sourceFieldLabel": "ContactId",
+      "targetFieldName": "ContactId"
+    },
+    {
+      "sourceFieldLabel": "AccountId",
+      "targetFieldName": "AccountId"
+    },
+    {
+      "sourceFieldLabel": "FirstName",
+      "targetFieldName": "FirstName"
+    },
+    {
+      "sourceFieldLabel": "LastName",
+      "targetFieldName": "LastName"
+    },
+    {
+      "sourceFieldLabel": "FullName",
+      "targetFieldName": "FullName"
+    },
+    {
+      "sourceFieldLabel": "JobTitle",
+      "targetFieldName": "JobTitle"
+    },
+    {
+      "sourceFieldLabel": "Department",
+      "targetFieldName": "Department"
+    },
+    {
+      "sourceFieldLabel": "DecisionRole",
+      "targetFieldName": "DecisionRole"
+    },
+    {
+      "sourceFieldLabel": "Email",
+      "targetFieldName": "Email"
+    },
+    {
+      "sourceFieldLabel": "Phone",
+      "targetFieldName": "Phone"
+    },
+    {
+      "sourceFieldLabel": "ActiveFlag",
+      "targetFieldName": "ActiveFlag"
+    },
+    {
+      "sourceFieldLabel": "CreatedDate",
+      "targetFieldName": "CreatedDate"
+    }
+  ],
+  "refreshConfig": {
+    "refreshMode": "TOTAL_REPLACE",
+    "frequency": {
+      "frequencyType": "None"
+    }
+  },
+  "advancedAttributes": {
+    "importDirectory": "${App.CSVs.ContactCSV.ImportDirectory}",
+    "fileName": "${App.CSVs.ContactCSV.FileName}",
+    "delimiter": ",",
+    "parentDirectory": "${App.CSVs.ContactCSV.ParentDirectory}",
+    "fileType": "${App.CSVs.ContactCSV.FileType}"
+  }
+}

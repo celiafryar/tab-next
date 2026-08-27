@@ -1,0 +1,138 @@
+{
+  "name": "SalesTerritoryDS",
+  "label": "SalesTerritory DS",
+  "datastreamType": "CONNECTORSFRAMEWORK",
+  "connectorInfo": {
+    "connectorType": "DataConnector",
+    "connectorDetails": {
+      "name": "UploadedFiles"
+    }
+  },
+  "sourceFields": [
+    {
+      "dataType": "Text",
+      "name": "TerritoryId"
+    },
+    {
+      "dataType": "Text",
+      "name": "TerritoryName"
+    },
+    {
+      "dataType": "Text",
+      "name": "RegionId"
+    },
+    {
+      "dataType": "Text",
+      "name": "RegionName"
+    },
+    {
+      "dataType": "Text",
+      "name": "DirectorGroup"
+    },
+    {
+      "dataType": "Text",
+      "name": "CoverageSummary"
+    },
+    {
+      "dataType": "Text",
+      "name": "PrimaryLocationId"
+    }
+  ],
+  "dataLakeObjectInfo": {
+    "name": "${App.DataLakeObjects.SalesTerritory_DLO.Name}",
+    "label": "SalesTerritory DLO",
+    "category": "OTHER",
+    "dataspaceInfo": [
+      {
+        "name": "default"
+      }
+    ],
+    "fields": [
+      {
+        "dataType": "Text",
+        "isPrimaryKey": true,
+        "name": "TerritoryId",
+        "label": "TerritoryId"
+      },
+      {
+        "dataType": "Text",
+        "isPrimaryKey": false,
+        "name": "TerritoryName",
+        "label": "TerritoryName"
+      },
+      {
+        "dataType": "Text",
+        "isPrimaryKey": false,
+        "name": "RegionId",
+        "label": "RegionId"
+      },
+      {
+        "dataType": "Text",
+        "isPrimaryKey": false,
+        "name": "RegionName",
+        "label": "RegionName"
+      },
+      {
+        "dataType": "Text",
+        "isPrimaryKey": false,
+        "name": "DirectorGroup",
+        "label": "DirectorGroup"
+      },
+      {
+        "dataType": "Text",
+        "isPrimaryKey": false,
+        "name": "CoverageSummary",
+        "label": "CoverageSummary"
+      },
+      {
+        "dataType": "Text",
+        "isPrimaryKey": false,
+        "name": "PrimaryLocationId",
+        "label": "PrimaryLocationId"
+      }
+    ]
+  },
+  "mappings": [
+    {
+      "sourceFieldLabel": "TerritoryId",
+      "targetFieldName": "TerritoryId"
+    },
+    {
+      "sourceFieldLabel": "TerritoryName",
+      "targetFieldName": "TerritoryName"
+    },
+    {
+      "sourceFieldLabel": "RegionId",
+      "targetFieldName": "RegionId"
+    },
+    {
+      "sourceFieldLabel": "RegionName",
+      "targetFieldName": "RegionName"
+    },
+    {
+      "sourceFieldLabel": "DirectorGroup",
+      "targetFieldName": "DirectorGroup"
+    },
+    {
+      "sourceFieldLabel": "CoverageSummary",
+      "targetFieldName": "CoverageSummary"
+    },
+    {
+      "sourceFieldLabel": "PrimaryLocationId",
+      "targetFieldName": "PrimaryLocationId"
+    }
+  ],
+  "refreshConfig": {
+    "refreshMode": "TOTAL_REPLACE",
+    "frequency": {
+      "frequencyType": "None"
+    }
+  },
+  "advancedAttributes": {
+    "importDirectory": "${App.CSVs.SalesTerritoryCSV.ImportDirectory}",
+    "fileName": "${App.CSVs.SalesTerritoryCSV.FileName}",
+    "delimiter": ",",
+    "parentDirectory": "${App.CSVs.SalesTerritoryCSV.ParentDirectory}",
+    "fileType": "${App.CSVs.SalesTerritoryCSV.FileType}"
+  }
+}

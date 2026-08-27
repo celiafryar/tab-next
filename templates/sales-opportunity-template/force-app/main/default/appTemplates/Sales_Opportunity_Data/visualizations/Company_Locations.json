@@ -1,0 +1,234 @@
+{
+  "dataSource" : {
+    "name" : "${App.SemanticModels.SDX_Opportunity.Name}",
+    "id" : "${App.SemanticModels.SDX_Opportunity.Id}",
+    "type" : "SemanticModel"
+  },
+  "fields" : {
+    "F1" : {
+      "displayCategory" : "Discrete",
+      "fieldName" : "StateProvince",
+      "objectName" : "Account",
+      "role" : "Dimension",
+      "type" : "Field"
+    },
+    "F2" : {
+      "displayCategory" : "Continuous",
+      "fieldName" : "NetRevenue1",
+      "function" : "Sum",
+      "objectName" : "AnalyticsGoldOpportunity",
+      "role" : "Measure",
+      "type" : "Field"
+    },
+    "F3" : {
+      "displayCategory" : "Discrete",
+      "fieldName" : "Country1",
+      "objectName" : "CompanyLocation",
+      "role" : "Dimension",
+      "type" : "Field"
+    }
+  },
+  "interactions" : [ ],
+  "label" : "Company Locations",
+  "name" : "Company_Locations",
+  "view" : {
+    "label" : "default",
+    "name" : "Company_Locations_default",
+    "viewSpecification" : {
+      "filter" : {
+        "filters" : [ ]
+      },
+      "sortOrders" : {
+        "columns" : [ ],
+        "fields" : { },
+        "rows" : [ ]
+      },
+      "style" : {
+        "headers" : {
+          "columns" : {
+            "sizing" : {
+              "fieldHeight" : { }
+            }
+          },
+          "rows" : {
+            "sizing" : {
+              "fieldWidth" : { }
+            }
+          }
+        }
+      }
+    }
+  },
+  "visualSpecification" : {
+    "layout" : "Map",
+    "legends" : {
+      "F3" : {
+        "isVisible" : true,
+        "position" : "Right",
+        "title" : {
+          "isVisible" : true
+        }
+      }
+    },
+    "locations" : [ "F1" ],
+    "marks" : {
+      "fields" : { },
+      "panes" : {
+        "encodings" : [ {
+          "fieldKey" : "F2",
+          "type" : "Size"
+        }, {
+          "fieldKey" : "F3",
+          "type" : "Color"
+        } ],
+        "isAutomatic" : false,
+        "stack" : {
+          "isAutomatic" : true,
+          "isStacked" : false
+        },
+        "type" : "Circle"
+      }
+    },
+    "style" : {
+      "background" : {
+        "style" : {
+          "type" : "Name",
+          "value" : "light"
+        },
+        "type" : "Map"
+      },
+      "encodings" : {
+        "fields" : {
+          "F2" : {
+            "defaults" : {
+              "format" : {
+                "numberFormatInfo" : {
+                  "decimalPlaces" : 1,
+                  "displayUnits" : "M",
+                  "includeThousandSeparator" : true,
+                  "negativeValuesFormat" : "Auto",
+                  "prefix" : "$",
+                  "suffix" : "",
+                  "type" : "NumberCustom"
+                }
+              }
+            },
+            "isAutomaticSize" : false,
+            "size" : {
+              "isAutomatic" : false,
+              "max" : 7,
+              "min" : 2,
+              "type" : "Percentage"
+            }
+          },
+          "F3" : {
+            "colors" : {
+              "customColors" : [ ],
+              "palette" : {
+                "colors" : [ "#4992fe", "#939393", "#06a59a", "#3a49da", "#fe5c4c", "#024d4c", "#3ba755", "#8a033e", "#e3066a", "#002775" ],
+                "type" : "Custom"
+              },
+              "type" : "Discrete"
+            },
+            "defaults" : {
+              "format" : { }
+            }
+          }
+        }
+      },
+      "fieldLabels" : {
+        "columns" : {
+          "showDividerLine" : false,
+          "showLabels" : true
+        },
+        "rows" : {
+          "showDividerLine" : false,
+          "showLabels" : true
+        }
+      },
+      "fonts" : {
+        "actionableHeaders" : {
+          "color" : "#0250D9",
+          "size" : 13
+        },
+        "axisTickLabels" : {
+          "color" : "#2E2E2E",
+          "size" : 13
+        },
+        "fieldLabels" : {
+          "color" : "#2E2E2E",
+          "size" : 13
+        },
+        "headers" : {
+          "color" : "#2E2E2E",
+          "size" : 13
+        },
+        "legendLabels" : {
+          "color" : "#2E2E2E",
+          "size" : 13
+        },
+        "markLabels" : {
+          "color" : "#2E2E2E",
+          "size" : 13
+        },
+        "marks" : {
+          "color" : "#2E2E2E",
+          "size" : 13
+        }
+      },
+      "lines" : {
+        "axisLine" : {
+          "color" : "#C9C9C9"
+        },
+        "fieldLabelDividerLine" : {
+          "color" : "#C9C9C9"
+        },
+        "separatorLine" : {
+          "color" : "#C9C9C9"
+        },
+        "zeroLine" : {
+          "color" : "#C9C9C9"
+        }
+      },
+      "marks" : {
+        "fields" : { },
+        "panes" : {
+          "color" : {
+            "color" : ""
+          },
+          "isAutomaticSize" : true,
+          "label" : {
+            "canOverlapLabels" : false,
+            "marksToLabel" : {
+              "type" : "All"
+            },
+            "showMarkLabels" : false
+          },
+          "range" : {
+            "reverse" : true
+          },
+          "size" : {
+            "isAutomatic" : true,
+            "type" : "Percentage",
+            "value" : 2
+          }
+        }
+      },
+      "shading" : {
+        "backgroundColor" : "#FFFFFF",
+        "banding" : {
+          "rows" : {
+            "color" : "#E5E5E5"
+          }
+        }
+      },
+      "title" : {
+        "isVisible" : true
+      }
+    }
+  },
+  "workspace" : {
+    "label" : "Sales_Opportunity",
+    "name" : "${App.Workspaces.Sales_Opportunity.Name}"
+  }
+}

@@ -1,0 +1,9 @@
+LocationId,LocationName,LocationType,City,StateProvince,Country,RegionId,RegionName,PrimaryRole
+Location001,Apex Motion Headquarters,Headquarters,Detroit,Michigan,USA,RegionGL,Great Lakes,Executive leadership and sales operations
+Location002,Fort Wayne Components Plant,Manufacturing Plant,Fort Wayne,Indiana,USA,RegionGL,Great Lakes,Engine and ignition components
+Location003,Bowling Green Thermal Plant,Manufacturing Plant,Bowling Green,Kentucky,USA,RegionSE,Southeast,Cooling and emissions components
+Location004,Columbus Engineering Center,Engineering Center,Columbus,Ohio,USA,RegionGL,Great Lakes,Product engineering and validation
+Location005,Dallas Distribution Center,Distribution Center,Dallas,Texas,USA,RegionSC,South Central,US distribution and aftermarket
+Location006,Charlotte Sales Office,Sales Office,Charlotte,North Carolina,USA,RegionSE,Southeast,OEM and supplier sales
+Location007,Windsor Canada Office,Sales and Engineering Office,Windsor,Ontario,Canada,RegionCA,Canada,Canadian OEM and supplier accounts
+Location008,Monterrey Mexico Office,Sales Office,Monterrey,Nuevo León,Mexico,RegionMX,Mexico,Mexico manufacturing accounts

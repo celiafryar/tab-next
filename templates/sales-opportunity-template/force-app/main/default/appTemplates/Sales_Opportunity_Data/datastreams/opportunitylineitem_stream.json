@@ -1,0 +1,250 @@
+{
+  "name": "OpportunityLineItemDS",
+  "label": "OpportunityLineItem DS",
+  "datastreamType": "CONNECTORSFRAMEWORK",
+  "connectorInfo": {
+    "connectorType": "DataConnector",
+    "connectorDetails": {
+      "name": "UploadedFiles"
+    }
+  },
+  "sourceFields": [
+    {
+      "dataType": "Text",
+      "name": "OpportunityLineItemId"
+    },
+    {
+      "dataType": "Text",
+      "name": "OpportunityId"
+    },
+    {
+      "dataType": "Text",
+      "name": "ProductId"
+    },
+    {
+      "dataType": "Number",
+      "name": "Quantity"
+    },
+    {
+      "dataType": "Number",
+      "name": "ListUnitPrice"
+    },
+    {
+      "dataType": "Number",
+      "name": "DiscountRate"
+    },
+    {
+      "dataType": "Number",
+      "name": "NetUnitPrice"
+    },
+    {
+      "dataType": "Number",
+      "name": "ListRevenue"
+    },
+    {
+      "dataType": "Number",
+      "name": "NetRevenue"
+    },
+    {
+      "dataType": "Number",
+      "name": "UnitCost"
+    },
+    {
+      "dataType": "Number",
+      "name": "ExtendedCost"
+    },
+    {
+      "dataType": "Number",
+      "name": "GrossMarginAmount"
+    },
+    {
+      "dataType": "Number",
+      "name": "GrossMarginRate"
+    },
+    {
+      "dataType": "Boolean",
+      "name": "ProductSubstitutionFlag"
+    },
+    {
+      "dataType": "Text",
+      "name": "CurrencyIsoCode"
+    }
+  ],
+  "dataLakeObjectInfo": {
+    "name": "${App.DataLakeObjects.OpportunityLineItem_DLO.Name}",
+    "label": "OpportunityLineItem DLO",
+    "category": "OTHER",
+    "dataspaceInfo": [
+      {
+        "name": "default"
+      }
+    ],
+    "fields": [
+      {
+        "dataType": "Text",
+        "isPrimaryKey": true,
+        "name": "OpportunityLineItemId",
+        "label": "OpportunityLineItemId"
+      },
+      {
+        "dataType": "Text",
+        "isPrimaryKey": false,
+        "name": "OpportunityId",
+        "label": "OpportunityId"
+      },
+      {
+        "dataType": "Text",
+        "isPrimaryKey": false,
+        "name": "ProductId",
+        "label": "ProductId"
+      },
+      {
+        "dataType": "Number",
+        "isPrimaryKey": false,
+        "name": "Quantity",
+        "label": "Quantity"
+      },
+      {
+        "dataType": "Number",
+        "isPrimaryKey": false,
+        "name": "ListUnitPrice",
+        "label": "ListUnitPrice"
+      },
+      {
+        "dataType": "Number",
+        "isPrimaryKey": false,
+        "name": "DiscountRate",
+        "label": "DiscountRate"
+      },
+      {
+        "dataType": "Number",
+        "isPrimaryKey": false,
+        "name": "NetUnitPrice",
+        "label": "NetUnitPrice"
+      },
+      {
+        "dataType": "Number",
+        "isPrimaryKey": false,
+        "name": "ListRevenue",
+        "label": "ListRevenue"
+      },
+      {
+        "dataType": "Number",
+        "isPrimaryKey": false,
+        "name": "NetRevenue",
+        "label": "NetRevenue"
+      },
+      {
+        "dataType": "Number",
+        "isPrimaryKey": false,
+        "name": "UnitCost",
+        "label": "UnitCost"
+      },
+      {
+        "dataType": "Number",
+        "isPrimaryKey": false,
+        "name": "ExtendedCost",
+        "label": "ExtendedCost"
+      },
+      {
+        "dataType": "Number",
+        "isPrimaryKey": false,
+        "name": "GrossMarginAmount",
+        "label": "GrossMarginAmount"
+      },
+      {
+        "dataType": "Number",
+        "isPrimaryKey": false,
+        "name": "GrossMarginRate",
+        "label": "GrossMarginRate"
+      },
+      {
+        "dataType": "Boolean",
+        "isPrimaryKey": false,
+        "name": "ProductSubstitutionFlag",
+        "label": "ProductSubstitutionFlag"
+      },
+      {
+        "dataType": "Text",
+        "isPrimaryKey": false,
+        "name": "CurrencyIsoCode",
+        "label": "CurrencyIsoCode"
+      }
+    ]
+  },
+  "mappings": [
+    {
+      "sourceFieldLabel": "OpportunityLineItemId",
+      "targetFieldName": "OpportunityLineItemId"
+    },
+    {
+      "sourceFieldLabel": "OpportunityId",
+      "targetFieldName": "OpportunityId"
+    },
+    {
+      "sourceFieldLabel": "ProductId",
+      "targetFieldName": "ProductId"
+    },
+    {
+      "sourceFieldLabel": "Quantity",
+      "targetFieldName": "Quantity"
+    },
+    {
+      "sourceFieldLabel": "ListUnitPrice",
+      "targetFieldName": "ListUnitPrice"
+    },
+    {
+      "sourceFieldLabel": "DiscountRate",
+      "targetFieldName": "DiscountRate"
+    },
+    {
+      "sourceFieldLabel": "NetUnitPrice",
+      "targetFieldName": "NetUnitPrice"
+    },
+    {
+      "sourceFieldLabel": "ListRevenue",
+      "targetFieldName": "ListRevenue"
+    },
+    {
+      "sourceFieldLabel": "NetRevenue",
+      "targetFieldName": "NetRevenue"
+    },
+    {
+      "sourceFieldLabel": "UnitCost",
+      "targetFieldName": "UnitCost"
+    },
+    {
+      "sourceFieldLabel": "ExtendedCost",
+      "targetFieldName": "ExtendedCost"
+    },
+    {
+      "sourceFieldLabel": "GrossMarginAmount",
+      "targetFieldName": "GrossMarginAmount"
+    },
+    {
+      "sourceFieldLabel": "GrossMarginRate",
+      "targetFieldName": "GrossMarginRate"
+    },
+    {
+      "sourceFieldLabel": "ProductSubstitutionFlag",
+      "targetFieldName": "ProductSubstitutionFlag"
+    },
+    {
+      "sourceFieldLabel": "CurrencyIsoCode",
+      "targetFieldName": "CurrencyIsoCode"
+    }
+  ],
+  "refreshConfig": {
+    "refreshMode": "TOTAL_REPLACE",
+    "frequency": {
+      "frequencyType": "None"
+    }
+  },
+  "advancedAttributes": {
+    "importDirectory": "${App.CSVs.OpportunityLineItemCSV.ImportDirectory}",
+    "fileName": "${App.CSVs.OpportunityLineItemCSV.FileName}",
+    "delimiter": ",",
+    "parentDirectory": "${App.CSVs.OpportunityLineItemCSV.ParentDirectory}",
+    "fileType": "${App.CSVs.OpportunityLineItemCSV.FileType}"
+  }
+}
