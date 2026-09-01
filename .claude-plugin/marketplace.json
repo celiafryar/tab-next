@@ -7,7 +7,7 @@
   },
   "metadata": {
     "description": "XeoMatrix skills for Tableau Next / Data 360: build semantic models as code, then package the whole app as an installable template that ships its own data.",
-    "version": "2.10.0"
+    "version": "2.11.0"
   },
   "plugins": [
     {
@@ -36,7 +36,7 @@
     {
       "name": "tableau-next-app-templates",
       "source": "./plugins/tableau-next-app-templates",
-      "description": "SHIP THE APP. Package a finished Tableau Next app as an installable App Template Framework template that carries its own CSV data. On Create it builds the whole stack bottom-up in any org, from CSV to Data Stream to Data Lake Object to Semantic Model to visualizations to dashboard, with nothing pre-existing and no org-specific names baked in. Bundles the CSV_Example and superstore_demo_template references and the Superstore case study.",
+      "description": "SHIP THE APP. Package a finished Tableau Next app as an installable App Template Framework template that carries its own CSV data. On Create it builds the whole stack bottom-up in any org, from CSV to Data Stream to Data Lake Object to Semantic Model to visualizations to dashboard, with nothing pre-existing and no org-specific names baked in. Bundles the CSV_Example and superstore_demo_template references and the Superstore case study. Now also packages the template as a managed 2GP, proves the install, and prepares the AppExchange security review kit.",
       "category": "data",
       "tags": [
         "app-template-framework",

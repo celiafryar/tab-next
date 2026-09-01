@@ -1,7 +1,7 @@
 {
   "name": "tableau-next-app-templates",
-  "description": "Package a finished Tableau Next app as an installable App Template Framework template that carries its own CSV data. On Create it builds the whole stack bottom-up in any org, from CSV to Data Stream to Data Lake Object to Semantic Model to visualizations to dashboard, with nothing pre-existing and no org-specific names baked in. Bundles the CSV_Example and superstore_demo_template references and the Superstore case study.",
-  "version": "1.4.0",
+  "description": "Package a finished Tableau Next app as an installable App Template Framework template that carries its own CSV data. On Create it builds the whole stack bottom-up in any org, from CSV to Data Stream to Data Lake Object to Semantic Model to visualizations to dashboard, with nothing pre-existing and no org-specific names baked in. Bundles the CSV_Example and superstore_demo_template references and the Superstore case study. Then package it as a managed 2GP, prove the install with Create App, promote, and prepare the AppExchange security review kit (package-tn-template, tn-security-review).",
+  "version": "1.5.0",
   "author": {
     "name": "Cecilia Fryar",
     "url": "https://github.com/celiafryar"
@@ -23,6 +23,12 @@
     "portability",
     "tableau",
     "tableau-next",
-    "tokenization"
+    "tokenization",
+    "managed-package",
+    "2gp",
+    "security-review",
+    "appexchange",
+    "checkmarx",
+    "code-analyzer"
   ]
 }

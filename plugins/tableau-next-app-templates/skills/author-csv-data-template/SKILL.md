@@ -322,3 +322,22 @@ validate, execute and finish, all green, in about ten seconds.
 | Human on-ramp | `references/csv-data-templates-guide.md` | Understand the pieces |
 | Agent playbook | `references/FOR-CODING-AGENTS.md` | Rule-dense build + verify |
 | Wrap a viz LWC instead | `wrap-tn-lwc-as-template` (aftest pack, not bundled here) | If packaging a component, not data |
+
+## Packaging readiness (read before the template leaves its dev org)
+
+A template that runs clean when source-deployed can still fail after a managed install,
+because the platform never rewrites names inside template JSON. Author for that from the start:
+
+- Do not reference a ContentAsset from an `image` widget. Ship logos as a StaticResource
+  behind a small LWC extension widget that imports it with `@salesforce/resourceUrl`.
+- Write extension widgets as `<ns>:<component>` in both `source.name` and
+  `parameters.fullyQualifiedName`, with `source.namespace` set to the package namespace.
+  `c:` passes Create App and then fails in the viewer; `ns__` fails Create App.
+- `chainDefinitions[].name` stays null. `parameters.minorVersion` on every node at
+  assetVersion 67.0. `runAs: CurrentUser` everywhere. No `..` in file refs.
+- Strip org-specific `id` and `status` fields from widgets before committing.
+
+Run `../package-tn-template/scripts/preflight.py force-app --namespace <ns>` to check all of
+this, then follow **package-tn-template** to build and prove, and **tn-security-review** for
+the AppExchange submission. Gotchas with evidence:
+`../package-tn-template/references/managed-packaging-gotchas.md`.
