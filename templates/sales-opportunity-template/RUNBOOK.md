@@ -20,7 +20,7 @@ visualizations -> dashboard), `lwc/xmDashboardImage` (the logo widget) and
 ## Package, 1GP unmanaged (historical, superseded by the managed 2GP build)
 
 2GP (`sf package version create`) is preferred when `Package2` exists in the packaging org.
-In orgs where 2GP provisioning never materializes (observed: orgfarm-a08e1b90c8, 40+ min
+In orgs where 2GP provisioning never materializes (observed: {{YOUR_PUBLISHER_ORG}}, 40+ min
 after enabling the toggle), the classic path works:
 
 1. Setup > Package Manager > New (unmanaged). Name it.
@@ -49,9 +49,9 @@ v1.0 = `04tjV0000000msf`. **End-to-end verified 2026-08-24**: installed into a s
 2. Create App: `POST /app-framework/apps?` with `{"templateSourceId":"<1zD>","label":...,"name":...,"templateValues":{}}`; read `app.id` (nested under `app`).
 3. Watch `applicationStatus` on the app and `lastRunStatus` across the 10 streams.
    Healthy pace: first stream SUCCESS ~6 min, ~6 min per stream serial, full chain ~60 min
-   (verified 3705 s in data-enterprise-6013).
+   (verified 3705 s in {{YOUR_REFERENCE_ORG}}).
 4. **Engine-stall failure mode:** if no new task schedules within ~2 min of an ingestion
-   completing, the org's chain engine is broken (observed twice in orgfarm-a08e1b90c8,
+   completing, the org's chain engine is broken (observed twice in {{YOUR_PUBLISHER_ORG}},
    UI- and API-launched; the same chain completed 48/48 elsewhere). Nothing resumes it.
    Change orgs; report the org id to Salesforce.
 
@@ -106,4 +106,4 @@ Gotchas:
 
 Promoted to Released 2026-08-27: 04tQQ00000FxUsfYAF (XeoMatrix Sales Insights 1.0.0.6). Install URL: https://login.salesforce.com/packaging/installPackage.apexp?p0=04tQQ00000FxUsfYAF
 
-Review org proof (2026-08-27): c8 orgfarm-a08e1b90c8 (permanent Developer Edition, no namespace). Installed 1.0.0.6 through the public install link, app Sales_Opportunity_Insights (1zAjV00000006lNUAQ) SuccessStatus 93/93 in 4096 s, dashboard 0TrjV0000000RD7SAM, logo renders. BUG 3 (chain stall in c8) did not recur.
+Review org proof (2026-08-27): c8 {{YOUR_PUBLISHER_ORG}} (permanent Developer Edition, no namespace). Installed 1.0.0.6 through the public install link, app Sales_Opportunity_Insights (1zAjV00000006lNUAQ) SuccessStatus 93/93 in 4096 s, dashboard 0TrjV0000000RD7SAM, logo renders. BUG 3 (chain stall in c8) did not recur.

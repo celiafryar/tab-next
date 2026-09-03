@@ -250,6 +250,33 @@ The two plugins are split by purpose: **build the model** versus **ship the app*
 
 ---
 
+## Org placeholders in the docs
+
+The worked examples, runbooks, and captured API payloads in this repo were run
+against real orgs. Every org identifier in them has been replaced with a
+placeholder. Substitute your own values before running any command you copy from
+these pages:
+
+| Placeholder | Supply your own | Where to find it |
+| --- | --- | --- |
+| `{{YOUR_ORG_USERNAME}}` | Org login username | `sf org list` |
+| `{{YOUR_ORG_ID}}` | 15-character Org ID | `sf org display` |
+| `{{YOUR_USER_ID}}` | 15-character User ID | `sf org display --verbose` |
+| `{{YOUR_USER_ID_18}}` | 18-character User ID | Setup > Users, from the record URL |
+| `{{YOUR_ORG_DOMAIN}}` | My Domain host prefix | `sf org display` instance URL |
+| `{{YOUR_TENANT_ID}}` | Data 360 tenant ID | the `parentDirectory` on any data stream |
+| `{{YOUR_PUBLISHER_ORG}}` | Org alias that hosts the 2GP package | `sf org list` |
+| `{{YOUR_DEV_ORG}}` | Org alias you develop against | `sf org list` |
+| `{{YOUR_PROOF_ORG}}` | Org alias you install and prove into | `sf org list` |
+| `{{YOUR_REFERENCE_ORG}}` | Org alias of a known-good reference run | `sf org list` |
+| `{{YOUR_MIGRATION_ORG}}` | Org alias of the migration target | `sf org list` |
+
+A payload showing `"UserName": "{{YOUR_ORG_USERNAME}}"` is captured output, not a
+value to paste back. It shows the shape of the response you should expect from
+your own org.
+
+---
+
 ## Access
 
 The repo is private. Anyone who adds this marketplace needs read access. To open it to everyone, make the repo public:

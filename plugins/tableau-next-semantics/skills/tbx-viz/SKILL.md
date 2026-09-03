@@ -74,7 +74,7 @@ spec = json.loads(base64.b64decode(
 Note that number formatting and map encodings both live here. Prior work concluded those needed the
 GUI because the semantic model has no such properties. That is true of the model and not of the viz.
 
-**Verified 2026-08-12** against `orgfarm-2c0399dee5`: six visualizations retrieved and decoded,
+**Verified 2026-08-12** against `{{YOUR_DEV_ORG}}`: six visualizations retrieved and decoded,
 covering Bar, Circle, Text, and Map layouts.
 
 ## The sObject layer, still useful for querying

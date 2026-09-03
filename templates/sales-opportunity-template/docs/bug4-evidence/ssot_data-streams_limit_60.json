@@ -3,9 +3,9 @@
   "dataStreams": [
     {
       "advancedAttributes": {
-        "importDirectory": "005gL00000N2s2HQAR/2026-08-25T03:42:17.224Z",
+        "importDirectory": "{{YOUR_USER_ID_18}}/2026-08-25T03:42:17.224Z",
         "fileName": "AccountCSV.csv",
-        "parentDirectory": "s3://aws-prod8-cacentral1-cdp2-lakehouse-2/sfdrive/a360-prod8-38594ae961224142a1ada471b8ba6530/a1fdaf74-17b1-4c64-8123-0a628cbfa5d0__uuid/flup-fileUploads/dc_file_upload",
+        "parentDirectory": "s3://aws-prod8-cacentral1-cdp2-lakehouse-2/sfdrive/a360-prod8-{{YOUR_TENANT_ID}}/a1fdaf74-17b1-4c64-8123-0a628cbfa5d0__uuid/flup-fileUploads/dc_file_upload",
         "isDataStreamConfigValid": "true",
         "delimiter": ",",
         "fileType": "CSV"
@@ -1582,10 +1582,10 @@
     },
     {
       "advancedAttributes": {
-        "importDirectory": "005gL00000N2s2HQAR/2026-08-25T03:42:17.860Z",
+        "importDirectory": "{{YOUR_USER_ID_18}}/2026-08-25T03:42:17.860Z",
         "fileName": "AnalyticsGoldOpportunityCSV.csv",
         "delimiter": ",",
-        "parentDirectory": "s3://aws-prod8-cacentral1-cdp2-lakehouse-2/sfdrive/a360-prod8-38594ae961224142a1ada471b8ba6530/a1fdaf74-17b1-4c64-8123-0a628cbfa5d0__uuid/flup-fileUploads/dc_file_upload",
+        "parentDirectory": "s3://aws-prod8-cacentral1-cdp2-lakehouse-2/sfdrive/a360-prod8-{{YOUR_TENANT_ID}}/a1fdaf74-17b1-4c64-8123-0a628cbfa5d0__uuid/flup-fileUploads/dc_file_upload",
         "isDataStreamConfigValid": "true",
         "fileType": "CSV"
       },
@@ -2026,11 +2026,11 @@
     },
     {
       "advancedAttributes": {
-        "importDirectory": "005gL00000N2s2HQAR/2026-08-25T03:42:18.430Z",
+        "importDirectory": "{{YOUR_USER_ID_18}}/2026-08-25T03:42:18.430Z",
         "fileName": "BusinessRegionCSV.csv",
         "isDataStreamConfigValid": "true",
         "delimiter": ",",
-        "parentDirectory": "s3://aws-prod8-cacentral1-cdp2-lakehouse-2/sfdrive/a360-prod8-38594ae961224142a1ada471b8ba6530/a1fdaf74-17b1-4c64-8123-0a628cbfa5d0__uuid/flup-fileUploads/dc_file_upload",
+        "parentDirectory": "s3://aws-prod8-cacentral1-cdp2-lakehouse-2/sfdrive/a360-prod8-{{YOUR_TENANT_ID}}/a1fdaf74-17b1-4c64-8123-0a628cbfa5d0__uuid/flup-fileUploads/dc_file_upload",
         "fileType": "CSV"
       },
       "capabilities": {},
@@ -2245,10 +2245,10 @@
     },
     {
       "advancedAttributes": {
-        "importDirectory": "005gL00000N2s2HQAR/2026-08-25T03:42:19.011Z",
+        "importDirectory": "{{YOUR_USER_ID_18}}/2026-08-25T03:42:19.011Z",
         "fileName": "CompanyLocationCSV.csv",
         "delimiter": ",",
-        "parentDirectory": "s3://aws-prod8-cacentral1-cdp2-lakehouse-2/sfdrive/a360-prod8-38594ae961224142a1ada471b8ba6530/a1fdaf74-17b1-4c64-8123-0a628cbfa5d0__uuid/flup-fileUploads/dc_file_upload",
+        "parentDirectory": "s3://aws-prod8-cacentral1-cdp2-lakehouse-2/sfdrive/a360-prod8-{{YOUR_TENANT_ID}}/a1fdaf74-17b1-4c64-8123-0a628cbfa5d0__uuid/flup-fileUploads/dc_file_upload",
         "isDataStreamConfigValid": "true",
         "fileType": "CSV"
       },
@@ -2512,9 +2512,9 @@
     },
     {
       "advancedAttributes": {
-        "importDirectory": "005gL00000N2s2HQAR/2026-08-25T03:42:19.647Z",
+        "importDirectory": "{{YOUR_USER_ID_18}}/2026-08-25T03:42:19.647Z",
         "fileName": "ContactCSV.csv",
-        "parentDirectory": "s3://aws-prod8-cacentral1-cdp2-lakehouse-2/sfdrive/a360-prod8-38594ae961224142a1ada471b8ba6530/a1fdaf74-17b1-4c64-8123-0a628cbfa5d0__uuid/flup-fileUploads/dc_file_upload",
+        "parentDirectory": "s3://aws-prod8-cacentral1-cdp2-lakehouse-2/sfdrive/a360-prod8-{{YOUR_TENANT_ID}}/a1fdaf74-17b1-4c64-8123-0a628cbfa5d0__uuid/flup-fileUploads/dc_file_upload",
         "isDataStreamConfigValid": "true",
         "delimiter": ",",
         "fileType": "CSV"
@@ -4094,9 +4094,9 @@
     },
     {
       "advancedAttributes": {
-        "importDirectory": "005gL00000N2s2HQAR/2026-08-25T03:42:20.285Z",
+        "importDirectory": "{{YOUR_USER_ID_18}}/2026-08-25T03:42:20.285Z",
         "fileName": "OpportunityCSV.csv",
-        "parentDirectory": "s3://aws-prod8-cacentral1-cdp2-lakehouse-2/sfdrive/a360-prod8-38594ae961224142a1ada471b8ba6530/a1fdaf74-17b1-4c64-8123-0a628cbfa5d0__uuid/flup-fileUploads/dc_file_upload",
+        "parentDirectory": "s3://aws-prod8-cacentral1-cdp2-lakehouse-2/sfdrive/a360-prod8-{{YOUR_TENANT_ID}}/a1fdaf74-17b1-4c64-8123-0a628cbfa5d0__uuid/flup-fileUploads/dc_file_upload",
         "isDataStreamConfigValid": "true",
         "delimiter": ",",
         "fileType": "CSV"
@@ -4621,11 +4621,11 @@
     },
     {
       "advancedAttributes": {
-        "importDirectory": "005gL00000N2s2HQAR/2026-08-25T03:42:20.901Z",
+        "importDirectory": "{{YOUR_USER_ID_18}}/2026-08-25T03:42:20.901Z",
         "fileName": "OpportunityLineItemCSV.csv",
         "delimiter": ",",
         "isDataStreamConfigValid": "true",
-        "parentDirectory": "s3://aws-prod8-cacentral1-cdp2-lakehouse-2/sfdrive/a360-prod8-38594ae961224142a1ada471b8ba6530/a1fdaf74-17b1-4c64-8123-0a628cbfa5d0__uuid/flup-fileUploads/dc_file_upload",
+        "parentDirectory": "s3://aws-prod8-cacentral1-cdp2-lakehouse-2/sfdrive/a360-prod8-{{YOUR_TENANT_ID}}/a1fdaf74-17b1-4c64-8123-0a628cbfa5d0__uuid/flup-fileUploads/dc_file_upload",
         "fileType": "CSV"
       },
       "capabilities": {},
@@ -4984,9 +4984,9 @@
     },
     {
       "advancedAttributes": {
-        "importDirectory": "005gL00000N2s2HQAR/2026-08-25T03:42:21.495Z",
+        "importDirectory": "{{YOUR_USER_ID_18}}/2026-08-25T03:42:21.495Z",
         "fileName": "ProductCSV.csv",
-        "parentDirectory": "s3://aws-prod8-cacentral1-cdp2-lakehouse-2/sfdrive/a360-prod8-38594ae961224142a1ada471b8ba6530/a1fdaf74-17b1-4c64-8123-0a628cbfa5d0__uuid/flup-fileUploads/dc_file_upload",
+        "parentDirectory": "s3://aws-prod8-cacentral1-cdp2-lakehouse-2/sfdrive/a360-prod8-{{YOUR_TENANT_ID}}/a1fdaf74-17b1-4c64-8123-0a628cbfa5d0__uuid/flup-fileUploads/dc_file_upload",
         "delimiter": ",",
         "isDataStreamConfigValid": "true",
         "fileType": "CSV"
@@ -5332,11 +5332,11 @@
     },
     {
       "advancedAttributes": {
-        "importDirectory": "005gL00000N2s2HQAR/2026-08-25T03:42:22.004Z",
+        "importDirectory": "{{YOUR_USER_ID_18}}/2026-08-25T03:42:22.004Z",
         "fileName": "SalesTerritoryCSV.csv",
         "isDataStreamConfigValid": "true",
         "delimiter": ",",
-        "parentDirectory": "s3://aws-prod8-cacentral1-cdp2-lakehouse-2/sfdrive/a360-prod8-38594ae961224142a1ada471b8ba6530/a1fdaf74-17b1-4c64-8123-0a628cbfa5d0__uuid/flup-fileUploads/dc_file_upload",
+        "parentDirectory": "s3://aws-prod8-cacentral1-cdp2-lakehouse-2/sfdrive/a360-prod8-{{YOUR_TENANT_ID}}/a1fdaf74-17b1-4c64-8123-0a628cbfa5d0__uuid/flup-fileUploads/dc_file_upload",
         "fileType": "CSV"
       },
       "capabilities": {},
@@ -5567,10 +5567,10 @@
     },
     {
       "advancedAttributes": {
-        "importDirectory": "005gL00000N2s2HQAR/2026-08-21T04:53:32.998Z",
+        "importDirectory": "{{YOUR_USER_ID_18}}/2026-08-21T04:53:32.998Z",
         "fileName": "UserCSV.csv",
         "isDataStreamConfigValid": "true",
-        "parentDirectory": "s3://aws-prod8-cacentral1-cdp2-lakehouse-2/sfdrive/a360-prod8-38594ae961224142a1ada471b8ba6530/a1fdaf74-17b1-4c64-8123-0a628cbfa5d0__uuid/flup-fileUploads/dc_file_upload",
+        "parentDirectory": "s3://aws-prod8-cacentral1-cdp2-lakehouse-2/sfdrive/a360-prod8-{{YOUR_TENANT_ID}}/a1fdaf74-17b1-4c64-8123-0a628cbfa5d0__uuid/flup-fileUploads/dc_file_upload",
         "delimiter": ",",
         "fileType": "CSV"
       },
@@ -5868,9 +5868,9 @@
     },
     {
       "advancedAttributes": {
-        "importDirectory": "005gL00000N2s2HQAR/2026-08-25T03:42:22.559Z",
+        "importDirectory": "{{YOUR_USER_ID_18}}/2026-08-25T03:42:22.559Z",
         "fileName": "UserCSV.csv",
-        "parentDirectory": "s3://aws-prod8-cacentral1-cdp2-lakehouse-2/sfdrive/a360-prod8-38594ae961224142a1ada471b8ba6530/a1fdaf74-17b1-4c64-8123-0a628cbfa5d0__uuid/flup-fileUploads/dc_file_upload",
+        "parentDirectory": "s3://aws-prod8-cacentral1-cdp2-lakehouse-2/sfdrive/a360-prod8-{{YOUR_TENANT_ID}}/a1fdaf74-17b1-4c64-8123-0a628cbfa5d0__uuid/flup-fileUploads/dc_file_upload",
         "isDataStreamConfigValid": "true",
         "delimiter": ",",
         "fileType": "CSV"

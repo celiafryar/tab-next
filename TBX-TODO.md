@@ -45,7 +45,7 @@ Every one of these was catchable before load and permanent afterward. Ask, don't
 
 - **Dashboard creation. RESOLVED IN PART 2026-08-12.** The sObject layer is read-only
   (`AnalyticsDashboard` and every `*WidgetDef` are `createable: false`), but the **Metadata API has a
-  dashboard type**: `AnalyticsDashboard`, suffix `.uadash`. All 24 dashboards in `orgfarm-2c0399dee5`
+  dashboard type**: `AnalyticsDashboard`, suffix `.uadash`. All 24 dashboards in `{{YOUR_DEV_ORG}}`
   retrieved with full widget lists and grid geometry, and a `--dry-run` deploy of a new developer
   name returned `State: Created`. **Still open:** deploy one for real into a throwaway workspace and
   confirm it opens with every widget rendering. Same correction applied to `AnalyticsVisualization`
@@ -89,13 +89,13 @@ Every one of these was catchable before load and permanent afterward. Ask, don't
   2026-08-06, cleared unexplained; re-test 2026-08-07 PASSED).** The migrated model validated
   clean, matched its source on every count, and still refused to open in the editor; ownership,
   `sourceCreation`, and permission sets (`CDPAdmin`, `TableauEinsteinAdmin`) were all ruled out.
-  It later opened without any identified change. Re-test 2026-08-07 in `orgfarm-2c0399dee5`: a
+  It later opened without any identified change. Re-test 2026-08-07 in `{{YOUR_DEV_ORG}}`: a
   fresh REST-built model (`TBX_Verify_Model`, one object added via granular POST, no
   relationships) opened cleanly in the editor on first try. The failure does not reproduce; the
   cause was never identified. Keep "opens in the editor" in the migration verification checklist,
   and delete this entry if the next migration also opens clean.
 
-## App template packaging, the Templates UI route (org clock 2026-08-14, `customization-platform-3917-dev-ed`)
+## App template packaging, the Templates UI route (org clock 2026-08-14, `{{YOUR_PROOF_ORG}}-dev-ed`)
 
 Findings are written up in `author-csv-data-template` (section "The Templates UI route", U1 to U8).
 Open threads:
@@ -119,13 +119,13 @@ Open threads:
 - Housekeeping in that org: failed apps `Test0011`, `Test007` and their minted workspace copies
   (`Sales_Analysis1`, `HR_New_Copy1`, ...). Decouple before deleting.
 
-## Housekeeping owed in `platform-efficiency-2400` (from the 2026-08-06 migration session)
+## Housekeeping owed in `{{YOUR_MIGRATION_ORG}}` (from the 2026-08-06 migration session)
 
 - Kill the localhost CORS server if still running on `127.0.0.1:8765` (Celia's machine).
 - Delete the `Local_CSV_Staging` Trusted URL (Setup -> Security -> Trusted URLs).
 - Delete the 10 `MIG_*` ContentVersion files left by the abandoned same-origin staging route.
 - Delete the orphaned 640-byte truncated `Product.csv` staged at
-  `005RK00000eTDZ7YAO/2026-08-06T12:10:00:000Z`.
+  `{{YOUR_USER_ID_18}}/2026-08-06T12:10:00:000Z`.
 
 ## Data cleanup owed on the Bluebikes set
 
@@ -151,7 +151,7 @@ Open threads:
   `dataspaceInfo` on the stream GET is NOT the transform-DLO "no dataspace" blocker; check the
   DLO record page or just try the model add before concluding anything.
 - **The model-port recipe is verified end to end (2026-08-07, in-org).** SDX-Opportunity ported
-  onto 5 freshly loaded TBX DLOs in `orgfarm-2c0399dee5`: granular create + object POSTs,
+  onto 5 freshly loaded TBX DLOs in `{{YOUR_DEV_ORG}}`: granular create + object POSTs,
   per-object field maps keyed by `dataObjectFieldName`, relationships/calcs/metrics POSTed with
   remapped references, field props + business preferences overlaid via one full PUT from a fresh
   GET. Result: 5 objects / 4 relationships / 10 calc dims / 29 calc measures / 6 metrics /

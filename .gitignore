@@ -1,0 +1,76 @@
+# ---------------------------------------------------------------
+# Credentials and local auth state — never commit these
+# ---------------------------------------------------------------
+# Salesforce CLI writes org auth tokens and refresh tokens here
+.sf/
+.sfdx/
+.localdevserver/
+sfdx-auth-url.txt
+*.sfdx-auth-url
+authFile*.json
+
+# Environment / secret files
+.env
+.env.*
+!.env.example
+.envrc
+secrets.json
+credentials.json
+credentials.txt
+
+# Keys and certificates
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+*.ppk
+id_rsa
+id_rsa.*
+id_ed25519
+id_ed25519.*
+
+# Package manager / service auth
+.npmrc
+.netrc
+.pypirc
+
+# Tokens captured while working the REST paths in these skills
+token.txt
+access_token*
+*.token
+
+# ---------------------------------------------------------------
+# Local tool and editor state
+# ---------------------------------------------------------------
+.vscode/
+.idea/
+*.code-workspace
+.claude/settings.local.json
+
+# ---------------------------------------------------------------
+# Build, dependency, and scratch output
+# ---------------------------------------------------------------
+node_modules/
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+dist/
+build/
+*.log
+tmp/
+scratch/
+
+# Salesforce retrieve/deploy scratch output
+force-app-retrieved/
+manifest/package-generated.xml
+*.zip
+
+# ---------------------------------------------------------------
+# OS noise
+# ---------------------------------------------------------------
+.DS_Store
+Thumbs.db
+desktop.ini

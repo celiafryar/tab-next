@@ -33,7 +33,7 @@ REST equivalent, and `AnalyticsWorkspace` is `createable: false` on the sObject 
 
 **But there is a supported path worth trying first (added 2026-08-12).** `AnalyticsWorkspace` is a
 Metadata API type, suffix `.uawork`, directory `analyticsWorkspaces/`. Retrieve is verified, with 19
-workspaces coming back cleanly from `orgfarm-2c0399dee5`, which means a workspace can at minimum be
+workspaces coming back cleanly from `{{YOUR_DEV_ORG}}`, which means a workspace can at minimum be
 versioned and diffed as a file. Deploy has **not** been tested. Same lesson as `tbx-viz` and
 `tbx-dashboard`: an sObject describe saying `createable: false` says nothing about the Metadata API,
 so check `sf org list metadata-types` before concluding a thing cannot be written.

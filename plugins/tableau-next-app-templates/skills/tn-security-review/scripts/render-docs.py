@@ -5,7 +5,7 @@ Usage:
   render-docs.py --package "XeoMatrix Sales Insights" --namespace xeomatrix \
     --version 04tQQ00000FxUsfYAF --version-label 1.0.0-6 --publisher XeoMatrix \
     --template Sales_Opportunity_Data --lwc xmDashboardImage \
-    --static-resource APEX_essential_components --review-org orgfarm-a08e1b90c8 \
+    --static-resource APEX_essential_components --review-org {{YOUR_PUBLISHER_ORG}} \
     --workspace Sales_Opportunity --out docs/security-review [--pdf-only]
 
 Placeholders in templates/*.md: {{PACKAGE}} {{SLUG}} {{NAMESPACE}} {{VERSION_ID}}

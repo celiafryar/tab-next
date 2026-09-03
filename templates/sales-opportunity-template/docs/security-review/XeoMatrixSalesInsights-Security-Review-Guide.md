@@ -3,7 +3,7 @@
 **Package**: XeoMatrix Sales Insights (Managed 2GP)
 **Namespace**: `xeomatrix`
 **Subscriber Package Version ID**: `04tQQ00000FxUsfYAF` (v1.0.0-6, Released)
-**Review org**: orgfarm-a08e1b90c8 (Developer Edition, no namespace). Test login supplied in the submission form.
+**Review org**: {{YOUR_PUBLISHER_ORG}} (Developer Edition, no namespace). Test login supplied in the submission form.
 **Review org workspace**: `Sales_Opportunity`
 **Date prepared**: 2026-08-27
 

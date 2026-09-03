@@ -14,6 +14,6 @@ Package `04tQQ00000FxUsfYAF`, v1.0.0-6, managed, namespace `xeomatrix`.
 
 6. **Data Cloud metadata.** The template creates data streams and a semantic model in the subscriber org from packaged synthetic CSVs at Create App time. The package itself ships no Data Cloud metadata types (no DMO, segment, activation, or calculated insight definitions); the platform creates those assets as ordinary org-owned objects when the admin runs the template.
 
-7. **Review org.** Developer Edition org `orgfarm-a08e1b90c8`, package installed from the public install URL, one app created (Sales Opportunity Insights, 93 of 93 tasks), dashboard renders. Test credentials in the submission form.
+7. **Review org.** Developer Edition org `{{YOUR_PUBLISHER_ORG}}`, package installed from the public install URL, one app created (Sales Opportunity Insights, 93 of 93 tasks), dashboard renders. Test credentials in the submission form.
 
 8. **Uninstall.** Created apps survive uninstall; only the logo tile shows an unavailable state afterward.

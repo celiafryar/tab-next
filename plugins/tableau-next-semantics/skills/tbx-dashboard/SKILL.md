@@ -48,7 +48,7 @@ The retrieved `.uadash-meta.xml` carries what the sObject queries only give you 
 `row`, `column`, `rowspan`, and `colspan`. That is the full grid geometry, which is what you need to
 port a dashboard rather than just describe it.
 
-**Verified 2026-08-12** against `orgfarm-2c0399dee5`: all 24 dashboards in the org retrieved cleanly.
+**Verified 2026-08-12** against `{{YOUR_DEV_ORG}}`: all 24 dashboards in the org retrieved cleanly.
 
 ## `create` / `port`: DOES NOT WORK
 

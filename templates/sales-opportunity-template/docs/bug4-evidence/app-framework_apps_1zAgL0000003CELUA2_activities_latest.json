@@ -5,20 +5,20 @@
   "runtimeRequest": {
     "chain": {
       "createdBy": {
-        "id": "005gL00000N2s2HQAR",
+        "id": "{{YOUR_USER_ID_18}}",
         "name": "Celia Fryar",
-        "profilePhotoUrl": "https://orgfarm-d7af4e1689-dev-ed.develop.file.force.com/profilephoto/005/T",
-        "username": "cfryar.2e359b5a0a2a@agentforce.com"
+        "profilePhotoUrl": "https://{{YOUR_ORG_DOMAIN}}-dev-ed.develop.file.force.com/profilephoto/005/T",
+        "username": "{{YOUR_ORG_USERNAME}}"
       },
       "createdDateTime": "2026-08-25T03:42:05.000Z",
       "dominoVariant": "sfdc_internal__UnifiedAnalyticsDominoVariant",
       "id": "0ohgL000000OAnpQAG",
       "label": "sales_opportunity",
       "lastModifiedBy": {
-        "id": "005gL00000N2s2HQAR",
+        "id": "{{YOUR_USER_ID_18}}",
         "name": "Celia Fryar",
-        "profilePhotoUrl": "https://orgfarm-d7af4e1689-dev-ed.develop.file.force.com/profilephoto/005/T",
-        "username": "cfryar.2e359b5a0a2a@agentforce.com"
+        "profilePhotoUrl": "https://{{YOUR_ORG_DOMAIN}}-dev-ed.develop.file.force.com/profilephoto/005/T",
+        "username": "{{YOUR_ORG_USERNAME}}"
       },
       "lastModifiedDateTime": "2026-08-25T03:42:05.000Z",
       "name": "sales_opportunity1362112",
@@ -30,10 +30,10 @@
       "loggingLevel": "InfoLevel"
     },
     "createdBy": {
-      "id": "005gL00000N2s2HQAR",
+      "id": "{{YOUR_USER_ID_18}}",
       "name": "Celia Fryar",
-      "profilePhotoUrl": "https://orgfarm-d7af4e1689-dev-ed.develop.file.force.com/profilephoto/005/T",
-      "username": "cfryar.2e359b5a0a2a@agentforce.com"
+      "profilePhotoUrl": "https://{{YOUR_ORG_DOMAIN}}-dev-ed.develop.file.force.com/profilephoto/005/T",
+      "username": "{{YOUR_ORG_USERNAME}}"
     },
     "createdDateTime": "2026-08-25T03:42:07.000Z",
     "durationInSeconds": 3535,
