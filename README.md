@@ -94,7 +94,7 @@ Tip for org login: `sf org login web` against the generic login page can time ou
 
 Install either plugin on its own. Take `tableau-next-semantics` to build models, and add `tableau-next-app-templates` when you are ready to hand the finished app to someone else.
 
-This repo is **private**, so you need read access to it (you will authenticate with your GitHub account or `gh`). See **Access** below.
+This repo is **public**, so there is no access to request and no authentication step. See **Access** below.
 
 ## Manage and update
 
@@ -279,11 +279,27 @@ your own org.
 
 ## Access
 
-The repo is private. Anyone who adds this marketplace needs read access. To open it to everyone, make the repo public:
+The repo is public. Anyone can add this marketplace and install from it, with no
+read access to grant and no GitHub authentication step.
+
+Because it is public, treat everything committed here as published. Two habits
+keep it that way safely:
+
+- Run the org identifiers in any new worked example or captured API payload
+  through the placeholders in **Org placeholders in the docs** above before you
+  commit them.
+- Leave `.gitignore` covering `.sf/` and `.sfdx/`. Those hold Salesforce CLI org
+  auth and refresh tokens, and they sit in the working tree whenever you have an
+  org authorized.
+
+To take the repo private again:
 
 ```text
-gh repo edit celiafryar/tab-next --visibility public
+gh repo edit celiafryar/tab-next --visibility private
 ```
+
+Anyone who had already added the marketplace would then need read access to keep
+pulling updates.
 
 ---
 
